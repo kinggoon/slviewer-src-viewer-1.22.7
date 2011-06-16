@@ -1,29 +1,40 @@
 <?xml version="1.0" ?>
 <llsd>
 <map>
-    <key>AFKTimeout</key>
-    <map>
-      <key>Comment</key>
-      <string>Time before automatically setting AFK (away from keyboard) mode (seconds)</string>
-      <key>Persist</key>
-      <integer>1</integer>
-      <key>Type</key>
-      <string>F32</string>
-      <key>Value</key>
-      <real>300.0</real>
-    </map>
-    <key>AdvanceSnapshot</key>
-    <map>
-      <key>Comment</key>
-      <string>Display advanced parameter settings in snaphot interface</string>
-      <key>Persist</key>
-      <integer>1</integer>
-      <key>Type</key>
-      <string>Boolean</string>
-      <key>Value</key>
-      <integer>0</integer>
-    </map>
-    <key>UserChatColor</key>
+	<key>AFKTimeout</key>
+	<map>
+		<key>Comment</key>
+		<string>Time before automatically setting AFK (away from keyboard) mode (seconds)</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>F32</string>
+		<key>Value</key>
+		<real>300.0</real>
+	</map>
+	<key>AdvanceSnapshot</key>
+	<map>
+		<key>Comment</key>
+		<string>Display advanced parameter settings in snaphot interface</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>0</integer>
+	</map>
+	<key>AO.Enabled</key>
+	<map>
+		<key>Comment</key>
+		<string>Enable animation overrider</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>0</integer>
+	</map>
+	<key>UserChatColor</key>
         <map>
         <key>Comment</key>
             <string>Color of your chat messages</string>
@@ -2089,9 +2100,53 @@
       <key>Type</key>
       <string>Boolean</string>
       <key>Value</key>
-      <integer>0</integer>
+      <integer>1</integer>
     </map>
-    <key>DisableRendering</key>
+	<key>DisableCameraCollision</key>
+	<map>
+		<key>Comment</key>
+		<string>Stop the camera from being affected by prims</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>0</integer>
+	</map>
+	<key>DisableLookAt</key>
+	<map>
+		<key>Comment</key>
+		<string>Disable your LookAt ViewerEffect</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>0</integer>
+	</map>
+	<key>DisableLookAtFocus</key>
+	<map>
+		<key>Comment</key>
+		<string>Disable outgoing LookAts with type Focus</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>0</integer>
+	</map>
+	<key>DisablePointAtAndBeam</key>
+	<map>
+		<key>Comment</key>
+		<string>Disable outgoing PointAt and Beam ViewerEffects</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>0</integer>
+	</map>
+	<key>DisableRendering</key>
     <map>
       <key>Comment</key>
       <string>Disable GL rendering and GUI (load testing)</string>
@@ -2670,7 +2725,23 @@
         <integer>0</integer>
       </array>
     </map>
-    <key>FloaterBumpRect</key>
+	<key>FloaterVFSRect</key>
+	<map>
+		<key>Comment</key>
+		<string>Rectangle for local assets window.</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Rect</string>
+		<key>Value</key>
+		<array>
+			<integer>0</integer>
+			<integer>0</integer>
+			<integer>0</integer>
+			<integer>0</integer>
+		</array>
+	</map>
+	<key>FloaterBumpRect</key>
     <map>
       <key>Comment</key>
       <string>Rectangle for Bumps/Hits window</string>
@@ -3105,7 +3176,23 @@
         <integer>0</integer>
       </array>
     </map>
-    <key>FloaterPayRectB</key>
+	<key>FloaterScriptRect</key>
+	<map>
+		<key>Comment</key>
+		<string>Rectangle for live LSL editor</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Rect</string>
+		<key>Value</key>
+		<array>
+			<integer>0</integer>
+			<integer>350</integer>
+			<integer>300</integer>
+			<integer>0</integer>
+		</array>
+	</map>
+	<key>FloaterPayRectB</key>
     <map>
       <key>Comment</key>
       <string>Rectangle for pay window</string>
@@ -3196,7 +3283,180 @@
         <integer>0</integer>
       </array>
     </map>
-    <key>FlyBtnState</key>
+	<key>FloaterAORect</key>
+	<map>
+		<key>Comment</key>
+		<string>Rectangle for AO editor.</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Rect</string>
+		<key>Value</key>
+		<array>
+			<integer>0</integer>
+			<integer>0</integer>
+			<integer>0</integer>
+			<integer>0</integer>
+		</array>
+	</map>
+	<key>FloaterAvatarsRect</key>
+	<map>
+		<key>Comment</key>
+		<string>Rectangle for avatar radar.</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Rect</string>
+		<key>Value</key>
+		<array>
+			<integer>200</integer>
+			<integer>905</integer>
+			<integer>396</integer>
+			<integer>734</integer>
+		</array>
+	</map>
+	<key>FloaterInterceptorRect</key>
+	<map>
+		<key>Comment</key>
+		<string>Rectangle for interceptor floater.</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Rect</string>
+		<key>Value</key>
+		<array>
+			<integer>0</integer>
+			<integer>0</integer>
+			<integer>0</integer>
+			<integer>0</integer>
+		</array>
+	</map>
+	<key>FloaterKeyToolRect</key>
+	<map>
+		<key>Comment</key>
+		<string>Rectangle for KeyTool floater.</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Rect</string>
+		<key>Value</key>
+		<array>
+			<integer>439</integer>
+			<integer>759</integer>
+			<integer>593</integer>
+			<integer>443</integer>
+		</array>
+	</map>
+	<key>KeyToolAutomaticOpen</key>
+	<map>
+		<key>Comment</key>
+		<string>Automatically open KeyTool results</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>1</integer>
+	</map>
+	<key>KeyToolAutomaticClose</key>
+	<map>
+		<key>Comment</key>
+		<string>Automatically close KeyTool floater when a result is found</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>1</integer>
+	</map>
+	<key>FloaterHexRect</key>
+	<map>
+		<key>Comment</key>
+		<string>Rectangle for hex editor floater.</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Rect</string>
+		<key>Value</key>
+		<array>
+			<integer>343</integer>
+			<integer>687</integer>
+			<integer>901</integer>
+			<integer>473</integer>
+		</array>
+	</map>
+	<key>HexEditorColumns</key>
+	<map>
+		<key>Comment</key>
+		<string>Number of columns shown in hex editor</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>U32</string>
+		<key>Value</key>
+		<integer>16</integer>
+	</map>
+	<key>FloaterSoundsRect</key>
+	<map>
+		<key>Comment</key>
+		<string>Rectangle for sounds log floater.</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Rect</string>
+		<key>Value</key>
+		<array>
+			<integer>0</integer>
+			<integer>0</integer>
+			<integer>0</integer>
+			<integer>0</integer>
+		</array>
+	</map>
+	<key>FloaterSoundsLogAvatars</key>
+	<map>
+		<key>Comment</key>
+		<string>Show SoundTriggers/gestures played by agents in the log. Also includes collision sounds if enabled</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>1</integer>
+	</map>
+	<key>FloaterSoundsLogObjects</key>
+	<map>
+		<key>Comment</key>
+		<string>Show sounds played by objects in the log. Also includes collision sounds if enabled</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>1</integer>
+	</map>
+	<key>FloaterSoundsLogCollisions</key>
+	<map>
+		<key>Comment</key>
+		<string>Don't filter out default collision sounds in the log</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>1</integer>
+	</map>
+	<key>FloaterSoundsLogRepeats</key>
+	<map>
+		<key>Comment</key>
+		<string>Only show one entry for each unique asset ID in the log</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>1</integer>
+	</map>
+	<key>FlyBtnState</key>
     <map>
       <key>Comment</key>
       <string />
@@ -3207,7 +3467,18 @@
       <key>Value</key>
       <integer>0</integer>
     </map>
-    <key>FlycamAbsolute</key>
+	<key>AlwaysAllowFly</key>
+	<map>
+		<key>Comment</key>
+		<string>Ignore parcel/region setting that blocks flying</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>1</integer>
+	</map>
+	<key>FlycamAbsolute</key>
     <map>
       <key>Comment</key>
       <string>Treat Flycam values as absolute positions (not deltas).</string>
@@ -3578,7 +3849,29 @@
       <key>Value</key>
       <real>9.0</real>
     </map>
-    <key>ForceShowGrid</key>
+	<key>ForceNotecardDragCargoPermissive</key>
+	<map>
+		<key>Comment</key>
+		<string>For testing what does and does not work when using HTTPS upload</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>0</integer>
+	</map>
+	<key>ForceNotecardDragCargoAcceptance</key>
+	<map>
+		<key>Comment</key>
+		<string>For testing what does and does not work when using HTTPS upload</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>0</integer>
+	</map>
+	<key>ForceShowGrid</key>
     <map>
       <key>Comment</key>
       <string>Always show grid dropdown on login screen</string>
@@ -3587,7 +3880,7 @@
       <key>Type</key>
       <string>Boolean</string>
       <key>Value</key>
-      <integer>0</integer>
+      <integer>1</integer>
     </map>
     <key>ForceMandatoryUpdate</key>
     <map>
@@ -4393,7 +4686,7 @@
       <key>Type</key>
       <string>Boolean</string>
       <key>Value</key>
-      <integer>1</integer>
+      <integer>0</integer>
     </map>
     <key>LipSyncAah</key>
     <map>
@@ -4955,7 +5248,18 @@
       <key>Value</key>
       <string />
     </map>
-    <key>NoAudio</key>
+	<key>Nimble</key>
+	<map>
+		<key>Comment</key>
+		<string>Disables landing and jumping delays.</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>0</integer>
+	</map>
+	<key>NoAudio</key>
     <map>
       <key>Comment</key>
       <string>Disable audio playback.</string>
@@ -5380,7 +5684,7 @@
       <key>Type</key>
       <string>F32</string>
       <key>Value</key>
-      <real>6.0</real>
+      <real>0.1</real>
     </map>
     <key>PreviewAnimRect</key>
     <map>
@@ -5646,7 +5950,29 @@
       <key>Value</key>
       <real>0.0</real>
     </map>
-    <key>RadioLandBrushAction</key>
+	<key>RadarAnnounce</key>
+	<map>
+		<key>Comment</key>
+		<string>Announce when avatars come and go</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>1</integer>
+	</map>
+	<key>RadarAnnounceAdjacentRegions</key>
+	<map>
+		<key>Comment</key>
+		<string>Announce when avatars come and go in other regions you're connected to</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>1</integer>
+	</map>
+	<key>RadioLandBrushAction</key>
     <map>
       <key>Comment</key>
       <string>Last selected land modification operation (0 = flatten, 1 = raise, 2 = lower, 3 = smooth, 4 = roughen, 5 = revert)</string>
@@ -6545,7 +6871,18 @@
       <key>Value</key>
       <integer>0</integer>
     </map>
-    <key>RotateRight</key>
+	<key>ReSit</key>
+	<map>
+		<key>Comment</key>
+		<string>Sit again if unsat</string>
+		<key>Persist</key>
+		<integer>0</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>0</integer>
+	</map>
+	<key>RotateRight</key>
     <map>
       <key>Comment</key>
       <string>Make the agent rotate to its right.</string>
@@ -6611,7 +6948,194 @@
       <key>Value</key>
       <integer>1</integer>
     </map>
-    <key>ScaleShowAxes</key>
+	<key>SpecifyMAC</key>
+	<map>
+		<key>Comment</key>
+		<string>Send specified mac instead of real mac</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>0</integer>
+	</map>
+	<key>SpecifyID0</key>
+	<map>
+		<key>Comment</key>
+		<string>Send specified hdd serial instead of real hdd serial</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>0</integer>
+	</map>
+	<key>SpecifiedChannel</key>
+	<map>
+		<key>Comment</key>
+		<string>What the viewer identifies itself as</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>String</string>
+		<key>Value</key>
+		<string>Second Life Open Source</string>
+	</map>
+	<key>SpecifiedMAC</key>
+	<map>
+		<key>Comment</key>
+		<string>Custom MAC</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>String</string>
+		<key>Value</key>
+		<string>00000000000000000000000000000000</string>
+	</map>
+	<key>SpecifiedID0</key>
+	<map>
+		<key>Comment</key>
+		<string>Custom ID0</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>String</string>
+		<key>Value</key>
+		<string>00000000000000000000000000000000</string>
+	</map>
+	<key>SpoofProtectionLevel</key>
+	<map>
+		<key>Comment</key>
+		<string>Specifies level of protection against IP spoofing attacks. Requires restart. 0 = no protection, 1 = sequence only, 2 = minimal canaries, 3 = canaries all over the place</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>U32</string>
+		<key>Value</key>
+		<integer>255</integer>
+	</map>
+	<key>SpoofProtectionAlerts</key>
+	<map>
+		<key>Comment</key>
+		<string>Specifies whether you receive an alert when a packet is dropped due to IP spoofing protection settings</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>1</integer>
+	</map>
+	<key>ShowAvatarRadar</key>
+	<map>
+		<key>Comment</key>
+		<string>Show avatar radar</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>1</integer>
+	</map>
+	<key>DoubleClickTeleport</key>
+	<map>
+		<key>Comment</key>
+		<string>Double-click to teleport</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>1</integer>
+	</map>
+	<key>ShowMapDestinationInChat</key>
+	<map>
+		<key>Comment</key>
+		<string>Show llMapDestination as slurl in chat</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>0</integer>
+	</map>
+	<key>DisableScriptTeleportRequest</key>
+	<map>
+		<key>Comment</key>
+		<string>Don't allow scripts to pop the map</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>0</integer>
+	</map>
+	<key>DisableClickSit</key>
+	<map>
+		<key>Comment</key>
+		<string>Never sit by clicking a prim</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>1</integer>
+	</map>
+	<key>PlayIMSound</key>
+	<map>
+		<key>Comment</key>
+		<string>Play sound when receiving an IM</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>1</integer>
+	</map>
+	<key>IMSoundID</key>
+	<map>
+		<key>Comment</key>
+		<string>UUID of sound to play if PlayIMSound enabled</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>String</string>
+		<key>Value</key>
+		<string>4c366008-65da-2e84-9b74-f58a392b94c6</string>
+	</map>
+	<key>OpenIMOnTyping</key>
+	<map>
+		<key>Comment</key>
+		<string>Open IM tab when typing message received</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>1</integer>
+	</map>
+	<key>EnableGestures</key>
+	<map>
+		<key>Comment</key>
+		<string>Enables gestures</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>1</integer>
+	</map>
+	<key>DisableAgentUpdates</key>
+	<map>
+		<key>Comment</key>
+		<string>Stops regular agent updates</string>
+		<key>Persist</key>
+		<integer>0</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>0</integer>
+	</map>
+	<key>ScaleShowAxes</key>
     <map>
       <key>Comment</key>
       <string>Show indicator of selected scale axis when scaling</string>
@@ -6622,7 +7146,51 @@
       <key>Value</key>
       <integer>0</integer>
     </map>
-    <key>ScaleStretchTextures</key>
+	<key>RectangleSelectOverlap</key>
+	<map>
+		<key>Comment</key>
+		<string>Selection box works as long as it remotely touches or something</string>
+		<key>Persist</key>
+		<integer>0</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>0</integer>
+	</map>
+	<key>ActivationCode</key>
+	<map>
+		<key>Comment</key>
+		<string>Manages access to viewer features</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>String</string>
+		<key>Value</key>
+		<string>00000000-0000-0000-0000-000000000000</string>
+	</map>
+	<key>InterceptorAffectYours</key>
+	<map>
+		<key>Comment</key>
+		<string>Controls whether the interceptor stops your own objects too</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>0</integer>
+	</map>
+	<key>InterceptorRange</key>
+	<map>
+		<key>Comment</key>
+		<string>Controls the range of the interceptor effect</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>F32</string>
+		<key>Value</key>
+		<integer>10.0</integer>
+	</map>
+	<key>ScaleStretchTextures</key>
     <map>
       <key>Comment</key>
       <string>Stretch textures along with object when scaling</string>
@@ -6691,7 +7259,7 @@
       <key>Type</key>
       <string>String</string>
       <key>Value</key>
-      <string>http://secondlife.com/app/search/index.php?</string>
+      <string>http://search.secondlife.com/client_search.php?</string>
     </map>
     <key>SearchURLQuery</key>
     <map>
@@ -6702,7 +7270,7 @@
       <key>Type</key>
       <string>String</string>
       <key>Value</key>
-      <string>http://secondlife.com/app/search/search_proxy.php?q=[QUERY]&amp;s=[COLLECTION]&amp;</string>
+      <string>http://search.secondlife.com/client_search.php?q=[QUERY]&amp;s=[COLLECTION]&amp;</string>
     </map>
     <key>SearchURLSuffix2</key>
     <map>
@@ -6713,7 +7281,7 @@
       <key>Type</key>
       <string>String</string>
       <key>Value</key>
-      <string>lang=[LANG]&amp;m=[MATURE]&amp;t=[TEEN]&amp;region=[REGION]&amp;x=[X]&amp;y=[Y]&amp;z=[Z]&amp;session=[SESSION]</string>
+      <string>lang=[LANG]&amp;mat=[MAT]&amp;t=[TEEN]&amp;region=[REGION]&amp;x=[X]&amp;y=[Y]&amp;z=[Z]&amp;session=[SESSION]</string>
     </map>
     <key>SelectMovableOnly</key>
     <map>
@@ -7001,32 +7569,10 @@
       <key>Value</key>
       <integer>0</integer>
     </map>
-    <key>ShowMatureClassifieds</key>
-    <map>
-      <key>Comment</key>
-      <string>Display results of find classifieds that are flagged as mature</string>
-      <key>Persist</key>
-      <integer>1</integer>
-      <key>Type</key>
-      <string>Boolean</string>
-      <key>Value</key>
-      <integer>0</integer>
-    </map>
     <key>ShowMatureEvents</key>
     <map>
       <key>Comment</key>
       <string>Display results of find events that are flagged as mature</string>
-      <key>Persist</key>
-      <integer>1</integer>
-      <key>Type</key>
-      <string>Boolean</string>
-      <key>Value</key>
-      <integer>0</integer>
-    </map>
-    <key>ShowMatureFindAll</key>
-    <map>
-      <key>Comment</key>
-      <string>Display results of find all that are in mature sims</string>
       <key>Persist</key>
       <integer>1</integer>
       <key>Type</key>
@@ -7045,17 +7591,6 @@
       <key>Value</key>
       <integer>1</integer>
     </map>
-    <key>ShowMatureSims</key>
-    <map>
-      <key>Comment</key>
-      <string>Display results of find places or find popular that are in mature sims</string>
-      <key>Persist</key>
-      <integer>1</integer>
-      <key>Type</key>
-      <string>Boolean</string>
-      <key>Value</key>
-      <integer>0</integer>
-    </map>
     <key>ShowMiniMap</key>
     <map>
       <key>Comment</key>
@@ -7065,7 +7600,7 @@
       <key>Type</key>
       <string>Boolean</string>
       <key>Value</key>
-      <integer>0</integer>
+      <integer>1</integer>
     </map>
     <key>ShowMovementControls</key>
     <map>
@@ -8966,7 +9501,7 @@
       <key>Type</key>
       <string>F32</string>
       <key>Value</key>
-      <real>1.0</real>
+      <real>0.9</real>
     </map>
     <key>UISndAlert</key>
     <map>
@@ -9362,18 +9897,18 @@
       <key>Type</key>
       <string>Boolean</string>
       <key>Value</key>
-      <integer>0</integer>
+      <integer>1</integer>
     </map>
     <key>UseDebugMenus</key>
     <map>
       <key>Comment</key>
-      <string>Turns on "Debug" menu</string>
+      <string>Turns on "Advanced" menu</string>
       <key>Persist</key>
       <integer>1</integer>
       <key>Type</key>
       <string>Boolean</string>
       <key>Value</key>
-      <integer>0</integer>
+      <integer>1</integer>
     </map>
     <key>UseDefaultColorPicker</key>
     <map>
@@ -10305,7 +10840,18 @@
       <key>Value</key>
       <integer>1</integer>
     </map>
-    <key>renderbeacons</key>
+	<key>youownerbeacon</key>
+	<map>
+		<key>Comment</key>
+		<string>Beacon / Highlight objects owned by you</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<integer>0</integer>
+	</map>
+	<key>renderbeacons</key>
     <map>
       <key>Comment</key>
       <string>Beacon / Highlight particle generators</string>
