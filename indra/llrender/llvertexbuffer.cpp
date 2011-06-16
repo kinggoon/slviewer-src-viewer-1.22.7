@@ -174,6 +174,10 @@ void LLVertexBuffer::drawRange(U32 mode, U32 start, U32 end, U32 count, U32 indi
 	if (indices_offset >= (U32) mRequestedNumIndices ||
 		indices_offset + count > (U32) mRequestedNumIndices)
 	{
+		// <edit>
+		// There was a crash here
+		// ERROR: LLVertexBuffer::drawRange: Bad index buffer draw range: [1594113317, 1594116287]
+		// </edit>
 		llerrs << "Bad index buffer draw range: [" << indices_offset << ", " << indices_offset+count << "]" << llendl;
 	}
 

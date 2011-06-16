@@ -69,7 +69,10 @@ public:
 		ITALIC = 2,
 		UNDERLINE = 4,
 		DROP_SHADOW = 8,
-		DROP_SHADOW_SOFT = 16
+		DROP_SHADOW_SOFT = 16,
+		// <edit>
+		DOTTED_UNDERLINE = 32
+		// </edit>
 	};
 	
 	// Takes a string with potentially several flags, i.e. "NORMAL|BOLD|ITALIC"

@@ -869,6 +869,18 @@ S32 LLFontGL::render(const LLWString &wstr,
 		gGL.vertex2f(cur_x, cur_y - (mDescender));
 		gGL.end();
 	}
+	// <edit>
+	if (style & DOTTED_UNDERLINE)
+	{
+		gGL.getTexUnit(0)->unbind(LLTexUnit::TT_TEXTURE);
+		LLGLEnable stipple(GL_LINE_STIPPLE);
+		glLineStipple(1, (short) 0x3333);
+		gGL.begin(LLRender::LINES);
+		gGL.vertex2f(start_x, cur_y - (mDescender));
+		gGL.vertex2f(cur_x, cur_y - (mDescender));
+		gGL.end();
+	}
+	// </edit>
 
 	// *FIX: get this working in all alignment cases, etc.
 	if (draw_ellipses)
