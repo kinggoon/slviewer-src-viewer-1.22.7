@@ -54,6 +54,9 @@ LLStyle::LLStyle(const LLStyle &style)
 		mItalic = style.mItalic;
 		mBold = style.mBold;
 		mUnderline = style.mUnderline;
+		// <edit>
+		mDottedUnderline = style.mDottedUnderline;
+		// </edit>
 		mDropShadow = style.mDropShadow;
 		mImageHeight = style.mImageHeight;
 		mImageWidth = style.mImageWidth;
@@ -80,6 +83,9 @@ void LLStyle::init(BOOL is_visible, const LLColor4 &color, const std::string& fo
 	mItalic = FALSE;
 	mBold = FALSE;
 	mUnderline = FALSE;
+	// <edit>
+	mDottedUnderline = FALSE;
+	// </edit>
 	mDropShadow = FALSE;
 	mImageHeight = 0;
 	mImageWidth = 0;
@@ -102,6 +108,9 @@ LLStyle &LLStyle::operator=(const LLStyle &rhs)
 		mItalic = rhs.mItalic;
 		mBold = rhs.mBold;
 		mUnderline = rhs.mUnderline;
+		// <edit>
+		mDottedUnderline = rhs.mDottedUnderline;
+		// </edit>
 		mDropShadow = rhs.mDropShadow;
 		mIsEmbeddedItem = rhs.mIsEmbeddedItem;
 	}

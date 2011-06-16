@@ -31,11 +31,15 @@ set(llui_SOURCE_FILES
     llcheckboxctrl.cpp
     llclipboard.cpp
     llcombobox.cpp
+    llctrlholder.cpp
+    llctrlscrolly.cpp
     llctrlselectioninterface.cpp
+    lldelayeduidelete.cpp
     lldraghandle.cpp
     lleditmenuhandler.cpp
     llfloater.cpp
     llfocusmgr.cpp
+    llhexeditor.cpp
     lliconctrl.cpp
     llkeywords.cpp
     lllineeditor.cpp
@@ -80,11 +84,15 @@ set(llui_HEADER_FILES
     llcheckboxctrl.h
     llclipboard.h
     llcombobox.h
+    llctrlholder.h
+    llctrlscrolly.h
     llctrlselectioninterface.h
+    lldelayeduidelete.h
     lldraghandle.h
     lleditmenuhandler.h
     llfloater.h
     llfocusmgr.h
+    llhexeditor.h
     llhtmlhelp.h
     lliconctrl.h
     llkeywords.h

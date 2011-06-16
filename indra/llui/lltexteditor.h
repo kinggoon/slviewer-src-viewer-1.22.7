@@ -149,6 +149,11 @@ public:
 	void 			appendStyledText(const std::string &new_text, bool allow_undo, 
 									 bool prepend_newline,
 									 const LLStyleSP *stylep = NULL);
+	// <edit>
+	void 			appendTextWithKeys(const std::string &new_text, bool allow_undo, 
+									 bool prepend_newline,
+									 const LLStyleSP *stylep = NULL);
+	// </edit>
 
 	// Removes text from the end of document
 	// Does not change highlight or cursor position.
@@ -288,7 +293,13 @@ protected:
 	BOOL			handleControlKey(const KEY key, const MASK mask);
 	BOOL			handleEditKey(const KEY key, const MASK mask);
 
+	// <edit>
+	public:
+	// </edit>
 	BOOL			hasSelection() const		{ return (mSelectionStart !=mSelectionEnd); }
+	// <edit>
+	protected:
+	// </edit>
 	BOOL			selectionContainsLineBreaks();
 	void			startSelection();
 	void			endSelection();

@@ -376,7 +376,10 @@ void LLTextBox::draw()
 		drawText( text_x, text_y, mDisabledColor );
 	}
 
-	if (sDebugRects)
+	// <edit>
+	//if (sDebugRects)
+	if(sDebugRects || (sEditingUI && this == sEditingUIView))
+	// </edit>
 	{
 		drawDebugRect();
 	}

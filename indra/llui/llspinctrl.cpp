@@ -141,6 +141,10 @@ LLSpinCtrl::LLSpinCtrl(	const std::string& name, const LLRect& rect, const std::
 
 F32 clamp_precision(F32 value, S32 decimal_precision)
 {
+	// <edit>
+	// SHITSUX
+	//if(1) return value;
+	// </edit>
 	// pow() isn't perfect
 	
 	F64 clamped_value = value;

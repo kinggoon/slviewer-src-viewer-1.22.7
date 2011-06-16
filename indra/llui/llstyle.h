@@ -95,6 +95,9 @@ public:
 	BOOL        mItalic;
 	BOOL        mBold;
 	BOOL        mUnderline;
+	// <edit>
+	BOOL		mDottedUnderline;
+	// </edit>
 	BOOL		mDropShadow;
 	S32         mImageWidth;
 	S32         mImageHeight;

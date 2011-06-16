@@ -328,7 +328,10 @@ public:
 	// delete all children. Override this function if you need to
 	// perform any extra clean up such as cached pointers to selected
 	// children, etc.
-	virtual void deleteAllChildren();
+	// <edit>
+	//virtual void deleteAllChildren();
+	virtual void deleteAllChildren(BOOL delay_delete = FALSE);
+	// </edit>
 
 	virtual void	setTentative(BOOL b);
 	virtual BOOL	getTentative() const;
@@ -637,6 +640,11 @@ private:
 	BOOL		mVisible;
 
 	S32			mNextInsertionOrdinal;
+
+	// <edit>
+public:
+	BOOL mDelayedDelete;
+	// </edit>
 
 	static LLWindow* sWindow;	// All root views must know about their window.
 

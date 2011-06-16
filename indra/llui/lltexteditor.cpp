@@ -57,6 +57,9 @@
 #include "llimagegl.h"
 #include "llwindow.h"
 #include <queue>
+// <edit>
+#include <boost/tokenizer.hpp>
+// </edit>
 
 // 
 // Globals
@@ -1009,7 +1012,10 @@ void LLTextEditor::indentSelectedLines( S32 spaces )
 		}
 		else
 		{
-			while( (text[right] != '\n') && (right <= getLength() ) )
+			// <edit>
+			//while( (text[right] != '\n') && (right <= getLength() ) )
+			while( (text[right] != '\n') && (right < getLength() ) )
+			// </edit>
 			{
 				right++;
 			}
@@ -3046,6 +3052,12 @@ void LLTextEditor::drawClippedSegment(const LLWString &text, S32 seg_start, S32 
 	{
 		font_flags |= LLFontGL::UNDERLINE;
 	}
+	// <edit>
+	if(style->mDottedUnderline)
+	{
+		font_flags |= LLFontGL::DOTTED_UNDERLINE;
+	}
+	// </edit>
 
 	if (style->getIsEmbeddedItem())
 	{
@@ -3521,6 +3533,45 @@ void LLTextEditor::appendColoredText(const std::string &new_text,
 	appendStyledText(new_text, allow_undo, prepend_newline, &style);
 }
 
+// <edit>
+void LLTextEditor::appendTextWithKeys(const std::string &new_text, 
+									 bool allow_undo, 
+									 bool prepend_newline,
+									 const LLStyleSP *stylep)
+{
+	int s = 0;
+	int e = 0;
+	int L = new_text.length();
+	int p = 0;
+	while(s < L)
+	{
+		e = new_text.find_first_not_of("0123456789abcdefABCDEF-", s);
+		if(e == std::string::npos) e = L;
+		if((e - s) == 36)
+		{
+			LLUUID id(new_text.substr(s, 36));
+			if(id.notNull())
+			{
+				appendText(new_text.substr(p, s - p), allow_undo, prepend_newline, stylep);
+				LLStyleSP keys(new LLStyle);
+				keys->setVisible(TRUE);
+				if(stylep)
+					keys->setColor((*stylep)->getColor());
+				else
+					keys->setColor(LLColor4::grey);
+				keys->mDottedUnderline = TRUE;
+				keys->setLinkHREF("secondlife:///app/keytool/" + id.asString());
+				appendText(new_text.substr(s, 36), allow_undo, prepend_newline, &keys);
+				p = s + 36;
+			}
+		}
+		s = e + 1;
+	}
+	if(p < L)
+		appendText(new_text.substr(p), allow_undo, prepend_newline, stylep);
+}
+// </edit>
+
 void LLTextEditor::appendStyledText(const std::string &new_text, 
 									 bool allow_undo, 
 									 bool prepend_newline,
@@ -3542,7 +3593,10 @@ void LLTextEditor::appendStyledText(const std::string &new_text,
 			}
 			html->mUnderline = TRUE;
 
-			if (start > 0) appendText(text.substr(0,start),allow_undo, prepend_newline, stylep);
+			// <edit>
+			//if (start > 0) appendText(text.substr(0,start),allow_undo, prepend_newline, stylep);
+			if(start > 0) appendTextWithKeys(text.substr(0,start),allow_undo, prepend_newline, stylep);
+			// </edit>
 			html->setLinkHREF(text.substr(start,end-start));
 			appendText(text.substr(start, end-start),allow_undo, prepend_newline, &html);
 			if (end < (S32)text.length()) 
@@ -3555,11 +3609,17 @@ void LLTextEditor::appendStyledText(const std::string &new_text,
 				break;
 			}
 		}
-		if (end < (S32)text.length()) appendText(text,allow_undo, prepend_newline, stylep);
+		// <edit>
+		//if (end < (S32)text.length()) appendText(text,allow_undo, prepend_newline, stylep);
+		if (end < (S32)text.length()) appendTextWithKeys(text,allow_undo, prepend_newline, stylep);
+		// </edit>
 	}
 	else
 	{
-		appendText(new_text, allow_undo, prepend_newline, stylep);
+		// <edit>
+		//appendText(new_text, allow_undo, prepend_newline, stylep);
+		appendTextWithKeys(new_text, allow_undo, prepend_newline, stylep);
+		// </edit>
 	}
 }
 
