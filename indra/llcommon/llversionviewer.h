@@ -37,6 +37,6 @@ const S32 LL_VERSION_MINOR = 22;
 const S32 LL_VERSION_PATCH = 7;
 const S32 LL_VERSION_BUILD = 0;
 
-const char * const LL_CHANNEL = "Second Life Release";
+const char * const LL_CHANNEL = "Second Life Open Source";
 
 #endif

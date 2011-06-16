@@ -98,7 +98,7 @@ public:
 	// similar to functions above, but not invertible
 	// yields a third random UUID that can be reproduced from the two inputs
 	// but which, given the result and one of the inputs can't be used to
-	// deduce the other input
+	// deduce the other input 
 	LLUUID combine(const LLUUID& other) const;
 	void combine(const LLUUID& other, LLUUID& result) const;  
 

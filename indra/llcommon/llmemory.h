@@ -90,7 +90,7 @@ public:
 		llassert(mRef >= 1);
 		if (0 == --mRef) 
 		{
-			delete this; 
+  			delete this; 
 			return 0;
 		}
 		return mRef;

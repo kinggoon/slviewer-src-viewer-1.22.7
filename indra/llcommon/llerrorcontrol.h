@@ -85,6 +85,7 @@ namespace LLError
 	typedef void(*FatalFunction)(const std::string& message);
 	void crashAndLoop(const std::string& message);
 		// Default fatal funtion: access null pointer and loops forever
+	void reallyCrashAndLoop(const std::string& message);
 
 	void setFatalFunction(FatalFunction);
 		// The fatal function will be called when an message of LEVEL_ERROR

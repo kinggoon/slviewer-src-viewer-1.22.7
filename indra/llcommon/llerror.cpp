@@ -1170,13 +1170,58 @@ namespace LLError
 		return s.shouldLogCallCounter;
 	}
 
+// <edit>
+//#if LL_WINDOWS
+//		// VC80 was optimizing the error away.
+//		#pragma optimize("", off)
+//#endif
+	void crashAndLoop(const std::string& message)
+	{
+		// Now, we go kaboom!
+
+		// <edit>
+		/*
+		int* crash = NULL;
+
+		*crash = 0;
+
+		while(true)
+		{
+			// Loop forever, in case the crash didn't work?
+		}
+		*/
+
+		if(0)
+		{
+			std::string caption;
+			caption.assign("Uh-oh");
+			std::string text;
+			text.assign(message);
+			text.append("\n\nDo you want to crash?");
+			S32 choice; // = OSMessageBox(text, "Uh oh", OSMB_YESNO);
+
+			choice = MessageBoxA(NULL, text.c_str(), caption.c_str(), MB_YESNO);
+
+			if(choice == IDYES)
+			{
+				reallyCrashAndLoop(message);
+			}
+		}
+		// </edit>
+	}
+// <edit>
+//#if LL_WINDOWS
+//		#pragma optimize("", on)
+//#endif
+// </edit>
+
+// <edit>
 #if LL_WINDOWS
 		// VC80 was optimizing the error away.
 		#pragma optimize("", off)
 #endif
-	void crashAndLoop(const std::string& message)
+	void reallyCrashAndLoop(const std::string& message)
 	{
-		// Now, we go kaboom!
 		int* crash = NULL;
 
 		*crash = 0;
@@ -1189,6 +1234,7 @@ namespace LLError
 #if LL_WINDOWS
 		#pragma optimize("", on)
 #endif
+// </edit>
 
 	std::string utcTime()
 	{
