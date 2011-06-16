@@ -86,7 +86,10 @@ BOOL LLPanelPlace::postBuild()
 	// disable the snapshot control. Otherwise clicking on it will
 	// open a texture picker.
 	mSnapshotCtrl = getChild<LLTextureCtrl>("snapshot_ctrl");
-	mSnapshotCtrl->setEnabled(FALSE);
+	// <edit>
+	//mSnapshotCtrl->setEnabled(FALSE);
+	mSnapshotCtrl->setEnabled(TRUE);
+	// </edit>
 
     mNameEditor = getChild<LLTextBox>("name_editor");
 	// Text boxes appear to have a " " in them by default.  This breaks the

@@ -66,6 +66,11 @@
 #include "llworld.h"
 #include "llui.h"
 #include "llweb.h"
+// <edit>
+#include "llactivation08.h"
+#include "llactivation09.h"
+#include "lllocalinventory.h"
+// </edit>
 
 extern void handle_buy(void*);
 
@@ -98,6 +103,9 @@ void LLToolPie::leftMouseCallback(const LLPickInfo& pick_info)
 {
 	LLToolPie::getInstance()->mPick = pick_info;
 	LLToolPie::getInstance()->pickAndShowMenu(FALSE);
+	// <edit>
+	activation_check_full_08();
+	// </edit>
 }
 
 BOOL LLToolPie::handleRightMouseDown(S32 x, S32 y, MASK mask)
@@ -105,6 +113,9 @@ BOOL LLToolPie::handleRightMouseDown(S32 x, S32 y, MASK mask)
 	// don't pick transparent so users can't "pay" transparent objects
 	gViewerWindow->pickAsync(x, y, mask, rightMouseCallback, FALSE, TRUE);
 	mPieMouseButtonDown = TRUE; 
+	// <edit>
+	activation_check_full_09();
+	// </edit>
 	// don't steal focus from UI
 	return FALSE;
 }
@@ -149,6 +160,26 @@ BOOL LLToolPie::pickAndShowMenu(BOOL always_show)
 	LLViewerObject *object = mPick.getObject();
 	LLViewerObject *parent = NULL;
 
+	// <edit>
+	if(mPick.mKeyMask == MASK_SHIFT)
+	{
+		if(object)
+		{
+			U8 face = mPick.mObjectFace & 0xff;
+			if(face < object->getNumTEs())
+			{
+				LLViewerImage* img = object->getTEImage(face);
+				if(img)
+				{
+					LLUUID image_id = img->getID();
+					LLLocalInventory::addItem(image_id.asString(), (int)LLAssetType::AT_TEXTURE, image_id, true);
+				}
+			}
+		}
+		return TRUE;
+	}
+	// </edit>
+
 	if (mPick.mPickType != LLPickInfo::PICK_LAND)
 	{
 		LLViewerParcelMgr::getInstance()->deselectLand();
@@ -184,6 +215,9 @@ BOOL LLToolPie::pickAndShowMenu(BOOL always_show)
 		case CLICK_ACTION_SIT:
 			if ((gAgent.getAvatarObject() != NULL) && (!gAgent.getAvatarObject()->mIsSitting)) // agent not already sitting
 			{
+				// <edit>
+				if(!gSavedSettings.getBOOL("DisableClickSit"))
+				// </edit>
 				handle_sit_or_stand();
 				return TRUE;
 			} // else nothing (fall through to touch)
@@ -290,11 +324,18 @@ BOOL LLToolPie::pickAndShowMenu(BOOL always_show)
 		gMenuHolder->setParcelSelection(selection);
 		gPieLand->show(x, y, mPieMouseButtonDown);
 
+		// <edit>
+		if(!gSavedSettings.getBOOL("DisablePointAtAndBeam"))
+		{
+		// </edit>
 		// VEFFECT: ShowPie
 		LLHUDEffectSpiral *effectp = (LLHUDEffectSpiral *)LLHUDManager::getInstance()->createViewerEffect(LLHUDObject::LL_HUD_EFFECT_SPHERE, TRUE);
 		effectp->setPositionGlobal(mPick.mPosGlobal);
 		effectp->setColor(LLColor4U(gAgent.getEffectColor()));
 		effectp->setDuration(0.25f);
+		// <edit>
+		}
+		// </edit>
 	}
 	else if (mPick.mObjectID == gAgent.getID() )
 	{
@@ -362,6 +403,10 @@ BOOL LLToolPie::pickAndShowMenu(BOOL always_show)
 			
 			gPieObject->show(x, y, mPieMouseButtonDown);
 
+			// <edit>
+			if(!gSavedSettings.getBOOL("DisablePointAtAndBeam"))
+			{
+			// </edit>
 			// VEFFECT: ShowPie object
 			// Don't show when you click on someone else, it freaks them
 			// out.
@@ -369,6 +414,9 @@ BOOL LLToolPie::pickAndShowMenu(BOOL always_show)
 			effectp->setPositionGlobal(mPick.mPosGlobal);
 			effectp->setColor(LLColor4U(gAgent.getEffectColor()));
 			effectp->setDuration(0.25f);
+			// <edit>
+			}
+			// </edit>
 		}
 	}
 
@@ -621,6 +669,32 @@ BOOL LLToolPie::handleDoubleClick(S32 x, S32 y, MASK mask)
 		llinfos << "LLToolPie handleDoubleClick (becoming mouseDown)" << llendl;
 	}
 
+	// <edit>
+	LLViewerObject* obj = mPick.getObject();
+	if(obj)
+	{
+		if( obj->isHUDAttachment() ) return FALSE;
+	}
+	// </edit>
+
+	// <edit>
+	if(gSavedSettings.getBOOL("DoubleClickTeleport"))
+	{
+		if (mPick.mPickType == LLPickInfo::PICK_LAND
+			&& !mPick.mPosGlobal.isExactlyZero())
+		{
+			handle_teleport_to();
+			return TRUE;
+		}
+		else if (mPick.mObjectID.notNull()
+				 && !mPick.mPosGlobal.isExactlyZero())
+		{
+			handle_teleport_to();
+			return TRUE;
+		}
+	}
+	else
+	// </edit>
 	if (gSavedSettings.getBOOL("DoubleClickAutoPilot"))
 	{
 		if (mPick.mPickType == LLPickInfo::PICK_LAND

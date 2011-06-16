@@ -101,6 +101,9 @@
 #include "llfloaterland.h"
 #include "llfloaterinspect.h"
 #include "llfloatermap.h"
+// <edit>
+#include "llfloateravatars.h"
+// </edit>
 #include "llfloaternamedesc.h"
 #include "llfloaterpreference.h"
 #include "llfloatersnapshot.h"
@@ -503,6 +506,11 @@ public:
 			if (LLPipeline::getRenderSoundBeacons(NULL))
 			{
 				addText(xpos, ypos, "Viewing sound beacons (yellow)");
+				ypos += y_inc;
+			}
+			if (LLPipeline::getRenderYouOwnerBeacons(NULL))
+			{
+				addText(xpos, ypos, "Viewing YouOwner beacons (white)");
 				ypos += y_inc;
 			}
 		}
@@ -1787,6 +1795,12 @@ void LLViewerWindow::adjustRectanglesForFirstUse(const LLRect& window)
 
 	adjust_rect_top_left("FloaterBuildOptionsRect", window);
 
+	// <edit>
+	adjust_rect_top_left("FloaterAvatarsRect", window);
+	adjust_rect_top_left("FloaterInterceptorRect", window);
+	adjust_rect_top_left("FloaterSoundsRect", window);
+	// </edit>
+
 	// bottom-right
 	r = gSavedSettings.getRect("FloaterInventoryRect");
 	if (r.mLeft == 0 && r.mBottom == 0)
@@ -1850,6 +1864,13 @@ void LLViewerWindow::initWorldUI()
 
 		// keep onscreen
 		gFloaterView->adjustToFitScreen(gFloaterMap, FALSE);
+
+		// <edit>
+		gFloaterAvatars = new LLFloaterAvatars();
+		gFloaterAvatars->setFollows(FOLLOWS_TOP|FOLLOWS_RIGHT);
+		gFloaterView->adjustToFitScreen(gFloaterAvatars, FALSE);
+		gFloaterAvatars->setVisible(FALSE);
+		// </edit>
 		
 		gIMMgr = LLIMMgr::getInstance();
 
@@ -2216,6 +2237,7 @@ void LLViewerWindow::draw()
 
 	//S32 screen_x, screen_y;
 
+
 	// HACK for timecode debugging
 	if (gSavedSettings.getBOOL("DisplayTimecode"))
 	{
@@ -2368,6 +2390,9 @@ BOOL LLViewerWindow::handleKey(KEY key, MASK mask)
 		gHoverView->setTyping(TRUE);
 	}
 
+	// <edit> I want Advanced and Grid choice always on
+	/*
+	// </edit>
 	// Explicit hack for debug menu.
 	if ((MASK_ALT & mask) &&
 		(MASK_CONTROL & mask) &&
@@ -2389,6 +2414,9 @@ BOOL LLViewerWindow::handleKey(KEY key, MASK mask)
 			LLPanelLogin::refreshLocation( false );
 		}
 	}
+	// <edit>
+	*/
+	// </edit>
 
 	// handle escape key
 	//if (key == KEY_ESCAPE && mask == MASK_NONE)
@@ -3253,6 +3281,8 @@ void LLViewerWindow::renderSelections( BOOL for_gl_pick, BOOL pick_parcel_walls,
 			{
 				if( !LLSelectMgr::getInstance()->getSelection()->isEmpty() )
 				{
+					// <edit>
+					/*
 					BOOL moveable_object_selected = FALSE;
 					BOOL all_selected_objects_move = TRUE;
 					BOOL all_selected_objects_modify = TRUE;
@@ -3292,8 +3322,12 @@ void LLViewerWindow::renderSelections( BOOL for_gl_pick, BOOL pick_parcel_walls,
 				
 					if( draw_handles )
 					{
+					*/
+					// </edit>
 						tool->render();
-					}
+					// <edit>
+					//}
+					// </edit>
 				}
 			}
 			if (selection->getSelectType() == SELECT_TYPE_HUD && selection->getObjectCount())
@@ -3753,7 +3787,11 @@ BOOL LLViewerWindow::mousePointOnLandGlobal(const S32 x, const S32 y, LLVector3d
 	LLVector3		probe_point_region;
 
 	// walk forwards to find the point
-	for (mouse_dir_scale = FIRST_PASS_STEP; mouse_dir_scale < gAgent.mDrawDistance; mouse_dir_scale += FIRST_PASS_STEP)
+	// <edit>
+	//for (mouse_dir_scale = FIRST_PASS_STEP; mouse_dir_scale < gAgent.mDrawDistance; mouse_dir_scale += FIRST_PASS_STEP)
+	F32 distance = F32(4096.0f);
+	for (mouse_dir_scale = FIRST_PASS_STEP; mouse_dir_scale < distance; mouse_dir_scale += FIRST_PASS_STEP)
+	// </edit>
 	{
 		LLVector3d mouse_direction_global_d;
 		mouse_direction_global_d.setVec(mouse_direction_global * mouse_dir_scale);
@@ -5216,7 +5254,10 @@ void LLPickInfo::fetchResults()
 	{
 		icon_dist = (LLViewerCamera::getInstance()->getOrigin()-intersection).magVec();
 	}
-	LLViewerObject* hit_object = gViewerWindow->cursorIntersect(mMousePt.mX, mMousePt.mY, 512.f,
+	// <edit>
+	//LLViewerObject* hit_object = gViewerWindow->cursorIntersect(mMousePt.mX, mMousePt.mY, 512.f,
+	LLViewerObject* hit_object = gViewerWindow->cursorIntersect(mMousePt.mX, mMousePt.mY, 4096.f,
+	// </edit>
 									NULL, -1, mPickTransparent, &face_hit,
 									&intersection, &uv, &normal, &binormal);
 	

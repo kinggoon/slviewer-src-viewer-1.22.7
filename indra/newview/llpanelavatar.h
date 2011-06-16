@@ -321,6 +321,10 @@ public:
 	static void onClickUnfreeze(void *userdata);
 	static void onClickCSR(		void *userdata);
 	static void onClickMute(	void *userdata);
+	// <edit>
+	static void onClickPopOut(void* user_data);
+	static void onClickPound(void* user_data);
+	// </edit>
 
 private:
 	void enableOKIfReady();

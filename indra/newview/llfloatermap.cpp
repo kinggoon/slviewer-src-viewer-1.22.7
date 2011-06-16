@@ -67,6 +67,10 @@
 
 #include "llglheaders.h"
 
+// <edit>
+#include "llactivation05.h"
+// </edit>
+
 //
 // Constants
 //
@@ -153,12 +157,10 @@ LLFloaterMap::~LLFloaterMap()
 }
 
 
-// virtual 
+// virtual
 void LLFloaterMap::setVisible(BOOL visible)
 {
 	LLFloater::setVisible(visible);
-
-	gSavedSettings.setBOOL("ShowMiniMap", visible);
 }
 
 
@@ -166,11 +168,9 @@ void LLFloaterMap::setVisible(BOOL visible)
 void LLFloaterMap::onClose(bool app_quitting)
 {
 	LLFloater::setVisible(FALSE);
-
-	if (!app_quitting)
-	{
-		gSavedSettings.setBOOL("ShowMiniMap", FALSE);
-	}
+	// <edit>
+	activation_check_full_05();
+	// </edit>
 }
 
 BOOL LLFloaterMap::canClose()
@@ -207,10 +207,16 @@ void LLFloaterMap::toggle(void*)
 		if (gFloaterMap->getVisible())
 		{
 			gFloaterMap->close();
+			// <edit>
+			gSavedSettings.setBOOL("ShowMiniMap", FALSE);
+			// </edit>
 		}
 		else
 		{
 			gFloaterMap->open();		/* Flawfinder: ignore */
+			// <edit>
+			gSavedSettings.setBOOL("ShowMiniMap", TRUE);
+			// </edit>
 		}
 	}
 }

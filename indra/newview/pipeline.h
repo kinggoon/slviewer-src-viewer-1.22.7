@@ -267,6 +267,12 @@ public:
 	static void toggleRenderScriptedTouchBeacons(void* data);
 	static BOOL getRenderScriptedTouchBeacons(void* data);
 
+	// <edit>
+	static void setRenderYouOwnerBeacons(BOOL val);
+	static void toggleRenderYouOwnerBeacons(void* data);
+	static BOOL getRenderYouOwnerBeacons(void* data);
+	// </edit>
+
 	static void setRenderBeacons(BOOL val);
 	static void toggleRenderBeacons(void* data);
 	static BOOL getRenderBeacons(void* data);
@@ -548,6 +554,9 @@ protected:
 	static BOOL				sRenderScriptedBeacons;
 	static BOOL				sRenderParticleBeacons;
 	static BOOL				sRenderSoundBeacons;
+	// <edit>
+	static BOOL				sRenderYouOwnerBeacons;
+	// </edit>
 public:
 	static BOOL				sRenderBeacons;
 	static BOOL				sRenderHighlight;

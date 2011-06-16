@@ -102,8 +102,10 @@ LLPanelDirPlaces::~LLPanelDirPlaces()
 void LLPanelDirPlaces::draw()
 {
 	// You only have a choice if you are mature
-	childSetVisible("incmature", !gAgent.isTeen());
-	childSetValue("incmature", gSavedSettings.getBOOL("ShowMatureSims"));
+	// <edit>
+	//childSetVisible("incmature", !gAgent.isTeen());
+	//childSetValue("incmature", gSavedSettings.getBOOL("ShowMatureSims"));
+	// </edit>
 	
 	LLPanelDirBrowser::draw();
 }
@@ -150,10 +152,23 @@ void LLPanelDirPlaces::performQuery()
 		category = LLParcel::getCategoryFromString(catstring);
 	}
 
-	BOOL pg_only = !gSavedSettings.getBOOL("ShowMatureSims") 
-				   || gAgent.isTeen();
+	// <edit>
+	//BOOL pg_only = !gSavedSettings.getBOOL("ShowMatureSims") 
+	//			   || gAgent.isTeen();
+	U32 flags = 0;
+	if(childGetValue("pg_check").asBoolean()) flags |= DFQ_INC_PG;
+	if(childGetValue("mature_check").asBoolean()) flags |= DFQ_INC_MATURE;
+	if(childGetValue("adult_check").asBoolean()) flags |= DFQ_INC_ADULT;
 
-	queryCore(query_string, category, pg_only);
+	// Pack old query flag in case we are talking to an old server
+	if ( ((flags & DFQ_INC_PG) == DFQ_INC_PG) && !((flags & DFQ_INC_MATURE) == DFQ_INC_MATURE) )
+	{
+		flags |= DFQ_PG_PARCELS_ONLY;
+	}
+	
+	//queryCore(query_string, category, pg_only);
+	queryCore(query_string, category, flags);
+	// </edit>
 }
 
 void LLPanelDirPlaces::initialQuery()
@@ -165,17 +180,22 @@ void LLPanelDirPlaces::initialQuery()
 
 void LLPanelDirPlaces::queryCore(const std::string& name, 
 								 S32 category, 
-								 BOOL pg_only)
+// <edit>
+								 //BOOL pg_only)
+								 int flags)
+// </edit>
 {
 	setupNewSearch();
 
 	// send the message
-	U32 flags = 0x0;
+	// <edit>
+	//U32 flags = 0x0;
 
-	if (pg_only)
-	{
-		flags |= DFQ_PG_PARCELS_ONLY;
-	}
+	//if (pg_only)
+	//{
+	//	flags |= DFQ_PG_PARCELS_ONLY;
+	//}
+	// </edit>
 
 // JC: Sorting by dwell severely impacts the performance of the query.
 // Instead of sorting on the dataserver, we sort locally once the results

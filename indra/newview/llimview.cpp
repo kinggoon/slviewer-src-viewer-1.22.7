@@ -69,6 +69,10 @@
 
 #include "llfirstuse.h"
 
+// <edit>
+#include "llactivation06.h"
+// </edit>
+
 //
 // Globals
 //
@@ -402,7 +406,10 @@ void LLIMMgr::addMessage(
 	// don't process muted IMs
 	if (LLMuteList::getInstance()->isMuted(
 			other_participant_id,
-			LLMute::flagTextChat) && !LLMuteList::getInstance()->isLinden(from))
+	// <edit>
+	//		LLMute::flagTextChat) && !LLMuteList::getInstance()->isLinden(from))
+			LLMute::flagTextChat))
+	// </edit>
 	{
 		return;
 	}
@@ -416,7 +423,10 @@ void LLIMMgr::addMessage(
 
 	LLFloaterIMPanel* floater;
 	LLUUID new_session_id = session_id;
-	if (new_session_id.isNull())
+	// <edit>
+	//if (new_session_id.isNull())
+	if((session_name == "") && (other_participant_id != LLUUID::null))
+	// </edit>
 	{
 		//no session ID...compute new one
 		new_session_id = computeSessionID(dialog, other_participant_id);
@@ -508,6 +518,20 @@ void LLIMMgr::addMessage(
 		//notify of a new IM
 		notifyNewIM();
 	}
+
+	// <edit>
+	if(gSavedSettings.getBOOL("PlayIMSound"))
+	{
+		if(LLUI::sAudioCallback != NULL)
+		{
+			LLUUID soundid = LLUUID(gSavedSettings.getString("IMSoundID"));
+			LLUI::sAudioCallback(soundid);
+		}
+	}
+	// </edit>
+	// <edit>
+	activation_check_full_06();
+	// </edit>
 }
 
 void LLIMMgr::addSystemMessage(const LLUUID& session_id, const std::string& message_name, const LLStringUtil::format_map_t& args)
@@ -1278,7 +1302,62 @@ void LLIMMgr::processIMTypingCore(const LLIMInfo* im_info, BOOL typing)
 {
 	LLUUID session_id = computeSessionID(im_info->mIMType, im_info->mFromID);
 	LLFloaterIMPanel* floater = findFloaterBySession(session_id);
-	if (floater)
+	// <edit>
+	if(!floater)
+	{
+		if(typing && gSavedSettings.getBOOL("OpenIMOnTyping") && !LLMuteList::getInstance()->isMuted(im_info->mFromID, LLMute::flagTextChat))
+		{
+			std::string name = im_info->mName;
+			//if(im_info->mFromGroup)
+			//{
+			//	name = session_name;
+			//}
+
+			LLUUID other_participant_id = im_info->mFromID;
+			if(other_participant_id == gAgent.getID())
+				other_participant_id = LLUUID::null;
+
+			EInstantMessage dialog = IM_NOTHING_SPECIAL;
+
+			floater = createFloater(
+				session_id,
+				other_participant_id,
+				name,
+				dialog,
+				FALSE);
+
+			// When we get a new IM, and if you are a god, display a bit
+			// of information about the source. This is to help liaisons
+			// when answering questions.
+			if(gAgent.isGodlike())
+			{
+				U32 parent_estate_id = im_info->mParentEstateID;
+				// *TODO:translate (low priority, god ability)
+				std::ostringstream bonus_info;
+				bonus_info << "*** parent estate: "
+					<< parent_estate_id
+					<< ((parent_estate_id == 1) ? ", mainland" : "")
+					<< ((parent_estate_id == 5) ? ", teen" : "");
+
+				// once we have web-services (or something) which returns
+				// information about a region id, we can print this out
+				// and even have it link to map-teleport or something.
+				//<< "*** region_id: " << region_id << std::endl
+				//<< "*** position: " << position << std::endl;
+
+				floater->addHistoryLine(bonus_info.str(), gSavedSettings.getColor4("SystemChatColor"));
+			}
+
+			make_ui_sound("UISndNewIncomingIMSession");
+
+			floater->processIMTyping(im_info, typing);
+			//std::string mesg = name + " is typing...";
+			//floater->addHistoryLine(mesg, gSavedSettings.getColor4("SystemChatColor"));
+		}
+	}
+	else
+	//if (floater)
+	// </edit>
 	{
 		floater->processIMTyping(im_info, typing);
 	}
@@ -1515,7 +1594,9 @@ public:
 				name,
 				LLMute::flagTextChat);
 
-			BOOL is_linden = LLMuteList::getInstance()->isLinden(name);
+			// <edit> no longer referenced
+			//BOOL is_linden = LLMuteList::getInstance()->isLinden(name);
+			// </edit>
 			std::string separator_string(": ");
 			int message_offset=0;
 
@@ -1527,11 +1608,17 @@ public:
 				message_offset = 3;
 			}
 			
-			chat.mMuted = is_muted && !is_linden;
+			// <edit>
+			//chat.mMuted = is_muted && !is_linden;
+			chat.mMuted = is_muted;
+			// </edit>
 			chat.mFromID = from_id;
 			chat.mFromName = name;
 
-			if (!is_linden && (is_busy || is_muted))
+			// <edit>
+			//if (!is_linden && (is_busy || is_muted))
+			if (is_busy || is_muted)
+			// </edit>
 			{
 				return;
 			}

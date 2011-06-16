@@ -73,11 +73,25 @@ const S32 PREVIEW_TEXTURE_HEIGHT = 300;
 LLFloaterImagePreview::LLFloaterImagePreview(const std::string& filename) : 
 	LLFloaterNameDesc(filename)
 {
+	// <edit>
+	mItem = NULL;
+	// </edit>
 	mLastMouseX = 0;
 	mLastMouseY = 0;
 	mImagep = NULL ;
 	loadImage(mFilenameAndPath);
 }
+
+// <edit>
+LLFloaterImagePreview::LLFloaterImagePreview(const std::string& filename, void* item) : 
+	LLFloaterNameDesc(filename, item)
+{
+	mLastMouseX = 0;
+	mLastMouseY = 0;
+	mImagep = NULL ;
+	loadImage(mFilenameAndPath);
+}
+// </edit>
 
 //-----------------------------------------------------------------------------
 // postBuild()
@@ -322,6 +336,12 @@ bool LLFloaterImagePreview::loadImage(const std::string& src_filename)
 	{
 		codec = IMG_CODEC_PNG;
 	}
+	// <edit>
+	else if(exten == "jp2" || exten == "j2k" || exten == "j2c")
+	{
+		codec = IMG_CODEC_J2C;
+	}
+	// </edit>
 
 	LLPointer<LLImageRaw> raw_image = new LLImageRaw;
 
@@ -394,6 +414,23 @@ bool LLFloaterImagePreview::loadImage(const std::string& src_filename)
 			}
 		}
 		break;
+	// <edit>
+	case IMG_CODEC_J2C:
+		{
+			LLPointer<LLImageJ2C> j2c_image = new LLImageJ2C;
+
+			if(!j2c_image->load(src_filename))
+			{
+				return false;
+			}
+
+			if(!j2c_image->decode(raw_image, 0.0f))
+			{
+				return false;
+			}
+		}
+		break;
+	// </edit>
 	default:
 		return false;
 	}

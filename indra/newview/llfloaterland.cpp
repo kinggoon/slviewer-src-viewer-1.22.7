@@ -1964,7 +1964,10 @@ void LLPanelLandOptions::refresh()
 		mLandingTypeCombo->setEnabled( can_change_landing_point );
 
 		mSnapshotCtrl->setImageAssetID(parcel->getSnapshotID());
-		mSnapshotCtrl->setEnabled( can_change_identity );
+		// <edit>
+		//mSnapshotCtrl->setEnabled( can_change_identity );
+		mSnapshotCtrl->setEnabled(TRUE);
+		// </edit>
 
 		LLVector3 pos = parcel->getUserLocation();
 		if (pos.isExactlyZero())
@@ -2017,7 +2020,10 @@ void LLPanelLandOptions::draw()
 		// locally the change will not reflect in the panel, which could cause confusion
 		// A workaround for this is to flip the bit off in the locally cached version
 		// when we detect a mismatch case.
-		if(! can_change_identity && parcel->getParcelFlag(PF_SHOW_DIRECTORY))
+		// <edit> What
+		//if(! can_change_identity && parcel->getParcelFlag(PF_SHOW_DIRECTORY))
+		if(! (region->getRegionFlags() & REGION_FLAGS_BLOCK_PARCEL_SEARCH) && parcel->getParcelFlag(PF_SHOW_DIRECTORY))
+		// </edit>
 		{
 			parcel->setParcelFlag(PF_SHOW_DIRECTORY, FALSE);
 		}

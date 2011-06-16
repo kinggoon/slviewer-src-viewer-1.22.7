@@ -632,7 +632,10 @@ void LLPanelFriends::onPickAvatar(const std::vector<std::string>& names,
 void LLPanelFriends::requestFriendshipDialog(const LLUUID& id,
 											   const std::string& name)
 {
-	if(id == gAgentID)
+	// <edit>
+	//if(id == gAgentID)
+	if(0)
+	// </edit>
 	{
 		LLNotifyBox::showXml("AddSelfFriend");
 		return;

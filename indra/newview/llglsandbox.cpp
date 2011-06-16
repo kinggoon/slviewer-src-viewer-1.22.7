@@ -70,6 +70,32 @@
  
 BOOL LLAgent::setLookAt(ELookAtType target_type, LLViewerObject *object, LLVector3 position)
 {
+	// <edit>
+	if(gSavedSettings.getBOOL("DisableLookAtFocus"))
+	{
+		if(target_type == LOOKAT_TARGET_FOCUS || target_type == LOOKAT_TARGET_HOVER)
+		{
+			target_type = LOOKAT_TARGET_NONE;
+			object = mAvatarObject;
+			position = LLVector3(-2.f, 0.f, 0.f);
+		}
+	}
+	if(gSavedSettings.getBOOL("DisableLookAt"))
+	{
+		target_type = LOOKAT_TARGET_NONE;
+		object = mAvatarObject;
+		position = LLVector3(-2.f, 0.f, 0.f);
+	}
+	if(gSavedSettings.getBOOL("DisablePointAtAndBeam"))
+	{
+		if(target_type == LOOKAT_TARGET_SELECT)
+		{
+			target_type = LOOKAT_TARGET_NONE;
+			object = mAvatarObject;
+			position = LLVector3(-2.f, 0.f, 0.f);
+		}
+	}
+	// </edit>
 	if(object && object->isAttachment())
 	{
 		LLViewerObject* parent = object;
@@ -95,6 +121,15 @@ BOOL LLAgent::setLookAt(ELookAtType target_type, LLViewerObject *object, LLVecto
 
 BOOL LLAgent::setPointAt(EPointAtType target_type, LLViewerObject *object, LLVector3 position)
 {
+	// <edit>
+	if(gSavedSettings.getBOOL("DisablePointAtAndBeam"))
+	{
+		target_type = POINTAT_TARGET_CLEAR;
+		object = NULL;
+		position = LLVector3::zero;
+	}
+	//</edit>
+
 	// disallow pointing at attachments and avatars
 	if (object && (object->isAttachment() || object->isAvatar()))
 	{
@@ -307,6 +342,10 @@ void LLToolSelectRect::handleRectangleSelection(S32 x, S32 y, MASK mask)
 			S32 result = LLViewerCamera::getInstance()->sphereInFrustum(drawable->getPositionAgent(), drawable->getRadius());
 			if (result)
 			{
+				// <edit>
+				if(LLSelectMgr::sRectSelectOverlap)
+					result = 2;
+				// </edit>
 				switch (result)
 				{
 				case 1:

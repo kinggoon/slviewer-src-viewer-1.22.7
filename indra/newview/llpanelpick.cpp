@@ -387,7 +387,10 @@ void LLPanelPick::refresh()
     // Set button visibility/enablement appropriately
 	if (mTopPick)
 	{
-		mSnapshotCtrl->setEnabled(godlike);
+		// <edit>
+		//mSnapshotCtrl->setEnabled(godlike);
+		mSnapshotCtrl->setEnabled(TRUE);
+		// </edit>
 		mNameEditor->setEnabled(godlike);
 		mDescEditor->setEnabled(godlike);
 
@@ -404,7 +407,10 @@ void LLPanelPick::refresh()
 	}
 	else
 	{
-		mSnapshotCtrl->setEnabled(is_self);
+		// <edit>
+		//mSnapshotCtrl->setEnabled(is_self);
+		mSnapshotCtrl->setEnabled(TRUE);
+		// </edit>
 		mNameEditor->setEnabled(is_self);
 		mDescEditor->setEnabled(is_self);
 

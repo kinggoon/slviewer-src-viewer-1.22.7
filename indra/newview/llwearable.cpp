@@ -48,6 +48,10 @@
 #include "llvoavatar.h"
 #include "llwearable.h"
 
+// <edit>
+#include "llappviewer.h" // gLocalInventoryRoot... ouch
+// </edit>
+
 // static
 S32 LLWearable::sCurrentDefinitionVersion = 1;
 
@@ -675,7 +679,10 @@ void LLWearable::writeToAvatar( BOOL set_by_user )
 		{
 			perm_mask = item->getPermissions().getMaskOwner();
 			is_complete = item->isComplete();
-			if(!is_complete)
+			// <edit>
+			//if(!is_complete)
+			if(!is_complete && !(gInventory.isObjectDescendentOf(item->getUUID(), gLocalInventoryRoot)))
+			// </edit>
 			{
 				item->fetchFromServer();
 			}

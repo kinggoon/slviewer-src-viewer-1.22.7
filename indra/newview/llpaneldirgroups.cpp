@@ -45,9 +45,21 @@ void LLPanelDirGroups::search(const std::string& search_text)
 {
 	if (!search_text.empty())
 	{
-		bool mature = childGetValue( "mature_check" ).asBoolean();
+		// <edit>
+		//bool mature = childGetValue( "mature_check" ).asBoolean();
+		int mat = 0;
+		if(childGetValue("pg_check"))
+			mat |= 1;
+		if(childGetValue("mature_check"))
+			mat |= 2;
+		if(childGetValue("adult_check"))
+			mat |= 4;
+		// </edit>
 		std::string selected_collection = "Groups";
-		std::string url = buildSearchURL(search_text, selected_collection, mature);
+		// <edit>
+		//std::string url = buildSearchURL(search_text, selected_collection, mature);
+		std::string url = buildSearchURL(search_text, selected_collection, mat);
+		// </edit>
 		if (mWebBrowser)
 		{
 			mWebBrowser->navigateTo(url);

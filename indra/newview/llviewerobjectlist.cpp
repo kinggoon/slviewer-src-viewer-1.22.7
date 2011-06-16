@@ -74,6 +74,11 @@
 
 #include "llappviewer.h"
 
+// <edit>
+#include "llimportobject.h"
+#include "llfloaterinterceptor.h"
+// </edit>
+
 extern F32 gMinObjectDistance;
 extern BOOL gAnimateTextures;
 
@@ -514,6 +519,33 @@ void LLViewerObjectList::processObjectUpdate(LLMessageSystem *mesgsys,
 			}
 			processUpdateCore(objectp, user_data, i, update_type, NULL, justCreated);
 		}
+		// <edit>
+		if(justCreated && LLXmlImport::sImportInProgress)
+		{
+			if(objectp)
+			{
+				LLViewerObject* parent = (LLViewerObject*)objectp->getParent();
+				if(parent)
+				{
+					if(parent->getID() == gAgent.getID())
+					{
+						LLXmlImport::onNewAttachment(objectp);
+					}
+				}
+				else if( objectp->permYouOwner()
+					&& (objectp->getPCode() == LLXmlImport::sSupplyParams->getPCode())
+					&& (objectp->getScale() == LLXmlImport::sSupplyParams->getScale()))
+				{
+					LLXmlImport::onNewPrim(objectp);
+				}
+			}
+		}
+		if(LLFloaterInterceptor::gInterceptorActive)
+		{
+			if(objectp)
+				LLFloaterInterceptor::sInstance->affect(objectp);
+		}
+		// </edit>
 	}
 
 	LLVOAvatar::cullAvatarsByPixelArea();
@@ -846,6 +878,13 @@ BOOL LLViewerObjectList::killObject(LLViewerObject *objectp)
 
 	if (objectp)
 	{
+		// <edit>
+		if(LLFloaterInterceptor::gInterceptorActive)
+		{
+			LLFloaterInterceptor::letGo(objectp);
+		}
+		// </edit>
+
 		if (objectp->isDead())
 		{
 			// This object is already dead.  Don't need to do more.

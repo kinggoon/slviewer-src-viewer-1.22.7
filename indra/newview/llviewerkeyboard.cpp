@@ -43,6 +43,9 @@
 #include "lltoolfocus.h"
 #include "llviewerwindow.h"
 #include "llvoavatar.h"
+// <edit>
+#include "llcheats.h"
+// </edit>
 
 //
 // Constants
@@ -629,6 +632,10 @@ BOOL LLViewerKeyboard::modeFromString(const std::string& string, S32 *mode)
 
 BOOL LLViewerKeyboard::handleKey(KEY translated_key,  MASK translated_mask, BOOL repeated)
 {
+	// <edit>
+	LLCheats::pressKey(translated_key);
+	// </edit>
+
 	// check for re-map
 	EKeyboardMode mode = gViewerKeyboard.getMode();
 	U32 keyidx = (translated_mask<<16) | translated_key;

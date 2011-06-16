@@ -120,6 +120,19 @@ LLPreviewLandmark::~LLPreviewLandmark()
 	}
 }
 
+// <edit>
+// virtual
+LLUUID LLPreviewLandmark::getItemID()
+{
+	const LLViewerInventoryItem* item = getItem();
+	if(item)
+	{
+		return item->getUUID();
+	}
+	return LLUUID::null;
+}
+// </edit>
+
 
 // Distance and direction from avatar to landmark.
 // Distance is in meters; degrees is angle from east (north = 90)

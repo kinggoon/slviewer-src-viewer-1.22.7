@@ -52,6 +52,9 @@ static void onConfirmAlert(S32 option, void* data)
 		
 	if (option == 0)
 	{
+		// <edit> crashed
+		if(listener)
+		// </edit>
 		listener->confirmed("");
 	}
 	

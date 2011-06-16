@@ -107,6 +107,10 @@ bool handle_sit_or_stand();
 bool handle_give_money_dialog();
 bool handle_object_open();
 bool handle_go_to();
+// <edit>
+void export_object();
+bool handle_teleport_to();
+// </edit>
 
 // Export to XML or Collada
 void handle_export_selected( void * );

@@ -182,8 +182,19 @@ void LLPanelDirEvents::performQueryOrDelete(U32 event_id)
 	setupNewSearch();
 
 	U32 scope = DFQ_DATE_EVENTS;
-	if ( gAgent.isTeen()) scope |= DFQ_PG_SIMS_ONLY;
-	if ( !childGetValue("incmature").asBoolean() ) scope |= DFQ_PG_EVENTS_ONLY;
+	// <edit>
+	//if ( gAgent.isTeen()) scope |= DFQ_PG_SIMS_ONLY;
+	//if ( !childGetValue("incmature").asBoolean() ) scope |= DFQ_PG_EVENTS_ONLY;
+	if ( childGetValue("pg_check").asBoolean() ) scope |= DFQ_INC_PG;
+	if ( childGetValue("mature_check").asBoolean() ) scope |= DFQ_INC_MATURE;
+	if ( childGetValue("adult_check").asBoolean() ) scope |= DFQ_INC_ADULT;
+
+	// Add old query flags in case we are talking to an old server
+	if ( childGetValue("pg_check").asBoolean() && !childGetValue("mature_check").asBoolean())
+	{
+		scope |= DFQ_PG_EVENTS_ONLY;
+	}
+	// </edit>
 
 	std::ostringstream params;
 

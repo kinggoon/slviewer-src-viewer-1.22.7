@@ -97,9 +97,23 @@ protected:
 
 	void saveIfNeeded();
 
+	// <edit>
+	void saveDuplicate();
+	class GestureItemForDuplicateCallback : public LLInventoryCallback
+	{
+		void fire(const LLUUID& inv_item);
+	};
+	// </edit>
+
 	static void onSaveComplete(const LLUUID& asset_uuid,
 							   void* user_data,
 							   S32 status, LLExtStat ext_status);
+
+	// <edit>
+	static void onSaveDuplicateComplete(const LLUUID& asset_uuid,
+							   void* user_data,
+							   S32 status, LLExtStat ext_status);
+	// </edit>
 
 	static void handleSaveChangesDialog(S32 option, void* userdata);
 
@@ -133,11 +147,21 @@ protected:
 
 	static void onCommitActive(LLUICtrl* ctrl, void* data);
 	static void onClickSave(void* data);
+	// <edit>
+	static void onClickDuplicate(void* data);
+	static void onClickOpen(void* data);
+	virtual LLUUID getItemID();
+	// </edit>
 	static void onClickPreview(void* data);
 
 	static void onDonePreview(LLMultiGesture* gesture, void* data);
 
 	virtual const char *getTitleName() const { return "Gesture"; }
+
+	// <edit>
+	virtual BOOL canSaveAs() const;
+	virtual void saveAs();
+	// </edit>
 
 protected:
 	// LLPreview contains mDescEditor
@@ -166,6 +190,10 @@ protected:
 
 	LLCheckBoxCtrl*		mActiveCheck;
 	LLButton*			mSaveBtn;
+	// <edit>
+	LLButton*			mDuplicateBtn;
+	LLButton*			mOpenBtn;
+	// </edit>
 	LLButton*			mPreviewBtn;
 
 	LLMultiGesture*		mPreviewGesture;

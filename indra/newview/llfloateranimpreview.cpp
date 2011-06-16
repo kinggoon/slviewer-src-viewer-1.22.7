@@ -64,6 +64,9 @@
 #include "llvoavatar.h"
 #include "pipeline.h"
 #include "lluictrlfactory.h"
+// <edit>
+#include "llinventorymodel.h" // gInventoryModel
+// </edit>
 
 S32 LLFloaterAnimPreview::sUploadAmount = 10;
 
@@ -80,12 +83,32 @@ const F32 MAX_CAMERA_ZOOM = 10.f;
 
 const F32 BASE_ANIM_TIME_OFFSET = 5.f;
 
+// <edit>
+struct LLSaveInfo
+{
+	LLSaveInfo(const LLUUID& item_id, const LLUUID& object_id, const std::string& desc,
+				const LLTransactionID tid)
+		: mItemUUID(item_id), mObjectUUID(object_id), mDesc(desc), mTransactionID(tid)
+	{
+	}
+
+	LLUUID mItemUUID;
+	LLUUID mObjectUUID;
+	std::string mDesc;
+	LLTransactionID mTransactionID;
+};
+// </edit>
+
 //-----------------------------------------------------------------------------
 // LLFloaterAnimPreview()
 //-----------------------------------------------------------------------------
 LLFloaterAnimPreview::LLFloaterAnimPreview(const std::string& filename) : 
 	LLFloaterNameDesc(filename)
 {
+	// <edit>
+	mItem = NULL;
+	// </edit>
+
 	mLastMouseX = 0;
 	mLastMouseY = 0;
 
@@ -115,6 +138,43 @@ LLFloaterAnimPreview::LLFloaterAnimPreview(const std::string& filename) :
 	mIDList["Wink"] = ANIM_AGENT_EXPRESS_WINK;
 	mIDList["Worry"] = ANIM_AGENT_EXPRESS_WORRY;
 }
+
+// <edit>
+LLFloaterAnimPreview::LLFloaterAnimPreview(const std::string& filename, void* item) : 
+	LLFloaterNameDesc(filename)
+{
+	mItem = item;
+
+	mLastMouseX = 0;
+	mLastMouseY = 0;
+
+	mIDList["Standing"] = ANIM_AGENT_STAND;
+	mIDList["Walking"] = ANIM_AGENT_FEMALE_WALK;
+	mIDList["Sitting"] = ANIM_AGENT_SIT_FEMALE;
+	mIDList["Flying"] = ANIM_AGENT_HOVER;
+
+	mIDList["[None]"] = LLUUID::null;
+	mIDList["Aaaaah"] = ANIM_AGENT_EXPRESS_OPEN_MOUTH;
+	mIDList["Afraid"] = ANIM_AGENT_EXPRESS_AFRAID;
+	mIDList["Angry"] = ANIM_AGENT_EXPRESS_ANGER;
+	mIDList["Big Smile"] = ANIM_AGENT_EXPRESS_TOOTHSMILE;
+	mIDList["Bored"] = ANIM_AGENT_EXPRESS_BORED;
+	mIDList["Cry"] = ANIM_AGENT_EXPRESS_CRY;
+	mIDList["Disdain"] = ANIM_AGENT_EXPRESS_DISDAIN;
+	mIDList["Embarrassed"] = ANIM_AGENT_EXPRESS_EMBARRASSED;
+	mIDList["Frown"] = ANIM_AGENT_EXPRESS_FROWN;
+	mIDList["Kiss"] = ANIM_AGENT_EXPRESS_KISS;
+	mIDList["Laugh"] = ANIM_AGENT_EXPRESS_LAUGH;
+	mIDList["Plllppt"] = ANIM_AGENT_EXPRESS_TONGUE_OUT;
+	mIDList["Repulsed"] = ANIM_AGENT_EXPRESS_REPULSED;
+	mIDList["Sad"] = ANIM_AGENT_EXPRESS_SAD;
+	mIDList["Shrug"] = ANIM_AGENT_EXPRESS_SHRUG;
+	mIDList["Smile"] = ANIM_AGENT_EXPRESS_SMILE;
+	mIDList["Surprise"] = ANIM_AGENT_EXPRESS_SURPRISE;
+	mIDList["Wink"] = ANIM_AGENT_EXPRESS_WINK;
+	mIDList["Worry"] = ANIM_AGENT_EXPRESS_WORRY;
+}
+// </edit>
 
 //-----------------------------------------------------------------------------
 // setAnimCallbacks()
@@ -227,6 +287,10 @@ BOOL LLFloaterAnimPreview::postBuild()
 	//childSetCommitCallback("ease_out_time", onCommitEaseOut, this);
 	//childSetValidate("ease_out_time", validateEaseOut);
 
+	// <edit> moved declaration from below
+	BOOL success = false;
+	// </edit>
+
 	std::string exten = gDirUtilp->getExtension(mFilename);
 	if (exten == "bvh")
 	{
@@ -255,103 +319,127 @@ BOOL LLFloaterAnimPreview::postBuild()
 
 			apr_file_close(fp);
 			delete[] file_buffer;
-		}
-	}
 
-	if (loaderp && loaderp->isInitialized() && loaderp->getDuration() <= MAX_ANIM_DURATION)
-	{
-		// generate unique id for this motion
-		mTransactionID.generate();
-		mMotionID = mTransactionID.makeAssetID(gAgent.getSecureSessionID());
-
-		mAnimPreview = new LLPreviewAnimation(256, 256);
-
-		// motion will be returned, but it will be in a load-pending state, as this is a new motion
-		// this motion will not request an asset transfer until next update, so we have a chance to 
-		// load the keyframe data locally
-		motionp = (LLKeyframeMotion*)mAnimPreview->getDummyAvatar()->createMotion(mMotionID);
-
-		// create data buffer for keyframe initialization
-		S32 buffer_size = loaderp->getOutputSize();
-		U8* buffer = new U8[buffer_size];
-
-		LLDataPackerBinaryBuffer dp(buffer, buffer_size);
-
-		// pass animation data through memory buffer
-		loaderp->serialize(dp);
-		dp.reset();
-		BOOL success = motionp && motionp->deserialize(dp);
-
-		delete []buffer;
-
-		if (success)
-		{
-			setAnimCallbacks() ;
-			
-			const LLBBoxLocal &pelvis_bbox = motionp->getPelvisBBox();
-
-			LLVector3 temp = pelvis_bbox.getCenter();
-			// only consider XY?
-			//temp.mV[VZ] = 0.f;
-			F32 pelvis_offset = temp.magVec();
-
-			temp = pelvis_bbox.getExtent();
-			//temp.mV[VZ] = 0.f;
-			F32 pelvis_max_displacement = pelvis_offset + (temp.magVec() * 0.5f) + 1.f;
-			
-			F32 camera_zoom = LLViewerCamera::getInstance()->getDefaultFOV() / (2.f * atan(pelvis_max_displacement / PREVIEW_CAMERA_DISTANCE));
-		
-			mAnimPreview->setZoom(camera_zoom);
-
-			motionp->setName(childGetValue("name_form").asString());
-			mAnimPreview->getDummyAvatar()->startMotion(mMotionID);
-			childSetMinValue("playback_slider", 0.0);
-			childSetMaxValue("playback_slider", 1.0);
-
-			childSetValue("loop_check", LLSD(motionp->getLoop()));
-			childSetValue("loop_in_point", LLSD(motionp->getLoopIn() / motionp->getDuration() * 100.f));
-			childSetValue("loop_out_point", LLSD(motionp->getLoopOut() / motionp->getDuration() * 100.f));
-			childSetValue("priority", LLSD((F32)motionp->getPriority()));
-			childSetValue("hand_pose_combo", LLHandMotion::getHandPoseName(motionp->getHandPose()));
-			childSetValue("ease_in_time", LLSD(motionp->getEaseInDuration()));
-			childSetValue("ease_out_time", LLSD(motionp->getEaseOutDuration()));
-			setEnabled(TRUE);
-			std::string seconds_string;
-			seconds_string = llformat(" - %.2f seconds", motionp->getDuration());
-
-			setTitle(mFilename + std::string(seconds_string));
-		}
-		else
-		{
-			delete mAnimPreview;
-			mAnimPreview = NULL;
-			mMotionID.setNull();
-			childSetValue("bad_animation_text", getString("failed_to_initialize"));
-		}
-	}
-	else
-	{
-		if ( loaderp )
-		{
-			if (loaderp->getDuration() > MAX_ANIM_DURATION)
+			// <edit> moved everything bvh from below
+			if(loaderp && loaderp->isInitialized())
 			{
-				LLUIString out_str = getString("anim_too_long");
-				out_str.setArg("[LENGTH]", llformat("%.1f", loaderp->getDuration()));
-				out_str.setArg("[MAX_LENGTH]", llformat("%.1f", MAX_ANIM_DURATION));
-				childSetValue("bad_animation_text", out_str.getString());
+				mTransactionID.generate();
+				mMotionID = mTransactionID.makeAssetID(gAgent.getSecureSessionID());
+				mAnimPreview = new LLPreviewAnimation(256, 256);
+
+				// motion will be returned, but it will be in a load-pending state, as this is a new motion
+				// this motion will not request an asset transfer until next update, so we have a chance to 
+				// load the keyframe data locally
+				motionp = (LLKeyframeMotion*)mAnimPreview->getDummyAvatar()->createMotion(mMotionID);
+
+				// create data buffer for keyframe initialization
+				S32 buffer_size = loaderp->getOutputSize();
+				U8* buffer = new U8[buffer_size];
+
+				LLDataPackerBinaryBuffer dp(buffer, buffer_size);
+
+				// pass animation data through memory buffer
+				loaderp->serialize(dp);
+				dp.reset();
+				success = motionp && motionp->deserialize(dp);
 			}
 			else
 			{
-				LLUIString out_str = getString("failed_file_read");
-				out_str.setArg("[STATUS]", loaderp->getStatus()); // *TODO:Translate
-				childSetValue("bad_animation_text", out_str.getString());
-			}
-		}
+				success = false;
+				if ( loaderp )
+				{
+					LLUIString out_str = getString("failed_file_read");
+					out_str.setArg("[STATUS]", loaderp->getStatus()); // *TODO:Translate
+					childSetValue("bad_animation_text", out_str.getString());
+				}
 
-		//setEnabled(FALSE);
-		mMotionID.setNull();
-		mAnimPreview = NULL;
+				//setEnabled(FALSE);
+				mMotionID.setNull();
+				mAnimPreview = NULL;
+			}
+			// </edit>
+		}
 	}
+	// <edit>
+	else if(exten == "animatn")
+	{
+		S32 file_size;
+		apr_file_t* fp = ll_apr_file_open(mFilenameAndPath, LL_APR_RB, &file_size);
+
+		if (!fp)
+		{
+			llwarns << "Can't open animatn file:" << mFilename << llendl;	
+		}
+		else
+		{
+			char*	file_buffer;
+
+			file_buffer = new char[file_size + 1];
+
+			if (file_size == ll_apr_file_read(fp, file_buffer, file_size))
+			{
+				file_buffer[file_size] = '\0';
+				llinfos << "Loading animatn file " << mFilename << llendl;
+				mTransactionID.generate();
+				mMotionID = mTransactionID.makeAssetID(gAgent.getSecureSessionID());
+				mAnimPreview = new LLPreviewAnimation(256, 256);
+				motionp = (LLKeyframeMotion*)mAnimPreview->getDummyAvatar()->createMotion(mMotionID);
+				LLDataPackerBinaryBuffer dp((U8*)file_buffer, file_size);
+				dp.reset();
+				success = motionp && motionp->deserialize(dp);
+			}
+
+			apr_file_close(fp);
+			delete[] file_buffer;
+		}
+	}
+	// </edit>
+
+	if (success)
+	{
+		setAnimCallbacks() ;
+		
+		const LLBBoxLocal &pelvis_bbox = motionp->getPelvisBBox();
+
+		LLVector3 temp = pelvis_bbox.getCenter();
+		// only consider XY?
+		//temp.mV[VZ] = 0.f;
+		F32 pelvis_offset = temp.magVec();
+
+		temp = pelvis_bbox.getExtent();
+		//temp.mV[VZ] = 0.f;
+		F32 pelvis_max_displacement = pelvis_offset + (temp.magVec() * 0.5f) + 1.f;
+		
+		F32 camera_zoom = LLViewerCamera::getInstance()->getDefaultFOV() / (2.f * atan(pelvis_max_displacement / PREVIEW_CAMERA_DISTANCE));
+	
+		mAnimPreview->setZoom(camera_zoom);
+
+		motionp->setName(childGetValue("name_form").asString());
+		mAnimPreview->getDummyAvatar()->startMotion(mMotionID);
+		childSetMinValue("playback_slider", 0.0);
+		childSetMaxValue("playback_slider", 1.0);
+
+		childSetValue("loop_check", LLSD(motionp->getLoop()));
+		childSetValue("loop_in_point", LLSD(motionp->getLoopIn() / motionp->getDuration() * 100.f));
+		childSetValue("loop_out_point", LLSD(motionp->getLoopOut() / motionp->getDuration() * 100.f));
+		childSetValue("priority", LLSD((F32)motionp->getPriority()));
+		childSetValue("hand_pose_combo", LLHandMotion::getHandPoseName(motionp->getHandPose()));
+		childSetValue("ease_in_time", LLSD(motionp->getEaseInDuration()));
+		childSetValue("ease_out_time", LLSD(motionp->getEaseOutDuration()));
+		setEnabled(TRUE);
+		std::string seconds_string;
+		seconds_string = llformat(" - %.2f seconds", motionp->getDuration());
+
+		setTitle(mFilename + std::string(seconds_string));
+	}
+	else
+	{
+		delete mAnimPreview;
+		mAnimPreview = NULL;
+		mMotionID.setNull();
+		childSetValue("bad_animation_text", getString("failed_to_initialize"));
+	}
+
 
 	refresh();
 
@@ -987,6 +1075,25 @@ void LLFloaterAnimPreview::onBtnOK(void* userdata)
 			{
 				std::string name = floaterp->childGetValue("name_form").asString();
 				std::string desc = floaterp->childGetValue("description_form").asString();
+				// <edit>
+				if(floaterp->mItem)
+				{
+					// Update existing item instead of creating a new one
+					LLViewerInventoryItem* item = (LLViewerInventoryItem*)floaterp->mItem;
+					LLSaveInfo* info = new LLSaveInfo(item->getUUID(), LLUUID::null, desc, floaterp->mTransactionID);
+					gAssetStorage->storeAssetData(floaterp->mTransactionID, LLAssetType::AT_ANIMATION, NULL, info, FALSE);
+
+					// I guess I will do this now because the floater is closing...
+					LLPointer<LLViewerInventoryItem> new_item = new LLViewerInventoryItem(item);
+					new_item->setDescription(desc);
+					new_item->setTransactionID(floaterp->mTransactionID);
+					new_item->setAssetUUID(motionp->getID());
+					new_item->updateServer(FALSE);
+					gInventory.updateItem(new_item);
+					gInventory.notifyObservers();
+				}
+				else
+				// </edit>
 				upload_new_resource(floaterp->mTransactionID, // tid
 									LLAssetType::AT_ANIMATION,
 									name,
@@ -995,6 +1102,9 @@ void LLFloaterAnimPreview::onBtnOK(void* userdata)
 									LLAssetType::AT_NONE,
 									LLInventoryType::IT_ANIMATION,
 									PERM_NONE,
+									// <edit>
+									FALSE, // upload_temporary
+									// </edit>
 									name);
 			}
 			else

@@ -335,6 +335,24 @@ void LLHoverView::updateText()
 				}
 				mText.push_back(line);
 
+				// <edit>
+				// LastOwner line
+				line.clear();
+				line.append("Previous owner: ");
+
+				LLUUID lastowner;
+				lastowner = nodep->mPermissions->getLastOwner(); //nodep->mPermissions->getCreator();
+				std::string bla_name;
+				if(gCacheName->getFullName(lastowner, bla_name))
+					line.append(bla_name);
+				else if(lastowner.getString() == "00000000-0000-0000-0000-000000000000")
+					line.append(bla_name);
+				else
+					line.append(LLTrans::getString("RetrievingData"));
+
+				mText.push_back(line);
+				// </edit>
+
 				// Build a line describing any special properties of this object.
 				LLViewerObject *object = hit_object;
 				LLViewerObject *parent = (LLViewerObject *)object->getParent();

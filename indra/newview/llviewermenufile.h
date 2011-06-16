@@ -34,6 +34,9 @@
 
 #include "llassettype.h"
 #include "llinventorytype.h"
+// <edit>
+#include "llviewerinventory.h" // LLInventoryCallback
+// </edit>
 
 class LLTransactionID;
 
@@ -45,6 +48,9 @@ void upload_new_resource(const std::string& src_filename, std::string name,
 						 LLAssetType::EType destination_folder_type,
 						 LLInventoryType::EType inv_type,
 						 U32 next_owner_perm = 0x0,	// PERM_NONE
+						 // <edit>
+						 BOOL upload_temporary = FALSE,
+						 // </edit>
 						 const std::string& display_name = LLStringUtil::null,
 						 LLAssetStorage::LLStoreAssetCallback callback = NULL,
 						 void *userdata = NULL);
@@ -55,8 +61,18 @@ void upload_new_resource(const LLTransactionID &tid, LLAssetType::EType type,
 						 LLAssetType::EType destination_folder_type,
 						 LLInventoryType::EType inv_type,
 						 U32 next_owner_perm = 0x0,	// PERM_NONE
+						 // <edit>
+						 BOOL upload_temporary = FALSE,
+						 // </edit>
 						 const std::string& display_name = LLStringUtil::null,
 						 LLAssetStorage::LLStoreAssetCallback callback = NULL,
 						 void *userdata = NULL);
+
+// <edit>
+class NewResourceItemCallback : public LLInventoryCallback
+{
+	void fire(const LLUUID& inv_item);
+};
+// </edit>
 
 #endif

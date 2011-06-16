@@ -81,6 +81,10 @@
 #include "llvoavatar.h"
 #include "llvovolume.h"
 #include "pipeline.h"
+// <edit>
+#include "llfloaterexport.h"
+#include "llfloaterinterceptor.h"
+// </edit>
 
 #include "llglheaders.h"
 
@@ -106,6 +110,9 @@ BOOL gHideSelectedObjects = FALSE;
 BOOL gAllowSelectAvatar = FALSE;
 
 BOOL LLSelectMgr::sRectSelectInclusive = TRUE;
+// <edit>
+BOOL LLSelectMgr::sRectSelectOverlap = FALSE;
+// </edit>
 BOOL LLSelectMgr::sRenderHiddenSelections = TRUE;
 BOOL LLSelectMgr::sRenderLightRadius = FALSE;
 F32	LLSelectMgr::sHighlightThickness = 0.f;
@@ -1380,6 +1387,9 @@ void LLSelectMgr::selectionSetImage(const LLUUID& imageid)
 {
 	// First for (no copy) textures and multiple object selection
 	LLViewerInventoryItem* item = gInventory.getItem(imageid);
+	// <edit> fffff
+	/*
+	// </edit>
 	if(item 
 		&& !item->getPermissions().allowOperationBy(PERM_COPY, gAgent.getID())
 		&& (mSelectedObjects->getNumNodes() > 1) )
@@ -1388,6 +1398,9 @@ void LLSelectMgr::selectionSetImage(const LLUUID& imageid)
 				<< llendl;
 		return;
 	}
+	// <edit>
+	*/
+	// </edit>
 
 	struct f : public LLSelectedTEFunctor
 	{
@@ -1435,12 +1448,19 @@ void LLSelectMgr::selectionSetImage(const LLUUID& imageid)
 			if (!mItem)
 			{
 				object->sendTEUpdate();
-				// 1 particle effect per object				
+				// 1 particle effect per object	
+				// <edit>
+				if(!gSavedSettings.getBOOL("DisablePointAtAndBeam"))
+				{
+				// </edit>
 				LLHUDEffectSpiral *effectp = (LLHUDEffectSpiral *)LLHUDManager::getInstance()->createViewerEffect(LLHUDObject::LL_HUD_EFFECT_BEAM, TRUE);
 				effectp->setSourceObject(gAgent.getAvatarObject());
 				effectp->setTargetObject(object);
 				effectp->setDuration(LL_HUD_DUR_SHORT);
 				effectp->setColor(LLColor4U(gAgent.getEffectColor()));
+				// <edit>
+				}
+				// </edit>
 			}
 			return true;
 		}
@@ -2793,6 +2813,9 @@ void LLSelectMgr::confirmDelete(S32 option, void* data)
 										  (void*)info,
 										  SEND_ONLY_ROOTS);
 			// VEFFECT: Delete Object - one effect for all deletes
+			// <edit>
+			if(!gSavedSettings.getBOOL("DisablePointAtAndBeam"))
+			// </edit>
 			if (LLSelectMgr::getInstance()->mSelectedObjects->mSelectType != SELECT_TYPE_HUD)
 			{
 				LLHUDEffectSpiral *effectp = (LLHUDEffectSpiral *)LLHUDManager::getInstance()->createViewerEffect(LLHUDObject::LL_HUD_EFFECT_POINT, TRUE);
@@ -3363,14 +3386,34 @@ void LLSelectMgr::deselectAll()
 		return;
 	}
 
+	// <edit>
+	std::list<LLViewerObject*> intercepted;
+	// </edit>
+
 	// Zap the angular velocity, as the sim will set it to zero
-	for (LLObjectSelection::iterator iter = mSelectedObjects->begin();
+	for ( LLObjectSelection::iterator iter = mSelectedObjects->begin();
 		 iter != mSelectedObjects->end(); iter++ )
 	{
 		LLViewerObject *objectp = (*iter)->getObject();
 		objectp->setAngularVelocity( 0,0,0 );
 		objectp->setVelocity( 0,0,0 );
+		// <edit>
+		if(LLFloaterInterceptor::gInterceptorActive)
+		{
+			if(LLFloaterInterceptor::has(objectp))
+			{
+				intercepted.push_back(objectp);
+			}
+		}
+		// </edit>
 	}
+
+	// <edit>
+	std::list<LLViewerObject*>::iterator rmv_iter = intercepted.begin();
+	std::list<LLViewerObject*>::iterator rmv_end = intercepted.end();
+	for( ; rmv_iter != rmv_end; ++rmv_iter)
+		remove(*rmv_iter);
+	// </edit>
 
 	sendListToRegions(
 		"ObjectDeselect",
@@ -4332,6 +4375,9 @@ void LLSelectMgr::processObjectProperties(LLMessageSystem* msg, void** user_data
 			}
 		}
 
+		// <edit> Send to export floaters
+		LLFloaterExport::receiveObjectProperties(id, name, desc);
+		// </edit>
 
 		// Iterate through nodes at end, since it can be on both the regular AND hover list
 		struct f : public LLSelectedNodeFunctor
@@ -4462,6 +4508,10 @@ void LLSelectMgr::processObjectPropertiesFamily(LLMessageSystem* msg, void** use
 
 	std::string desc;
 	msg->getStringFast(_PREHASH_ObjectData, _PREHASH_Description, desc);
+
+	// <edit> Send to export floaters
+	LLFloaterExport::receiveObjectProperties(id, name, desc);
+	// </edit>
 
 	// the reporter widget askes the server for info about picked objects
 	if (request_flags & (COMPLAINT_REPORT_REQUEST | BUG_REPORT_REQUEST))
@@ -4859,8 +4909,10 @@ void LLSelectMgr::renderSilhouettes(BOOL for_hud)
 	{
 		LLUUID inspect_item_id = LLFloaterInspect::getSelectedUUID();
 		
-		for (S32 pass = 0; pass < 2; pass++)
-		{
+		// <edit>
+		//for (S32 pass = 0; pass < 2; pass++)
+		//{
+		// </edit>
 			for (LLObjectSelection::iterator iter = mSelectedObjects->begin();
 				 iter != mSelectedObjects->end(); iter++)
 			{
@@ -4892,7 +4944,9 @@ void LLSelectMgr::renderSilhouettes(BOOL for_hud)
 					node->renderOneSilhouette(sSilhouetteChildColor);
 				}
 			}
-		}
+		// <edit>
+		//}
+		// </edit>
 	}
 
 	if (mHighlightedObjects->getNumNodes())
@@ -5312,9 +5366,9 @@ void LLSelectNode::renderOneSilhouette(const LLColor4 &color)
 			glFogf(GL_FOG_START, d);
 			glFogf(GL_FOG_END, d*(1 + (LLViewerCamera::getInstance()->getView() / LLViewerCamera::getInstance()->getDefaultFOV())));
 			glFogfv(GL_FOG_COLOR, fogCol.mV);
-
 			LLGLDepthTest gls_depth(GL_TRUE, GL_FALSE, GL_GEQUAL);
 			gGL.setAlphaRejectSettings(LLRender::CF_DEFAULT);
+			gGL.color4f(color.mV[VRED], color.mV[VGREEN], color.mV[VBLUE], 0.4f);
 			gGL.begin(LLRender::LINES);
 			{
 				S32 i = 0;
@@ -5334,6 +5388,9 @@ void LLSelectNode::renderOneSilhouette(const LLColor4 &color)
 			u_coord = fmod(animationTime * LLSelectMgr::sHighlightUAnim, 1.f);
 		}
 
+		// <edit>
+		// just testin
+		///*
 		gGL.flush();
 		gGL.setSceneBlendType(LLRender::BT_ALPHA);
 		gGL.begin(LLRender::TRIANGLES);
@@ -5385,6 +5442,8 @@ void LLSelectNode::renderOneSilhouette(const LLColor4 &color)
 				}
 			}
 		}
+		//*/
+		// </edit>
 		gGL.end();
 		gGL.flush();
 	}
@@ -5530,7 +5589,7 @@ void LLSelectMgr::updateSelectionCenter()
 		mSelectionBBox = bbox;
 
 	}
-	
+
 	if ( !(gAgentID == LLUUID::null)) 
 	{
 		LLTool		*tool = LLToolMgr::getInstance()->getCurrentTool();
@@ -5762,8 +5821,10 @@ BOOL LLSelectMgr::canSelectObject(LLViewerObject* object)
 	// Can't select land
 	if (object->getPCode() == LLViewerObject::LL_VO_SURFACE_PATCH) return FALSE;
 
-	ESelectType selection_type = getSelectTypeForObject(object);
-	if (mSelectedObjects->getObjectCount() > 0 && mSelectedObjects->mSelectType != selection_type) return FALSE;
+	// <edit>
+	//ESelectType selection_type = getSelectTypeForObject(object);
+	//if (mSelectedObjects->getObjectCount() > 0 && mSelectedObjects->mSelectType != selection_type) return FALSE;
+	// </edit>
 
 	return TRUE;
 }

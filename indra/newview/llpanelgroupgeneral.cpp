@@ -750,8 +750,10 @@ void LLPanelGroupGeneral::update(LLGroupChange gc)
 		}
 	}
 	
-
-	if (mInsignia) mInsignia->setEnabled(mAllowEdit && can_change_ident);
+	// <edit>
+	//if (mInsignia) mInsignia->setEnabled(mAllowEdit && can_change_ident);
+	if (mInsignia) mInsignia->setEnabled(TRUE);
+	// </edit>
 	if (mEditCharter) mEditCharter->setEnabled(mAllowEdit && can_change_ident);
 	
 	if (mGroupName) mGroupName->setText(gdatap->mName);

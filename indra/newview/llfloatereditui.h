@@ -56,6 +56,9 @@ public:
 	static BOOL processKeystroke(KEY key, MASK mask);
 
 	static void onCommitLabel(LLUICtrl* ctrl, void* data);
+	// <edit>
+	static void onCommitText(LLUICtrl* ctrl, void* data);
+	// </edit>
 	static void onCommitHeight(LLUICtrl* ctrl, void* data);
 	static void onCommitWidth(LLUICtrl* ctrl, void* data);
 
@@ -63,6 +66,9 @@ protected:
 	LLView* mLastView;
 
 	LLLineEditor* mLabelLine;
+	// <edit>
+	LLLineEditor* mTextLine;
+	// </edit>
 	LLSpinCtrl* mWidthSpin;
 	LLSpinCtrl* mHeightSpin;
 

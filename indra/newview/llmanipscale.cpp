@@ -2045,7 +2045,10 @@ BOOL LLManipScale::canAffectSelection()
 		{
 			virtual bool apply(LLViewerObject* objectp)
 			{
-				return objectp->permModify() && objectp->permMove() && !objectp->isSeat();
+				// <edit>
+				//return objectp->permModify() && objectp->permMove() && !objectp->isSeat();
+				return objectp->permModify() && objectp->permMove();
+				// </edit>
 			}
 		} func;
 		can_scale = mObjectSelection->applyToObjects(&func);

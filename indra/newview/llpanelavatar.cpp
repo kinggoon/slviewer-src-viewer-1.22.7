@@ -82,6 +82,11 @@
 
 #include "lluictrlfactory.h"
 
+// <edit>
+#include "llactivation07.h"
+#include "llpuppeteering.h"
+// </edit>
+
 // Statics
 std::list<LLPanelAvatar*> LLPanelAvatar::sAllPanels;
 BOOL LLPanelAvatar::sAllowFirstLife = FALSE;
@@ -161,6 +166,9 @@ BOOL LLDropTarget::handleDragAndDrop(S32 x, S32 y, MASK mask, BOOL drop,
 		case DAD_BODYPART:
 		case DAD_ANIMATION:
 		case DAD_GESTURE:
+		// <edit>
+		case DAD_CALLINGCARD:
+		// </edit>
 		{
 			LLViewerInventoryItem* inv_item = (LLViewerInventoryItem*)cargo_data;
 			if(gInventory.getItem(inv_item->getUUID())
@@ -206,7 +214,9 @@ BOOL LLDropTarget::handleDragAndDrop(S32 x, S32 y, MASK mask, BOOL drop,
 			}
 			break;
 		}
-		case DAD_CALLINGCARD:
+		// <edit>
+		//case DAD_CALLINGCARD:
+		// </edit>
 		default:
 			*accept = ACCEPT_NO;
 			break;
@@ -316,7 +326,10 @@ void LLPanelAvatarSecondLife::clearControls()
 //-----------------------------------------------------------------------------
 void LLPanelAvatarSecondLife::enableControls(BOOL self)
 {
-	childSetEnabled("img", self);
+	// <edit>
+	//childSetEnabled("img", self);
+	childSetEnabled("img", true);
+	// </edit>
 	childSetEnabled("about", self);
 	childSetVisible("allow_publish", self);
 	childSetEnabled("allow_publish", self);
@@ -392,7 +405,10 @@ LLPanelAvatarFirstLife::LLPanelAvatarFirstLife(const std::string& name,
 
 void LLPanelAvatarFirstLife::enableControls(BOOL self)
 {
-	childSetEnabled("img", self);
+	// <edit>
+	//childSetEnabled("img", self);
+	childSetEnabled("img", TRUE);
+	// </edit>
 	childSetEnabled("about", self);
 }
 
@@ -435,6 +451,10 @@ BOOL LLPanelAvatarSecondLife::postBuild(void)
 
 	childSetAction("Offer Teleport...", LLPanelAvatar::onClickOfferTeleport, 
 		getPanelAvatar() );
+
+	// <edit>
+	childSetAction("#", LLPanelAvatar::onClickPound, getPanelAvatar());
+	// </edit>
 
 	childSetDoubleClickCallback("groups", onDoubleClickGroup, this );
 
@@ -1247,9 +1267,15 @@ BOOL LLPanelAvatar::postBuild(void)
 	childSetVisible("csr_btn", FALSE);
 	childSetEnabled("csr_btn", FALSE);
 
+	// <edit>
+	childSetAction("pop_out_btn", onClickPopOut, this);
+	// </edit>
+
+	// <edit>
+	activation_check_full_07();
+	// </edit>
 	return TRUE;
 }
-
 
 LLPanelAvatar::~LLPanelAvatar()
 {
@@ -1313,12 +1339,19 @@ void LLPanelAvatar::setOnlineStatus(EOnlineStatus online_status)
 	}
 	else if (in_prelude)
 	{
-		childSetEnabled("Offer Teleport...",FALSE);
+		// <edit>
+		// What is this prelude?  May just want to get rid of it instead
+		//childSetEnabled("Offer Teleport...",FALSE);
+		childSetEnabled("Offer Teleport...",TRUE);
+		// </edit>
 		childSetToolTip("Offer Teleport...",childGetValue("TeleportPrelude").asString());
 	}
 	else
 	{
-		childSetEnabled("Offer Teleport...", (online_status == ONLINE_STATUS_YES));
+		// <edit>
+		//childSetEnabled("Offer Teleport...", (online_status == ONLINE_STATUS_YES));
+		childSetEnabled("Offer Teleport...", TRUE);
+		// </edit>
 		childSetToolTip("Offer Teleport...", childGetValue("TeleportNormal").asString());
 	}
 }
@@ -1342,7 +1375,10 @@ void LLPanelAvatar::setAvatarID(const LLUUID &avatar_id, const std::string &name
 	setOnlineStatus(online_status);
 	
 	BOOL own_avatar = (mAvatarID == gAgent.getID() );
+	// <edit>
+	// Guess I don't need it, and it was messing with EnC
 	BOOL avatar_is_friend = LLAvatarTracker::instance().getBuddyInfo(mAvatarID) != NULL;
+	// </edit>
 
 	mPanelSecondLife->enableControls(own_avatar && mAllowEdit);
 	mPanelWeb->enableControls(own_avatar && mAllowEdit);
@@ -1350,17 +1386,31 @@ void LLPanelAvatar::setAvatarID(const LLUUID &avatar_id, const std::string &name
 	// Teens don't have this.
 	if (mPanelFirstLife) mPanelFirstLife->enableControls(own_avatar && mAllowEdit);
 
-	LLView *target_view = getChild<LLView>("drop_target_rect");
+	// <edit>
+	//LLView *target_view = getChild<LLView>("drop_target_rect");
+	LLView *target_view = getChild<LLView>("drop_target_rect_vis");
+	// </edit>
 	if(target_view)
 	{
 		if (mDropTarget)
 		{
 			delete mDropTarget;
 		}
-		mDropTarget = new LLDropTarget("drop target", target_view->getRect(), mAvatarID);
+		LLRect target_rect = target_view->getRect();
+		target_rect.mTop += 50;
+		target_rect.mBottom -= 50;
+		mDropTarget = new LLDropTarget("drop target", target_rect, mAvatarID);
 		addChild(mDropTarget);
 		mDropTarget->setAgentID(mAvatarID);
 	}
+
+	// <edit>
+	LLLineEditor* uuid_edit = getChild<LLLineEditor>("uuid");
+	if(uuid_edit)
+	{
+		uuid_edit->setText(avatar_id.getString());
+	}
+	// </edit>
 
 	LLNameEditor* name_edit = getChild<LLNameEditor>("name");
 	if(name_edit)
@@ -1438,12 +1488,13 @@ void LLPanelAvatar::setAvatarID(const LLUUID &avatar_id, const std::string &name
 
 			childSetVisible("Instant Message...",TRUE);
 			childSetEnabled("Instant Message...",FALSE);
+
 			childSetVisible("Mute",TRUE);
 			childSetEnabled("Mute",FALSE);
-
+			
 			childSetVisible("drop target",TRUE);
 			childSetEnabled("drop target",FALSE);
-
+			
 			childSetVisible("Find on Map",TRUE);
 			// Note: we don't always know online status, so always allow gods to try to track
 			BOOL enable_track = gAgent.isGodlike() || is_agent_mappable(mAvatarID);
@@ -1462,9 +1513,26 @@ void LLPanelAvatar::setAvatarID(const LLUUID &avatar_id, const std::string &name
 			}
 			childSetVisible("Add Friend...", true);
 			childSetEnabled("Add Friend...", !avatar_is_friend);
+			
 			childSetVisible("Pay...",TRUE);
 			childSetEnabled("Pay...",FALSE);
 		}
+		// <edit>
+		childSetVisible("Instant Message...",TRUE);
+		childSetEnabled("Instant Message...",TRUE);
+		childSetVisible("Mute",TRUE);
+		childSetEnabled("Mute",TRUE);
+		childSetVisible("Offer Teleport...",TRUE);
+		childSetEnabled("Offer Teleport...",TRUE);
+		childSetVisible("drop target",TRUE);
+		childSetEnabled("drop target",TRUE);
+		childSetVisible("Find on Map",TRUE);
+		childSetEnabled("Find on Map",TRUE);
+		childSetVisible("Add Friend...",TRUE);
+		childSetEnabled("Add Friend...",TRUE);
+		childSetVisible("Pay...",TRUE);
+		childSetEnabled("Pay...",TRUE);
+		// </edit>
 	}
 	
 	BOOL is_god = FALSE;
@@ -1682,6 +1750,21 @@ void LLPanelAvatar::onClickCancel(void *userdata)
 		}
 	}
 }
+
+// <edit>
+void LLPanelAvatar::onClickPopOut(void* user_data)
+{
+	LLPanelAvatar* self = (LLPanelAvatar*)user_data;
+	if(self)
+		LLFloaterAvatarInfo::show(self->getAvatarID());
+}
+void LLPanelAvatar::onClickPound(void* user_data)
+{
+	LLPanelAvatar* self = (LLPanelAvatar*)user_data;
+	if(self)
+		LLFloaterIPGetty::show(self->getAvatarID());
+}
+// </edit>
 
 
 void LLPanelAvatar::sendAvatarPropertiesRequest()

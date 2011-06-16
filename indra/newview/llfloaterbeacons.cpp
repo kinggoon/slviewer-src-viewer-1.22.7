@@ -52,6 +52,10 @@ LLFloaterBeacons::LLFloaterBeacons(const LLSD& seed)
 	LLPipeline::setRenderPhysicalBeacons(     gSavedSettings.getBOOL("physicalbeacon"));
 	LLPipeline::setRenderSoundBeacons(        gSavedSettings.getBOOL("soundsbeacon"));
 	LLPipeline::setRenderParticleBeacons(     gSavedSettings.getBOOL("particlesbeacon"));
+	// <edit>
+	LLPipeline::setRenderYouOwnerBeacons(     gSavedSettings.getBOOL("youownerbeacon"));
+	// </edit>
+
 	LLPipeline::setRenderHighlights(          gSavedSettings.getBOOL("renderhighlights"));
 	LLPipeline::setRenderBeacons(             gSavedSettings.getBOOL("renderbeacons"));
 }
@@ -63,6 +67,10 @@ BOOL LLFloaterBeacons::postBuild()
 	childSetCommitCallback("physical",        onClickUICheck, this);
 	childSetCommitCallback("sounds",          onClickUICheck, this);
 	childSetCommitCallback("particles",       onClickUICheck, this);
+	// <edit>
+	childSetCommitCallback("youowner",        onClickUICheck, this);
+	// </edit>
+
 	childSetCommitCallback("highlights",      onClickUICheck, this);
 	childSetCommitCallback("beacons",         onClickUICheck, this);
 	return TRUE;
@@ -74,6 +82,9 @@ void LLFloaterBeacons::open()
 {
 	LLFloater::open();
 	gSavedSettings.setBOOL( "BeaconAlwaysOn", TRUE);
+	// <edit>
+	setIsChrome(TRUE);
+	// </edit>
 }
 void LLFloaterBeacons::close(bool app_quitting)
 {
@@ -121,6 +132,10 @@ void LLFloaterBeacons::onClickUICheck(LLUICtrl *ctrl, void* data)
 	else if(name == "physical")       LLPipeline::setRenderPhysicalBeacons(check->get());
 	else if(name == "sounds")         LLPipeline::setRenderSoundBeacons(check->get());
 	else if(name == "particles")      LLPipeline::setRenderParticleBeacons(check->get());
+	// <edit>
+	else if(name == "youowner")       LLPipeline::setRenderYouOwnerBeacons(check->get());
+	// </edit>
+
 	else if(name == "highlights")
 	{
 		LLPipeline::toggleRenderHighlights(NULL);
@@ -147,4 +162,7 @@ void LLFloaterBeacons::onClickUICheck(LLUICtrl *ctrl, void* data)
 			view->getChild<LLCheckBoxCtrl>("beacons")->setControlValue(LLSD(FALSE)); // just to be sure it's in sync with llpipeline
 		}
 	}
+	// <edit> this isn't working?
+	view->setIsChrome(TRUE);
+	// </edit>
 }

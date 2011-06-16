@@ -190,6 +190,14 @@ void LLProgressView::draw()
 {
 	static LLTimer timer;
 
+	// <edit>
+	if(1)
+	{
+		LLView::setVisible(FALSE);
+		return;
+	}
+	// </edit>
+
 	if (gNoRender)
 	{
 		return;
@@ -198,6 +206,7 @@ void LLProgressView::draw()
 	// Make sure the progress view always fills the entire window.
 	S32 width = gViewerWindow->getWindowWidth();
 	S32 height = gViewerWindow->getWindowHeight();
+
 	if( (width != getRect().getWidth()) || (height != getRect().getHeight()) )
 	{
 		reshape( width, height );

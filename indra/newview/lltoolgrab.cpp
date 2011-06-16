@@ -604,6 +604,8 @@ void LLToolGrab::handleHoverActive(S32 x, S32 y, MASK mask)
 			*/
 
 			// Don't let object centers go underground.
+			// <edit>
+			/*
 			F32 land_height = LLWorld::getInstance()->resolveLandHeightGlobal(grab_point_global);
 
 			if (grab_point_global.mdV[VZ] < land_height)
@@ -616,6 +618,8 @@ void LLToolGrab::handleHoverActive(S32 x, S32 y, MASK mask)
 			{
 				grab_point_global.mdV[VZ] = MAX_OBJECT_Z;
 			}
+			*/
+			// </edit>
 
 			grab_point_global = LLWorld::getInstance()->clipToVisibleRegions(mDragStartPointGlobal, grab_point_global);
 			// propagate constrained grab point back to grab offset

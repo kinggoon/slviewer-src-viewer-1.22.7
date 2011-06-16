@@ -61,8 +61,12 @@ public:
 	virtual void navigateToDefaultPage();
 	void focus();
 
-	static std::string buildSearchURL(const std::string& search_text, const std::string& collection, bool mature_in);
-	static std::string getSearchURLSuffix(bool mature_in);
+	// <edit>
+	//static std::string buildSearchURL(const std::string& search_text, const std::string& collection, bool mature_in);
+	//static std::string getSearchURLSuffix(bool mature_in);
+	static std::string buildSearchURL(const std::string& search_text, const std::string& collection, int mat);
+	static std::string getSearchURLSuffix(int mat);
+	// </edit>
 
 private:
 	static void onClickBack( void* data );

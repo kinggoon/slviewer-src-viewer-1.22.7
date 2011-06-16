@@ -304,6 +304,7 @@ void LLFollowCam::update()
 	LLVector3 offsetSubjectPosition = mSubjectPosition + (mFocusOffset * mSubjectRotation);
 
 	LLVector3 simulated_pos_agent = gAgent.getPosAgentFromGlobal(mSimulatedPositionGlobal);
+	
 	LLVector3 vectorFromCameraToSubject = offsetSubjectPosition - simulated_pos_agent;
 	F32 distanceFromCameraToSubject = vectorFromCameraToSubject.magVec();
 

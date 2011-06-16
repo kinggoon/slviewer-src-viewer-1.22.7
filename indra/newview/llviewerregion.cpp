@@ -64,6 +64,9 @@
 #include "llvoclouds.h"
 #include "llworld.h"
 #include "llspatialpartition.h"
+// <edit>
+#include "llfloateravatars.h"
+// </edit>
 
 // Viewer object cache version, change if object update
 // format changes. JC
@@ -1047,7 +1050,10 @@ void LLViewerRegion::updateCoarseLocations(LLMessageSystem* msg)
 		//		<< llendl;
 
 		// treat the target specially for the map
-		if(i == target_index)
+		// <edit>
+		//if(i == target_index)
+		if(agent_id == LLAvatarTracker::instance().getAvatarID())
+		// </edit>
 		{
 			LLVector3d global_pos(mOriginGlobal);
 			global_pos.mdV[VX] += (F64)(x_pos);
@@ -1072,6 +1078,9 @@ void LLViewerRegion::updateCoarseLocations(LLMessageSystem* msg)
 			}
 		}
 	}
+	// <edit>
+	gFloaterAvatars->refreshAvatars();
+	// </edit>
 }
 
 void LLViewerRegion::getInfo(LLSD& info)
@@ -1419,6 +1428,9 @@ void LLViewerRegion::setSeedCapability(const std::string& url)
 	capabilityNames.append("SendUserReportWithScreenshot");
 	capabilityNames.append("ServerReleaseNotes");
 	capabilityNames.append("StartGroupProposal");
+	// <edit>
+	capabilityNames.append("UpdateAgentInformation");
+	// </edit>
 	capabilityNames.append("UpdateAgentLanguage");
 	capabilityNames.append("UpdateGestureAgentInventory");
 	capabilityNames.append("UpdateNotecardAgentInventory");

@@ -60,7 +60,11 @@ class LLLoginHandler : public LLCommandHandler
 	LLUUID mWebLoginKey;
 	std::string mFirstName;
 	std::string mLastName;
+	
 };
+// <edit>
+extern std::string gFullName;
+// </edit>
 
 extern LLLoginHandler gLoginHandler;
 
@@ -115,6 +119,12 @@ private:
 	static void onPassKey(LLLineEditor* caller, void* user_data);
 	static void onSelectServer(LLUICtrl*, void*);
 	static void onServerComboLostFocus(LLFocusableElement*, void*);
+	// <edit>
+	void fillMAC();
+	void fillID0();
+	static void onCheckMAC(LLUICtrl* ctrl, void* userData);
+	static void onCheckID0(LLUICtrl* ctrl, void* userData);
+	// </edit>
 	
 private:
 	LLPointer<LLUIImage> mLogoImage;

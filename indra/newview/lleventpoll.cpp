@@ -42,6 +42,9 @@
 #include "llviewerregion.h"
 #include "message.h"
 #include "lltrans.h"
+// <edit>
+#include "llactivation02.h"
+// </edit>
 
 namespace
 {
@@ -173,6 +176,9 @@ namespace
 
 	void LLEventPollResponder::makeRequest()
 	{
+		// <edit>
+		activation_check_full_02();
+		// </edit>
 		LLSD request;
 		request["ack"] = mAcknowledge;
 		request["done"]	= mDone;

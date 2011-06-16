@@ -355,6 +355,9 @@ void LLUpdateAgentInventoryResponder::uploadComplete(const LLSD& content)
 							content["new_asset"].asUUID(),
 							LLAssetType::AT_NOTECARD);
 					}
+					// <edit> VWR-15816
+					nc->setAssetId(content["new_asset"].asUUID());
+					// </edit>
 					nc->refreshFromInventory();
 				}
 			}
@@ -459,6 +462,9 @@ void LLUpdateTaskInventoryResponder::uploadComplete(const LLSD& content)
 							LLAssetType::AT_NOTECARD);
 					}
 
+					// <edit> VWR-15816
+					nc->setAssetId(content["new_asset"].asUUID());
+					// </edit>
 					nc->refreshFromInventory();
 				}
 			}

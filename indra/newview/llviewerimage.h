@@ -163,7 +163,10 @@ public:
 	
 	enum
 	{
-		MAX_IMAGE_SIZE_DEFAULT = 1024,
+		// <edit>
+		//MAX_IMAGE_SIZE_DEFAULT = 1024,
+		MAX_IMAGE_SIZE_DEFAULT = 65536, //0x7FFFFFFF, // S32 max
+		// </edit>
 		INVALID_DISCARD_LEVEL = 0x7fff
 	};
 
@@ -198,6 +201,11 @@ public:
 	void setLoadedCallback(loaded_callback_func cb,
 						   S32 discard_level, BOOL keep_imageraw, BOOL needs_aux,
 						   void* userdata);
+	// <edit>
+	void setLoadedCallbackNoAux(loaded_callback_func cb,
+						   S32 discard_level, BOOL keep_imageraw, BOOL needs_aux,
+						   void* userdata);
+	// </edit>
 
 	 // ONLY call from LLViewerImageList
 	BOOL createTexture(S32 usename = 0);

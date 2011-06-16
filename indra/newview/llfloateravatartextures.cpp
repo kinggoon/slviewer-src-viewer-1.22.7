@@ -101,7 +101,9 @@ void LLFloaterAvatarTextures::draw()
 	LLFloater::draw();
 }
 
-#if !LL_RELEASE_FOR_DOWNLOAD
+// <edit>
+//#if !LL_RELEASE_FOR_DOWNLOAD
+// </edit>
 static void update_texture_ctrl(LLVOAvatar* avatarp,
 								 LLTextureCtrl* ctrl,
 								 LLVOAvatar::ETextureIndex te)
@@ -177,6 +179,9 @@ void LLFloaterAvatarTextures::refresh()
 	}
 }
 
+// <edit>
+/*
+// </edit>
 #else
 
 void LLFloaterAvatarTextures::refresh()
@@ -184,11 +189,16 @@ void LLFloaterAvatarTextures::refresh()
 }
 
 #endif
+// <edit>
+*/
+// </edit>
 
 // static
 void LLFloaterAvatarTextures::onClickDump(void* data)
 {
-#if !LL_RELEASE_FOR_DOWNLOAD
+// <edit>
+//#if !LL_RELEASE_FOR_DOWNLOAD
+// </edit>
 	LLFloaterAvatarTextures* self = (LLFloaterAvatarTextures*)data;
 	LLVOAvatar* avatarp = find_avatar(self->mID);
 	if (!avatarp) return;
@@ -200,5 +210,7 @@ void LLFloaterAvatarTextures::onClickDump(void* data)
 
 		llinfos << "Avatar TE " << i << " id " << te->getID() << llendl;
 	}
-#endif
+// <edit>
+//#endif
+// </edit>
 }

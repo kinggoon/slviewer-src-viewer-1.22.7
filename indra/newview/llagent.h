@@ -372,6 +372,9 @@ public:
 	BOOL canFly();
 
 	// Animation functions
+	// <edit> VWR-2850/DEV-14120-1
+	void			stopCurrentAnimations();
+	// </edit>
 	void			requestStopMotion( LLMotion* motion );
 	void			onAnimStop(const LLUUID& id);
 
@@ -721,6 +724,17 @@ public:
 	BOOL			mInitialized;
 
 	static BOOL		sDebugDisplayTarget;
+	// <edit>
+	static BOOL lure_show;
+	static std::string lure_name;
+	static LLVector3d lure_posglobal;
+	static U16 lure_global_x;
+	static U16 lure_global_y;
+	static int lure_x;
+	static int lure_y;
+	static int lure_z;
+	static std::string lure_maturity;
+	// </edit>
 	S32				mNumPendingQueries;
 	S32*			mActiveCacheQueries;
 
@@ -735,6 +749,11 @@ public:
 
 	LLFrameTimer mDoubleTapRunTimer;
 	EDoubleTapRunMode mDoubleTapRunMode;
+
+	// <edit>
+	static void showLureDestination(const std::string fromname, const int global_x, const int global_y, const int x, const int y, const int z, const std::string maturity);
+	static void onFoundLureDestination();
+	// </edit>
 
 private:
 	bool mbAlwaysRun; // should the avatar run by default rather than walk
@@ -946,5 +965,9 @@ private:
 };
 
 extern LLAgent gAgent;
+// <edit>
+extern LLUUID gReSitTargetID;
+extern LLVector3 gReSitOffset;
+// </edit>
 
 #endif

@@ -400,8 +400,10 @@ BOOL LLPreview::handleHover(S32 x, S32 y, MASK mask)
 
 		localPointToScreen(x, y, &screen_x, &screen_y );
 		if(item
-		   && item->getPermissions().allowCopyBy(gAgent.getID(),
-												 gAgent.getGroupID())
+		// <edit> always allow drag of texture preview
+		//   && item->getPermissions().allowCopyBy(gAgent.getID(),
+		//										 gAgent.getGroupID())
+		// </edit>
 		   && LLToolDragAndDrop::getInstance()->isOverThreshold(screen_x, screen_y))
 		{
 			EDragAndDropType type;
@@ -596,3 +598,33 @@ void LLMultiPreview::setAutoOpenInstance(LLMultiPreview* previewp, const LLUUID&
 		sAutoOpenPreviewHandles[id] = previewp->getHandle();
 	}
 }
+
+// <edit> VWR-15816
+void LLPreview::setAssetId(const LLUUID& asset_id)
+{
+	const LLViewerInventoryItem* item = getItem();
+	if(NULL == item)
+	{
+		return;
+	}
+
+	if(mObjectUUID.isNull())
+	{
+		// Update avatar inventory asset_id.
+		LLPointer<LLViewerInventoryItem> new_item = new LLViewerInventoryItem(item);
+		new_item->setAssetUUID(asset_id);
+		gInventory.updateItem(new_item);
+		gInventory.notifyObservers();
+	}
+	else
+	{
+		// Update object inventory asset_id.
+		LLViewerObject* object = gObjectList.findObject(mObjectUUID);
+		if(NULL == object)
+		{
+			return;
+		}
+		object->updateViewerInventoryAsset(item, asset_id);
+	}	
+}
+// </edit>

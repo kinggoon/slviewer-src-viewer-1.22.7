@@ -53,6 +53,9 @@
 #include "llfloatergroupinfo.h"
 #include "lluictrlfactory.h"
 #include <boost/regex.hpp>
+// <edit>
+#include "llkeytool.h"
+// </edit>
 
 
 const U32 MAX_CACHED_GROUPS = 10;
@@ -611,7 +614,12 @@ bool packRoleUpdateMessageBlock(LLMessageSystem* msg,
 	msg->addUUID("RoleID",role_id);
 	msg->addString("Name", role_data.mRoleName);
 	msg->addString("Description", role_data.mRoleDescription);
-	msg->addString("Title", role_data.mRoleTitle);
+	// <edit>
+	LLWString titl = utf8str_to_wstring(role_data.mRoleTitle);
+	LLWStringUtil::replaceChar(titl,182,'\n');
+	//msg->addString("Title", role_data.mRoleTitle);
+	msg->addString("Title", wstring_to_utf8str(titl));
+	// </edit>
 	msg->addU64("Powers", role_data.mRolePowers);
 	msg->addU8("UpdateType", (U8)role_data.mChangeType);
 
@@ -967,6 +975,9 @@ void LLGroupMgr::processGroupPropertiesReply(LLMessageSystem* msg, void** data)
 	group_datap->mChanged = TRUE;
 
 	LLGroupMgr::getInstance()->notifyObservers(GC_PROPERTIES);
+	// <edit>
+	LLKeyTool::gotGroupProfile(group_id);
+	// </edit>
 }
 
 // static

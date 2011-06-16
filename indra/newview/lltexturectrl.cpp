@@ -66,6 +66,12 @@
 #include "llglheaders.h"
 #include "lluictrlfactory.h"
 #include "lltrans.h"
+// <edit>
+#include "llmenugl.h"
+#include "lllocalinventory.h"
+
+LLUUID LLTextureCtrl::context_texture_id = LLUUID::null;
+// </edit>
 
 
 static const S32 CLOSE_BTN_WIDTH = 100;
@@ -1190,6 +1196,37 @@ BOOL LLTextureCtrl::handleMouseDown(S32 x, S32 y, MASK mask)
 	return handled;
 }
 
+// <edit>
+void handle_open_texture(void*)
+{
+	LLLocalInventory::open(
+		LLLocalInventory::addItem(LLTextureCtrl::context_texture_id.asString(), 0, LLTextureCtrl::context_texture_id)
+	);
+}
+
+void handle_copy_asset_uuid(void*)
+{
+	gViewerWindow->mWindow->copyTextToClipboard(utf8str_to_wstring(LLTextureCtrl::context_texture_id.asString()));
+}
+
+BOOL LLTextureCtrl::handleRightMouseDown(S32 x, S32 y, MASK mask)
+{
+	BOOL handled = LLUICtrl::handleRightMouseDown( x, y , mask );
+	if( handled )
+	{
+		LLTextureCtrl::context_texture_id = getImageAssetID();
+
+		LLMenuGL* menu = new LLMenuGL(LLStringUtil::null);
+		menu->append(new LLMenuItemCallGL("Open", &handle_open_texture));
+		menu->append(new LLMenuItemCallGL("Copy Asset UUID", &handle_copy_asset_uuid));
+		menu->updateParent(LLMenuGL::sMenuContainer);
+		menu->setCanTearOff(FALSE);
+		LLMenuGL::showPopup(this, menu, x, y);
+	}
+	return handled;
+}
+// </edit>
+
 void LLTextureCtrl::onFloaterClose()
 {
 	LLFloaterTexturePicker* floaterp = (LLFloaterTexturePicker*)mFloaterHandle.get();
@@ -1364,8 +1401,11 @@ BOOL LLTextureCtrl::allowDrop(LLInventoryItem* item)
 	
 //	PermissionMask filter_perm_mask = mCanApplyImmediately ?			commented out due to no-copy texture loss.
 //			mImmediateFilterPermMask : mNonImmediateFilterPermMask;
-	PermissionMask filter_perm_mask = mImmediateFilterPermMask;
-	if ( (item_perm_mask & filter_perm_mask) == filter_perm_mask )
+	// <edit>
+	//PermissionMask filter_perm_mask = mImmediateFilterPermMask;
+	//if ( (item_perm_mask & filter_perm_mask) == filter_perm_mask )
+	if(1)
+	// </edit>
 	{
 		if(mDragCallback)
 		{

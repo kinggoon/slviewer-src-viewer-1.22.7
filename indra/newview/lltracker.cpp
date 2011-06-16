@@ -733,7 +733,10 @@ void LLTracker::setLandmarkVisited()
 	{
 		LLInventoryItem* i = gInventory.getItem( mTrackedLandmarkItemID );
 		LLViewerInventoryItem* item = (LLViewerInventoryItem*)i;
-		if (   item 
+		// <edit> just in case
+		//if (   item 
+		if( item && !(gInventory.isObjectDescendentOf(item->getUUID(), gLocalInventoryRoot))
+		// </edit>
 			&& !(item->getFlags()&LLInventoryItem::II_FLAGS_LANDMARK_VISITED))
 		{
 			U32 flags = item->getFlags();

@@ -73,6 +73,9 @@
 #include "llhttpclient.h"
 #include "llmutelist.h"
 #include "llstylemap.h"
+// <edit>
+#include "llfunfonts.h"
+// </edit>
 
 //
 // Constants
@@ -1941,6 +1944,9 @@ void LLFloaterIMPanel::sendMsg()
 		{
 			// Truncate and convert to UTF8 for transport
 			std::string utf8_text = wstring_to_utf8str(text);
+			// <edit>
+			utf8_text = LLFunFonts::apply(utf8_text);
+			// </edit>
 			utf8_text = utf8str_truncate(utf8_text, MAX_MSG_BUF_SIZE - 1);
 			
 			if ( mSessionInitialized )

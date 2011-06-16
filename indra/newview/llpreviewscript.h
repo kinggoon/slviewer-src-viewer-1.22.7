@@ -149,6 +149,10 @@ private:
 	LLFrameTimer	mLiveHelpTimer;
 	S32				mLiveHelpHistorySize;
 	BOOL			mEnableSave;
+	// <edit>
+public:
+	BOOL			mChangedMono;
+	// </edit>
 };
 
 
@@ -177,6 +181,11 @@ protected:
 							const LLUUID& item_id,
 							const LLTransactionID& tid);
 
+	// <edit>
+	virtual BOOL canSaveAs() const;
+	virtual void saveAs();
+	// </edit>
+
 	static void onSearchReplace(void* userdata);
 	static void onLoad(void* userdata);
 	static void onSave(void* userdata, BOOL close_after_save);
@@ -184,6 +193,9 @@ protected:
 	static void onLoadComplete(LLVFS *vfs, const LLUUID& uuid,
 							   LLAssetType::EType type,
 							   void* user_data, S32 status, LLExtStat ext_status);
+	// <edit>
+	static void onMonoClicked(LLUICtrl*, void* userdata);
+	// </edit>
 	static void onSaveComplete(const LLUUID& uuid, void* user_data, S32 status, LLExtStat ext_status);
 	static void onSaveBytecodeComplete(const LLUUID& asset_uuid, void* user_data, S32 status, LLExtStat ext_status);
 public:

@@ -154,8 +154,14 @@ public:
 
 protected:
 	void deleteTrackingData();
+// <edit>
+public:
+// </edit>
 	void agentFound(const LLUUID& prey,
 					const LLVector3d& estimated_global_pos);
+// <edit>
+protected:
+// </edit>
 
 	// Message system functionality
 	static void processAgentFound(LLMessageSystem* msg, void**);

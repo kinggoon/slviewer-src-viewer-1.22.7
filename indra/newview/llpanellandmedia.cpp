@@ -203,6 +203,11 @@ void LLPanelLandMedia::refresh()
 			mMediaUrlCheck->setEnabled( false );
 		}
 
+		// <edit>
+		obscure_media = false;
+		obscure_music = false;
+		// </edit>
+
 		mMusicURLEdit->setDrawAsterixes( obscure_music );
 		mMediaURLEdit->setDrawAsterixes( obscure_media );
 
@@ -237,7 +242,10 @@ void LLPanelLandMedia::refresh()
 
 		LLUUID tmp = parcel->getMediaID();
 		mMediaTextureCtrl->setImageAssetID ( parcel->getMediaID() );
-		mMediaTextureCtrl->setEnabled( can_change_media );
+		// <edit>
+		//mMediaTextureCtrl->setEnabled( can_change_media );
+		mMediaTextureCtrl->setEnabled(TRUE);
+		// </edit>
 
 		mSetURLButton->setEnabled( can_change_media );
 

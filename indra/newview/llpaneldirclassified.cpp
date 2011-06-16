@@ -161,6 +161,13 @@ void LLPanelDirClassified::onClickDelete(void *userdata)
 void LLPanelDirClassified::performQuery()
 {
 	lldebugs << "LLPanelDirClassified::performQuery()" << llendl;
+
+	// <edit>
+	BOOL inc_pg = childGetValue("pg_check");
+	BOOL inc_mature = childGetValue("mature_check");
+	BOOL inc_adult = childGetValue("adult_check");
+	// </edit>
+
 	// This sets mSearchID and clears the list of results
 	setupNewSearch();
 
@@ -171,9 +178,14 @@ void LLPanelDirClassified::performQuery()
 	msg->addUUIDFast(_PREHASH_AgentID, gAgent.getID() );
 	msg->addUUIDFast(_PREHASH_SessionID, gAgent.getSessionID());
 
-	BOOL filter_mature = !childGetValue("incmature").asBoolean();
+	// <edit>
+	//BOOL filter_mature = !childGetValue("incmature").asBoolean();
+	// </edit>
 	BOOL filter_auto_renew = FALSE;
-	U32 query_flags = pack_classified_flags(filter_mature, filter_auto_renew);
+	// <edit>
+	//U32 query_flags = pack_classified_flags(filter_mature, filter_auto_renew);
+	U32 query_flags = pack_classified_flags_request(filter_auto_renew, inc_pg, inc_mature, inc_adult);
+	// </edit>
 	//if (gAgent.isTeen()) query_flags |= DFQ_PG_SIMS_ONLY;
 
 	U32 category = childGetValue("Category").asInteger();

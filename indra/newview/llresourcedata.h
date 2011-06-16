@@ -41,6 +41,9 @@ struct LLResourceData
 	LLAssetType::EType mPreferredLocation;
 	LLInventoryType::EType mInventoryType;
 	U32 mNextOwnerPerm;
+	// <edit>
+	BOOL mTemporary;
+	// </edit>
 	void *mUserData;
 };
 

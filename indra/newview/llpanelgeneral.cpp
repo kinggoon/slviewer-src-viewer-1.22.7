@@ -40,6 +40,10 @@
 #include "lluictrlfactory.h"
 #include "llurlsimstring.h"
 #include "llviewercontrol.h"
+// <edit>
+#include "llagent.h"
+#include "llviewerregion.h"
+// </edit>
 
 LLPanelGeneral::LLPanelGeneral()
 {
@@ -70,8 +74,10 @@ BOOL LLPanelGeneral::postBuild()
 	childSetValue("ui_scale_slider", gSavedSettings.getF32("UIScaleFactor"));
 	childSetValue("ui_auto_scale", gSavedSettings.getBOOL("UIAutoScale"));
 
-	LLComboBox* crash_behavior_combobox = getChild<LLComboBox>("crash_behavior_combobox");
-	crash_behavior_combobox->setCurrentByIndex(gCrashSettings.getS32(CRASH_BEHAVIOR_SETTING));
+	// <edit>
+	//LLComboBox* crash_behavior_combobox = getChild<LLComboBox>("crash_behavior_combobox");
+	//crash_behavior_combobox->setCurrentByIndex(gCrashSettings.getS32(CRASH_BEHAVIOR_SETTING));
+	// </edit>
 	
 	childSetValue("language_combobox", 	gSavedSettings.getString("Language"));
 
@@ -107,8 +113,32 @@ void LLPanelGeneral::apply()
 
 	LLURLSimString::setString(childGetValue("location_combobox"));
 
-	LLComboBox* crash_behavior_combobox = getChild<LLComboBox>("crash_behavior_combobox");
-	gCrashSettings.setS32(CRASH_BEHAVIOR_SETTING, crash_behavior_combobox->getCurrentIndex());
+	// <edit>
+	//LLComboBox* crash_behavior_combobox = getChild<LLComboBox>("crash_behavior_combobox");
+	//gCrashSettings.setS32(CRASH_BEHAVIOR_SETTING, crash_behavior_combobox->getCurrentIndex());
+	// </edit>
+
+	// <edit>
+	std::string mat_max = childGetValue("maturity_desired_combobox").asString();
+	if(mat_max != "None")
+	{
+		if(gAgent.getID().notNull())
+		{
+			std::string url = gAgent.getRegion()->getCapability("UpdateAgentInformation");
+			if (!url.empty())
+			{
+				// Set new access preference
+				LLSD access_prefs = LLSD::emptyMap();
+				access_prefs["max"] = mat_max;
+				LLSD body = LLSD::emptyMap();
+				body["access_prefs"] = access_prefs;
+				llinfos << "Sending access prefs update to " << (access_prefs["max"].asString()) << " via capability to: "
+				<< url << llendl;
+				LLHTTPClient::post(url, body, new LLHTTPClient::Responder());    // Ignore response
+			}
+		}
+	}
+	// </edit>
 }
 
 void LLPanelGeneral::cancel()

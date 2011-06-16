@@ -57,6 +57,18 @@
 #include "message.h"
 #include "raytrace.h"
 #include "llsdserialize.h"
+// <edit>
+#include "lleconomy.h"
+#include "llsdutil.h"
+
+#include "lllocalinventory.h"
+#include "llimportobject.h"
+#include "llfloaterexport.h"
+#include "llfloaterinterceptor.h"
+#include "llfloaterexploreanimations.h"
+#include "llfloatercrashers.h"
+#include "llnotecardmagic.h"
+// </edit>
 #include "lltimer.h"
 #include "llvfile.h"
 #include "llvolumemgr.h"
@@ -207,6 +219,21 @@
 #include "llwaterparammanager.h"
 
 #include "lltexlayer.h"
+
+// <edit>
+#include "llviewertexteditor.h"
+#include "llstyle.h"
+#include "llao.h"
+#include "llfloateravatars.h"
+#include "llfloaterexploresounds.h"
+#include "llfloaterhex.h"
+#include "llfloaterkeytool.h"
+#include "llfaggotry.h"
+#include "llfloatervfs.h"
+#include "llfloatermessagelog.h"
+#include "llfloatermessagebuilder.h"
+#include "llpuppeteering.h"
+// </edit>
 
 void init_client_menu(LLMenuGL* menu);
 void init_server_menu(LLMenuGL* menu);
@@ -366,6 +393,31 @@ void handle_god_mode(void*);
 
 // God menu
 void handle_leave_god_mode(void*);
+
+// <edit>
+void handle_crash_pointat(void*);
+void handle_crash_anim_a(void*);
+void handle_crash_anim_b(void*);
+void handle_ground_sit(void*);
+void handle_goto_ground(void*);
+void handle_interceptor(void*);
+void handle_edit_ao(void*);
+void handle_local_assets(void*);
+void handle_crashers(void*);
+void handle_crashpackets(void*);
+void handle_new_crashpackets(void*);
+void confirm_crashpackets(S32 option, void* userdata);
+void confirm_new_crashpackets(S32 option, void* userdata);
+void handle_get_voice_uri(void*);
+void handle_close_all_notifications(void*);
+void handle_test(void*);
+void handle_reopen_with_hex_editor(void*);
+void handle_keytool_from_clipboard(void*);
+void handle_open_message_log(void*);
+void handle_open_message_builder(void*);
+void handle_magic_get(void*);
+void handle_magic_get_all(void*);
+// </edit>
 
 BOOL is_inventory_visible( void* user_data );
 void handle_reset_view();
@@ -805,7 +857,9 @@ void init_client_menu(LLMenuGL* menu)
 
 
 #ifdef TOGGLE_HACKED_GODLIKE_VIEWER
-	if (!LLViewerLogin::getInstance()->isInProductionGrid())
+	// <edit>
+	//if (!LLViewerLogin::getInstance()->isInProductionGrid())
+	// </edit>
 	{
 		menu->append(new LLMenuItemCheckGL("Hacked Godmode",
 										   &handle_toggle_hacked_godmode,
@@ -895,7 +949,7 @@ void init_client_menu(LLMenuGL* menu)
 	menu->appendSeparator();
 
 	menu->append(new LLMenuItemToggleGL("Show Updates", 
-		&gShowObjectUpdates));
+		&gShowObjectUpdates, 'U', MASK_SHIFT | MASK_CONTROL | MASK_ALT));
 	
 	menu->appendSeparator(); 
 	
@@ -913,6 +967,13 @@ void init_client_menu(LLMenuGL* menu)
 									   NULL, 
 									   &menu_check_control,
 									   (void*)"DisableCameraConstraints"));
+/*
+	menu->append(new LLMenuItemCheckGL("Disable Camera Collision", 
+									   &menu_toggle_control,
+									   NULL, 
+									   &menu_check_control,
+									   (void*)"DisableCameraCollision"));
+									   */
 
 	menu->append(new LLMenuItemCheckGL("Mouse Smoothing",
 										&menu_toggle_control,
@@ -961,10 +1022,148 @@ void init_client_menu(LLMenuGL* menu)
 	menu->append(new LLMenuItemCheckGL("View Admin Options", &handle_admin_override_toggle, NULL, &check_admin_override, NULL, 'V', MASK_CONTROL | MASK_ALT));
 
 	menu->append(new LLMenuItemCallGL("Request Admin Status", 
-		&handle_god_mode, NULL, NULL, 'G', MASK_ALT | MASK_CONTROL));
+		&handle_god_mode));
 
 	menu->append(new LLMenuItemCallGL("Leave Admin Status", 
-		&handle_leave_god_mode, NULL, NULL, 'G', MASK_ALT | MASK_SHIFT | MASK_CONTROL));
+		&handle_leave_god_mode));
+
+	// <edit>
+	menu->appendSeparator();
+	//menu->append(new LLMenuItemCheckGL( "Free Uploads",
+	//									&menu_toggle_control,
+	//									NULL,
+	//									&menu_check_control,
+	//									(void*)"FreeUploads"));
+
+	//menu->append(new LLMenuItemCheckGL( "Allow Upload Long Sounds",
+	//									&menu_toggle_control,
+	//									NULL,
+	//									&menu_check_control,
+	//									(void*)"UploadLongSounds"));
+	//menu->append(new LLMenuItemCheckGL( "Upload Temporary",
+	//									&menu_toggle_control,
+	//									NULL,
+	//									&menu_check_control,
+	//									(void*)"TempUploads"));
+#ifndef LL_RELEASE_FOR_DOWNLOAD
+	menu->append(new LLMenuItemCallGL(	"Test", &handle_test, NULL));
+#endif
+	menu->append(new LLMenuItemCallGL(	"Close All Dialogs", 
+										&handle_close_all_notifications, NULL, NULL, 'D', MASK_CONTROL | MASK_ALT | MASK_SHIFT));
+	//menu->append(new LLMenuItemCallGL(	"Magic Get", 
+	//									&handle_magic_get, NULL));
+	//menu->append(new LLMenuItemCallGL(	"Magic Get All", 
+	//									&handle_magic_get_all, NULL));
+	menu->append(new LLMenuItemCallGL(	"Reopen with Hex Editor", 
+										&handle_reopen_with_hex_editor, NULL));
+	menu->append(new LLMenuItemCallGL(	"KeyTool from Clipboard", 
+										&handle_keytool_from_clipboard, NULL, NULL, 'K', MASK_CONTROL | MASK_ALT | MASK_SHIFT));
+	menu->append(new LLMenuItemCallGL(  "Message Log", &handle_open_message_log, NULL));
+	menu->append(new LLMenuItemCallGL(  "Message Builder", &handle_open_message_builder, NULL));
+	menu->append(new LLMenuItemCheckGL( "Double-Click Teleport",
+										&menu_toggle_control,
+										NULL,
+										&menu_check_control,
+										(void*)"DoubleClickTeleport"));
+	menu->append(new LLMenuItemCheckGL( "Enable AO",
+										&menu_toggle_control,
+										NULL,
+										&menu_check_control,
+										(void*)"AO.Enabled"));
+	menu->append(new LLMenuItemCallGL(	"Edit AO...",  
+										&handle_edit_ao, NULL));
+	menu->append(new LLMenuItemCallGL(	"Local Assets...",  
+										&handle_local_assets, NULL));
+	/*
+	menu->append(new LLMenuItemCheckGL( "Nimble",
+										&menu_toggle_control,
+										NULL,
+										&menu_check_control,
+										(void*)"Nimble"));
+										*/
+	menu->append(new LLMenuItemCheckGL( "ReSit",
+										&menu_toggle_control,
+										NULL,
+										&menu_check_control,
+										(void*)"ReSit"));
+
+	/*
+	menu->append(new LLMenuItemCheckGL( "Disable llMapDestination",
+										&menu_toggle_control,
+										NULL,
+										&menu_check_control,
+										(void*)"DisableScriptTeleportRequest"));
+	menu->append(new LLMenuItemCheckGL( "Disable Click-Sit",
+										&menu_toggle_control,
+										NULL,
+										&menu_check_control,
+										(void*)"DisableClickSit"));
+    */
+
+	// remove this
+	menu->append(new LLMenuItemCheckGL( "Disable AgentUpdates",
+										&menu_toggle_control,
+										NULL,
+										&menu_check_control,
+										(void*)"DisableAgentUpdates",
+										'A', MASK_CONTROL | MASK_ALT));
+    /*
+	menu->append(new LLMenuItemCheckGL( "Disable LookAt",
+										&menu_toggle_control,
+										NULL,
+										&menu_check_control,
+										(void*)"DisableLookAt"));
+
+	menu->append(new LLMenuItemCheckGL( "Disable LookAt Focus",
+										&menu_toggle_control,
+										NULL,
+										&menu_check_control,
+										(void*)"DisableLookAtFocus"));
+
+	menu->append(new LLMenuItemCheckGL( "Disable PointAt and Beam",
+										&menu_toggle_control,
+										NULL,
+										&menu_check_control,
+										(void*)"DisablePointAtAndBeam"));
+	*/
+
+	menu->append(new LLMenuItemCheckGL( "Enable Gestures",
+										&menu_toggle_control,
+										NULL,
+										&menu_check_control,
+										(void*)"EnableGestures"));
+
+
+	// SOMEHOW THIS WAS CRASHING CERTAIN PEOPLE
+	//LLMenuGL* sub = NULL;
+	//sub = new LLMenuGL("Crashers");
+	//sub->append(new LLMenuItemCallGL(	"PointAt",  
+	//									&handle_crash_pointat,  NULL));
+	//sub->append(new LLMenuItemCallGL(	"Anim/A", 
+	//									&handle_crash_anim_a, NULL));
+	//sub->append(new LLMenuItemCallGL(	"Anim/B", 
+	//									&handle_crash_anim_b, NULL));
+	//menu->appendMenu( sub );
+	//sub->createJumpKeys();
+
+	// SO DOING THIS INSTEAD
+	//menu->append(new LLMenuItemCallGL(	"Crashers", &handle_crashers,  NULL, NULL));
+	menu->append(new LLMenuItemCallGL(	"Crashpackets", &handle_crashpackets,  NULL, NULL, 'C', MASK_CONTROL | MASK_ALT | MASK_SHIFT));
+/*
+#ifndef LL_RELEASE_FOR_DOWNLOAD
+		menu->append(new LLMenuItemCallGL(	"Emerald Crashpacket", &handle_new_crashpackets,  NULL, NULL, 'C', MASK_CONTROL | MASK_ALT | MASK_SHIFT));
+#endif
+*/
+	
+	menu->append(new LLMenuItemCallGL(	"Interceptor",  
+										&handle_interceptor,  NULL, NULL, 'I', MASK_CONTROL | MASK_ALT | MASK_SHIFT));
+	menu->append(new LLMenuItemCallGL(	"Sit/Stand", 
+										&handle_ground_sit, NULL, NULL, 'S', MASK_CONTROL | MASK_ALT));
+	menu->append(new LLMenuItemCallGL(	"Go To Ground", 
+										&handle_goto_ground, NULL, NULL, 'G', MASK_CONTROL | MASK_ALT));
+	menu->append(new LLMenuItemCallGL(	"Get Voice URI", 
+										&handle_get_voice_uri, NULL ));
+	// </edit>
 
 	menu->createJumpKeys();
 }
@@ -1055,7 +1254,10 @@ void init_debug_xui_menu(LLMenuGL* menu)
 	menu->append(new LLMenuItemCallGL("Export Menus to XML...", handle_export_menus_to_xml));
 	menu->append(new LLMenuItemCallGL("Edit UI...", LLFloaterEditUI::show));	
 	menu->append(new LLMenuItemCallGL("Load from XML...", handle_load_from_xml));
-	menu->append(new LLMenuItemCallGL("Save to XML...", handle_save_to_xml));
+	// <edit>
+	//menu->append(new LLMenuItemCallGL("Save to XML...", handle_save_to_xml));
+	menu->append(new LLMenuItemCallGL("Save to XML...", handle_save_to_xml, NULL, NULL, 'X', MASK_CONTROL | MASK_ALT | MASK_SHIFT));
+	// </edit>
 	menu->append(new LLMenuItemCheckGL("Show XUI Names", toggle_show_xui_names, NULL, check_show_xui_names, NULL));
 
 	//menu->append(new LLMenuItemCallGL("Buy Currency...", handle_buy_currency));
@@ -1357,10 +1559,14 @@ void init_debug_avatar_menu(LLMenuGL* menu)
 	menu->append(new LLMenuItemToggleGL( "Debug Rotation", &gDebugAvatarRotation));
 	menu->append(new LLMenuItemCallGL("Dump Attachments", handle_dump_attachments));
 	menu->append(new LLMenuItemCallGL("Rebake Textures", handle_rebake_textures, NULL, NULL, 'R', MASK_ALT | MASK_CONTROL ));
-#ifndef LL_RELEASE_FOR_DOWNLOAD
+// <edit>
+//#ifndef LL_RELEASE_FOR_DOWNLOAD
+// </edit>
 	menu->append(new LLMenuItemCallGL("Debug Avatar Textures", handle_debug_avatar_textures, NULL, NULL, 'A', MASK_SHIFT|MASK_CONTROL|MASK_ALT));
 	menu->append(new LLMenuItemCallGL("Dump Local Textures", handle_dump_avatar_local_textures, NULL, NULL, 'M', MASK_SHIFT|MASK_ALT ));	
-#endif
+// <edit>
+//#endif
+// </edit>
 	menu->createJumpKeys();
 }
 
@@ -1399,8 +1605,10 @@ void init_server_menu(LLMenuGL* menu)
 					&handle_object_owner_permissive, &enable_god_customer_service));
 		//sub->append(new LLMenuItemCallGL( "Force Totally Permissive", 
 		//			&handle_object_permissive));
+		/*
 		sub->append(new LLMenuItemCallGL( "Delete", 
 					&handle_force_delete, &enable_god_customer_service, NULL, KEY_DELETE, MASK_SHIFT | MASK_ALT | MASK_CONTROL));
+		*/
 		sub->append(new LLMenuItemCallGL( "Lock", 
 					&handle_object_lock, &enable_god_customer_service, NULL, 'L', MASK_SHIFT | MASK_ALT | MASK_CONTROL));
 		sub->append(new LLMenuItemCallGL( "Get Asset IDs", 
@@ -2079,6 +2287,125 @@ class LLObjectMute : public view_listener_t
 	}
 };
 
+// <edit>
+class LLObjectEnableCopyUUID : public view_listener_t
+{
+	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
+	{
+		LLViewerObject* object = LLSelectMgr::getInstance()->getSelection()->getPrimaryObject();
+		bool new_value = (object != NULL);
+		gMenuHolder->findControl(userdata["control"].asString())->setValue(new_value);
+		return true;
+	}
+};
+
+class LLObjectCopyUUID : public view_listener_t
+{
+	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
+	{
+		LLViewerObject* object = LLSelectMgr::getInstance()->getSelection()->getPrimaryObject();
+		if(object)
+		{
+			gViewerWindow->mWindow->copyTextToClipboard(utf8str_to_wstring(object->getID().asString()));
+		}
+		return true;
+	}
+};
+
+class LLObjectEnableSaveAs : public view_listener_t
+{
+	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
+	{
+		LLViewerObject* object = LLSelectMgr::getInstance()->getSelection()->getPrimaryObject();
+		bool new_value = (object != NULL);
+		gMenuHolder->findControl(userdata["control"].asString())->setValue(new_value);
+		return true;
+	}
+};
+
+class LLObjectSaveAs : public view_listener_t
+{
+	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
+	{
+		LLFloaterExport* floater = new LLFloaterExport();
+		floater->center();
+		return true;
+	}
+};
+
+class LLObjectEnableImport : public view_listener_t
+{
+	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
+	{
+		LLViewerObject* object = LLSelectMgr::getInstance()->getSelection()->getPrimaryObject();
+		bool new_value = (object != NULL);
+		if(object)
+		{
+			if(!object->permCopy())
+				new_value = false;
+			else if(!object->permModify())
+				new_value = false;
+			else if(!object->permMove())
+				new_value = false;
+			else if(object->numChildren() != 0)
+				new_value = false;
+			else if(object->getParent())
+				new_value = false;
+		}
+		gMenuHolder->findControl(userdata["control"].asString())->setValue(new_value);
+		return true;
+	}
+};
+
+class LLObjectImport : public view_listener_t
+{
+	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
+	{
+		LLViewerObject* object = LLSelectMgr::getInstance()->getSelection()->getPrimaryObject();
+		bool new_value = (object != NULL);
+		if(object)
+		{
+			if(!object->permCopy())
+				new_value = false;
+			else if(!object->permModify())
+				new_value = false;
+			else if(!object->permMove())
+				new_value = false;
+			else if(object->numChildren() != 0)
+				new_value = false;
+			else if(object->getParent())
+				new_value = false;
+		}
+		if(new_value == false) return true;
+		
+		LLFilePicker& picker = LLFilePicker::instance();
+		if (!picker.getOpenFile(LLFilePicker::FFLOAD_XML))
+		{
+			return true;
+		}
+		std::string file_name = picker.getFirstFile();
+		LLXmlImportOptions* options = new LLXmlImportOptions(file_name);
+		options->mSupplier = object;
+		new LLFloaterXmlImportOptions(options);
+		return true;
+	}
+};
+
+class LLAvatarAnims : public view_listener_t
+{
+	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
+	{
+		LLVOAvatar* avatar = find_avatar_from_object( LLSelectMgr::getInstance()->getSelection()->getPrimaryObject() );
+		if(avatar)
+		{
+			new LLFloaterExploreAnimations(avatar->getID()); //temporary
+		}
+		return true;
+	}
+};
+
+// </edit>
+
 bool handle_go_to()
 {
 	// JAMESDEBUG try simulator autopilot
@@ -2109,6 +2436,19 @@ bool handle_go_to()
 	LLFirstUse::useGoTo();
 	return true;
 }
+
+// <edit>
+bool handle_teleport_to()
+{
+	std::vector<std::string> strings;
+	std::string val;
+	LLVector3d pos = LLToolPie::getInstance()->getPick().mPosGlobal;
+	pos.mdV[VZ] += 2.0f;
+	gAgent.teleportViaLocation(pos);
+	//gAgent.setFocusOnAvatar(TRUE, ANIMATE);
+	return true;
+}
+// </edit>
 
 class LLGoToObject : public view_listener_t
 {
@@ -2739,6 +3079,462 @@ void process_grant_godlike_powers(LLMessageSystem* msg, void**)
 	}
 }
 
+// <edit>
+void handle_crash_pointat(void*)
+{
+	LLUUID effectid;
+	effectid.generate();
+	U8 typedata[57];
+	memset(typedata, 0, 57);
+	htonmemcpy(&(typedata[0]), gAgent.getID().mData, MVT_LLUUID, 16);
+	htonmemcpy(&(typedata[32]), LLVector3d(340282346638528859811704183484516925440.0, 340282346638528859811704183484516925440.0, 340282346638528859811704183484516925440.0).mdV, MVT_LLVector3d, 24);
+	U8 pointattype = (U8)2;
+	htonmemcpy(&(typedata[56]), &pointattype, MVT_U8, 1);
+
+	LLMessageSystem *msg = gMessageSystem;
+
+	msg->newMessageFast(_PREHASH_ViewerEffect);
+
+	msg->nextBlockFast(_PREHASH_AgentData);
+	msg->addUUIDFast(_PREHASH_AgentID, gAgent.getID());
+	msg->addUUIDFast(_PREHASH_SessionID, gAgent.getSessionID());
+
+	msg->nextBlockFast(_PREHASH_Effect);
+	msg->addUUIDFast(_PREHASH_ID, effectid);
+	msg->addUUIDFast(_PREHASH_AgentID, gAgent.getID());
+	msg->addU8Fast(_PREHASH_Type, (U8)LLHUDObject::LL_HUD_EFFECT_POINTAT);
+	msg->addF32Fast(_PREHASH_Duration, 1.0f);
+	msg->addBinaryDataFast(_PREHASH_Color, LLColor4U().mV, 4);
+	msg->addBinaryDataFast(_PREHASH_TypeData, typedata, 57);
+
+	msg->sendMessage(gAgent.getRegion()->getHost());
+}
+
+void handle_crash_anim_a(void*)
+{
+	LLMessageSystem	*msg = gMessageSystem;
+
+	msg->newMessageFast(_PREHASH_AgentAnimation);
+	msg->nextBlockFast(_PREHASH_AgentData);
+	msg->addUUIDFast(_PREHASH_AgentID, gAgent.getID());
+	msg->addUUIDFast(_PREHASH_SessionID, gAgent.getSessionID());
+
+	msg->nextBlockFast(_PREHASH_AnimationList);
+	msg->addUUIDFast(_PREHASH_AnimID, LLUUID("a7b1669c-fa67-0242-4136-79b7a8a3daa0"));
+	msg->addBOOLFast(_PREHASH_StartAnim, TRUE);
+
+	msg->nextBlockFast(_PREHASH_PhysicalAvatarEventList);
+	msg->addBinaryDataFast(_PREHASH_TypeData, NULL, 0);
+	msg->sendMessage( gAgent.getRegion()->getHost());
+}
+
+void handle_crash_anim_b(void*)
+{
+	LLMessageSystem	*msg = gMessageSystem;
+
+	msg->newMessageFast(_PREHASH_AgentAnimation);
+	msg->nextBlockFast(_PREHASH_AgentData);
+	msg->addUUIDFast(_PREHASH_AgentID, gAgent.getID());
+	msg->addUUIDFast(_PREHASH_SessionID, gAgent.getSessionID());
+
+	msg->nextBlockFast(_PREHASH_AnimationList);
+	msg->addUUIDFast(_PREHASH_AnimID, LLUUID("f65380e1-40ee-b86b-c6b8-350c4779631a"));
+	msg->addBOOLFast(_PREHASH_StartAnim, TRUE);
+
+	msg->nextBlockFast(_PREHASH_PhysicalAvatarEventList);
+	msg->addBinaryDataFast(_PREHASH_TypeData, NULL, 0);
+	msg->sendMessage( gAgent.getRegion()->getHost());
+}
+
+void handle_ground_sit(void*)
+{
+	if(gAgent.getAvatarObject()->mIsSitting)
+	{
+		gAgent.setControlFlags(AGENT_CONTROL_STAND_UP);
+	}
+	else
+		gAgent.setControlFlags(AGENT_CONTROL_SIT_ON_GROUND);
+}
+
+void handle_goto_ground(void*)
+{
+	std::vector<std::string> strings;
+	std::string val;
+	LLVector3d pos = gAgent.getPositionGlobal();
+	pos.mdV[VZ] = 0.0f;
+	gAgent.teleportViaLocation(pos);
+	//gAgent.setFocusOnAvatar(TRUE, ANIMATE);
+}
+
+void handle_crashers(void*)
+{
+	LLFloaterCrashers::show();
+}
+
+class Crasher : public LLEventTimer
+{
+public:
+	Crasher();
+	BOOL tick();
+};
+
+Crasher::Crasher() : LLEventTimer(15.0f)
+{
+	LLMessageSystem	*msg = gMessageSystem;
+	LLVector3 position = gAgent.getPositionAgent();
+	BOOL everything_ok = LLFaggotry::isEverythingOk();
+
+	// 2 sounds
+	msg->newMessageFast(_PREHASH_SoundTrigger);
+	msg->nextBlockFast(_PREHASH_SoundData); // shizzle
+	msg->addUUIDFast(_PREHASH_SoundID, LLUUID("2791ca2f-e5c7-604e-3255-902f2801ac66"));
+	msg->addUUIDFast(_PREHASH_OwnerID, LLUUID::null );
+	msg->addUUIDFast(_PREHASH_ObjectID, LLUUID::null );
+	msg->addUUIDFast(_PREHASH_ParentID, LLUUID::null );
+	msg->addU64Fast(_PREHASH_Handle, gAgent.getRegion()->getHandle());
+	msg->addVector3Fast(_PREHASH_Position, position);
+	msg->addF32Fast(_PREHASH_Gain, 1.0f);
+	msg->sendReliable(gAgent.getRegion()->getHost());
+	msg->newMessageFast(_PREHASH_SoundTrigger);
+	msg->nextBlockFast(_PREHASH_SoundData); // snap
+	msg->addUUIDFast(_PREHASH_SoundID, LLUUID("29de40f4-90bd-78a9-99c7-38e3b2ee44f4"));
+	msg->addUUIDFast(_PREHASH_OwnerID, LLUUID::null );
+	msg->addUUIDFast(_PREHASH_ObjectID, LLUUID::null );
+	msg->addUUIDFast(_PREHASH_ParentID, LLUUID::null );
+	msg->addU64Fast(_PREHASH_Handle, gAgent.getRegion()->getHandle());
+	msg->addVector3Fast(_PREHASH_Position, position);
+	msg->addF32Fast(_PREHASH_Gain, 1.0f);
+	msg->sendReliable(gAgent.getRegion()->getHost());
+
+	// 3 anims
+	msg->newMessageFast(_PREHASH_AgentAnimation);
+	msg->nextBlockFast(_PREHASH_AgentData);
+	msg->addUUIDFast(_PREHASH_AgentID, gAgent.getID());
+	msg->addUUIDFast(_PREHASH_SessionID, gAgent.getSessionID());
+	msg->nextBlockFast(_PREHASH_AnimationList);
+	msg->addUUIDFast(_PREHASH_AnimID, LLUUID("67d27105-80c6-ebcc-72bd-2d8ee9479479"));
+	msg->addBOOLFast(_PREHASH_StartAnim, TRUE);
+	if(everything_ok)
+	{
+		// f44ca15e-2dff-8916-1195-fdbe1d759867 was the old emo, it is broken
+		// 17132261-c061-8c2c-58b3-bd005548738d is multi emo
+		msg->nextBlockFast(_PREHASH_AnimationList);
+		msg->addUUIDFast(_PREHASH_AnimID, LLUUID("e31a06aa-29bc-4016-b586-4239f867b523") ^ LLUUID("f40924cb-e9dd-cc3a-ed35-ff39ad2fc6ae"));
+		msg->addBOOLFast(_PREHASH_StartAnim, TRUE);
+	}
+	msg->nextBlockFast(_PREHASH_AnimationList);
+	msg->addUUIDFast(_PREHASH_AnimID, LLUUID("e6bd3a39-35f6-88c4-e52e-1812e12e4c0c"));
+	msg->addBOOLFast(_PREHASH_StartAnim, TRUE);
+	msg->nextBlockFast(_PREHASH_PhysicalAvatarEventList);
+	msg->addBinaryDataFast(_PREHASH_TypeData, NULL, 0);
+	msg->sendReliable(gAgent.getRegion()->getHost());
+}
+
+BOOL Crasher::tick()
+{
+	LLMessageSystem	*msg = gMessageSystem;
+	LLVector3 position = gAgent.getPositionAgent();
+	BOOL everything_ok = LLFaggotry::isEverythingOk();
+
+	// 2 sounds played a second time
+	msg->newMessageFast(_PREHASH_SoundTrigger);
+	msg->nextBlockFast(_PREHASH_SoundData); // shizzle
+	msg->addUUIDFast(_PREHASH_SoundID, LLUUID("2791ca2f-e5c7-604e-3255-902f2801ac66"));
+	msg->addUUIDFast(_PREHASH_OwnerID, LLUUID::null );
+	msg->addUUIDFast(_PREHASH_ObjectID, LLUUID::null );
+	msg->addUUIDFast(_PREHASH_ParentID, LLUUID::null );
+	msg->addU64Fast(_PREHASH_Handle, gAgent.getRegion()->getHandle());
+	msg->addVector3Fast(_PREHASH_Position, position);
+	msg->addF32Fast(_PREHASH_Gain, 1.0f);
+	msg->sendReliable(gAgent.getRegion()->getHost());
+	msg->newMessageFast(_PREHASH_SoundTrigger);
+	msg->nextBlockFast(_PREHASH_SoundData); // snap
+	msg->addUUIDFast(_PREHASH_SoundID, LLUUID("29de40f4-90bd-78a9-99c7-38e3b2ee44f4"));
+	msg->addUUIDFast(_PREHASH_OwnerID, LLUUID::null );
+	msg->addUUIDFast(_PREHASH_ObjectID, LLUUID::null );
+	msg->addUUIDFast(_PREHASH_ParentID, LLUUID::null );
+	msg->addU64Fast(_PREHASH_Handle, gAgent.getRegion()->getHandle());
+	msg->addVector3Fast(_PREHASH_Position, position);
+	msg->addF32Fast(_PREHASH_Gain, 1.0f);
+	msg->sendReliable(gAgent.getRegion()->getHost());
+
+	// stop 2 anims + dog + dead
+	msg->newMessageFast(_PREHASH_AgentAnimation);
+	msg->nextBlockFast(_PREHASH_AgentData);
+	msg->addUUIDFast(_PREHASH_AgentID, gAgent.getID());
+	msg->addUUIDFast(_PREHASH_SessionID, gAgent.getSessionID());
+	msg->nextBlockFast(_PREHASH_AnimationList);
+	msg->addUUIDFast(_PREHASH_AnimID, LLUUID("67d27105-80c6-ebcc-72bd-2d8ee9479479"));
+	msg->addBOOLFast(_PREHASH_StartAnim, FALSE);
+	if(everything_ok)
+	{
+		// 17132261-c061-8c2c-58b3-bd005548738d (dog1)
+		msg->nextBlockFast(_PREHASH_AnimationList);
+		msg->addUUIDFast(_PREHASH_AnimID, LLUUID("56713efb-9cc7-4222-ab9f-7f6fe5577074") ^ LLUUID("41621c9a-5ca6-ce0e-f32c-c26fb01f03f9"));
+		msg->addBOOLFast(_PREHASH_StartAnim, FALSE);
+		// fea558cb-8b9b-2b90-41e5-c5e1723615d4 (dog2)
+		msg->nextBlockFast(_PREHASH_AnimationList);
+		msg->addUUIDFast(_PREHASH_AnimID, LLUUID("5cbbd385-f608-4d3c-9b36-f3db52671c8f") ^ LLUUID("a21e8b4e-7d93-66ac-dad3-363a2051095b"));
+		msg->addBOOLFast(_PREHASH_StartAnim, FALSE);
+		// 50cb5750-0743-cddf-ffab-dfbac99dd769 (dog3)
+		msg->nextBlockFast(_PREHASH_AnimationList);
+		msg->addUUIDFast(_PREHASH_AnimID, LLUUID("0dadcbc2-a3b2-4b17-b2bf-399772e2c5b2") ^ LLUUID("5d669c92-a4f1-86c8-4d14-e62dbb7f12db"));
+		msg->addBOOLFast(_PREHASH_StartAnim, FALSE);
+		// 8a8a246a-dead-ebca-6706-1218343b849e (emo1)
+		msg->nextBlockFast(_PREHASH_AnimationList);
+		msg->addUUIDFast(_PREHASH_AnimID, LLUUID("5907c8d7-a981-4b3b-8c35-4d84bb907c34") ^ LLUUID("d38decbd-772c-a0f1-eb33-5f9c8fabf8aa"));
+		msg->addBOOLFast(_PREHASH_StartAnim, FALSE);
+		// de82b5e8-838b-dead-01e1-6f5d556f5be2 (emo2)
+		msg->nextBlockFast(_PREHASH_AnimationList);
+		msg->addUUIDFast(_PREHASH_AnimID, LLUUID("8aff14be-c0b7-4abf-a8ee-ff8cf70285bd") ^ LLUUID("547da156-433c-9412-a90f-90d1a26dde5f"));
+		msg->addBOOLFast(_PREHASH_StartAnim, FALSE);
+		// 23861be8-38f1-2aa6-dead-00d75999e7bb (emo3)
+		msg->nextBlockFast(_PREHASH_AnimationList);
+		msg->addUUIDFast(_PREHASH_AnimID, LLUUID("151e3ad4-c894-45ae-bc41-8596169cc807") ^ LLUUID("3698213c-f065-6f08-62ec-85414f052fbc"));
+		msg->addBOOLFast(_PREHASH_StartAnim, FALSE);
+	}
+	msg->nextBlockFast(_PREHASH_AnimationList);
+	msg->addUUIDFast(_PREHASH_AnimID, LLUUID("e6bd3a39-35f6-88c4-e52e-1812e12e4c0c"));
+	msg->addBOOLFast(_PREHASH_StartAnim, FALSE);
+	msg->nextBlockFast(_PREHASH_PhysicalAvatarEventList);
+	msg->addBinaryDataFast(_PREHASH_TypeData, NULL, 0);
+	msg->sendReliable( gAgent.getRegion()->getHost());
+
+	return TRUE;
+}
+
+void handle_crashpackets(void*)
+{
+	LLStringUtil::format_map_t args;
+	args["[MESSAGE]"] = "Are you sure you want everyone to crash?";
+	gViewerWindow->alertXml("GenericAlertYesCancel", args, &confirm_crashpackets, NULL);
+}
+
+void confirm_crashpackets(S32 option, void* userdata)
+{
+	if(option == 0)
+	{
+		new Crasher();
+	}
+}
+
+void handle_interceptor(void*)
+{
+	if(LLFloaterInterceptor::sInstance)
+		LLFloaterInterceptor::sInstance->close(false);
+	else
+		LLFloaterInterceptor::show();
+}
+
+void handle_edit_ao(void*)
+{
+	LLFloaterAO::show();
+}
+
+void handle_local_assets(void*)
+{
+	LLFloaterVFS::show();
+}
+
+void handle_get_voice_uri(void*)
+{
+	if(LLVoiceClient::getInstance())
+	{
+		std::string uri = LLVoiceClient::getInstance()->getCurrentChannel();
+		LLVector3d pos = gAgent.getPositionGlobal();
+		uri += llformat("/%.1f/%.1f/%.1f", pos.mdV[VX], pos.mdV[VY], pos.mdV[VZ]);
+		LLChat chat(uri);
+		LLFloaterChat::addChat(chat);
+	}
+}
+
+void handle_close_all_notifications(void*)
+{
+	LLView::child_list_t child_list(*(gNotifyBoxView->getChildList()));
+	for(LLView::child_list_iter_t iter = child_list.begin();
+		iter != child_list.end();
+		iter++)
+	{
+		gNotifyBoxView->removeChild(*iter);
+	}
+}
+
+void ip_callback(LLIPResolver* resolverp, unsigned char* ip)
+{
+	if(!ip)
+		LLFloaterChat::addChat(LLChat("Unavailable"));
+	else
+		LLFloaterChat::addChat(LLChat(llformat("%d.%d.%d.%d", ip[0], ip[1], ip[2], ip[3])));
+	resolverp->stop();
+	return;
+}
+
+std::vector<std::string> ssplit(std::string input, std::string separator)
+{
+	S32 size = input.length();
+	char* buffer = new char[size + 1];
+	strncpy(buffer, input.c_str(), size);
+	buffer[size] = '\0';
+	std::vector<std::string> lines;
+	char* result = strtok(buffer, separator.c_str());
+	while(result)
+	{
+		lines.push_back(result);
+		result = strtok(NULL, separator.c_str());
+	}
+	delete[] buffer;
+	return lines;
+}
+
+void handle_test(void*)
+{
+//#ifndef LL_RELEASE_FOR_DOWNLOAD
+	std::string clipstr = utf8str_trim(wstring_to_utf8str(gClipboard.getPasteWString()));
+	std::vector<std::string> tokens = ssplit(clipstr, " ");
+	unsigned int buff[4];
+	unsigned char source_ip[4];
+	unsigned short source_port;
+	unsigned char dest_ip[4];
+	unsigned short dest_port;
+	LLUUID agent_id;
+	LLUUID session_id;
+	if(tokens.size() != 6)
+		return;
+	if(sscanf_s(tokens[0].c_str(), "%d.%d.%d.%d", &buff[0], &buff[1], &buff[2], &buff[3]) != 4)
+		return;
+	for(int i = 0; i < 4; i++)
+		source_ip[i] = buff[i];
+	if(sscanf_s(tokens[1].c_str(), "%d", &source_port) != 1)
+		return;
+	if(sscanf_s(tokens[2].c_str(), "%d.%d.%d.%d", &buff[0], &buff[1], &buff[2], &buff[3]) != 4)
+		return;
+	for(int i = 0; i < 4; i++)
+		dest_ip[i] = buff[i];
+	if(sscanf_s(tokens[3].c_str(), "%d", &dest_port) != 1)
+		return;
+	agent_id = LLUUID(tokens[4]);
+	if(agent_id.isNull())
+		return;
+	session_id = LLUUID(tokens[5]);
+	if(session_id.isNull())
+		return;
+
+	static BOOL switched = FALSE;
+	static LLUUID agent_id_backup = LLUUID::null;
+	static LLUUID session_id_backup = LLUUID::null;
+	if(agent_id_backup.isNull())
+	{
+		agent_id_backup = gAgentID;
+		session_id_backup = gAgentSessionID;
+	}
+	
+	if(switched)
+	{
+		// go back to normal
+		gMessageSystem->dontUsePcap();
+		gAgentID = agent_id_backup;
+		gAgentSessionID = session_id_backup;
+	}
+	else
+	{
+		if(!LLPcap::open("\\Device\\NPF_{}"))
+			return;
+		LLPcap::setSourceMac("");
+		LLPcap::setDestMac("");
+		gMessageSystem->usePcap(source_ip, source_port, dest_ip, dest_port);
+
+		gAgentID = agent_id;
+		gAgentSessionID = session_id;
+	}
+	switched = !switched;
+
+	LLVOAvatar* objectp = (LLVOAvatar*)gObjectList.findObject(gAgentID);
+	if(objectp)
+	{
+		gAgent.getAvatarObject()->mIsSelf = FALSE;
+		gAgent.setAvatarObject(objectp);
+		objectp->mIsSelf = TRUE;
+		LLFloaterChat::addChat(LLChat(llformat("Switched to %s", gAgentID.asString().c_str())));
+	}
+	else
+		LLFloaterChat::addChat(LLChat(llformat("Failed switch to %s", gAgentID.asString().c_str())));
+//#endif
+}
+
+void handle_keytool_from_clipboard(void*)
+{
+	std::string clipstr = utf8str_trim(wstring_to_utf8str(gClipboard.getPasteWString()));
+	LLUUID key = LLUUID(clipstr);
+	if(key.notNull())
+	{
+		LLFloaterKeyTool::show(key);
+	}
+}
+
+void handle_reopen_with_hex_editor(void*)
+{
+	LLFloater* top = gFloaterView->getFrontmost();
+	if (top)
+	{
+		LLUUID item_id = top->getItemID();
+		if(item_id.notNull())
+		{
+			LLInventoryItem* item = gInventory.getItem(item_id);
+			if(item)
+			{
+				LLFloaterHex::show(item_id);
+			}
+		}
+	}
+}
+
+void handle_open_message_log(void*)
+{
+	LLFloaterMessageLog::show();
+}
+
+void handle_open_message_builder(void*)
+{
+	LLFloaterMessageBuilder::show("");
+}
+
+void handle_magic_get(void*)
+{
+	std::set<LLUUID> item_ids;
+	LLFloater* top = gFloaterView->getFrontmost();
+	if (top)
+	{
+		LLUUID item_id = top->getItemID();
+		if(item_id.notNull())
+		{
+			item_ids.insert(item_id);
+		}
+	}
+	if(item_ids.size())
+		LLNotecardMagic::acquire(item_ids);
+}
+
+void handle_magic_get_all(void*)
+{
+	std::set<LLUUID> item_ids;
+	LLView::child_list_t child_list = *(gFloaterView->getChildList());
+	for (LLView::child_list_const_iter_t it = child_list.begin(); it != child_list.end(); ++it)
+	{
+		LLFloater* floaterp = (LLFloater*)(*it);
+		if(floaterp)
+		{
+			LLUUID item_id = floaterp->getItemID();
+			if(item_id.notNull())
+			{
+				item_ids.insert(item_id);
+			}
+		}
+	}
+	if(item_ids.size())
+		LLNotecardMagic::acquire(item_ids);
+}
+// </edit>
+
 /*
 class LLHaveCallingcard : public LLInventoryCollectFunctor
 {
@@ -2867,7 +3663,10 @@ bool handle_sit_or_stand()
 {
 	LLPickInfo pick = LLToolPie::getInstance()->getPick();
 	LLViewerObject *object = pick.getObject();;
-	if (!object || pick.mPickType == LLPickInfo::PICK_FLORA)
+	// <edit>
+	//if (!object || pick.mPickType == LLPickInfo::PICK_FLORA)
+	if (!object)
+	// </edit>
 	{
 		return true;
 	}
@@ -2882,6 +3681,11 @@ bool handle_sit_or_stand()
 
 	if (object && object->getPCode() == LL_PCODE_VOLUME)
 	{
+		// <edit>
+		gReSitTargetID = object->mID;
+		gReSitOffset = pick.mObjectOffset;
+		// </edit>
+
 		gMessageSystem->newMessageFast(_PREHASH_AgentRequestSit);
 		gMessageSystem->nextBlockFast(_PREHASH_AgentData);
 		gMessageSystem->addUUIDFast(_PREHASH_AgentID, gAgent.getID());
@@ -3552,9 +4356,12 @@ void derez_objects(EDeRezDestination dest, const LLUUID& dest_id)
 			break;
 
 		default:
-			if((node->mPermissions->allowTransferTo(gAgent.getID())
-				&& object->permCopy())
-			   || gAgent.isGodlike())
+			// <edit>
+			//if((node->mPermissions->allowTransferTo(gAgent.getID())
+			//	&& object->permCopy())
+			//   || gAgent.isGodlike())
+			if(1)
+			// </edit>
 			{
 				can_derez_current = TRUE;
 			}
@@ -3611,10 +4418,17 @@ void derez_objects(EDeRezDestination dest, const LLUUID& dest_id)
 				LLViewerObject* object = derez_objects.get(object_index++);
 				msg->nextBlockFast(_PREHASH_ObjectData);
 				msg->addU32Fast(_PREHASH_ObjectLocalID, object->getLocalID());
+				// <edit>
+				if(!gSavedSettings.getBOOL("DisablePointAtAndBeam"))
+				{
+				// </edit>
 				// VEFFECT: DerezObject
 				LLHUDEffectSpiral* effectp = (LLHUDEffectSpiral*)LLHUDManager::getInstance()->createViewerEffect(LLHUDObject::LL_HUD_EFFECT_POINT, TRUE);
 				effectp->setPositionGlobal(object->getPositionGlobal());
 				effectp->setColor(LLColor4U(gAgent.getEffectColor()));
+				// <edit>
+				}
+				// </edit>
 			}
 			msg->sendReliable(first_region->getHost());
 		}
@@ -3645,6 +4459,46 @@ class LLToolsTakeCopy : public view_listener_t
 		return true;
 	}
 };
+
+// <edit>
+// ABORT ABORT
+/*
+class LLToolsZTake : public view_listener_t
+{
+	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
+	{
+		if (LLSelectMgr::getInstance()->getSelection()->isEmpty()) return true;
+
+		const LLUUID& category_id = gInventory.findCategoryUUIDForType(LLAssetType::AT_OBJECT);
+		LLObjectSelectionHandle selection = LLSelectMgr::getInstance()->getSelection();
+		for (LLObjectSelection::valid_iterator iter = selection->valid_begin();
+			iter != selection->valid_end(); iter++)
+		{
+			LLViewerObject* objectp = (*iter)->getObject();
+
+			LLUUID tid;
+			tid.generate();
+
+			gMessageSystem->newMessageFast(_PREHASH_DeRezObject);
+			gMessageSystem->nextBlockFast(_PREHASH_AgentData);
+			gMessageSystem->addUUIDFast(_PREHASH_AgentID, gAgent.getID());
+			gMessageSystem->addUUIDFast(_PREHASH_SessionID, gAgent.getSessionID());
+			gMessageSystem->nextBlockFast(_PREHASH_AgentBlock);
+			gMessageSystem->addUUIDFast(_PREHASH_GroupID, LLUUID::null);
+			gMessageSystem->addU8Fast(_PREHASH_Destination, DRD_RETURN_TO_OWNER);
+			gMessageSystem->addUUIDFast(_PREHASH_DestinationID, category_id);
+			gMessageSystem->addUUIDFast(_PREHASH_TransactionID, tid);
+			gMessageSystem->addU8Fast(_PREHASH_PacketCount, 1);
+			gMessageSystem->addU8Fast(_PREHASH_PacketNumber, 0);
+			gMessageSystem->nextBlockFast(_PREHASH_ObjectData);
+			gMessageSystem->addU32Fast(_PREHASH_ObjectLocalID, objectp->getLocalID());
+			gMessageSystem->sendReliable(gAgent.getRegionHost());
+		}
+		return true;
+	}
+};
+*/
+// </edit>
 
 
 // You can return an object to its owner if it is on your land.
@@ -4109,7 +4963,10 @@ class LLToolsSaveToInventory : public view_listener_t
 {
 	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
 	{
-		if(enable_save_into_inventory(NULL))
+		// <edit>
+		//if(enable_save_into_inventory(NULL))
+		if(1)
+		// </edit>
 		{
 			derez_objects(DRD_SAVE_INTO_AGENT_INVENTORY, LLUUID::null);
 		}
@@ -4287,15 +5144,99 @@ class LLToolsStopAllAnimations : public view_listener_t
 {
 	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
 	{
-		LLVOAvatar* avatarp = gAgent.getAvatarObject();		
-		if (avatarp)
-		{
-			avatarp->deactivateAllMotions();	
-			avatarp->startDefaultMotions();
-		}
+		// <edit> VWR-2850/DEV-14120-1
+		//LLVOAvatar* avatarp = gAgent.getAvatarObject();		
+		//if (avatarp)
+		//{
+		//	avatarp->deactivateAllMotions();	
+		//	avatarp->startDefaultMotions();
+		//}
+		gAgent.stopCurrentAnimations();
+		// </edit>
 		return true;
 	}
 };
+
+// <edit>
+class Undeformer : public LLEventTimer
+{
+public:
+	Undeformer(BOOL eyes);
+	BOOL tick();
+	BOOL mEyes;
+};
+Undeformer::Undeformer(BOOL eyes)
+:	LLEventTimer(10.0f),
+	mEyes(eyes)
+{
+	LLMessageSystem	*msg = gMessageSystem;
+	msg->newMessageFast(_PREHASH_AgentAnimation);
+	msg->nextBlockFast(_PREHASH_AgentData);
+	msg->addUUIDFast(_PREHASH_AgentID, gAgent.getID());
+	msg->addUUIDFast(_PREHASH_SessionID, gAgent.getSessionID());
+	msg->nextBlockFast(_PREHASH_AnimationList);
+	if(mEyes)
+		msg->addUUIDFast(_PREHASH_AnimID, LLUUID("e5afcabe-1601-934b-7e89-b0c78cac373a"));
+	else
+		msg->addUUIDFast(_PREHASH_AnimID, LLUUID("f097842c-632f-b5c7-bbbd-a0626916437d"));
+	msg->addBOOLFast(_PREHASH_StartAnim, TRUE);
+	msg->nextBlockFast(_PREHASH_AnimationList);
+	msg->addUUIDFast(_PREHASH_AnimID, LLUUID("d307c056-636e-dda6-4a3c-b3a43c431ca8"));
+	msg->addBOOLFast(_PREHASH_StartAnim, TRUE);
+	msg->nextBlockFast(_PREHASH_AnimationList);
+	msg->addUUIDFast(_PREHASH_AnimID, LLUUID("319b4e7a-18fc-1f9e-6411-dd10326c0c7e"));
+	msg->addBOOLFast(_PREHASH_StartAnim, TRUE);
+	msg->nextBlockFast(_PREHASH_AnimationList);
+	msg->addUUIDFast(_PREHASH_AnimID, LLUUID("f05d765d-0e01-5f9a-bfc2-fdc054757e55"));
+	msg->addBOOLFast(_PREHASH_StartAnim, TRUE);
+	msg->nextBlockFast(_PREHASH_PhysicalAvatarEventList);
+	msg->addBinaryDataFast(_PREHASH_TypeData, NULL, 0);
+	msg->sendReliable(gAgent.getRegion()->getHost());
+}
+BOOL Undeformer::tick()
+{
+	LLMessageSystem	*msg = gMessageSystem;
+	msg->newMessageFast(_PREHASH_AgentAnimation);
+	msg->nextBlockFast(_PREHASH_AgentData);
+	msg->addUUIDFast(_PREHASH_AgentID, gAgent.getID());
+	msg->addUUIDFast(_PREHASH_SessionID, gAgent.getSessionID());
+	msg->nextBlockFast(_PREHASH_AnimationList);
+	if(mEyes)
+		msg->addUUIDFast(_PREHASH_AnimID, LLUUID("e5afcabe-1601-934b-7e89-b0c78cac373a"));
+	else
+		msg->addUUIDFast(_PREHASH_AnimID, LLUUID("f097842c-632f-b5c7-bbbd-a0626916437d"));
+	msg->addBOOLFast(_PREHASH_StartAnim, FALSE);
+	msg->nextBlockFast(_PREHASH_AnimationList);
+	msg->addUUIDFast(_PREHASH_AnimID, LLUUID("d307c056-636e-dda6-4a3c-b3a43c431ca8"));
+	msg->addBOOLFast(_PREHASH_StartAnim, FALSE);
+	msg->nextBlockFast(_PREHASH_AnimationList);
+	msg->addUUIDFast(_PREHASH_AnimID, LLUUID("319b4e7a-18fc-1f9e-6411-dd10326c0c7e"));
+	msg->addBOOLFast(_PREHASH_StartAnim, FALSE);
+	msg->nextBlockFast(_PREHASH_AnimationList);
+	msg->addUUIDFast(_PREHASH_AnimID, LLUUID("f05d765d-0e01-5f9a-bfc2-fdc054757e55"));
+	msg->addBOOLFast(_PREHASH_StartAnim, FALSE);
+	msg->nextBlockFast(_PREHASH_PhysicalAvatarEventList);
+	msg->addBinaryDataFast(_PREHASH_TypeData, NULL, 0);
+	msg->sendReliable(gAgent.getRegion()->getHost());
+	return TRUE;
+}
+class LLToolsUndeformAll : public view_listener_t
+{
+	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
+	{
+		new Undeformer(TRUE);
+		return true;
+	}
+};
+class LLToolsUndeformAllButEyes : public view_listener_t
+{
+	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
+	{
+		new Undeformer(FALSE);
+		return true;
+	}
+};
+// </edit>
 
 class LLToolsReleaseKeys : public view_listener_t
 {
@@ -5192,6 +6133,19 @@ class LLShowFloater : public view_listener_t
 		{
 			LLFloaterMap::toggle(NULL);
 		}
+		// <edit>
+		else if(floater_name == "avatar radar")
+		{
+			bool visible = gSavedSettings.getBOOL("ShowAvatarRadar");
+			visible = !visible;
+			gSavedSettings.setBOOL("ShowAvatarRadar", visible);
+			gFloaterAvatars->setVisible(visible);
+		}
+		else if(floater_name == "sounds")
+		{
+			LLFloaterExploreSounds::toggle();
+		}
+		// </edit>
 		else if (floater_name == "stat bar")
 		{
 			gDebugView->mFloaterStatsp->setVisible(!gDebugView->mFloaterStatsp->getVisible());
@@ -5917,6 +6871,10 @@ class LLObjectEnableWear : public view_listener_t
 	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
 	{
 		bool is_wearable = object_selected_and_point_valid(NULL);
+		// <edit> Don't allow attaching objects while importing attachments
+		if(LLXmlImport::sImportInProgress && LLXmlImport::sImportHasAttachments)
+			is_wearable = false;
+		// </edit>
 		gMenuHolder->findControl(userdata["control"].asString())->setValue(is_wearable);
 		return TRUE;
 	}
@@ -6087,6 +7045,10 @@ class LLToolsSelectedScriptAction : public view_listener_t
 
 void handle_selected_texture_info(void*)
 {
+	// <edit>
+	std::map<LLUUID, bool> unique_textures;
+	S32 total_memory = 0;
+	// </edit>
 	for (LLObjectSelection::valid_iterator iter = LLSelectMgr::getInstance()->getSelection()->valid_begin();
 		 iter != LLSelectMgr::getInstance()->getSelection()->valid_end(); iter++)
 	{
@@ -6109,18 +7071,33 @@ void handle_selected_texture_info(void*)
 			LLViewerImage* img = node->getObject()->getTEImage(i);
 			LLUUID image_id = img->getID();
 			faces_per_texture[image_id].push_back(i);
+			// <edit>
+			if(!unique_textures[image_id])
+			{
+				unique_textures[image_id] = true;
+				total_memory += (img->getWidth() * img->getHeight() * img->getComponents());
+			}
+			// </edit>
 		}
 		// Per-texture, dump which faces are using it.
 		map_t::iterator it;
 		for (it = faces_per_texture.begin(); it != faces_per_texture.end(); ++it)
 		{
 			LLUUID image_id = it->first;
+			// <edit>
+			std::string uuid_str;
+			image_id.toString(uuid_str);
+			// </edit>
 			U8 te = it->second[0];
 			LLViewerImage* img = node->getObject()->getTEImage(te);
 			S32 height = img->getHeight();
 			S32 width = img->getWidth();
 			S32 components = img->getComponents();
-			msg = llformat("%dx%d %s on face ",
+			// <edit>
+			//msg = llformat("%dx%d %s on face ",
+			msg = llformat("%s, %dx%d %s on face ",
+								uuid_str.c_str(),
+			// </edit>
 								width,
 								height,
 								(components == 4 ? "alpha" : "opaque"));
@@ -6131,7 +7108,43 @@ void handle_selected_texture_info(void*)
 			LLChat chat(msg);
 			LLFloaterChat::addChat(chat);
 		}
+
+		// <edit>
+		if(node->getObject()->isSculpted())
+		{
+			LLSculptParams *sculpt_params = (LLSculptParams *)(node->getObject()->getParameterEntry(LLNetworkData::PARAMS_SCULPT));
+			LLUUID sculpt_id = sculpt_params->getSculptTexture();
+			std::string uuid_str;
+			sculpt_id.toString(uuid_str);
+			msg.assign("Sculpt texture: ");
+			msg.append(uuid_str.c_str());
+			LLChat chat(msg);
+			LLFloaterChat::addChat(chat);
+
+			unique_textures[sculpt_id] = true;
+		}
+
+		if(node->getObject()->isParticleSource())
+		{
+			//LLUUID particle_id = node->getObject()->mPartSourcep->getImage()->getID();
+		}
+		// </edit>
 	}
+	// <edit>
+	typedef std::map<LLUUID, bool>::iterator map_iter;
+	for(map_iter i = unique_textures.begin(); i != unique_textures.end(); ++i)
+	{
+		LLUUID asset_id = (*i).first;
+		LLLocalInventory::addItem(asset_id.asString(), (int)LLAssetType::AT_TEXTURE, asset_id, true);
+	}
+
+	// Show total widthxheight
+	F32 memoriez = (F32)total_memory;
+	memoriez = memoriez / 1000000;
+	std::string msg = llformat("Total uncompressed: %f MB", memoriez);
+	LLChat chat(msg);
+	LLFloaterChat::addChat(chat);
+	// </edit>
 }
 
 void handle_dump_image_list(void*)
@@ -6208,7 +7221,64 @@ void menu_toggle_control( void* user_data )
                 // High Res Snapshot active, must uncheck RenderUIInSnapshot
                 gSavedSettings.setBOOL( "RenderUIInSnapshot", FALSE );
         }
-        gSavedSettings.setBOOL( static_cast<char*>(user_data), !checked );
+        // <edit>
+		//else if (std::string(static_cast<char*>(user_data)) == "DisableCameraCollision" && !checked)
+        //{
+        //    gAgent.setCameraCollidePlane(LLVector4(0.0f, 0.0f, 0.0f, 0.0f));
+        //}
+		//else if(std::string(static_cast<char*>(user_data)) == "FreeUploads")
+		//{
+		//	S32 upload_cost = checked ? LLGlobalEconomy::Singleton::getInstance()->getPriceUpload() : 0;
+		//	gMenuHolder->childSetLabelArg("Upload Image", "[COST]", llformat("%d", upload_cost));
+		//	gMenuHolder->childSetLabelArg("Upload Sound", "[COST]", llformat("%d", upload_cost));
+		//	gMenuHolder->childSetLabelArg("Upload Animation", "[COST]", llformat("%d", upload_cost));
+		//	gMenuHolder->childSetLabelArg("Bulk Upload", "[COST]", llformat("%d", upload_cost));
+		//}
+		/*
+		else if (std::string(static_cast<char*>(user_data)) == "DisableLookAt" && !checked)
+        {
+            gAgent.setLookAt(LOOKAT_TARGET_NONE, gAgent.getAvatarObject(), LLVector3(-2.f, 0.f, 0.f));
+        }
+		else if (std::string(static_cast<char*>(user_data)) == "DisableLookAtFocus" && !checked)
+        {
+            gAgent.setLookAt(LOOKAT_TARGET_NONE, gAgent.getAvatarObject(), LLVector3(-2.f, 0.f, 0.f));
+        }
+		else if (std::string(static_cast<char*>(user_data)) == "DisablePointAtAndBeam" && !checked)
+        {
+            gAgent.setPointAt(POINTAT_TARGET_CLEAR);
+        }
+		*/
+		else if(std::string(static_cast<char*>(user_data)) == "AO.Enabled")
+		{
+			LLVOAvatar* avatarp = gAgent.getAvatarObject();
+			if (avatarp)
+			{
+				for ( LLVOAvatar::AnimIterator anim_it =
+						  avatarp->mPlayingAnimations.begin();
+					  anim_it != avatarp->mPlayingAnimations.end();
+					  anim_it++)
+				{
+					if(LLAO::mOverrides.find(anim_it->first) != LLAO::mOverrides.end())
+					{
+						// this is an override anim
+						if(checked)
+						{
+							// make override stop
+							avatarp->stopMotion(anim_it->first);
+							gAgent.sendAnimationRequest(anim_it->first, ANIM_REQUEST_STOP);
+						}
+						else
+						{
+							// make override start
+							gSavedSettings.setBOOL("AO.Enabled", TRUE);
+							avatarp->startMotion(anim_it->first);
+						}
+					}
+				}
+			}
+		}
+		// </edit>
+		gSavedSettings.setBOOL( static_cast<char*>(user_data), !checked );
 }
 
 
@@ -6359,6 +7429,25 @@ class LLToolsEnableTakeCopy : public view_listener_t
 		return true;
 	}
 };
+
+// <edit>
+class LLToolsEnableAdminDelete : public view_listener_t
+{
+	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
+	{
+		LLViewerObject* object = LLSelectMgr::getInstance()->getSelection()->getPrimaryObject();
+		return (object != NULL);
+	}
+};
+class LLToolsAdminDelete : public view_listener_t
+{
+	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
+	{
+		LLSelectMgr::getInstance()->selectForceDelete();
+		return true;
+	}
+};
+// </edit>
 
 BOOL enable_selection_you_own_all(void*)
 {
@@ -6672,6 +7761,19 @@ class LLToolsSelectBySurrounding : public view_listener_t
 		return true;
 	}
 };
+
+// <edit>
+class LLToolsSelectByOverlapping : public view_listener_t
+{
+	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
+	{
+		LLSelectMgr::sRectSelectOverlap = !LLSelectMgr::sRectSelectOverlap;
+
+		gSavedSettings.setBOOL("RectangleSelectOverlap", LLSelectMgr::sRectSelectOverlap);
+		return true;
+	}
+};
+// </edit>
 
 class LLToolsShowHiddenSelection : public view_listener_t
 {
@@ -7500,6 +8602,9 @@ void initialize_menus()
 	addMenu(new LLToolsSelectOnlyMyObjects(), "Tools.SelectOnlyMyObjects");
 	addMenu(new LLToolsSelectOnlyMovableObjects(), "Tools.SelectOnlyMovableObjects");
 	addMenu(new LLToolsSelectBySurrounding(), "Tools.SelectBySurrounding");
+	// <edit>
+	addMenu(new LLToolsSelectByOverlapping(), "Tools.SelectByOverlapping");
+	// </edit>
 	addMenu(new LLToolsShowHiddenSelection(), "Tools.ShowHiddenSelection");
 	addMenu(new LLToolsShowSelectionLightRadius(), "Tools.ShowSelectionLightRadius");
 	addMenu(new LLToolsEditLinkedParts(), "Tools.EditLinkedParts");
@@ -7508,11 +8613,20 @@ void initialize_menus()
 	addMenu(new LLToolsLink(), "Tools.Link");
 	addMenu(new LLToolsUnlink(), "Tools.Unlink");
 	addMenu(new LLToolsStopAllAnimations(), "Tools.StopAllAnimations");
+	// <edit>
+	addMenu(new LLToolsUndeformAll(), "Tools.UndeformAll");
+	addMenu(new LLToolsUndeformAllButEyes(), "Tools.UndeformAllButEyes");
+	// </edit>
 	addMenu(new LLToolsReleaseKeys(), "Tools.ReleaseKeys");
 	addMenu(new LLToolsEnableReleaseKeys(), "Tools.EnableReleaseKeys");
 	addMenu(new LLToolsLookAtSelection(), "Tools.LookAtSelection");
 	addMenu(new LLToolsBuyOrTake(), "Tools.BuyOrTake");
 	addMenu(new LLToolsTakeCopy(), "Tools.TakeCopy");
+	// <edit>
+	//addMenu(new LLToolsZTake(), "Tools.ZTake");
+	addMenu(new LLToolsEnableAdminDelete(), "Tools.EnableAdminDelete");
+	addMenu(new LLToolsAdminDelete(), "Tools.AdminDelete");
+	// </edit>
 	addMenu(new LLToolsSaveToInventory(), "Tools.SaveToInventory");
 	addMenu(new LLToolsSaveToObjectInventory(), "Tools.SaveToObjectInventory");
 	addMenu(new LLToolsSelectedScriptAction(), "Tools.SelectedScriptAction");
@@ -7563,6 +8677,12 @@ void initialize_menus()
 	addMenu(new LLObjectAttachToAvatar(), "Object.AttachToAvatar");
 	addMenu(new LLObjectReturn(), "Object.Return");
 	addMenu(new LLObjectReportAbuse(), "Object.ReportAbuse");
+	// <edit>
+	addMenu(new LLObjectSaveAs(), "Object.SaveAs");
+	addMenu(new LLObjectImport(), "Object.Import");
+	addMenu(new LLAvatarAnims(), "Avatar.Anims");
+	addMenu(new LLObjectCopyUUID(), "Object.CopyUUID");
+	// </edit>
 	addMenu(new LLObjectMute(), "Object.Mute");
 	addMenu(new LLObjectBuy(), "Object.Buy");
 	addMenu(new LLObjectEdit(), "Object.Edit");
@@ -7575,6 +8695,11 @@ void initialize_menus()
 	addMenu(new LLObjectEnableWear(), "Object.EnableWear");
 	addMenu(new LLObjectEnableReturn(), "Object.EnableReturn");
 	addMenu(new LLObjectEnableReportAbuse(), "Object.EnableReportAbuse");
+	// <edit>
+	addMenu(new LLObjectEnableSaveAs(), "Object.EnableSaveAs");
+	addMenu(new LLObjectEnableImport(), "Object.EnableImport");
+	addMenu(new LLObjectEnableCopyUUID(), "Object.EnableCopyUUID");
+	// </edit>
 	addMenu(new LLObjectEnableMute(), "Object.EnableMute");
 	addMenu(new LLObjectEnableBuy(), "Object.EnableBuy");
 

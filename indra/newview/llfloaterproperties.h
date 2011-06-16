@@ -59,6 +59,14 @@ public:
 	static void dirtyAll();
 
 	static void closeByID(const LLUUID& item_id, const LLUUID& object_id);
+	
+	// <edit>
+	static void onClickMore(void* user_data);
+	static void onClickLess(void* user_data);
+	static void onClickCopy(void* user_data);
+	static void onClickUpdate(void* user_data);
+	void setExpanded(BOOL expanded);
+	// </edit>
 
 	LLFloaterProperties(const std::string& name, const LLRect& rect, const std::string& title, const LLUUID& item_id, const LLUUID& object_id);
 	virtual ~LLFloaterProperties();
@@ -93,6 +101,9 @@ protected:
 	LLUUID mObjectID;
 
 	BOOL	mDirty;
+	// <edit>
+	BOOL	mExpanded;
+	// </edit>
 
 	typedef std::map<LLUUID, LLFloaterProperties*, lluuid_less> instance_map;
 	static instance_map sInstances;
@@ -104,6 +115,11 @@ class LLMultiProperties : public LLMultiFloater
 {
 public:
 	LLMultiProperties(const LLRect& rect);
+	// <edit>
+	void setExpanded(BOOL expanded);
+protected:
+	BOOL mExpanded;
+	// </edit>
 };
 
 #endif // LL_LLFLOATERPROPERTIES_H

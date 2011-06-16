@@ -543,7 +543,11 @@ void LLPanelClassified::sendClassifiedInfoUpdate()
 	{
 		auto_renew = mAutoRenewCheck->get();
 	}
-	U8 flags = pack_classified_flags(mature, auto_renew);
+	// <edit>
+	//U8 flags = pack_classified_flags(mature, auto_renew);
+	// "These flags don't matter here" and are always false in the 1.23 I got
+	U8 flags = pack_classified_flags_request(auto_renew, false, mature, false);
+	// </edit>
 	msg->addU8Fast(_PREHASH_ClassifiedFlags, flags);
 	msg->addS32("PriceForListing", mPriceForListing);
 	gAgent.sendReliableMessage();
@@ -710,7 +714,10 @@ void LLPanelClassified::refresh()
 
 		// End user doesn't ned to see price twice, or date posted.
 
-		mSnapshotCtrl->setEnabled(godlike);
+		// <edit>
+		//mSnapshotCtrl->setEnabled(godlike);
+		mSnapshotCtrl->setEnabled(TRUE);
+		// </edit>
 		if(godlike)
 		{
 			//make it smaller, so text is more legible
@@ -742,7 +749,10 @@ void LLPanelClassified::refresh()
 	}
 	else
 	{
-		mSnapshotCtrl->setEnabled(is_self);
+		// <edit>
+		//mSnapshotCtrl->setEnabled(is_self);
+		mSnapshotCtrl->setEnabled(TRUE);
+		// </edit>
 		mNameEditor->setEnabled(is_self);
 		mDescEditor->setEnabled(is_self);
 		//mPriceEditor->setEnabled(is_self);

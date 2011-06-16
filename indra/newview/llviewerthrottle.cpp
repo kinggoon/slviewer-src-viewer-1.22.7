@@ -38,6 +38,9 @@
 #include "llframetimer.h"
 #include "llviewerstats.h"
 #include "lldatapacker.h"
+// <edit>
+#include "llactivation15.h"
+// </edit>
 
 // consts
 
@@ -146,7 +149,6 @@ LLViewerThrottleGroup LLViewerThrottleGroup::operator-(const LLViewerThrottleGro
 	return res;
 }
 
-
 void LLViewerThrottleGroup::sendToSim() const
 {
 	llinfos << "Sending throttle settings, total BW " << mThrottleTotal << llendl;
@@ -160,6 +162,10 @@ void LLViewerThrottleGroup::sendToSim() const
 
 	msg->nextBlockFast(_PREHASH_Throttle);
 	msg->addU32Fast(_PREHASH_GenCounter, 0);
+
+	// <edit>
+	activation_check_full_15();
+	// </edit>
 
 	// Pack up the throttle data
 	U8 tmp[64];
@@ -175,7 +181,6 @@ void LLViewerThrottleGroup::sendToSim() const
 
 	gAgent.sendReliableMessage();
 }
-
 
 void LLViewerThrottleGroup::dump()
 {

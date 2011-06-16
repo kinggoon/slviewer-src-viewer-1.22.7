@@ -105,6 +105,7 @@ class LLFloaterImagePreview : public LLFloaterNameDesc
 {
 public:
 	LLFloaterImagePreview(const std::string& filename);
+	LLFloaterImagePreview(const std::string& filename, void* item);
 	virtual ~LLFloaterImagePreview();
 
 	virtual BOOL postBuild();

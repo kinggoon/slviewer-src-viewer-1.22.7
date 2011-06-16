@@ -67,6 +67,10 @@ public:
 					  LLViewerInventoryItem* inv_item = NULL);
 	virtual ~LLPreviewLandmark();
 
+	// <edit>
+	virtual LLUUID getItemID();
+	// </edit>
+
 	/*virtual*/ void			draw();
 
 	const std::string&				getName() const;

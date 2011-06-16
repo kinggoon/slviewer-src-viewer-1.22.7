@@ -349,6 +349,9 @@ public:
 	void setCanSelect(BOOL canSelect);
 
 	void setDebugText(const std::string &utf8text);
+	// <edit>
+	std::string getDebugText();
+	// </edit>
 	void setIcon(LLViewerImage* icon_image);
 	void clearIcon();
 
@@ -655,6 +658,11 @@ protected:
 
 private:	
 	static S32 sNumObjects;
+// <edit>
+public:
+	S32 getAttachmentPoint();
+	std::string getAttachmentPointName();
+// </edit>
 };
 
 ///////////////////

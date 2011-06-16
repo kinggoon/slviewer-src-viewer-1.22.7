@@ -66,6 +66,9 @@
 #include "llui.h"
 #include "llviewermenu.h"
 #include "lluictrlfactory.h"
+// <edit>
+#include "llfunfonts.h"
+// </edit>
 
 
 //
@@ -146,7 +149,10 @@ BOOL LLChatBar::postBuild()
 		mInputEditor->setPassDelete(TRUE);
 		mInputEditor->setReplaceNewlinesWithSpaces(FALSE);
 
-		mInputEditor->setMaxTextLength(1023);
+		// <edit>
+		//mInputEditor->setMaxTextLength(1023);
+		mInputEditor->setMaxTextLength(1199);
+		// </edit>
 		mInputEditor->setEnableLineHistory(TRUE);
 	}
 
@@ -338,7 +344,10 @@ LLWString LLChatBar::stripChannelNumber(const LLWString &mesg, S32* channel)
 	}
 	else if (mesg[0] == '/'
 			 && mesg[1]
-			 && LLStringOps::isDigit(mesg[1]))
+	// <edit>
+	//		 && LLStringOps::isDigit(mesg[1]))
+			 && (LLStringOps::isDigit(mesg[1]) || (mesg[1] == '-' && LLStringOps::isDigit(mesg[2]))))
+	// </edit>
 	{
 		// This a special "/20" speak on a channel
 		S32 pos = 0;
@@ -346,6 +355,14 @@ LLWString LLChatBar::stripChannelNumber(const LLWString &mesg, S32* channel)
 		// Copy the channel number into a string
 		LLWString channel_string;
 		llwchar c;
+		// <edit>
+		if(mesg[1] == '-')
+		{
+			c = mesg[pos+1];
+			channel_string.push_back(c);
+			pos++;
+		}
+		// </edit>
 		do
 		{
 			c = mesg[pos+1];
@@ -392,7 +409,7 @@ void LLChatBar::sendChat( EChatType type )
 			std::string utf8text = wstring_to_utf8str(text);
 			// Try to trigger a gesture, if not chat to a script.
 			std::string utf8_revised_text;
-			if (0 == channel)
+			if (0 == channel && gSavedSettings.getBOOL("EnableGestures"))
 			{
 				// discard returned "found" boolean
 				gGestureManager.triggerAndReviseString(utf8text, &utf8_revised_text);
@@ -510,7 +527,7 @@ void LLChatBar::onInputEditorKeystroke( LLLineEditor* caller, void* userdata )
 	// Ignore "special" keys, like backspace, arrows, etc.
 	if (length > 1 
 		&& raw_text[0] == '/'
-		&& key < KEY_SPECIAL)
+		&& key < KEY_SPECIAL && gSavedSettings.getBOOL("EnableGestures"))
 	{
 		// we're starting a gesture, attempt to autocomplete
 
@@ -623,14 +640,36 @@ void LLChatBar::sendChatFromViewer(const LLWString &wtext, EChatType type, BOOL 
 void send_chat_from_viewer(const std::string& utf8_out_text, EChatType type, S32 channel)
 {
 	LLMessageSystem* msg = gMessageSystem;
+	// <edit>
+	if(channel >= 0)
+	{
+	// </edit>
 	msg->newMessageFast(_PREHASH_ChatFromViewer);
 	msg->nextBlockFast(_PREHASH_AgentData);
 	msg->addUUIDFast(_PREHASH_AgentID, gAgent.getID());
 	msg->addUUIDFast(_PREHASH_SessionID, gAgent.getSessionID());
 	msg->nextBlockFast(_PREHASH_ChatData);
-	msg->addStringFast(_PREHASH_Message, utf8_out_text);
+	// <edit>
+	//msg->addStringFast(_PREHASH_Message, utf8_out_text);
+	msg->addStringFast(_PREHASH_Message, LLFunFonts::apply(utf8_out_text));
+	// </edit>
 	msg->addU8Fast(_PREHASH_Type, type);
 	msg->addS32("Channel", channel);
+	// <edit>
+	}
+	else
+	{
+		msg->newMessageFast(_PREHASH_ScriptDialogReply);
+		msg->nextBlockFast(_PREHASH_AgentData);
+		msg->addUUIDFast(_PREHASH_AgentID, gAgent.getID());
+		msg->addUUIDFast(_PREHASH_SessionID, gAgent.getSessionID());
+		msg->nextBlockFast(_PREHASH_Data);
+		msg->addUUIDFast(_PREHASH_ObjectID, gAgent.getID());
+		msg->addS32Fast(_PREHASH_ChatChannel, channel);
+		msg->addS32Fast(_PREHASH_ButtonIndex, 1);
+		msg->addStringFast(_PREHASH_ButtonLabel, LLFunFonts::apply(utf8_out_text));
+	}
+	// </edit>
 
 	gAgent.sendReliableMessage();
 

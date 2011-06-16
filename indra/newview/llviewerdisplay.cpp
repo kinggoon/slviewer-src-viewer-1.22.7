@@ -376,6 +376,9 @@ void display(BOOL rebuild, F32 zoom_factor, int subfield, BOOL for_snapshot)
 			gAgent.setTeleportMessage(
 				LLAgent::sTeleportProgressMessages["arriving"]);
 			gImageList.mForceResetTextureStats = TRUE;
+			// <edit>
+			if(gAgent.getFocusOnAvatar())
+			// </edit>
 			gAgent.resetView(TRUE, TRUE);
 			break;
 

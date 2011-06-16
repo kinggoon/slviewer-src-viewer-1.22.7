@@ -71,6 +71,9 @@ class LLFloaterAnimPreview : public LLFloaterNameDesc
 {
 public:
 	LLFloaterAnimPreview(const std::string& filename);
+	// <edit>
+	LLFloaterAnimPreview(const std::string& filename, void* item);
+	// </edit>
 	virtual ~LLFloaterAnimPreview();
 	
 	BOOL postBuild();
@@ -128,6 +131,10 @@ protected:
 	std::map<std::string, LLUUID>	mIDList;
 
 	static S32 sUploadAmount;
+
+	// <edit>
+	void* mItem;
+	// </edit>
 };
 
 #endif  // LL_LLFLOATERANIMPREVIEW_H

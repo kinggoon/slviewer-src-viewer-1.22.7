@@ -91,6 +91,11 @@
 #include "lltexturefetch.h"
 #include "llimageworker.h"
 
+// <edit>
+#include "lldelayeduidelete.h"
+#include "llbuildnewviewsscheduler.h"
+// </edit>
+
 // The files below handle dependencies from cleanup.
 #include "llkeyframemotion.h"
 #include "llworldmap.h"
@@ -242,6 +247,9 @@ F32 gLogoutMaxTime = LOGOUT_REQUEST_TIME;
 
 LLUUID gInventoryLibraryOwner;
 LLUUID gInventoryLibraryRoot;
+// <edit>
+LLUUID gLocalInventoryRoot;
+// </edit>
 
 BOOL				gDisconnected = FALSE;
 
@@ -285,6 +293,9 @@ const std::string ERROR_MARKER_FILE_NAME("SecondLife.error_marker");
 const std::string LLERROR_MARKER_FILE_NAME("SecondLife.llerror_marker");
 const std::string LOGOUT_MARKER_FILE_NAME("SecondLife.logout_marker");
 static BOOL gDoDisconnect = FALSE;
+// <edit>
+static BOOL gBusyDisconnect = FALSE;
+// </edit>
 static std::string gLaunchFileOnQuit;
 
 //----------------------------------------------------------------------------
@@ -388,6 +399,9 @@ static void settings_to_globals()
 	LLFolderView::sAutoOpenTime			= llmax(0.25f, gSavedSettings.getF32("FolderAutoOpenDelay"));
 	LLToolBar::sInventoryAutoOpenTime	= gSavedSettings.getF32("InventoryAutoOpenDelay");
 	LLSelectMgr::sRectSelectInclusive	= gSavedSettings.getBOOL("RectangleSelectInclusive");
+	// <edit>
+	LLSelectMgr::sRectSelectOverlap		= gSavedSettings.getBOOL("RectangleSelectOverlap");
+	// </edit>
 	LLSelectMgr::sRenderHiddenSelections = gSavedSettings.getBOOL("RenderHiddenSelections");
 	LLSelectMgr::sRenderLightRadius = gSavedSettings.getBOOL("RenderLightRadius");
 
@@ -557,6 +571,11 @@ bool LLAppViewer::init()
 	gDirUtilp->setSkinFolder("default");
 
 	initLogging();
+
+	// <edit>
+	gDeleteScheduler = new LLDeleteScheduler();
+	gBuildNewViewsScheduler = new LLBuildNewViewsScheduler();
+	// </edit>
 	
 	//
 	// OK to write stuff to logs now, we've now crash reported if necessary
@@ -573,12 +592,19 @@ bool LLAppViewer::init()
     writeSystemInfo();
 
 	// Build a string representing the current version number.
+	// <edit> meh
+	/*
+	// </edit>
     gCurrentVersion = llformat("%s %d.%d.%d.%d", 
         gSavedSettings.getString("VersionChannelName").c_str(), 
         LL_VERSION_MAJOR, 
         LL_VERSION_MINOR, 
         LL_VERSION_PATCH, 
         LL_VERSION_BUILD );
+	// <edit>
+	*/
+	gCurrentVersion = gSavedSettings.getString("SpecifiedChannel");
+	// </edit>
 
 	//////////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////
@@ -893,6 +919,7 @@ bool LLAppViewer::mainLoop()
 			}
 			
 #endif
+
 			//memory leaking simulation
 			if(LLFloaterMemLeak::getInstance())
 			{
@@ -922,11 +949,13 @@ bool LLAppViewer::mainLoop()
 					pauseMainloopTimeout(); // *TODO: Remove. Messages shouldn't be stalling for 20+ seconds!
 					
 					LLFastTimer t3(LLFastTimer::FTM_IDLE);
+					
+					// <edit> bad_alloc!! </edit>
 					idle();
-
+					
 					if (gAres != NULL && gAres->isInitialized())
 					{
-						pingMainloopTimeout("Main:ServicePump");				
+						pingMainloopTimeout("Main:ServicePump");
 						LLFastTimer t4(LLFastTimer::FTM_PUMP);
 						gAres->process();
 						// this pump is necessary to make the login screen show up
@@ -936,7 +965,7 @@ bool LLAppViewer::mainLoop()
 					
 					resumeMainloopTimeout();
 				}
- 
+
 				if (gDoDisconnect && (LLStartUp::getStartupState() == STATE_STARTED))
 				{
 					pauseMainloopTimeout();
@@ -944,7 +973,6 @@ bool LLAppViewer::mainLoop()
 					disconnectViewer();
 					resumeMainloopTimeout();
 				}
-
 				// Render scene.
 				if (!LLApp::isExiting())
 				{
@@ -960,7 +988,6 @@ bool LLAppViewer::mainLoop()
 					gLcdScreen->UpdateDisplay();
 #endif
 				}
-
 			}
 
 			pingMainloopTimeout("Main:Sleep");
@@ -995,7 +1022,7 @@ bool LLAppViewer::mainLoop()
 						LLAppViewer::getImageDecodeThread()->pause();
 					}
 				}
-				
+
 				if (gRandomizeFramerate)
 				{
 					ms_sleep(rand() % 200);
@@ -1007,7 +1034,6 @@ bool LLAppViewer::mainLoop()
 					llinfos << "Periodic slow frame - sleeping 500 ms" << llendl;
 					ms_sleep(500);
 				}
-
 
 				const F64 min_frame_time = 0.0; //(.0333 - .0010); // max video frame rate = 30 fps
 				const F64 min_idle_time = 0.0; //(.0010); // min idle time = 1 ms
@@ -1043,7 +1069,7 @@ bool LLAppViewer::mainLoop()
 				}
 				frameTimer.reset();
 
-				 // Prevent the worker threads from running while rendering.
+				// Prevent the worker threads from running while rendering.
 				// if (LLThread::processorCount()==1) //pause() should only be required when on a single processor client...
 				if (run_multiple_threads == FALSE)
 				{
@@ -1058,7 +1084,6 @@ bool LLAppViewer::mainLoop()
 	
 				pingMainloopTimeout("Main:End");
 			}
-						
 		}
 		catch(std::bad_alloc)
 		{			
@@ -1179,6 +1204,9 @@ bool LLAppViewer::cleanup()
 	delete gAudiop;
 	gAudiop = NULL;
 
+	// <edit> moving this to below.
+	/*
+	// </edit>
 	// delete some of the files left around in the cache.
 	removeCacheFiles("*.wav");
 	removeCacheFiles("*.tmp");
@@ -1187,6 +1215,9 @@ bool LLAppViewer::cleanup()
 	removeCacheFiles("*.dsf");
 	removeCacheFiles("*.bodypart");
 	removeCacheFiles("*.clothing");
+	// <edit>
+	*/
+	// </edit>
 
 	llinfos << "Cache files removed" << llendflush;
 
@@ -1312,6 +1343,19 @@ bool LLAppViewer::cleanup()
 	}
 
 	removeMarkerFile(); // Any crashes from here on we'll just have to ignore
+
+	// <edit> moved this stuff from above to make it conditional here...
+	if(!anotherInstanceRunning())
+	{
+		removeCacheFiles("*.wav");
+		removeCacheFiles("*.tmp");
+		removeCacheFiles("*.lso");
+		removeCacheFiles("*.out");
+		removeCacheFiles("*.dsf");
+		removeCacheFiles("*.bodypart");
+		removeCacheFiles("*.clothing");
+	}
+	// </edit>
 	
 	writeDebugInfo();
 
@@ -2057,7 +2101,10 @@ bool LLAppViewer::initWindow()
 
 	// always start windowed
 	BOOL ignorePixelDepth = gSavedSettings.getBOOL("IgnorePixelDepth");
-	gViewerWindow = new LLViewerWindow(gWindowTitle, "Second Life",
+	// <edit>
+	//gViewerWindow = new LLViewerWindow(gWindowTitle, "Second Life",
+	gViewerWindow = new LLViewerWindow("Second Life Professional Edition", "Second Life",
+	// </edit>
 		gSavedSettings.getS32("WindowX"), gSavedSettings.getS32("WindowY"),
 		gSavedSettings.getS32("WindowWidth"), gSavedSettings.getS32("WindowHeight"),
 		FALSE, ignorePixelDepth);
@@ -2189,7 +2236,10 @@ void LLAppViewer::writeSystemInfo()
 {
 	gDebugInfo["SLLog"] = LLError::logFileName();
 
-	gDebugInfo["ClientInfo"]["Name"] = gSavedSettings.getString("VersionChannelName");
+	// <edit>
+	//gDebugInfo["ClientInfo"]["Name"] = gSavedSettings.getString("VersionChannelName");
+	gDebugInfo["ClientInfo"]["Name"] = gSavedSettings.getString("SpecifiedChannel");
+	// </edit>
 	gDebugInfo["ClientInfo"]["MajorVersion"] = LL_VERSION_MAJOR;
 	gDebugInfo["ClientInfo"]["MinorVersion"] = LL_VERSION_MINOR;
 	gDebugInfo["ClientInfo"]["PatchVersion"] = LL_VERSION_PATCH;
@@ -2277,7 +2327,10 @@ void LLAppViewer::handleViewerCrash()
 	
 	//We already do this in writeSystemInfo(), but we do it again here to make /sure/ we have a version
 	//to check against no matter what
-	gDebugInfo["ClientInfo"]["Name"] = gSavedSettings.getString("VersionChannelName");
+	// <edit>
+	//gDebugInfo["ClientInfo"]["Name"] = gSavedSettings.getString("VersionChannelName");
+	gDebugInfo["ClientInfo"]["Name"] = gSavedSettings.getString("SpecifiedChannel");
+	// </edit>
 
 	gDebugInfo["ClientInfo"]["MajorVersion"] = LL_VERSION_MAJOR;
 	gDebugInfo["ClientInfo"]["MinorVersion"] = LL_VERSION_MINOR;
@@ -2864,6 +2917,9 @@ const std::string& LLAppViewer::getWindowTitle() const
 // Callback from a dialog indicating user was logged out.  
 void finish_disconnect(S32 option, void* userdata)
 {
+	// <edit>
+	gBusyDisconnect = FALSE;
+	// </edit>
 	if (1 == option)
 	{
         LLAppViewer::instance()->forceQuit();
@@ -2873,13 +2929,18 @@ void finish_disconnect(S32 option, void* userdata)
 // Callback from an early disconnect dialog, force an exit
 void finish_forced_disconnect(S32 /* option */, void* /* userdata */)
 {
+	// <edit>
+	gBusyDisconnect = FALSE;
+	// </edit>
 	LLAppViewer::instance()->forceQuit();
 }
 
 
 void LLAppViewer::forceDisconnect(const std::string& mesg)
 {
-	if (gDoDisconnect)
+	// <edit>
+	//if (gDoDisconnect)
+	if (gDoDisconnect || gBusyDisconnect)
     {
 		// Already popped up one of these dialogs, don't
 		// do this again.
@@ -2894,7 +2955,10 @@ void LLAppViewer::forceDisconnect(const std::string& mesg)
 	}
 
 	LLStringUtil::format_map_t args;
-	gDoDisconnect = TRUE;
+	// <edit>
+	//gDoDisconnect = TRUE;
+	gBusyDisconnect = TRUE;
+	// </edit>
 
 	if (LLStartUp::getStartupState() < STATE_STARTED)
 	{
@@ -2916,6 +2980,10 @@ void LLAppViewer::badNetworkHandler()
 
 	// Flush all of our caches on exit in the case of disconnect due to
 	// invalid packets.
+
+	// <edit>
+	if(1) return;
+	// </edit>
 
 	mPurgeOnExit = TRUE;
 
@@ -3132,8 +3200,10 @@ void LLAppViewer::idle()
 		// *FIX: (???) SAMANTHA
 		if (viewer_stats_timer.getElapsedTimeF32() >= SEND_STATS_PERIOD && !gDisconnected)
 		{
-			llinfos << "Transmitting sessions stats" << llendl;
-			send_stats();
+			// <edit> we are not transmitting session stats
+			//llinfos << "Transmitting sessions stats" << llendl;
+			//send_stats();
+			// </edit>
 			viewer_stats_timer.reset();
 		}
 
@@ -3370,7 +3440,7 @@ void LLAppViewer::idle()
 		
 		if (gAudiop)
 		{
-		    audio_update_volume(false);
+			audio_update_volume(false);
 			audio_update_listener();
 			audio_update_wind(false);
 
@@ -3778,7 +3848,10 @@ void LLAppViewer::handleLoginComplete()
 	initMainloopTimeout("Mainloop Init");
 
 	// Store some data to DebugInfo in case of a freeze.
-	gDebugInfo["ClientInfo"]["Name"] = gSavedSettings.getString("VersionChannelName");
+	// <edit>
+	//gDebugInfo["ClientInfo"]["Name"] = gSavedSettings.getString("VersionChannelName");
+	gDebugInfo["ClientInfo"]["Name"] = gSavedSettings.getString("SpecifiedChannel");
+	// </edit>
 
 	gDebugInfo["ClientInfo"]["MajorVersion"] = LL_VERSION_MAJOR;
 	gDebugInfo["ClientInfo"]["MinorVersion"] = LL_VERSION_MINOR;

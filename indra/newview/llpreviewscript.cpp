@@ -313,6 +313,9 @@ LLScriptEdCore::LLScriptEdCore(
 	mForceClose( FALSE ),
 	mLastHelpToken(NULL),
 	mLiveHelpHistorySize(0),
+	// <edit>
+	mChangedMono(FALSE),
+	// </edit>
 	mEnableSave(FALSE)
 {
 	setFollowsAll();
@@ -446,7 +449,10 @@ BOOL LLScriptEdCore::hasChanged(void* userdata)
 	LLScriptEdCore* self = (LLScriptEdCore*)userdata;
 	if (!self || !self->mEditor) return FALSE;
 
-	return !self->mEditor->isPristine() || self->mEnableSave;
+	// <edit>
+	//return !self->mEditor->isPristine() || self->mEnableSave;
+	return !self->mEditor->isPristine() || self->mEnableSave || self->mChangedMono;
+	// </edit>
 }
 
 void LLScriptEdCore::draw()
@@ -1105,6 +1111,11 @@ LLPreviewLSL::LLPreviewLSL(const std::string& name, const LLRect& rect,
 	childSetText("desc", item->getDescription());
 	childSetPrevalidate("desc", &LLLineEditor::prevalidatePrintableNotPipe);
 
+	// <edit>
+	childSetVisible("mono_agent", true);
+	childSetCommitCallback("mono_agent", &LLPreviewLSL::onMonoClicked, this);
+	// </edit>
+
 	if (!getFloaterHost() && !getHost() && getAssetStatus() == PREVIEW_ASSET_UNLOADED)
 	{
 		loadAsset();
@@ -1263,6 +1274,9 @@ void LLPreviewLSL::saveIfNeeded()
 	mPendingUploads = 0;
 	mScriptEd->mErrorList->deleteAllItems();
 	mScriptEd->mEditor->makePristine();
+	// <edit>
+	mScriptEd->mChangedMono = FALSE;
+	// </edit>
 
 	// save off asset into file
 	LLTransactionID tid;
@@ -1313,7 +1327,10 @@ void LLPreviewLSL::uploadAssetViaCaps(const std::string& url,
 	llinfos << "Update Agent Inventory via capability" << llendl;
 	LLSD body;
 	body["item_id"] = item_id;
-	body["target"] = "lsl2";
+	// <edit>
+	//body["target"] = "lsl2";
+	body["target"] = childGetValue("mono_agent").asBoolean() ? "mono" : "lsl2";
+	// </edit>
 	LLHTTPClient::post(url, body, new LLUpdateAgentInventoryResponder(body, filename, LLAssetType::AT_LSL_TEXT));
 }
 
@@ -1521,6 +1538,9 @@ void LLPreviewLSL::onLoadComplete( LLVFS *vfs, const LLUUID& asset_uuid, LLAsset
 				is_modifiable = TRUE;		
 			}
 			preview->mScriptEd->mEditor->setEnabled(is_modifiable);
+			// <edit>
+			preview->childSetEnabled("mono_agent", is_modifiable);
+			// </edit>
 			preview->mAssetStatus = PREVIEW_ASSET_LOADED;
 		}
 		else
@@ -1548,6 +1568,15 @@ void LLPreviewLSL::onLoadComplete( LLVFS *vfs, const LLUUID& asset_uuid, LLAsset
 	delete item_uuid;
 }
 
+// <edit>
+// static
+void LLPreviewLSL::onMonoClicked(LLUICtrl*, void* userdata)
+{
+	LLPreviewLSL* self = static_cast<LLPreviewLSL*>(userdata);
+	self->mScriptEd->mChangedMono = TRUE;
+}
+// </edit>
+
 // static
 LLPreviewLSL* LLPreviewLSL::getInstance( const LLUUID& item_uuid )
 {
@@ -1571,6 +1600,40 @@ void LLPreviewLSL::reshape(S32 width, S32 height, BOOL called_from_parent)
 		gSavedSettings.setRect("PreviewScriptRect", getRect());
 	}
 }
+
+// <edit>
+// virtual
+BOOL LLPreviewLSL::canSaveAs() const
+{
+	return TRUE;
+}
+
+// virtual
+void LLPreviewLSL::saveAs()
+{
+	std::string default_filename("untitled.lsl");
+	const LLInventoryItem *item = getItem();
+	if(item)
+	{
+		default_filename = LLDir::getScrubbedFileName(item->getName());
+	}
+
+	LLFilePicker& file_picker = LLFilePicker::instance();
+	if( !file_picker.getSaveFile( LLFilePicker::FFSAVE_LSL, default_filename ) )
+	{
+		// User canceled or we failed to acquire save file.
+		return;
+	}
+	// remember the user-approved/edited file name.
+	std::string filename = file_picker.getFirstFile();
+
+	std::string utf8text = mScriptEd->mEditor->getText();
+	LLFILE* fp = LLFile::fopen(filename, "wb");
+	fputs(utf8text.c_str(), fp);
+	fclose(fp);
+	fp = NULL;
+}
+// </edit>
 
 /// ---------------------------------------------------------------------------
 /// LLLiveLSLEditor
@@ -2462,3 +2525,4 @@ BOOL LLLiveLSLEditor::monoChecked() const
 	}
 	return FALSE;
 }
+

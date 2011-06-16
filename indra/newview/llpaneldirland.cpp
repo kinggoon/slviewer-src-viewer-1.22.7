@@ -141,6 +141,12 @@ void LLPanelDirLand::onCommitArea(LLUICtrl* ctrl, void* data)
 
 void LLPanelDirLand::performQuery()
 {
+	// <edit>
+	BOOL inc_pg = childGetValue("pg_check").asBoolean();
+	BOOL inc_mature = childGetValue("mature_check").asBoolean();
+	BOOL inc_adult = childGetValue("adult_check").asBoolean();
+	// </edit>
+
 	LLMessageSystem* msg = gMessageSystem;
 
 	setupNewSearch();
@@ -156,17 +162,41 @@ void LLPanelDirLand::performQuery()
 	}
 
 	U32 query_flags = 0x0;
-	if (gAgent.isTeen()) query_flags |= DFQ_PG_SIMS_ONLY;
+	// <edit>
+	//if (gAgent.isTeen()) query_flags |= DFQ_PG_SIMS_ONLY;
 
-	const std::string& rating = childGetValue("rating").asString();
-	if (rating == PG_ONLY)
+	//const std::string& rating = childGetValue("rating").asString();
+	//if (rating == PG_ONLY)
+	//{
+	//	query_flags |= DFQ_PG_SIMS_ONLY;
+	//}
+	//else if (rating == MATURE_ONLY)
+	//{
+	//	query_flags |= DFQ_MATURE_SIMS_ONLY;
+	//}
+	if (inc_pg)
+	{
+		query_flags |= DFQ_INC_PG;
+	}
+	if (inc_mature)
+	{
+		query_flags |= DFQ_INC_MATURE;
+	}
+	if (inc_adult)
+	{
+		query_flags |= DFQ_INC_ADULT;
+	}
+	
+	// Add old flags in case we are talking to an old dataserver
+	if (inc_pg && !inc_mature)
 	{
 		query_flags |= DFQ_PG_SIMS_ONLY;
 	}
-	else if (rating == MATURE_ONLY)
+	if (!inc_pg && inc_mature)
 	{
-		query_flags |= DFQ_MATURE_SIMS_ONLY;
+		query_flags |= DFQ_MATURE_SIMS_ONLY; 
 	}
+	// </edit>
 
 	LLScrollListCtrl* list = getChild<LLScrollListCtrl>("results");
 	if (list)

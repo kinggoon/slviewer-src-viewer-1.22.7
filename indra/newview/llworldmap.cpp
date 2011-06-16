@@ -663,6 +663,15 @@ void LLWorldMap::processMapBlockReply(LLMessageSystem* msg, void**)
 				callback(handle, LLWorldMap::getInstance()->mSLURL, image_id, LLWorldMap::getInstance()->mSLURLTeleport);
 			}
 		}
+		// <edit>
+		if(LLAgent::lure_show)
+		{
+			if((x_regions == LLAgent::lure_global_x) && (y_regions == LLAgent::lure_global_y))
+			{
+				gAgent.onFoundLureDestination();
+			}
+		}
+		// </edit>
 	}
 
 	if(adjust) gFloaterWorldMap->adjustZoomSliderBounds();

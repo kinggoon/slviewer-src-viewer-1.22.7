@@ -191,6 +191,10 @@ void process_decline_callingcard(LLMessageSystem* msg, void**);
 // Message system exception prototypes
 void invalid_message_callback(LLMessageSystem*, void*, EMessageException);
 
+// <edit>
+void spoof_dropped_callback(LLNetCanary::entry entry);
+// </edit>
+
 void process_initiate_download(LLMessageSystem* msg, void**);
 void inventory_offer_callback(S32 option, void* user_data);
 void start_new_inventory_observer();

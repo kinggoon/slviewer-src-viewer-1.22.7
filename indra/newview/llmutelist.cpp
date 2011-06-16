@@ -298,13 +298,15 @@ BOOL LLMuteList::isLinden(const std::string& name) const
 
 BOOL LLMuteList::add(const LLMute& mute, U32 flags)
 {
-	// Can't mute text from Lindens
-	if ((mute.mType == LLMute::AGENT)
-		&& isLinden(mute.mName) && (flags & LLMute::flagTextChat || flags == 0))
-	{
-		gViewerWindow->alertXml("MuteLinden");
-		return FALSE;
-	}
+	// <edit>
+	//// Can't mute text from Lindens
+	//if ((mute.mType == LLMute::AGENT)
+	//	&& isLinden(mute.mName) && (flags & LLMute::flagTextChat || flags == 0))
+	//{
+	//	gViewerWindow->alertXml("MuteLinden");
+	//	return FALSE;
+	//}
+	// </edit>
 	
 	// Can't mute self.
 	if (mute.mType == LLMute::AGENT

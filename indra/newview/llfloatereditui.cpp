@@ -110,9 +110,15 @@ void	LLFloaterEditUI::navigateHierarchyButtonPressed(void*	data)
 }
 	
 LLFloaterEditUI::LLFloaterEditUI()
-:	LLFloater(std::string("floater_ui_editor"), LLRect(0, 200, 200, 0), std::string("Edit User Interface")),
+// <edit>
+//:	LLFloater(std::string("floater_ui_editor"), LLRect(0, 200, 200, 0), std::string("Edit User Interface")),
+:	LLFloater(std::string("floater_ui_editor"), LLRect(0, 300, 400, 0), std::string("Edit User Interface")),
+// </edit>
 	mLastView(NULL),
 	mLabelLine(NULL),
+	// <edit>
+	mTextLine(NULL),
+	// </edit>
 	mWidthSpin(NULL),
 	mHeightSpin(NULL)
 {
@@ -129,7 +135,10 @@ LLFloaterEditUI::LLFloaterEditUI()
 	LLButton*	button = NULL;
 
 
-	text = new LLTextBox(std::string("Selected UI Widget:"), LLRect(x, y+16, x+100, y));
+	// <edit>
+	//text = new LLTextBox(std::string("Selected UI Widget:"), LLRect(x, y+16, x+100, y));
+	text = new LLTextBox(std::string("Selected UI Widget:"), LLRect(x, y+16, x+200, y));
+	// </edit>
 	addChild(text);
 	y -= VPAD + 16;
 
@@ -137,7 +146,10 @@ LLFloaterEditUI::LLFloaterEditUI()
 	addChild(text);
 	x = R1;
 
-	line = new LLLineEditor(std::string("label_line"), LLRect(x, y+20, x+100, y),
+	// <edit>
+	//line = new LLLineEditor(std::string("label_line"), LLRect(x, y+20, x+100, y),
+	line = new LLLineEditor(std::string("label_line"), LLRect(x, y+20, x+200, y),
+	// </edit>
 		LLStringUtil::null,
 		NULL,
 		254,
@@ -147,6 +159,25 @@ LLFloaterEditUI::LLFloaterEditUI()
 		this);
 	addChild(line);
 	mLabelLine = line;
+
+	// <edit>
+	x = HPAD;
+	y -= VPAD + 20;
+
+	text = new LLTextBox(std::string("Text:"), LLRect(x, y+16, x+40, y));
+	addChild(text);
+	x = R1;
+	line = new LLLineEditor(std::string("text_line"), LLRect(x, y+20, x+200, y),
+		LLStringUtil::null,
+		NULL,
+		254,
+		onCommitText,
+		NULL,
+		NULL,
+		this);
+	addChild(line);
+	mTextLine = line;
+	// </edit>
 
 	x = HPAD;
 	y -= VPAD + 20;
@@ -177,12 +208,34 @@ LLFloaterEditUI::LLFloaterEditUI()
 	addChild(spin);
 	mWidthSpin = spin;
 
+
 	y -= VPAD + 20;
 
-	text = new LLTextBox(std::string("XML Name:"), LLRect(x, y+16, x+60, y));
+	// <edit>
+	text = new LLTextBox(std::string("Parent Name:"), LLRect(x, y+16, x+100, y));
 	addChild(text);
-	x+=60;
-	text = new LLTextBox(std::string("xml_name"), LLRect(x, y+16, x+100, y));
+
+	x += 100;
+
+	text = new LLTextBox(std::string("parent_xml_name"), LLRect(x, y+16, x+200, y));
+	addChild(text);
+
+	x -= 100;
+
+	y -= VPAD + 20;
+	// </edit>
+
+	// <edit>
+	//text = new LLTextBox(std::string("XML Name:"), LLRect(x, y+16, x+60, y));
+	text = new LLTextBox(std::string("XML Name:"), LLRect(x, y+16, x+100, y));
+	// </edit>
+	addChild(text);
+	// <edit>
+	//x+=60;
+	x+=100;
+	//text = new LLTextBox(std::string("xml_name"), LLRect(x, y+16, x+100, y));
+	text = new LLTextBox(std::string("xml_name"), LLRect(x, y+16, x+200, y));
+	// </edit>
 	addChild(text);
 	x-=50;
 
@@ -242,6 +295,10 @@ void LLFloaterEditUI::refresh()
 		mLastView = NULL;
 		mLabelLine->setText(LLStringUtil::null);
 		mLabelLine->setEnabled(FALSE);
+		// <edit>
+		mTextLine->setText(LLStringUtil::null);
+		mTextLine->setEnabled(FALSE);
+		// </edit>
 		mWidthSpin->set(0.f);
 		mWidthSpin->setEnabled(FALSE);
 		mHeightSpin->set(0.f);
@@ -292,7 +349,30 @@ void LLFloaterEditUI::refreshView(LLView* view)
 {
 	mLabelLine->setEnabled(FALSE);
 	mLabelLine->setText(LLStringUtil::null);
+	// <edit>
+	mTextLine->setEnabled(TRUE);
+	LLTextBox* textbox = dynamic_cast<LLTextBox*>(view);
+	if(textbox)
+	{
+		std::string text = textbox->getText();
+		mTextLine->setText(text);
+	}
+	else
+	{
+		mTextLine->setText(LLStringUtil::null);
+	}
+	// </edit>
 	childSetText("xml_name",view->getName());
+	// <edit>
+	LLView* parent = view->getParent();
+	if(parent)
+		childSetText("parent_xml_name", parent->getName());
+	else
+	{
+		const std::string noparent = "(no parent)";
+		childSetText("parent_xml_name", noparent);
+	}
+	// </edit>
 }
 
 void LLFloaterEditUI::refreshButton(LLView* view)
@@ -301,7 +381,21 @@ void LLFloaterEditUI::refreshButton(LLView* view)
 	std::string label = btn->getLabelUnselected();
 	mLabelLine->setEnabled(TRUE);
 	mLabelLine->setText(label);
+	// <edit>
+	mTextLine->setEnabled(FALSE);
+	mTextLine->setText(LLStringUtil::null);
+	// </edit>
 	childSetText("xml_name",view->getName());
+	// <edit>
+	LLView* parent = view->getParent();
+	if(parent)
+		childSetText("parent_xml_name", parent->getName());
+	else
+	{
+		const std::string noparent = "(no parent)";
+		childSetText("parent_xml_name", noparent);
+	}
+	// </edit>
 }
 
 // static
@@ -317,7 +411,10 @@ BOOL LLFloaterEditUI::processKeystroke(KEY key, MASK mask)
 {
 	if (!LLView::sEditingUIView) return FALSE;
 
-	S32 step = 2;
+	// <edit>
+	//S32 step = 2;
+	S32 step = 1;
+	// </edit>
 	BOOL handled = FALSE;
 	LLRect r = LLView::sEditingUIView->getRect();
 
@@ -394,6 +491,22 @@ void LLFloaterEditUI::onCommitLabel(LLUICtrl* ctrl, void* data)
 	}
 }
 
+// <edit>
+void LLFloaterEditUI::onCommitText(LLUICtrl* ctrl, void* data)
+{
+	LLView* view = LLView::sEditingUIView;
+	if (!view) return;
+
+	LLLineEditor* line = (LLLineEditor*)ctrl;
+	const std::string& text = line->getText();
+	LLTextBox* textbox = dynamic_cast<LLTextBox*>(view);
+	if (textbox)
+	{
+		textbox->setText(text);
+	}
+}
+// </edit>
+
 // static
 void LLFloaterEditUI::onCommitHeight(LLUICtrl* ctrl, void* data)
 {
@@ -421,3 +534,4 @@ void LLFloaterEditUI::onCommitWidth(LLUICtrl* ctrl, void* data)
 	view->reshape(r.getWidth(), r.getHeight());
 	view->setRect(r);
 }
+

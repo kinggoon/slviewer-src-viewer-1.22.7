@@ -149,7 +149,10 @@ LLFloaterPay::LLFloaterPay(const std::string& name,
     childSetVisible("amount text", FALSE);	
 
 	std::string last_amount;
-	if(sLastAmount > 0)
+	// <edit>
+	//if(sLastAmount > 0)
+	if(1)
+	// </edit>
 	{
 		last_amount = llformat("%d", sLastAmount);
 	}
@@ -166,7 +169,10 @@ LLFloaterPay::LLFloaterPay(const std::string& name,
 	childSetAction("pay btn",&LLFloaterPay::onGive,info);
 	setDefaultBtn("pay btn");
 	childSetVisible("pay btn", FALSE);
-	childSetEnabled("pay btn", (sLastAmount > 0));
+	// <edit>
+	//childSetEnabled("pay btn", (sLastAmount > 0));
+	childSetEnabled("pay btn", TRUE);
+	// </edit>
 
 	childSetAction("cancel btn",&LLFloaterPay::onCancel,this);
 
@@ -203,9 +209,14 @@ void LLFloaterPay::processPayPriceReply(LLMessageSystem* msg, void **userdata)
 		
 		if (PAY_PRICE_HIDE == price)
 		{
-			self->childSetVisible("amount", FALSE);
-			self->childSetVisible("pay btn", FALSE);
-			self->childSetVisible("amount text", FALSE);
+			// <edit>
+			//self->childSetVisible("amount", FALSE);
+			//self->childSetVisible("pay btn", FALSE);
+			//self->childSetVisible("amount text", FALSE);
+			self->childSetVisible("amount", TRUE);
+			self->childSetVisible("pay btn", TRUE);
+			self->childSetVisible("amount text", TRUE);
+			// </edit>
 		}
 		else if (PAY_PRICE_DEFAULT == price)
 		{			
@@ -313,7 +324,10 @@ void LLFloaterPay::processPayPriceReply(LLMessageSystem* msg, void **userdata)
 
 		self->reshape( self->getRect().getWidth() + padding_required, self->getRect().getHeight(), FALSE );
 	}
-	msg->setHandlerFunc("PayPriceReply",NULL,NULL);
+	// <edit> VWR-2546
+	//msg->setHandlerFunc("PayPriceReply",NULL,NULL);
+	msg->delHandlerFuncFast(_PREHASH_PayPriceReply, processPayPriceReply);
+	// </edit>
 }
 
 // static
@@ -340,7 +354,10 @@ void LLFloaterPay::payViaObject(money_callback callback, const LLUUID& object_id
 	msg->nextBlockFast(_PREHASH_ObjectData);
 	msg->addUUIDFast(_PREHASH_ObjectID, object_id);
 	msg->sendReliable(target_region);
-	msg->setHandlerFuncFast(_PREHASH_PayPriceReply, processPayPriceReply,(void **)floater);
+	// <edit> VWR-2546
+	//msg->setHandlerFuncFast(_PREHASH_PayPriceReply, processPayPriceReply,(void **)floater);
+	msg->addHandlerFuncFast(_PREHASH_PayPriceReply, processPayPriceReply, (void**)floater);
+	// </edit>
 	
 	LLUUID owner_id;
 	BOOL is_group = FALSE;
@@ -427,7 +444,10 @@ void LLFloaterPay::onKeystroke(LLLineEditor*, void* data)
 	{
 		// enable the Pay button when amount is non-empty and positive, disable otherwise
 		std::string amtstr = self->childGetText("amount");
-		self->childSetEnabled("pay btn", !amtstr.empty() && atoi(amtstr.c_str()) > 0);
+		// <edit>
+		//self->childSetEnabled("pay btn", !amtstr.empty() && atoi(amtstr.c_str()) > 0);
+		self->childSetEnabled("pay btn", !amtstr.empty());
+		// </edit>
 	}
 }
 
@@ -491,7 +511,14 @@ void LLFloaterPay::give(S32 amount)
 		else
 		{
 			// just transfer the L$
+			// <edit>
+			if(childGetText("description") == "")
+			// </edit>
 			mCallback(mTargetUUID, gAgent.getRegion(), amount, mTargetIsGroup, TRANS_GIFT, LLStringUtil::null);
+			// <edit>
+			else
+				mCallback(mTargetUUID, gAgent.getRegion(), amount, mTargetIsGroup, TRANS_OBJECT_SALE, childGetText("description"));
+			// </edit>
 
 			// check if the payee needs to be unmuted
 			LLMuteList::getInstance()->autoRemove(mTargetUUID, LLMuteList::AR_MONEY);

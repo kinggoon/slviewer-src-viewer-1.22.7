@@ -68,12 +68,28 @@ const S32 PREF_BUTTON_HEIGHT = 16;
 LLFloaterNameDesc::LLFloaterNameDesc(const std::string& filename )
 	: LLFloater(std::string("Name/Description Floater"))
 {
+	// <edit>
+	mItem = NULL;
+	// </edit>
 	mFilenameAndPath = filename;
 	mFilename = gDirUtilp->getBaseFileName(filename, false);
 	// SL-5521 Maintain capitalization of filename when making the inventory item. JC
 	//LLStringUtil::toLower(mFilename);
 	mIsAudio = FALSE;
 }
+
+// <edit>
+LLFloaterNameDesc::LLFloaterNameDesc(const std::string& filename, void* item )
+	: LLFloater(std::string("Name/Description Floater"))
+{
+	mItem = item;
+	mFilenameAndPath = filename;
+	mFilename = gDirUtilp->getBaseFileName(filename, false);
+	// SL-5521 Maintain capitalization of filename when making the inventory item. JC
+	//LLStringUtil::toLower(mFilename);
+	mIsAudio = FALSE;
+}
+// </edit>
 
 //-----------------------------------------------------------------------------
 // postBuild()
@@ -177,10 +193,42 @@ void LLFloaterNameDesc::onBtnOK( void* userdata )
 
 	fp->childDisable("ok_btn"); // don't allow inadvertent extra uploads
 	
-	upload_new_resource(fp->mFilenameAndPath, // file
-		fp->childGetValue("name_form").asString(), 
-		fp->childGetValue("description_form").asString(), 
-		0, LLAssetType::AT_NONE, LLInventoryType::IT_NONE);
+	// <edit>
+	if(fp->mItem)
+	{
+		// Update existing item instead of creating a new one
+		/*
+		LLViewerInventoryItem* item = (LLViewerInventoryItem*)fp->mItem;
+		LLSaveInfo* info = new LLSaveInfo(item->getUUID(), LLUUID::null, desc, fp->mTransactionID);
+		gAssetStorage->storeAssetData(fp->mTransactionID, LLAssetType::AT_ANIMATION, NULL, info, FALSE);
+
+		// I guess I will do this now because the floater is closing...
+		LLPointer<LLViewerInventoryItem> new_item = new LLViewerInventoryItem(item);
+		new_item->setDescription(fp->childGetValue("description_form").asString());
+		new_item->setTransactionID(fp->mTransactionID);
+		new_item->setAssetUUID(motionp->getID());
+		new_item->updateServer(FALSE);
+		gInventory.updateItem(new_item);
+		gInventory.notifyObservers();
+		*/
+	}
+	else
+	{
+		//upload_new_resource(fp->mFilenameAndPath, // file
+		//	fp->childGetValue("name_form").asString(), 
+		//	fp->childGetValue("description_form").asString(), 
+		//	0, LLAssetType::AT_NONE, LLInventoryType::IT_NONE);
+		BOOL upload_temporary = fp->childGetValue("temporary_check");
+		upload_new_resource(fp->mFilenameAndPath,
+			fp->childGetValue("name_form").asString(), 
+			fp->childGetValue("description_form").asString(),
+			// <edit>
+			//0, LLAssetType::AT_NONE, LLInventoryType::IT_NONE);
+			0, LLAssetType::AT_NONE, LLInventoryType::IT_NONE, PERM_ITEM_UNRESTRICTED, upload_temporary);
+			// </edit>
+	}
+	// </edit>
+	
 	fp->close(false);
 }
 

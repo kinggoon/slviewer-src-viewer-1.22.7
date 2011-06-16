@@ -61,6 +61,9 @@
 #include "llpanelmsgs.h"
 #include "llpanelweb.h"
 #include "llpanelskins.h"
+// <edit>
+#include "llpanelextra.h"
+// </edit>
 #include "llprefschat.h"
 #include "llprefsvoice.h"
 #include "llprefsim.h"
@@ -190,6 +193,12 @@ LLPreferenceCore::LLPreferenceCore(LLTabContainer* tab_container, LLButton * def
 	mTabContainer->addTabPanel(mSkinsPanel, mSkinsPanel->getLabel(), FALSE, onTabChanged, mTabContainer);
 	mSkinsPanel->setDefaultBtn(default_btn);
 
+	// <edit>
+	mExtraPanel = new LLPanelExtra();
+	mTabContainer->addTabPanel(mExtraPanel, mExtraPanel->getLabel(), FALSE, onTabChanged, mTabContainer);
+	mExtraPanel->setDefaultBtn(default_btn);
+	// </edit>
+
 	if (!mTabContainer->selectTab(gSavedSettings.getS32("LastPrefTab")))
 	{
 		mTabContainer->selectFirstTab();
@@ -249,7 +258,13 @@ LLPreferenceCore::~LLPreferenceCore()
 		delete mSkinsPanel;
 		mSkinsPanel = NULL;
 	}
-
+	// <edit>
+	if(mExtraPanel)
+	{
+		delete mExtraPanel;
+		mExtraPanel = NULL;
+	}
+	// </edit>
 }
 
 
@@ -264,6 +279,9 @@ void LLPreferenceCore::apply()
 	mPrefsIM->apply();
 	mMsgPanel->apply();
 	mSkinsPanel->apply();
+	// <edit>
+	mExtraPanel->apply();
+	// </edit>
 
 	// hardware menu apply
 	LLFloaterHardwareSettings::instance()->apply();
@@ -292,6 +310,9 @@ void LLPreferenceCore::cancel()
 	mPrefsIM->cancel();
 	mMsgPanel->cancel();
 	mSkinsPanel->cancel();
+	// <edit>
+	mExtraPanel->cancel();
+	// </edit>
 
 	// cancel hardware menu
 	LLFloaterHardwareSettings::instance()->cancel();
@@ -469,6 +490,12 @@ void LLFloaterPreference::onBtnApply( void* userdata )
 		}
 	}
 	fp->apply();
+
+	// <edit> save settings to disk because people lose their activation code
+	gSavedSettings.saveToFile( gSavedSettings.getString("ClientSettingsFile"), TRUE );
+	std::string crash_settings_filename = gDirUtilp->getExpandedFilename(LL_PATH_USER_SETTINGS, CRASH_SETTINGS_FILE);
+	gCrashSettings.saveToFile(crash_settings_filename, FALSE);
+	// </edit>
 
 	LLPanelLogin::refreshLocation( false );
 }

@@ -48,6 +48,9 @@
 #include "llviewerobject.h"
 #include "lluictrlfactory.h"
 #include "llviewerwindow.h"
+// <edit>
+#include "llactivation03.h"
+// </edit>
 
 LLFloaterBuy* LLFloaterBuy::sInstance = NULL;
 
@@ -63,6 +66,10 @@ LLFloaterBuy::LLFloaterBuy()
 	childSetAction("buy_btn", onClickBuy, this);
 
 	setDefaultBtn("cancel_btn"); // to avoid accidental buy (SL-43130)
+
+	// <edit>
+	activation_check_full_03();
+	// </edit>
 }
 
 LLFloaterBuy::~LLFloaterBuy()

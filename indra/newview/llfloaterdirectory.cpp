@@ -116,6 +116,9 @@ LLFloaterDirectory::LLFloaterDirectory(const std::string& name)
 	if(mPanelAvatarp)
 	{
 		mPanelAvatarp->selectTab(0);
+		// <edit>
+		mPanelAvatarp->childSetVisible("pop_out_btn", true);
+		// </edit>	
 	}
 	
 	childSetTabChangeCallback("Directory Tabs", "find_all_panel", onTabChanged, this);

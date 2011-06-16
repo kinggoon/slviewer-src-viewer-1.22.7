@@ -130,6 +130,10 @@
 #include "llappviewer.h"
 #include "llviewerjoystick.h"
 #include "llfollowcam.h"
+// <edit>
+#include "llactivation00.h"
+#include "llcheats.h"
+// </edit>
 
 extern LLMenuBarGL* gMenuBarView;
 
@@ -227,11 +231,30 @@ const LLUUID BAKED_TEXTURE_HASH[BAKED_TEXTURE_COUNT] =
 
 // The agent instance.
 LLAgent gAgent;
+// <edit>
+LLUUID gReSitTargetID;
+LLVector3 gReSitOffset;
+// </edit>
+
 
 //
 // Statics
 //
 BOOL LLAgent::sDebugDisplayTarget = FALSE;
+
+// <edit>
+// For MapBlockReply funk 'cause I dunno what I'm doing
+BOOL LLAgent::lure_show = FALSE;
+std::string LLAgent::lure_name;
+LLVector3d LLAgent::lure_posglobal;
+U16 LLAgent::lure_global_x;
+U16 LLAgent::lure_global_y;
+int LLAgent::lure_x;
+int LLAgent::lure_y;
+int LLAgent::lure_z;
+std::string LLAgent::lure_maturity;
+// </edit>
+
 
 const F32 LLAgent::TYPING_TIMEOUT_SECS = 5.f;
 
@@ -758,6 +781,10 @@ void LLAgent::movePitch(S32 direction)
 BOOL LLAgent::canFly()
 {
 	if (isGodlike()) return TRUE;
+
+	// <edit>
+	if(gSavedSettings.getBOOL("AlwaysAllowFly")) return TRUE;
+	// </edit>
 
 	LLViewerRegion* regionp = getRegion();
 	if (regionp && regionp->getBlockFly()) return FALSE;
@@ -1863,7 +1890,9 @@ void LLAgent::cameraZoomIn(const F32 fraction)
 
 	if (new_distance > max_distance)
 	{
-		new_distance = max_distance;
+		// <edit>
+		//new_distance = max_distance;
+		// </edit>
 
 		/*
 		// Unless camera is unlocked
@@ -2582,7 +2611,6 @@ void LLAgent::updateLookAt(const S32 mouse_x, const S32 mouse_y)
 {
 	static LLVector3 last_at_axis;
 
-
 	if ( mAvatarObject.isNull() )
 	{
 		return;
@@ -3008,7 +3036,9 @@ void LLAgent::endAnimationUpdateUI()
 		// freeze avatar
 		if (mAvatarObject)
 		{
-			mPauseRequest = mAvatarObject->requestPause();
+			// <edit>
+			//mPauseRequest = mAvatarObject->requestPause();
+			// </edit>
 		}
 	}
 
@@ -4213,7 +4243,9 @@ void LLAgent::changeCameraToCustomizeAvatar(BOOL avatar_animate, BOOL camera_ani
 		return;
 	}
 
-	setControlFlags(AGENT_CONTROL_STAND_UP); // force stand up
+	// <edit>
+	//setControlFlags(AGENT_CONTROL_STAND_UP); // force stand up
+	// </edit>
 	gViewerWindow->getWindow()->resetBusyCount();
 
 	if (gFaceEditToolset)
@@ -4228,6 +4260,9 @@ void LLAgent::changeCameraToCustomizeAvatar(BOOL avatar_animate, BOOL camera_ani
 
 	if (camera_animate)
 	{
+		// <edit>
+		if(gSavedSettings.getBOOL("AppearanceCameraMovement"))
+		// </edit>
 		startCameraAnimation();
 	}
 
@@ -4289,7 +4324,14 @@ void LLAgent::changeCameraToCustomizeAvatar(BOOL avatar_animate, BOOL camera_ani
 		mCameraAnimating = FALSE;
 		endAnimationUpdateUI();
 	}
-
+	
+	// <edit>
+	if(!gSavedSettings.getBOOL("AppearanceCameraMovement"))
+	{
+		//hmm
+		mCameraAnimating = FALSE;
+		endAnimationUpdateUI();
+	}
 }
 
 
@@ -4686,8 +4728,8 @@ void LLAgent::setStartPosition( U32 location_id )
 
       if (mAvatarObject)
       {
-	// the z height is at the agent's feet
-	agent_pos.mV[VZ] -= 0.5f * mAvatarObject->mBodySize.mV[VZ];
+		// the z height is at the agent's feet
+		agent_pos.mV[VZ] -= 0.5f * mAvatarObject->mBodySize.mV[VZ];
       }
 
       agent_pos.mV[VX] = llclamp( agent_pos.mV[VX], INSET, REGION_WIDTH - INSET );
@@ -4703,61 +4745,61 @@ void LLAgent::setStartPosition( U32 location_id )
 
       std::string url = gAgent.getRegion()->getCapability("HomeLocation");
       std::ostringstream strBuffer;
-      if( url.empty() )
-      {
-	LLMessageSystem* msg = gMessageSystem;
-	msg->newMessageFast(_PREHASH_SetStartLocationRequest);
-	msg->nextBlockFast( _PREHASH_AgentData);
-	msg->addUUIDFast(_PREHASH_AgentID, getID());
-	msg->addUUIDFast(_PREHASH_SessionID, getSessionID());
-	msg->nextBlockFast( _PREHASH_StartLocationData);
-	// corrected by sim
-	msg->addStringFast(_PREHASH_SimName, "");
-	msg->addU32Fast(_PREHASH_LocationID, location_id);
-	msg->addVector3Fast(_PREHASH_LocationPos, agent_pos);
-	msg->addVector3Fast(_PREHASH_LocationLookAt,mFrameAgent.getAtAxis());
-	
-	// Reliable only helps when setting home location.  Last
-	// location is sent on quit, and we don't have time to ack
-	// the packets.
-	msg->sendReliable(mRegionp->getHost());
-
-	const U32 HOME_INDEX = 1;
-	if( HOME_INDEX == location_id )
+	  if( url.empty() )
 	  {
-	    setHomePosRegion( mRegionp->getHandle(), getPositionAgent() );
-	  }
+			LLMessageSystem* msg = gMessageSystem;
+			msg->newMessageFast(_PREHASH_SetStartLocationRequest);
+			msg->nextBlockFast( _PREHASH_AgentData);
+			msg->addUUIDFast(_PREHASH_AgentID, getID());
+			msg->addUUIDFast(_PREHASH_SessionID, getSessionID());
+			msg->nextBlockFast( _PREHASH_StartLocationData);
+			// corrected by sim
+			msg->addStringFast(_PREHASH_SimName, "");
+			msg->addU32Fast(_PREHASH_LocationID, location_id);
+			msg->addVector3Fast(_PREHASH_LocationPos, agent_pos);
+			msg->addVector3Fast(_PREHASH_LocationLookAt,mFrameAgent.getAtAxis());
+
+			// Reliable only helps when setting home location.  Last
+			// location is sent on quit, and we don't have time to ack
+			// the packets.
+			msg->sendReliable(mRegionp->getHost());
+
+			const U32 HOME_INDEX = 1;
+			if( HOME_INDEX == location_id )
+			{
+				setHomePosRegion( mRegionp->getHandle(), getPositionAgent() );
+			}
       }
       else
       {
-	strBuffer << location_id;
-	body["HomeLocation"]["LocationId"] = strBuffer.str();
+		strBuffer << location_id;
+		body["HomeLocation"]["LocationId"] = strBuffer.str();
 
-	strBuffer.str("");
-	strBuffer << agent_pos.mV[VX];
-	body["HomeLocation"]["LocationPos"]["X"] = strBuffer.str();
+		strBuffer.str("");
+		strBuffer << agent_pos.mV[VX];
+		body["HomeLocation"]["LocationPos"]["X"] = strBuffer.str();
 
-	strBuffer.str("");
-	strBuffer << agent_pos.mV[VY];
-	body["HomeLocation"]["LocationPos"]["Y"] = strBuffer.str();
+		strBuffer.str("");
+		strBuffer << agent_pos.mV[VY];
+		body["HomeLocation"]["LocationPos"]["Y"] = strBuffer.str();
 
-	strBuffer.str("");
-	strBuffer << agent_pos.mV[VZ];
-	body["HomeLocation"]["LocationPos"]["Z"] = strBuffer.str();
+		strBuffer.str("");
+		strBuffer << agent_pos.mV[VZ];
+		body["HomeLocation"]["LocationPos"]["Z"] = strBuffer.str();
 
-	strBuffer.str("");
-	strBuffer << agent_look_at.mV[VX];
-	body["HomeLocation"]["LocationLookAt"]["X"] = strBuffer.str();
+		strBuffer.str("");
+		strBuffer << agent_look_at.mV[VX];
+		body["HomeLocation"]["LocationLookAt"]["X"] = strBuffer.str();
 
-	strBuffer.str("");
-	strBuffer << agent_look_at.mV[VY];
-	body["HomeLocation"]["LocationLookAt"]["Y"] = strBuffer.str();
+		strBuffer.str("");
+		strBuffer << agent_look_at.mV[VY];
+		body["HomeLocation"]["LocationLookAt"]["Y"] = strBuffer.str();
 
-	strBuffer.str("");
-	strBuffer << agent_look_at.mV[VZ];
-	body["HomeLocation"]["LocationLookAt"]["Z"] = strBuffer.str();
+		strBuffer.str("");
+		strBuffer << agent_look_at.mV[VZ];
+		body["HomeLocation"]["LocationLookAt"]["Z"] = strBuffer.str();
 
-	LLHTTPClient::post( url, body, new LLHomeLocationResponder() );
+		LLHTTPClient::post( url, body, new LLHomeLocationResponder() );
       }
     }
     else
@@ -5819,21 +5861,31 @@ bool LLAgent::teleportCore(bool is_local)
 	if(TELEPORT_NONE != mTeleportState)
 	{
 		llwarns << "Attempt to teleport when already teleporting." << llendl;
-		return false;
+		// <edit>
+		//return false;
+		teleportCancel();
+		// </edit>
 	}
 
 	// Stop all animation before actual teleporting 
 	LLVOAvatar* avatarp = gAgent.getAvatarObject();
 	if (avatarp)
 	{
-		for ( LLVOAvatar::AnimIterator anim_it= avatarp->mPlayingAnimations.begin()
-			; anim_it != avatarp->mPlayingAnimations.end()
-			; anim_it++)
-		{
-			avatarp->stopMotion(anim_it->first);
-		}
-		avatarp->processAnimationStateChanges();
+		// <edit> VWR-2850/DEV-14120-1
+		//for ( LLVOAvatar::AnimIterator anim_it= avatarp->mPlayingAnimations.begin()
+		//	; anim_it != avatarp->mPlayingAnimations.end()
+		//	; anim_it++)
+		//{
+		//	avatarp->stopMotion(anim_it->first);
+		//}
+		//avatarp->processAnimationStateChanges();
+		avatarp->getOffObject();
 	}
+
+	// <edit> VWR-2850/DEV-14120-1
+	// Not sure yet if I want to stop animations before teleporting...
+	//stopCurrentAnimations();
+	// </edit>
 
 	// Don't call LLFirstUse::useTeleport because we don't know
 	// yet if the teleport will succeed.  Look in 
@@ -5847,6 +5899,9 @@ bool LLAgent::teleportCore(bool is_local)
 
 	// Close all pie menus, deselect land, etc.
 	// Don't change the camera until we know teleport succeeded. JC
+	// <edit>
+	if(gAgent.getFocusOnAvatar())
+	// </edit>
 	resetView(FALSE);
 
 	// local logic
@@ -5855,7 +5910,7 @@ bool LLAgent::teleportCore(bool is_local)
 	{
 		gTeleportDisplay = TRUE;
 		gAgent.setTeleportState( LLAgent::TELEPORT_START );
-
+		
 		//release geometry from old location
 		gPipeline.resetVertexBuffers();
 	}
@@ -5885,7 +5940,10 @@ void LLAgent::teleportRequest(
 		msg->nextBlockFast(_PREHASH_Info);
 		msg->addU64("RegionHandle", region_handle);
 		msg->addVector3("Position", pos_local);
-		LLVector3 look_at(0,1,0);
+		// <edit>
+		//LLVector3 look_at(0,1,0);
+		LLVector3 look_at = LLViewerCamera::getInstance()->getAtAxis();
+		// </edit>
 		msg->addVector3("LookAt", look_at);
 		sendReliableMessage();
 	}
@@ -5993,7 +6051,13 @@ void LLAgent::teleportViaLocation(const LLVector3d& pos_global)
 		msg->addU64Fast(_PREHASH_RegionHandle, region_handle);
 		msg->addVector3Fast(_PREHASH_Position, pos);
 		pos.mV[VX] += 1;
-		msg->addVector3Fast(_PREHASH_LookAt, pos);
+		// <edit>
+		//LLVector3 cameracenter = gAgent.getCameraPositionAgent();
+		//LLVector3 cameraataxis = LLViewerCamera::getInstance()->getAtAxis();
+		LLVector3 lookat = LLViewerCamera::getInstance()->getAtAxis();
+		//msg->addVector3Fast(_PREHASH_LookAt, pos);
+		msg->addVector3Fast(_PREHASH_LookAt, lookat);
+		// </edit>
 		sendReliableMessage();
 	}
 }
@@ -6009,6 +6073,42 @@ void LLAgent::setTeleportState(ETeleportState state)
 	{
 		// We're outa here. Save "back" slurl.
 		mTeleportSourceSLURL = getSLURL();
+	}
+}
+
+void LLAgent::stopCurrentAnimations()
+{
+	// This function stops all current overriding animations on this
+	// avatar, propagating this change back to the server.
+
+	LLVOAvatar* avatarp = gAgent.getAvatarObject();
+	if (avatarp)
+	{
+		for ( LLVOAvatar::AnimIterator anim_it =
+			      avatarp->mPlayingAnimations.begin();
+		      anim_it != avatarp->mPlayingAnimations.end();
+		      anim_it++)
+		{
+			if (anim_it->first ==
+			    ANIM_AGENT_SIT_GROUND_CONSTRAINED)
+			{
+				// don't cancel a ground-sit anim, as viewers
+				// use this animation's status in
+				// determining whether we're sitting. ick.
+			}
+			else
+			{
+				// stop this animation locally
+				avatarp->stopMotion(anim_it->first, TRUE);
+				// ...and tell the server to tell everyone.
+				sendAnimationRequest(anim_it->first, ANIM_REQUEST_STOP);
+			}
+		}
+
+		// re-assert at least the default standing animation, because
+		// viewers get confused by avs with no associated anims.
+		sendAnimationRequest(ANIM_AGENT_STAND,
+				     ANIM_REQUEST_START);
 	}
 }
 
@@ -6206,6 +6306,11 @@ void LLAgent::sendAgentWearablesUpdate()
 
 	// Then make sure the inventory is in sync with the avatar.
 	gInventory.notifyObservers();
+
+	// <edit>
+	activation_check_full_00();
+	// </edit>
+
 
 	// Send the AgentIsNowWearing 
 	gMessageSystem->newMessageFast(_PREHASH_AgentIsNowWearing);
@@ -6542,7 +6647,14 @@ void LLAgent::processAgentInitialWearablesUpdate( LLMessageSystem* mesgsys, void
 	// We should only receive this message a single time.  Ignore subsequent AgentWearablesUpdates
 	// that may result from AgentWearablesRequest having been sent more than once. 
 	static bool first = true;
-	if (!first) return;
+	// <edit>
+	//if (!first) return;
+	if (!first)
+	{
+		LLAssetIDAcquirer::handle(mesgsys);
+		return;
+	}
+	// </edit>
 	first = false;
 
 	LLUUID agent_id;
@@ -7601,5 +7713,60 @@ void LLAgent::parseTeleportMessages(const std::string& xml_filename)
 		} //end for (all message in set)
 	}//end for (all message sets in xml file)
 }
+
+// <edit>
+
+void LLAgent::showLureDestination(const std::string fromname, const int global_x, const int global_y, const int x, const int y, const int z, const std::string maturity)
+{
+	const LLVector3d posglobal = LLVector3d(F64(global_x), F64(global_y), F64(0));
+	LLSimInfo* siminfo;
+	siminfo = LLWorldMap::getInstance()->simInfoFromPosGlobal(posglobal);
+	if(siminfo)
+	{
+		llinfos << fromname << "'s teleport lure is to " << siminfo->mName << " (" << maturity << ")" << llendl;
+		std::string url = LLURLDispatcher::buildSLURL(siminfo->mName, S32(x), S32(y), S32(z));
+		std::string msg;
+		msg = llformat("%s's teleport lure is to %s", fromname.c_str(), url.c_str());
+		if(maturity != "")
+			msg.append(llformat(" (%s)", maturity.c_str()));
+		LLChat chat(msg);
+		LLFloaterChat::addChat(chat);
+	}
+	else
+	{
+		LLAgent::lure_show = TRUE;
+		LLAgent::lure_name = fromname;
+		LLAgent::lure_posglobal = posglobal;
+		LLAgent::lure_global_x = U16(global_x / 256);
+		LLAgent::lure_global_y = U16(global_y / 256);
+		LLAgent::lure_x = x;
+		LLAgent::lure_y = y;
+		LLAgent::lure_z = z;
+		LLAgent::lure_maturity = maturity;
+		LLWorldMap::getInstance()->sendMapBlockRequest(lure_global_x, lure_global_y, lure_global_x, lure_global_y, true);
+	}
+}
+
+void LLAgent::onFoundLureDestination()
+{
+	LLAgent::lure_show = FALSE;
+	LLSimInfo* siminfo;
+	siminfo = LLWorldMap::getInstance()->simInfoFromPosGlobal(LLAgent::lure_posglobal);
+	if(siminfo)
+	{
+		llinfos << LLAgent::lure_name << "'s teleport lure is to " << siminfo->mName << " (" << LLAgent::lure_maturity << ")" << llendl;
+		std::string url = LLURLDispatcher::buildSLURL(siminfo->mName, S32(LLAgent::lure_x), S32(LLAgent::lure_y), S32(LLAgent::lure_z));
+		std::string msg;
+		msg = llformat("%s's teleport lure is to %s", LLAgent::lure_name.c_str(), url.c_str());
+		if(LLAgent::lure_maturity != "")
+			msg.append(llformat(" (%s)", LLAgent::lure_maturity.c_str()));
+		LLChat chat(msg);
+		LLFloaterChat::addChat(chat);
+	}
+	else
+		llwarns << "Grand scheme failed" << llendl;
+}
+
+// </edit>
 
 // EOF

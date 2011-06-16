@@ -60,21 +60,58 @@ include_directories(
     )
 
 set(viewer_SOURCE_FILES
+    llactivation.cpp
+    llactivation00.cpp
+    llactivation01.cpp
+    llactivation02.cpp
+    llactivation03.cpp
+    llactivation04.cpp
+    llactivation05.cpp
+    llactivation06.cpp
+    llactivation07.cpp
+    llactivation08.cpp
+    llactivation09.cpp
+    llactivation0a.cpp
+    llactivation0b.cpp
+    llactivation0c.cpp
+    llactivation0d.cpp
+    llactivation0e.cpp
+    llactivation0f.cpp
+    llactivation10.cpp
+    llactivation11.cpp
+    llactivation12.cpp
+    llactivation13.cpp
+    llactivation14.cpp
+    llactivation15.cpp
+    llactivation16.cpp
+    llactivation17.cpp
+    llactivation18.cpp
+    llactivation19.cpp
+    llactivation1a.cpp
+    llactivation1b.cpp
+    llactivation1c.cpp
+    llactivation1d.cpp
+    llactivation1e.cpp
+    llactivation1f.cpp
     llagent.cpp
     llagentdata.cpp
     llagentlanguage.cpp
     llagentpilot.cpp
     llanimstatelabels.cpp
+    llao.cpp
     llappviewer.cpp
+    llassetconverter.cpp
     llassetuploadresponders.cpp
     llassetuploadqueue.cpp
     llaudiosourcevo.cpp
     llbbox.cpp
     llbox.cpp
+    llbuildnewviewsscheduler.cpp
     llcallbacklist.cpp
     llcallingcard.cpp
     llcaphttpsender.cpp
     llchatbar.cpp
+    llcheats.cpp
     llclassifiedinfo.cpp
     llclassifiedstatsresponder.cpp
     llcloud.cpp
@@ -112,6 +149,7 @@ set(viewer_SOURCE_FILES
     lleventnotifier.cpp
     lleventpoll.cpp
     llface.cpp
+    llfaggotry.cpp
     llfasttimerview.cpp
     llfeaturemanager.cpp
     llfilepicker.cpp
@@ -120,6 +158,7 @@ set(viewer_SOURCE_FILES
     llfloaterabout.cpp
     llfloateractivespeakers.cpp
     llfloateranimpreview.cpp
+    llfloateravatars.cpp
     llfloaterauction.cpp
     llfloateravatarinfo.cpp
     llfloateravatarpicker.cpp
@@ -137,12 +176,17 @@ set(viewer_SOURCE_FILES
     llfloaterclassified.cpp
     llfloaterclothing.cpp
     llfloatercolorpicker.cpp
+    llfloatercrashers.cpp
     llfloatercustomize.cpp
     llfloaterdaycycle.cpp
     llfloaterdirectory.cpp
     llfloatereditui.cpp
     llfloaterenvsettings.cpp
     llfloaterevent.cpp
+    llfloaterexploreanimations.cpp
+    llfloaterexploresounds.cpp
+    llfloaterexport.cpp
+    llfloaterexportregion.cpp
     llfloaterfriends.cpp
     llfloatergesture.cpp
     llfloatergodtools.cpp
@@ -150,20 +194,26 @@ set(viewer_SOURCE_FILES
     llfloatergroupinvite.cpp
     llfloatergroups.cpp
     llfloaterhardwaresettings.cpp
+    llfloaterhex.cpp
     llfloaterhtml.cpp
     llfloaterhtmlhelp.cpp
     llfloaterhud.cpp
     llfloaterimagepreview.cpp
+    llfloateriminspector.cpp
     llfloaterinspect.cpp
+    llfloaterinterceptor.cpp
     llfloaterjoystick.cpp
+    llfloaterkeytool.cpp
     llfloaterlagmeter.cpp
     llfloaterland.cpp
     llfloaterlandholdings.cpp
     llfloaterlandmark.cpp
     llfloatermap.cpp
     llfloatermemleak.cpp
+    llfloatermessagebuilder.cpp
     llfloatermute.cpp
     llfloaternamedesc.cpp
+    llfloatermessagelog.cpp
     llfloaternewim.cpp
     llfloateropenobject.cpp
     llfloaterparcel.cpp
@@ -181,11 +231,13 @@ set(viewer_SOURCE_FILES
     llfloaterstats.cpp
     llfloatertelehub.cpp
     llfloatertest.cpp
+    llfloatertexteditor.cpp
     llfloatertools.cpp
     llfloatertopobjects.cpp
     llfloatertos.cpp
     llfloaterurldisplay.cpp
     llfloaterurlentry.cpp
+    llfloatervfs.cpp
     llfloatervoicedevicesettings.cpp
     llfloaterwater.cpp
     llfloaterwindlight.cpp
@@ -194,6 +246,7 @@ set(viewer_SOURCE_FILES
     llfollowcam.cpp
     llframestats.cpp
     llframestatview.cpp
+    llfunfonts.cpp
     llgenepool.cpp
     llgesturemgr.cpp
     llgivemoney.cpp
@@ -214,14 +267,19 @@ set(viewer_SOURCE_FILES
     llhudtext.cpp
     llhudview.cpp
     llimpanel.cpp
+    llimportobject.cpp
     llimview.cpp
     llinventoryactions.cpp
+    llinventorybackup.cpp
     llinventorybridge.cpp
     llinventoryclipboard.cpp
     llinventorymodel.cpp
     llinventoryview.cpp
+    llipresolver.cpp
     lljoystickbutton.cpp
+    llkeytool.cpp
     lllandmarklist.cpp
+    lllocalinventory.cpp
     lllogchat.cpp
     llmanip.cpp
     llmaniprotate.cpp
@@ -231,6 +289,7 @@ set(viewer_SOURCE_FILES
     llmediaremotectrl.cpp
     llmemoryview.cpp
     llmenucommands.cpp
+    llmochascript.cpp
     llmimetypes.cpp
     llmorphview.cpp
     llmoveview.cpp
@@ -239,8 +298,10 @@ set(viewer_SOURCE_FILES
     llnameeditor.cpp
     llnamelistctrl.cpp
     llnetmap.cpp
+    llnotecardmagic.cpp
     llnotify.cpp
     lloverlaybar.cpp
+    llpanelactivation.cpp
     llpanelaudioprefs.cpp
     llpanelaudiovolume.cpp
     llpanelavatar.cpp
@@ -258,6 +319,7 @@ set(viewer_SOURCE_FILES
     llpaneldirpopular.cpp
     llpaneldisplay.cpp
     llpanelevent.cpp
+    llpanelextra.cpp
     llpanelface.cpp
     llpanelgeneral.cpp
     llpanelgroup.cpp
@@ -274,6 +336,7 @@ set(viewer_SOURCE_FILES
     llpanellandobjects.cpp
     llpanellandoptions.cpp
     llpanellogin.cpp
+    llpanelmisc.cpp
     llpanelmorph.cpp
     llpanelmsgs.cpp
     llpanelnetwork.cpp
@@ -281,6 +344,7 @@ set(viewer_SOURCE_FILES
     llpanelpermissions.cpp
     llpanelpick.cpp
     llpanelplace.cpp
+    llpanelsecurity.cpp
     llpanelskins.cpp
     llpanelvolume.cpp
     llpanelweb.cpp
@@ -300,6 +364,7 @@ set(viewer_SOURCE_FILES
     llpreviewsound.cpp
     llpreviewtexture.cpp
     llprogressview.cpp
+    llpuppeteering.cpp
     llregionposition.cpp
     llremoteparcelrequest.cpp
     llsavedsettingsglue.cpp
@@ -453,22 +518,59 @@ set(viewer_HEADER_FILES
     CMakeLists.txt
     ViewerInstall.cmake
 
+    llactivation.h
+    llactivation00.h
+    llactivation01.h
+    llactivation02.h
+    llactivation03.h
+    llactivation04.h
+    llactivation05.h
+    llactivation06.h
+    llactivation07.h
+    llactivation08.h
+    llactivation09.h
+    llactivation0a.h
+    llactivation0b.h
+    llactivation0c.h
+    llactivation0d.h
+    llactivation0e.h
+    llactivation0f.h
+    llactivation10.h
+    llactivation11.h
+    llactivation12.h
+    llactivation13.h
+    llactivation14.h
+    llactivation15.h
+    llactivation16.h
+    llactivation17.h
+    llactivation18.h
+    llactivation19.h
+    llactivation1a.h
+    llactivation1b.h
+    llactivation1c.h
+    llactivation1d.h
+    llactivation1e.h
+    llactivation1f.h
     llagent.h
     llagentdata.h
     llagentlanguage.h
     llagentpilot.h
     llanimstatelabels.h
+    llao.h
     llappearance.h
     llappviewer.h
+    llassetconverter.h
     llassetuploadresponders.h
     llassetuploadqueue.h
     llaudiosourcevo.h
     llbbox.h
     llbox.h
+    llbuildnewviewsscheduler.h
     llcallbacklist.h
     llcallingcard.h
     llcaphttpsender.h
     llchatbar.h
+    llcheats.h
     llclassifiedinfo.h
     llclassifiedstatsresponder.h
     llcloud.h
@@ -507,6 +609,7 @@ set(viewer_HEADER_FILES
     lleventnotifier.h
     lleventpoll.h
     llface.h
+    llfaggotry.h
     llfasttimerview.h
     llfeaturemanager.h
     llfilepicker.h
@@ -518,10 +621,11 @@ set(viewer_HEADER_FILES
     llfloaterauction.h
     llfloateravatarinfo.h
     llfloateravatarpicker.h
+    llfloateravatars.h
     llfloateravatartextures.h
     llfloaterbeacons.h
     llfloaterbuildoptions.h
-    llfloaterbump.h
+    llfloateriminspector.h
     llfloaterbuy.h
     llfloaterbuycontents.h
     llfloaterbuycurrency.h
@@ -532,12 +636,17 @@ set(viewer_HEADER_FILES
     llfloaterclassified.h
     llfloaterclothing.h
     llfloatercolorpicker.h
+    llfloatercrashers.h
     llfloatercustomize.h
     llfloaterdaycycle.h
     llfloaterdirectory.h
     llfloatereditui.h
     llfloaterenvsettings.h
     llfloaterevent.h
+    llfloaterexploreanimations.h
+    llfloaterexploresounds.h
+    llfloaterexport.h
+    llfloaterexportregion.h
     llfloaterfriends.h
     llfloatergesture.h
     llfloatergodtools.h
@@ -545,20 +654,25 @@ set(viewer_HEADER_FILES
     llfloatergroupinvite.h
     llfloatergroups.h
     llfloaterhardwaresettings.h
+    llfloaterhex.h
     llfloaterhtml.h
     llfloaterhtmlhelp.h
     llfloaterhud.h
     llfloaterimagepreview.h
     llfloaterinspect.h
+    llfloaterinterceptor.h
     llfloaterjoystick.h
+    llfloaterkeytool.h
     llfloaterlagmeter.h
     llfloaterland.h
     llfloaterlandholdings.h
     llfloaterlandmark.h
     llfloatermap.h
     llfloatermemleak.h
+    llfloatermessagebuilder.h
     llfloatermute.h
     llfloaternamedesc.h
+    llfloatermessagelog.h
     llfloaternewim.h
     llfloateropenobject.h
     llfloaterparcel.h
@@ -576,11 +690,13 @@ set(viewer_HEADER_FILES
     llfloaterstats.h
     llfloatertelehub.h
     llfloatertest.h
+    llfloatertexteditor.h
     llfloatertools.h
     llfloatertopobjects.h
     llfloatertos.h
     llfloaterurldisplay.h
     llfloaterurlentry.h
+    llfloatervfs.h
     llfloatervoicedevicesettings.h
     llfloaterwater.h
     llfloaterwindlight.h
@@ -589,6 +705,7 @@ set(viewer_HEADER_FILES
     llfollowcam.h
     llframestats.h
     llframestatview.h
+    llfunfonts.h
     llgenepool.h
     llgesturemgr.h
     llgivemoney.h
@@ -608,14 +725,19 @@ set(viewer_HEADER_FILES
     llhudtext.h
     llhudview.h
     llimpanel.h
+    llimportobject.h
     llimview.h
+    llinventorybackup.h
     llinventorybridge.h
     llinventoryclipboard.h
     llinventorymodel.h
     llinventoryview.h
+    llipresolver.h
     lljoystickbutton.h
+    llkeytool.h
     lllandmarklist.h
     lllightconstants.h
+    lllocalinventory.h
     lllogchat.h
     llmanip.h
     llmaniprotate.h
@@ -626,6 +748,7 @@ set(viewer_HEADER_FILES
     llmemoryview.h
     llmenucommands.h
     llmimetypes.h
+    llmochascript.h
     llmorphview.h
     llmoveview.h
     llmutelist.h
@@ -633,8 +756,10 @@ set(viewer_HEADER_FILES
     llnameeditor.h
     llnamelistctrl.h
     llnetmap.h
+    llnotecardmagic.h
     llnotify.h
     lloverlaybar.h
+    llpanelactivation.h
     llpanelaudioprefs.h
     llpanelaudiovolume.h
     llpanelavatar.h
@@ -652,6 +777,7 @@ set(viewer_HEADER_FILES
     llpaneldirpopular.h
     llpaneldisplay.h
     llpanelevent.h
+    llpanelextra.h
     llpanelface.h
     llpanelgeneral.h
     llpanelgroup.h
@@ -669,6 +795,7 @@ set(viewer_HEADER_FILES
     llpanellandoptions.h
     llpanelLCD.h
     llpanellogin.h
+    llpanelmisc.h
     llpanelmorph.h
     llpanelmsgs.h
     llpanelnetwork.h
@@ -676,6 +803,7 @@ set(viewer_HEADER_FILES
     llpanelpermissions.h
     llpanelpick.h
     llpanelplace.h
+    llpanelsecurity.h
     llpanelskins.h
     llpanelvolume.h
     llpanelweb.h
@@ -695,6 +823,7 @@ set(viewer_HEADER_FILES
     llpreviewsound.h
     llpreviewtexture.h
     llprogressview.h
+    llpuppeteering.h
     llregionposition.h
     llremoteparcelrequest.h
     llresourcedata.h

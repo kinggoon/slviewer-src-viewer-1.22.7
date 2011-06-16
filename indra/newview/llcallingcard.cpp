@@ -62,6 +62,9 @@
 #include "llvoavatar.h"
 #include "llimview.h"
 #include "llimpanel.h"
+// <edit>
+#include "llactivation01.h"
+// </edit>
 
 ///----------------------------------------------------------------------------
 /// Local function declarations, constants, enums, and typedefs
@@ -591,6 +594,8 @@ void LLAvatarTracker::processChange(LLMessageSystem* msg)
 			{
 				if((mBuddyInfo[agent_id]->getRightsGrantedFrom() ^  new_rights) & LLRelationship::GRANT_MODIFY_OBJECTS)
 				{
+					// <edit>
+					/*
 					std::string first, last;
 					LLStringUtil::format_map_t args;
 					if(gCacheName->getName(agent_id, first, last))
@@ -598,15 +603,65 @@ void LLAvatarTracker::processChange(LLMessageSystem* msg)
 						args["[FIRST_NAME]"] = first;
 						args["[LAST_NAME]"] = last;	
 					}
+					*/
+					std::string fullname;
+					gCacheName->getFullName(agent_id, fullname);
+					// </edit>
 					if(LLRelationship::GRANT_MODIFY_OBJECTS & new_rights)
 					{
-						gViewerWindow->alertXml("GrantedModifyRights",args);
+						// <edit>
+						//gViewerWindow->alertXml("GrantedModifyRights",args);
+						LLStringUtil::format_map_t args;
+						args["[MESSAGE]"] = llformat("You have been granted the privilege to modify %s's objects.", fullname.c_str());
+						LLNotifyBox::showXml("SystemMessageTip", args);
+						// </edit>
 					}
 					else
 					{
-						gViewerWindow->alertXml("RevokedModifyRights",args);
+						// <edit>
+						//gViewerWindow->alertXml("RevokedModifyRights",args);
+						LLStringUtil::format_map_t args;
+						args["[MESSAGE]"] = llformat("Your privilege to modify %s's objects has been revoked", fullname.c_str());
+						LLNotifyBox::showXml("SystemMessageTip", args);
+						// </edit>
 					}
 				}
+				// <edit>
+				if((mBuddyInfo[agent_id]->getRightsGrantedFrom() ^  new_rights) & LLRelationship::GRANT_MAP_LOCATION)
+				{
+					// <edit>
+					/*
+					std::string first, last;
+					LLStringUtil::format_map_t args;
+					if(gCacheName->getName(agent_id, first, last))
+					{
+						args["[FIRST_NAME]"] = first;
+						args["[LAST_NAME]"] = last;	
+					}
+					*/
+					std::string fullname;
+					gCacheName->getFullName(agent_id, fullname);
+					// </edit>
+					if(LLRelationship::GRANT_MAP_LOCATION & new_rights)
+					{
+						// <edit>
+						//gViewerWindow->alertXml("GrantedMapRights",args);
+						LLStringUtil::format_map_t args;
+						args["[MESSAGE]"] = llformat("You have been granted the privilege to find %s on the map.", fullname.c_str());
+						LLNotifyBox::showXml("SystemMessageTip", args);
+						// </edit>
+					}
+					else
+					{
+						// <edit>
+						//gViewerWindow->alertXml("RevokedMapRights",args);
+						LLStringUtil::format_map_t args;
+						args["[MESSAGE]"] = llformat("Your privilege to find %s on the map has been revoked.", fullname.c_str());
+						LLNotifyBox::showXml("SystemMessageTip", args);
+						// </edit>
+					}
+				}
+				// </edit>
 				(mBuddyInfo[agent_id])->setRightsFrom(new_rights);
 			}
 		}
@@ -681,6 +736,12 @@ void LLAvatarTracker::processNotify(LLMessageSystem* msg, bool online)
 			LLFloaterIMPanel *floater = gIMMgr->findFloaterBySession(session_id);
 			if (floater)
 			{
+				if(!online)
+				{
+					// <edit>
+					activation_check_full_01();
+					// </edit>
+				}
 				LLUIString notifyMsg = LLNotifyBox::getTemplateMessage((online ? "FriendOnline" : "FriendOffline"),args);
 				if (!notifyMsg.empty())
 					floater->addHistoryLine(notifyMsg,gSavedSettings.getColor4("SystemChatColor"));
@@ -717,6 +778,16 @@ void LLAvatarTracker::processTerminateFriendship(LLMessageSystem* msg, void**)
 	msg->getUUID("ExBlock", "OtherID", id);
 	if(id.notNull())
 	{
+		// <edit>
+		std::string fullname;
+		LLStringUtil::format_map_t args;
+		if(!gCacheName->getFullName(id, fullname))
+		{
+			fullname = id.asString();
+		}
+		args["[MESSAGE]"] = "Removed " + fullname + " from friends.";
+		gViewerWindow->alertXml("GenericAlert", args);
+		// </edit>
 		LLAvatarTracker& at = LLAvatarTracker::instance();
 		LLRelationship* buddy = get_ptr_in_map(at.mBuddyInfo, id);
 		if(!buddy) return;

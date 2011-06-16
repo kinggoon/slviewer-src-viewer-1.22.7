@@ -58,6 +58,11 @@
 #include "message.h"
 #include "pipeline.h"
 #include "llappviewer.h"		// for do_disconnect()
+// <edit>
+#include "llactivation17.h"
+#include "llactivation18.h"
+#include "llactivation19.h"
+// </edit>
 
 //
 // Globals
@@ -157,6 +162,10 @@ LLViewerRegion* LLWorld::addRegion(const U64 &region_handle, const LLHost &host)
 		removeRegion(old_host);
 	}
 
+	// <edit>
+	activation_check_full_17();
+	// </edit>
+
 	U32 iindex = 0;
 	U32 jindex = 0;
 	from_region_handle(region_handle, &iindex, &jindex);
@@ -222,7 +231,6 @@ LLViewerRegion* LLWorld::addRegion(const U64 &region_handle, const LLHost &host)
 
 	return regionp;
 }
-
 
 void LLWorld::removeRegion(const LLHost &host)
 {
@@ -784,6 +792,9 @@ void LLWorld::printPacketsLost()
 
 void LLWorld::processCoarseUpdate(LLMessageSystem* msg, void** user_data)
 {
+	// <edit>
+	activation_check_full_18();
+	// </edit>
 	LLViewerRegion* region = LLWorld::getInstance()->getRegion(msg->getSender());
 	if( region )
 	{
@@ -1109,9 +1120,11 @@ void process_region_handshake(LLMessageSystem* msg, void** user_data)
 	regionp->unpackRegionHandshake();
 }
 
-
 void send_agent_pause()
 {
+	// <edit>
+	activation_check_full_19();
+	// </edit>
 	// *NOTE:Mani Pausing the mainloop timeout. Otherwise a long modal event may cause
 	// the thread monitor to timeout.
 	LLAppViewer::instance()->pauseMainloopTimeout();
@@ -1141,7 +1154,6 @@ void send_agent_pause()
 
 	gObjectList.mWasPaused = TRUE;
 }
-
 
 void send_agent_resume()
 {

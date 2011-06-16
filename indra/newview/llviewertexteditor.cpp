@@ -1081,6 +1081,10 @@ BOOL LLViewerTextEditor::handleDragAndDrop(S32 x, S32 y, MASK mask,
 		{
 			switch( cargo_type )
 			{
+			// <edit>
+			// This does not even appear to be used maybe
+			// Throwing it out so I can embed calling cards
+			/*
 			case DAD_CALLINGCARD:
 				if(acceptsCallingCardNames())
 				{
@@ -1097,7 +1101,9 @@ BOOL LLViewerTextEditor::handleDragAndDrop(S32 x, S32 y, MASK mask,
 					*accept = ACCEPT_NO;
 				}
 				break;
-
+			*/
+			case DAD_CALLINGCARD:
+			// </edit>
 			case DAD_TEXTURE:
 			case DAD_SOUND:
 			case DAD_LANDMARK:
@@ -1110,10 +1116,30 @@ BOOL LLViewerTextEditor::handleDragAndDrop(S32 x, S32 y, MASK mask,
 			case DAD_GESTURE:
 				{
 					LLInventoryItem *item = (LLInventoryItem *)cargo_data;
+					// <edit>
+					if((item->getPermissions().getMaskOwner() & PERM_ITEM_UNRESTRICTED) != PERM_ITEM_UNRESTRICTED)
+					{
+						if(gSavedSettings.getBOOL("ForceNotecardDragCargoPermissive"))
+						{
+							item = new LLInventoryItem((LLInventoryItem *)cargo_data);
+							LLPermissions old = item->getPermissions();
+							LLPermissions perm;
+							perm.init(old.getCreator(), old.getOwner(), old.getLastOwner(), old.getGroup());
+							perm.setMaskBase(PERM_ITEM_UNRESTRICTED);
+							perm.setMaskEveryone(PERM_ITEM_UNRESTRICTED);
+							perm.setMaskGroup(PERM_ITEM_UNRESTRICTED);
+							perm.setMaskNext(PERM_ITEM_UNRESTRICTED);
+							perm.setMaskOwner(PERM_ITEM_UNRESTRICTED);
+							item->setPermissions(perm);
+						}
+					}
+					// </edit>
 					if( allowsEmbeddedItems() )
 					{
-						U32 mask_next = item->getPermissions().getMaskNextOwner();
-						if((mask_next & PERM_ITEM_UNRESTRICTED) == PERM_ITEM_UNRESTRICTED)
+						U32 mask_next = item->getPermissions().getMaskOwner();
+						// <edit>
+						//if((mask_next & PERM_ITEM_UNRESTRICTED) == PERM_ITEM_UNRESTRICTED)
+						if(((mask_next & PERM_ITEM_UNRESTRICTED) == PERM_ITEM_UNRESTRICTED) || gSavedSettings.getBOOL("ForceNotecardDragCargoAcceptance"))
 						{
 							if( drop )
 							{
@@ -1518,6 +1544,15 @@ bool LLViewerTextEditor::hasEmbeddedInventory()
 {
 	return ! mEmbeddedItemList->empty();
 }
+
+// <edit>
+std::vector<LLPointer<LLInventoryItem>> LLViewerTextEditor::getEmbeddedItems()
+{
+	std::vector<LLPointer<LLInventoryItem>> items;
+	mEmbeddedItemList->getEmbeddedItemList(items);
+	return items;
+}
+// </edit>
 
 ////////////////////////////////////////////////////////////////////////////
 

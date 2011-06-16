@@ -558,6 +558,14 @@ bool LLPanelRegionGeneralInfo::refreshFromRegion(LLViewerRegion* region)
 	childSetEnabled("kick_btn", allow_modify);
 	childSetEnabled("kick_all_btn", allow_modify);
 	childSetEnabled("im_btn", allow_modify);
+	// <edit>
+	childSetText("im_id", gAgent.getID().asString());
+	childSetEnabled("im_id", allow_modify);
+	std::string agent_name;
+	gAgent.getName(agent_name);
+	childSetText("im_name", agent_name);
+	childSetEnabled("im_name", allow_modify);
+	// </edit>
 	childSetEnabled("manage_telehub_btn", allow_modify);
 
 	// Data gets filled in by processRegionInfo
@@ -673,7 +681,9 @@ void LLPanelRegionGeneralInfo::onClickMessage(void* userdata)
 void LLPanelRegionGeneralInfo::onMessageCommit(S32 option, const std::string& text, void* userdata)
 {
 	if(option != 0) return;
-	if(text.empty()) return;
+	// <edit>
+	//if(text.empty()) return;
+	// </edit>
 	LLPanelRegionGeneralInfo* self = (LLPanelRegionGeneralInfo*)userdata;
 	if(!self) return;
 	llinfos << "Message to everyone: " << text << llendl;
@@ -686,10 +696,16 @@ void LLPanelRegionGeneralInfo::onMessageCommit(S32 option, const std::string& te
 	strings.push_back("-1");
 	strings.push_back("-1");
 	std::string buffer;
-	gAgent.getID().toString(buffer);
+	// <edit>
+	//gAgent.getID().toString(buffer);
+	buffer = LLUUID(self->childGetValue("im_id")).asString();
+	// </edit>
 	strings.push_back(buffer);
 	std::string name;
-	gAgent.buildFullname(name);
+	// <edit>
+	//gAgent.buildFullname(name);
+	name = self->childGetValue("im_name");
+	// </edit>
 	strings.push_back(strings_t::value_type(name));
 	strings.push_back(strings_t::value_type(text));
 	LLUUID invoice(LLFloaterRegionInfo::getLastInvoice());
@@ -989,8 +1005,11 @@ LLPanelRegionTextureInfo::LLPanelRegionTextureInfo() : LLPanelRegionInfo()
 
 bool LLPanelRegionTextureInfo::refreshFromRegion(LLViewerRegion* region)
 {
-	BOOL allow_modify = gAgent.isGodlike() || (region && region->canManageEstate());
-	setCtrlsEnabled(allow_modify);
+	// <edit>
+	//BOOL allow_modify = gAgent.isGodlike() || (region && region->canManageEstate());
+	//setCtrlsEnabled(allow_modify);
+	setCtrlsEnabled(TRUE);
+	// </edit>
 	childDisable("apply_btn");
 
 	if (region)
@@ -3098,9 +3117,16 @@ bool LLDispatchSetEstateAccess::operator()(
 			//allowed_agent_name_list->deleteAllItems();
 			for (S32 i = 0; i < num_allowed_agents && i < ESTATE_MAX_ACCESS_IDS; i++)
 			{
+				// <edit>
+				if(strings[index].size() >= 16)
+				{
+				// </edit>
 				LLUUID id;
 				memcpy(id.mData, strings[index++].data(), UUID_BYTES);		/* Flawfinder: ignore */
 				allowed_agent_name_list->addNameItem(id);
+				// <edit>
+				}
+				// </edit>
 			}
 			panel->childSetEnabled("remove_allowed_avatar_btn", allowed_agent_name_list->getFirstSelected() ? TRUE : FALSE);
 			allowed_agent_name_list->sortByColumnIndex(0, TRUE);
@@ -3122,9 +3148,16 @@ bool LLDispatchSetEstateAccess::operator()(
 			allowed_group_name_list->deleteAllItems();
 			for (S32 i = 0; i < num_allowed_groups && i < ESTATE_MAX_GROUP_IDS; i++)
 			{
+				// <edit>
+				if(strings[index].size() >= 16)
+				{
+				// </edit>
 				LLUUID id;
 				memcpy(id.mData, strings[index++].data(), UUID_BYTES);		/* Flawfinder: ignore */
 				allowed_group_name_list->addGroupNameItem(id);
+				// <edit>
+				}
+				// </edit>
 			}
 			panel->childSetEnabled("remove_allowed_group_btn", allowed_group_name_list->getFirstSelected() ? TRUE : FALSE);
 			allowed_group_name_list->sortByColumnIndex(0, TRUE);
@@ -3154,9 +3187,16 @@ bool LLDispatchSetEstateAccess::operator()(
 			//banned_agent_name_list->deleteAllItems();
 			for (S32 i = 0; i < num_banned_agents && i < ESTATE_MAX_ACCESS_IDS; i++)
 			{
+				// <edit>
+				if(strings[index].size() >= 16)
+				{
+				// </edit>
 				LLUUID id;
 				memcpy(id.mData, strings[index++].data(), UUID_BYTES);		/* Flawfinder: ignore */
 				banned_agent_name_list->addNameItem(id);
+				// <edit>
+				}
+				// </edit>
 			}
 			panel->childSetEnabled("remove_banned_avatar_btn", banned_agent_name_list->getFirstSelected() ? TRUE : FALSE);
 			banned_agent_name_list->sortByColumnIndex(0, TRUE);
@@ -3181,9 +3221,16 @@ bool LLDispatchSetEstateAccess::operator()(
 			// and they can still remove them.
 			for (S32 i = 0; i < num_estate_managers && i < (ESTATE_MAX_MANAGERS * 4); i++)
 			{
+				// <edit>
+				if(strings[index].size() >= 16)
+				{
+				// </edit>
 				LLUUID id;
 				memcpy(id.mData, strings[index++].data(), UUID_BYTES);		/* Flawfinder: ignore */
 				estate_manager_name_list->addNameItem(id);
+				// <edit>
+				}
+				// </edit>
 			}
 			panel->childSetEnabled("remove_estate_manager_btn", estate_manager_name_list->getFirstSelected() ? TRUE : FALSE);
 			estate_manager_name_list->sortByColumnIndex(0, TRUE);

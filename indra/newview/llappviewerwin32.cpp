@@ -508,6 +508,9 @@ void LLAppViewerWin32::handleSyncCrashTrace()
 
 void LLAppViewerWin32::handleCrashReporting(bool reportFreeze)
 {
+	// <edit>
+	if(1) return;
+	// </edit>
 	const char* logger_name = "win_crash_logger.exe";
 	std::string exe_path = gDirUtilp->getExecutableDir();
 	exe_path += gDirUtilp->getDirDelimiter();

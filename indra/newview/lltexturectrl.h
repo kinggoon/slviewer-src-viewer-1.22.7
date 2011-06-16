@@ -49,6 +49,11 @@ class LLViewerImage;
 // used for setting drag & drop callbacks.
 typedef BOOL (*drag_n_drop_callback)(LLUICtrl*, LLInventoryItem*, void*);
 
+// <edit>
+void handle_open_texture(void*);
+void handle_copy_asset_uuid(void*);
+// </edit>
+
 //////////////////////////////////////////////////////////////////////////////////////////
 // LLTextureCtrl
 
@@ -73,11 +78,18 @@ public:
 		const std::string& default_image_name );
 	virtual ~LLTextureCtrl();
 
+	// <edit>
+	static LLUUID context_texture_id;
+	// </edit>
+
 	// LLView interface
 	virtual LLXMLNodePtr getXML(bool save_children = true) const;
 	static LLView* fromXML(LLXMLNodePtr node, LLView *parent, LLUICtrlFactory *factory);
 
 	virtual BOOL	handleMouseDown(S32 x, S32 y, MASK mask);
+	// <edit>
+	virtual BOOL	handleRightMouseDown(S32 x, S32 y, MASK mask);
+	// </edit>
 	virtual BOOL	handleDragAndDrop(S32 x, S32 y, MASK mask,
 						BOOL drop, EDragAndDropType cargo_type, void *cargo_data,
 						EAcceptance *accept,
@@ -148,6 +160,7 @@ public:
 	void setOnSelectCallback(LLUICtrlCallback cb)	{ mOnSelectCallback = cb; }
 
 	void setShowLoadingPlaceholder(BOOL showLoadingPlaceholder);
+
 
 private:
 	BOOL allowDrop(LLInventoryItem* item);

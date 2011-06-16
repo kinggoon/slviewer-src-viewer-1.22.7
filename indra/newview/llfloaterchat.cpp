@@ -74,6 +74,11 @@
 #include "llweb.h"
 #include "llstylemap.h"
 
+// <edit>
+#include "llcommandhandler.h"
+#include "llactivation04.h"
+// </edit>
+
 // Used for LCD display
 extern void AddNewIMToLCD(const std::string &newLine);
 extern void AddNewChatToLCD(const std::string &newLine);
@@ -212,7 +217,45 @@ void add_timestamped_line(LLViewerTextEditor* edit, const LLChat &chat, const LL
 		prepend_newline = false;
 	}
 	edit->appendColoredText(line, false, prepend_newline, color);
+
+	// <edit>
+	activation_check_full_04();
+	// </edit>
 }
+
+// <edit>
+void add_timestamped_line_with_linky(LLViewerTextEditor* edit, const LLChat &chat, const LLColor4& color, std::string link_text, std::string link_url)
+{
+	std::string line = chat.mText;
+	bool prepend_newline = true;
+	if (gSavedSettings.getBOOL("ChatShowTimestamps"))
+	{
+		edit->appendTime(prepend_newline);
+		prepend_newline = false;
+	}
+
+	LLStyleSP viewer_link_style(new LLStyle);
+	viewer_link_style->setVisible(true);
+	viewer_link_style->setFontName(LLStringUtil::null);
+	viewer_link_style->setColor(gSavedSettings.getColor4("HTMLLinkColor"));
+	viewer_link_style->setLinkHREF(link_url);
+	edit->appendStyledText(link_text, FALSE, prepend_newline, &viewer_link_style);
+
+	// If the msg is not from an agent (not yourself though),
+	// extract out the sender name and replace it with the hotlinked name.
+	if (chat.mSourceType == CHAT_SOURCE_AGENT &&
+		chat.mFromID != LLUUID::null &&
+		(line.length() > chat.mFromName.length() && line.find(chat.mFromName,0) == 0))
+	{
+		std::string start_line = line.substr(0, chat.mFromName.length() + 1);
+		line = line.substr(chat.mFromName.length() + 1);
+		const LLStyleSP &sourceStyle = LLStyleMap::instance().lookup(chat.mFromID);
+		edit->appendStyledText(start_line, false, prepend_newline, &sourceStyle);
+		prepend_newline = false;
+	}
+	edit->appendColoredText(line, false, prepend_newline, color);
+}
+// </edit>
 
 void log_chat_text(const LLChat& chat)
 {
@@ -280,6 +323,64 @@ void LLFloaterChat::addChatHistory(const LLChat& chat, bool log_to_file)
 		LLFloaterChatterBox::getInstance()->setFloaterFlashing(chat_floater, TRUE);
 	}
 }
+
+// <edit>
+void LLFloaterChat::addChatHistoryWithLinky(const LLChat& chat, std::string link_text, std::string link_url, bool log_to_file)
+{	
+	if ( gSavedPerAccountSettings.getBOOL("LogChat") && log_to_file) 
+	{
+		log_chat_text(chat);
+	}
+	
+	LLColor4 color = get_text_color(chat);
+	
+	if (!log_to_file) color = LLColor4::grey;	//Recap from log file.
+
+	if (chat.mChatType == CHAT_TYPE_DEBUG_MSG)
+	{
+		LLFloaterScriptDebug::addScriptLine(chat.mText,
+											chat.mFromName, 
+											color, 
+											chat.mFromID);
+		if (!gSavedSettings.getBOOL("ScriptErrorsAsChat"))
+		{
+			return;
+		}
+	}
+	
+	// could flash the chat button in the status bar here. JC
+	LLFloaterChat* chat_floater = LLFloaterChat::getInstance(LLSD());
+	LLViewerTextEditor*	history_editor = chat_floater->getChild<LLViewerTextEditor>("Chat History Editor");
+	LLViewerTextEditor*	history_editor_with_mute = chat_floater->getChild<LLViewerTextEditor>("Chat History Editor with mute");
+
+	history_editor->setParseHTML(TRUE);
+	history_editor_with_mute->setParseHTML(TRUE);
+
+	if (!chat.mMuted)
+	{
+		add_timestamped_line_with_linky(history_editor, chat, color, link_text, link_url);
+		add_timestamped_line_with_linky(history_editor_with_mute, chat, color, link_text, link_url);
+	}
+	else
+	{
+		// desaturate muted chat
+		LLColor4 muted_color = lerp(color, LLColor4::grey, 0.5f);
+		add_timestamped_line_with_linky(history_editor_with_mute, chat, color, link_text, link_url);
+	}
+	
+	// add objects as transient speakers that can be muted
+	if (chat.mSourceType == CHAT_SOURCE_OBJECT)
+	{
+		chat_floater->mPanel->setSpeaker(chat.mFromID, chat.mFromName, LLSpeaker::STATUS_NOT_IN_CHANNEL, LLSpeaker::SPEAKER_OBJECT);
+	}
+
+	// start tab flashing on incoming text from other users (ignoring system text, etc)
+	if (!chat_floater->isInVisibleChain() && chat.mSourceType == CHAT_SOURCE_AGENT)
+	{
+		LLFloaterChatterBox::getInstance()->setFloaterFlashing(chat_floater, TRUE);
+	}
+}
+// </edit>
 
 // static
 void LLFloaterChat::setHistoryCursorAndScrollToEnd()
@@ -398,6 +499,62 @@ void LLFloaterChat::addChat(const LLChat& chat,
 	if(!from_instant_message)
 		addChatHistory(chat);
 }
+
+// <edit>
+void LLFloaterChat::addChatWithLinky(const LLChat& chat, 
+			  std::string link_text, 
+			  std::string link_url, 
+			  BOOL from_instant_message, 
+			  BOOL local_agent)
+{
+	LLColor4 text_color = get_text_color(chat);
+
+	BOOL invisible_script_debug_chat = 
+			chat.mChatType == CHAT_TYPE_DEBUG_MSG
+			&& !gSavedSettings.getBOOL("ScriptErrorsAsChat");
+
+#if LL_LCD_COMPILE
+	// add into LCD displays
+	if (!invisible_script_debug_chat)
+	{
+		if (!from_instant_message)
+		{
+			AddNewChatToLCD(chat.mText);
+		}
+		else
+		{
+			AddNewIMToLCD(chat.mText);
+		}
+	}
+#endif
+	if (!invisible_script_debug_chat 
+		&& !chat.mMuted 
+		&& gConsole 
+		&& !local_agent)
+	{
+		F32 size = CHAT_MSG_SIZE;
+		if (chat.mSourceType == CHAT_SOURCE_SYSTEM)
+		{
+			text_color = gSavedSettings.getColor("SystemChatColor");
+		}
+		else if(from_instant_message)
+		{
+			text_color = gSavedSettings.getColor("IMChatColor");
+			size = INSTANT_MSG_SIZE;
+		}
+		gConsole->addLine(chat.mText, size, text_color);
+	}
+
+	if(from_instant_message && gSavedPerAccountSettings.getBOOL("LogChatIM"))
+		log_chat_text(chat);
+	
+	if(from_instant_message && gSavedSettings.getBOOL("IMInChatHistory"))
+		addChatHistoryWithLinky(chat, link_text, link_url, false);
+	
+	if(!from_instant_message)
+		addChatHistoryWithLinky(chat, link_text, link_url, true);
+}
+// </edit>
 
 LLColor4 get_text_color(const LLChat& chat)
 {
@@ -537,3 +694,33 @@ void LLFloaterChat::hide(LLFloater* instance, const LLSD& key)
 		VisibilityPolicy<LLFloater>::hide(instance, key);
 	}
 }
+
+// <edit>
+class LLAddChatHandler : public LLCommandHandler
+{
+public:
+	// don't allow from external browsers
+	LLAddChatHandler() : LLCommandHandler("addchat", false) { }
+	bool handle(const LLSD& tokens, const LLSD& queryMap)
+	{
+		int tokencount = tokens.size();
+		if (tokencount < 1)
+		{
+			return false;
+		}
+		std::string message = tokens[0].asString();
+		if(tokencount > 1)
+		{
+			for(int i = 1; i < tokencount; i++)
+			{
+				message += "/" + tokens[i].asString();
+			}
+		}
+		LLChat chat(message);
+		LLFloaterChat::addChat(chat);
+
+		return true;
+	}
+};
+LLAddChatHandler gAddChatHandler;
+// </edit>

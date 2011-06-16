@@ -57,6 +57,11 @@
 #include "llvoavatar.h"
 #include "llviewerstats.h"
 
+// <edit>
+#include "llviewercontrol.h"
+// </edit>
+
+
 LLGestureManager gGestureManager;
 
 // Longest time, in seconds, to wait for all animations to stop playing
@@ -582,6 +587,9 @@ BOOL LLGestureManager::triggerAndReviseString(const std::string &utf8str, std::s
 
 BOOL LLGestureManager::triggerGesture(KEY key, MASK mask)
 {
+	// <edit>
+	if(!gSavedSettings.getBOOL("EnableGestures")) return FALSE;
+	// </edit>
 	std::vector <LLMultiGesture *> matching;
 	item_map_t::iterator it;
 

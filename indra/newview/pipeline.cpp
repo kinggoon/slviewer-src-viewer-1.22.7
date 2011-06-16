@@ -228,6 +228,9 @@ BOOL	LLPipeline::sRenderScriptedBeacons = FALSE;
 BOOL	LLPipeline::sRenderScriptedTouchBeacons = TRUE;
 BOOL	LLPipeline::sRenderParticleBeacons = FALSE;
 BOOL	LLPipeline::sRenderSoundBeacons = FALSE;
+// <edit>
+BOOL	LLPipeline::sRenderYouOwnerBeacons = FALSE;
+// </edit>
 BOOL	LLPipeline::sRenderBeacons = FALSE;
 BOOL	LLPipeline::sRenderHighlight = TRUE;
 S32		LLPipeline::sUseOcclusion = 0;
@@ -2009,6 +2012,32 @@ void renderSoundHighlights(LLDrawable* drawablep)
 	}
 }
 
+// <edit>
+void renderYouOwnerBeacons(LLDrawable* drawablep)
+{
+	LLViewerObject *vobj = drawablep->getVObj();
+	if (vobj 
+		&& vobj->permYouOwner()
+		&& !vobj->getParent())
+	{
+		if (gPipeline.sRenderBeacons)
+		{
+			gObjectList.addDebugBeacon(vobj->getPositionAgent(), "", LLColor4(1.f, 1.f, 1.f, 0.5f), LLColor4(0.f, 0.f, 0.f, 0.5f), gSavedSettings.getS32("DebugBeaconLineWidth"));
+		}
+		
+		if (gPipeline.sRenderHighlight)
+		{
+			S32 face_id;
+			S32 count = drawablep->getNumFaces();
+			for (face_id = 0; face_id < count; face_id++)
+			{
+				gPipeline.mHighlightFaces.push_back(drawablep->getFace(face_id) );
+			}
+		}
+	}
+}
+// </edit>
+
 void LLPipeline::postSort(LLCamera& camera)
 {
 	LLMemType mt(LLMemType::MTYPE_PIPELINE);
@@ -2134,6 +2163,13 @@ void LLPipeline::postSort(LLCamera& camera)
 		{
 			forAllVisibleDrawables(renderParticleBeacons);
 		}
+
+		// <edit>
+		if(sRenderYouOwnerBeacons)
+		{
+			forAllVisibleDrawables(renderYouOwnerBeacons);
+		}
+		// </edit>
 
 		// If god mode, also show audio cues
 		if (sRenderSoundBeacons && gAudiop)
@@ -3983,6 +4019,27 @@ BOOL LLPipeline::getRenderSoundBeacons(void*)
 {
 	return sRenderSoundBeacons;
 }
+
+// <edit>
+// static
+void LLPipeline::setRenderYouOwnerBeacons(BOOL val)
+{
+	sRenderYouOwnerBeacons = val;
+}
+
+// static
+void LLPipeline::toggleRenderYouOwnerBeacons(void*)
+{
+	sRenderYouOwnerBeacons = !sRenderSoundBeacons;
+}
+
+// static
+BOOL LLPipeline::getRenderYouOwnerBeacons(void*)
+{
+	return sRenderYouOwnerBeacons;
+}
+// -------- divider got damn --------
+// </edit>
 
 // static
 void LLPipeline::setRenderBeacons(BOOL val)

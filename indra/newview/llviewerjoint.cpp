@@ -120,122 +120,122 @@ void LLViewerJoint::setValid( BOOL valid, BOOL recursive )
 // renderSkeleton()
 // DEBUG (UNUSED)
 //--------------------------------------------------------------------
-// void LLViewerJoint::renderSkeleton(BOOL recursive)
-// {
-// 	F32 nc = 0.57735f;
+void LLViewerJoint::renderSkeleton(BOOL recursive)
+{
+	F32 nc = 0.57735f;
 
-// 	//----------------------------------------------------------------
-// 	// push matrix stack
-// 	//----------------------------------------------------------------
-// 	glPushMatrix();
+	//----------------------------------------------------------------
+	// push matrix stack
+	//----------------------------------------------------------------
+	glPushMatrix();
 
-// 	//----------------------------------------------------------------
-// 	// render the bone to my parent
-// 	//----------------------------------------------------------------
-// 	if (mComponents & SC_BONE)
-// 	{
-// 		drawBone();
-// 	}
+	//----------------------------------------------------------------
+	// render the bone to my parent
+	//----------------------------------------------------------------
+	if (mComponents & SC_BONE)
+	{
+		drawBone();
+	}
 
-// 	//----------------------------------------------------------------
-// 	// offset to joint position and 
-// 	// rotate to our orientation
-// 	//----------------------------------------------------------------
-// 	glLoadIdentity();
-// 	glMultMatrixf( &getWorldMatrix().mMatrix[0][0] );
+	//----------------------------------------------------------------
+	// offset to joint position and 
+	// rotate to our orientation
+	//----------------------------------------------------------------
+	glLoadIdentity();
+	glMultMatrixf( &getWorldMatrix().mMatrix[0][0] );
 
-// 	//----------------------------------------------------------------
-// 	// render joint axes
-// 	//----------------------------------------------------------------
-// 	if (mComponents & SC_AXES)
-// 	{
-// 		gGL.begin(LLRender::LINES);
-// 		gGL.color3f( 1.0f, 0.0f, 0.0f );
-// 		gGL.vertex3f( 0.0f,            0.0f, 0.0f );
-// 		gGL.vertex3f( 0.1f, 0.0f, 0.0f );
+	//----------------------------------------------------------------
+	// render joint axes
+	//----------------------------------------------------------------
+	if (mComponents & SC_AXES)
+	{
+		gGL.begin(LLRender::LINES);
+		gGL.color3f( 1.0f, 0.0f, 0.0f );
+		gGL.vertex3f( 0.0f,            0.0f, 0.0f );
+		gGL.vertex3f( 0.1f, 0.0f, 0.0f );
 
-// 		gGL.color3f( 0.0f, 1.0f, 0.0f );
-// 		gGL.vertex3f( 0.0f, 0.0f,            0.0f );
-// 		gGL.vertex3f( 0.0f, 0.1f, 0.0f );
+		gGL.color3f( 0.0f, 1.0f, 0.0f );
+		gGL.vertex3f( 0.0f, 0.0f,            0.0f );
+		gGL.vertex3f( 0.0f, 0.1f, 0.0f );
 
-// 		gGL.color3f( 0.0f, 0.0f, 1.0f );
-// 		gGL.vertex3f( 0.0f, 0.0f, 0.0f );
-// 		gGL.vertex3f( 0.0f, 0.0f, 0.1f );
-// 		gGL.end();
-// 	}
+		gGL.color3f( 0.0f, 0.0f, 1.0f );
+		gGL.vertex3f( 0.0f, 0.0f, 0.0f );
+		gGL.vertex3f( 0.0f, 0.0f, 0.1f );
+		gGL.end();
+	}
 
-// 	//----------------------------------------------------------------
-// 	// render the joint graphic
-// 	//----------------------------------------------------------------
-// 	if (mComponents & SC_JOINT)
-// 	{
-// 		gGL.color3f( 1.0f, 1.0f, 0.0f );
+	//----------------------------------------------------------------
+	// render the joint graphic
+	//----------------------------------------------------------------
+	if (mComponents & SC_JOINT)
+	{
+		gGL.color3f( 1.0f, 1.0f, 0.0f );
 
-// 		gGL.begin(LLRender::TRIANGLES);
+		gGL.begin(LLRender::TRIANGLES);
 
-// 		// joint top half
-// 		glNormal3f(nc, nc, nc);
-// 		gGL.vertex3f(0.0f,             0.0f, 0.05f);
-// 		gGL.vertex3f(0.05f,       0.0f,       0.0f);
-// 		gGL.vertex3f(0.0f,       0.05f,       0.0f);
+		// joint top half
+		glNormal3f(nc, nc, nc);
+		gGL.vertex3f(0.0f,             0.0f, 0.05f);
+		gGL.vertex3f(0.05f,       0.0f,       0.0f);
+		gGL.vertex3f(0.0f,       0.05f,       0.0f);
 
-// 		glNormal3f(-nc, nc, nc);
-// 		gGL.vertex3f(0.0f,             0.0f, 0.05f);
-// 		gGL.vertex3f(0.0f,       0.05f,       0.0f);
-// 		gGL.vertex3f(-0.05f,      0.0f,       0.0f);
+		glNormal3f(-nc, nc, nc);
+		gGL.vertex3f(0.0f,             0.0f, 0.05f);
+		gGL.vertex3f(0.0f,       0.05f,       0.0f);
+		gGL.vertex3f(-0.05f,      0.0f,       0.0f);
 		
-// 		glNormal3f(-nc, -nc, nc);
-// 		gGL.vertex3f(0.0f,             0.0f, 0.05f);
-// 		gGL.vertex3f(-0.05f,      0.0f,      0.0f);
-// 		gGL.vertex3f(0.0f,      -0.05f,      0.0f);
+		glNormal3f(-nc, -nc, nc);
+		gGL.vertex3f(0.0f,             0.0f, 0.05f);
+		gGL.vertex3f(-0.05f,      0.0f,      0.0f);
+		gGL.vertex3f(0.0f,      -0.05f,      0.0f);
 
-// 		glNormal3f(nc, -nc, nc);
-// 		gGL.vertex3f(0.0f,              0.0f, 0.05f);
-// 		gGL.vertex3f(0.0f,       -0.05f,       0.0f);
-// 		gGL.vertex3f(0.05f,        0.0f,       0.0f);
+		glNormal3f(nc, -nc, nc);
+		gGL.vertex3f(0.0f,              0.0f, 0.05f);
+		gGL.vertex3f(0.0f,       -0.05f,       0.0f);
+		gGL.vertex3f(0.05f,        0.0f,       0.0f);
 		
-// 		// joint bottom half
-// 		glNormal3f(nc, nc, -nc);
-// 		gGL.vertex3f(0.0f,             0.0f, -0.05f);
-// 		gGL.vertex3f(0.0f,       0.05f,        0.0f);
-// 		gGL.vertex3f(0.05f,       0.0f,        0.0f);
+		// joint bottom half
+		glNormal3f(nc, nc, -nc);
+		gGL.vertex3f(0.0f,             0.0f, -0.05f);
+		gGL.vertex3f(0.0f,       0.05f,        0.0f);
+		gGL.vertex3f(0.05f,       0.0f,        0.0f);
 
-// 		glNormal3f(-nc, nc, -nc);
-// 		gGL.vertex3f(0.0f,             0.0f, -0.05f);
-// 		gGL.vertex3f(-0.05f,      0.0f,        0.0f);
-// 		gGL.vertex3f(0.0f,       0.05f,        0.0f);
+		glNormal3f(-nc, nc, -nc);
+		gGL.vertex3f(0.0f,             0.0f, -0.05f);
+		gGL.vertex3f(-0.05f,      0.0f,        0.0f);
+		gGL.vertex3f(0.0f,       0.05f,        0.0f);
 		
-// 		glNormal3f(-nc, -nc, -nc);
-// 		gGL.vertex3f(0.0f,              0.0f, -0.05f);
-// 		gGL.vertex3f(0.0f,       -0.05f,        0.0f);
-// 		gGL.vertex3f(-0.05f,       0.0f,        0.0f);
+		glNormal3f(-nc, -nc, -nc);
+		gGL.vertex3f(0.0f,              0.0f, -0.05f);
+		gGL.vertex3f(0.0f,       -0.05f,        0.0f);
+		gGL.vertex3f(-0.05f,       0.0f,        0.0f);
 
-// 		glNormal3f(nc, -nc, -nc);
-// 		gGL.vertex3f(0.0f,             0.0f,  -0.05f);
-// 		gGL.vertex3f(0.05f,       0.0f,         0.0f);
-// 		gGL.vertex3f(0.0f,      -0.05f,         0.0f);
+		glNormal3f(nc, -nc, -nc);
+		gGL.vertex3f(0.0f,             0.0f,  -0.05f);
+		gGL.vertex3f(0.05f,       0.0f,         0.0f);
+		gGL.vertex3f(0.0f,      -0.05f,         0.0f);
 		
-// 		gGL.end();
-// 	}
+		gGL.end();
+	}
 
-// 	//----------------------------------------------------------------
-// 	// render children
-// 	//----------------------------------------------------------------
-// 	if (recursive)
-// 	{
-// 		for (child_list_t::iterator iter = mChildren.begin();
-// 			 iter != mChildren.end(); ++iter)
-// 		{
-// 			LLViewerJoint* joint = (LLViewerJoint*)(*iter);
-// 			joint->renderSkeleton();
-// 		}
-// 	}
+	//----------------------------------------------------------------
+	// render children
+	//----------------------------------------------------------------
+	if (recursive)
+	{
+		for (child_list_t::iterator iter = mChildren.begin();
+			 iter != mChildren.end(); ++iter)
+		{
+			LLViewerJoint* joint = (LLViewerJoint*)(*iter);
+			joint->renderSkeleton();
+		}
+	}
 
-// 	//----------------------------------------------------------------
-// 	// pop matrix stack
-// 	//----------------------------------------------------------------
-// 	glPopMatrix();
-// }
+	//----------------------------------------------------------------
+	// pop matrix stack
+	//----------------------------------------------------------------
+	glPopMatrix();
+}
 
 
 //--------------------------------------------------------------------
@@ -333,58 +333,58 @@ U32 LLViewerJoint::render( F32 pixelArea, BOOL first_pass )
 // drawBone()
 // DEBUG (UNUSED)
 //--------------------------------------------------------------------
-// void LLViewerJoint::drawBone()
-// {
-// 	if ( mParent == NULL )
-// 		return;
+void LLViewerJoint::drawBone()
+{
+	if ( mParent == NULL )
+		return;
 
-// 	F32 boneSize = 0.02f;
+	F32 boneSize = 0.02f;
 
-// 	// rotate to point to child (bone direction)
-// 	glPushMatrix();
+	// rotate to point to child (bone direction)
+	glPushMatrix();
 
-// 	LLVector3 boneX = getPosition();
-// 	F32 length = boneX.normVec();
+	LLVector3 boneX = getPosition();
+	F32 length = boneX.normVec();
 
-// 	LLVector3 boneZ(1.0f, 0.0f, 1.0f);
+	LLVector3 boneZ(1.0f, 0.0f, 1.0f);
 	
-// 	LLVector3 boneY = boneZ % boneX;
-// 	boneY.normVec();
+	LLVector3 boneY = boneZ % boneX;
+	boneY.normVec();
 
-// 	boneZ = boneX % boneY;
+	boneZ = boneX % boneY;
 
-// 	LLMatrix4 rotateMat;
-// 	rotateMat.setFwdRow( boneX );
-// 	rotateMat.setLeftRow( boneY );
-// 	rotateMat.setUpRow( boneZ );
-// 	glMultMatrixf( &rotateMat.mMatrix[0][0] );
+	LLMatrix4 rotateMat;
+	rotateMat.setFwdRow( boneX );
+	rotateMat.setLeftRow( boneY );
+	rotateMat.setUpRow( boneZ );
+	glMultMatrixf( &rotateMat.mMatrix[0][0] );
 
-// 	// render the bone
-// 	gGL.color3f( 0.5f, 0.5f, 0.0f );
+	// render the bone
+	gGL.color3f( 0.5f, 0.5f, 0.0f );
 
-// 	gGL.begin(LLRender::TRIANGLES);
+	gGL.begin(LLRender::TRIANGLES);
 
-// 	gGL.vertex3f( length,     0.0f,       0.0f);
-// 	gGL.vertex3f( 0.0f,       boneSize,  0.0f);
-// 	gGL.vertex3f( 0.0f,       0.0f,       boneSize);
+	gGL.vertex3f( length,     0.0f,       0.0f);
+	gGL.vertex3f( 0.0f,       boneSize,  0.0f);
+	gGL.vertex3f( 0.0f,       0.0f,       boneSize);
 
-// 	gGL.vertex3f( length,     0.0f,        0.0f);
-// 	gGL.vertex3f( 0.0f,       0.0f,        -boneSize);
-// 	gGL.vertex3f( 0.0f,       boneSize,   0.0f);
+	gGL.vertex3f( length,     0.0f,        0.0f);
+	gGL.vertex3f( 0.0f,       0.0f,        -boneSize);
+	gGL.vertex3f( 0.0f,       boneSize,   0.0f);
 
-// 	gGL.vertex3f( length,     0.0f,        0.0f);
-// 	gGL.vertex3f( 0.0f,       -boneSize,  0.0f);
-// 	gGL.vertex3f( 0.0f,       0.0f,        -boneSize);
+	gGL.vertex3f( length,     0.0f,        0.0f);
+	gGL.vertex3f( 0.0f,       -boneSize,  0.0f);
+	gGL.vertex3f( 0.0f,       0.0f,        -boneSize);
 
-// 	gGL.vertex3f( length,     0.0f,        0.0f);
-// 	gGL.vertex3f( 0.0f,       0.0f,        boneSize);
-// 	gGL.vertex3f( 0.0f,       -boneSize,  0.0f);
+	gGL.vertex3f( length,     0.0f,        0.0f);
+	gGL.vertex3f( 0.0f,       0.0f,        boneSize);
+	gGL.vertex3f( 0.0f,       -boneSize,  0.0f);
 
-// 	gGL.end();
+	gGL.end();
 
-// 	// restore matrix
-// 	glPopMatrix();
-// }
+	// restore matrix
+	glPopMatrix();
+}
 
 //--------------------------------------------------------------------
 // isTransparent()

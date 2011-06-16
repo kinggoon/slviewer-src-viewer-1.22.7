@@ -959,6 +959,9 @@ void LLSnapshotLivePreview::saveTexture()
 							LLAssetType::AT_SNAPSHOT_CATEGORY,
 							LLInventoryType::IT_SNAPSHOT,
 							PERM_ALL,
+							// <edit>
+							FALSE, // upload_temporary
+							// </edit>
 							"Snapshot : " + pos_string);
 		gViewerWindow->playSnapshotAnimAndSound();
 	}

@@ -522,6 +522,9 @@ public:
 	void getOffObject();
 
 	BOOL isWearingAttachment( const LLUUID& inv_item_id );
+	// <edit> testzone attachpt
+	BOOL isWearingUnsupportedAttachment( const LLUUID& inv_item_id );
+	// </edit>
 	LLViewerObject* getWornAttachment( const LLUUID& inv_item_id );
 	const std::string getAttachedPointName(const LLUUID& inv_item_id);
 
@@ -901,6 +904,10 @@ public:
 
 	std::vector<LLPointer<LLViewerObject> > mPendingAttachment;
 
+	// <edit>
+	std::map<S32, LLUUID> mUnsupportedAttachmentPoints;
+	// </edit>
+
 	// xml parse tree of avatar config file
 	static LLXmlTree sXMLTree;
 	// xml parse tree of avatar skeleton file
@@ -1049,6 +1056,17 @@ private:
 	static  S32 sFreezeCounter ;
 public:
 	static void updateFreezeCounter(S32 counter = 0 ) ;
+
+// <edit>
+public:
+	bool mNametagSaysIdle;
+	bool mIdleForever;
+	LLFrameTimer mIdleTimer;
+	U32 mIdleMinutes;
+	LLUUID mFocusObject;
+	LLVector3d mFocusVector;
+	void resetIdleTime();
+// </edit>
 };
 
 #endif // LL_VO_AVATAR_H

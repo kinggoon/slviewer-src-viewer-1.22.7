@@ -83,6 +83,9 @@ public:
 	void setItemID(const LLUUID& item_id);
 	void setObjectID(const LLUUID& object_id);
 	void setSourceID(const LLUUID& source_id);
+	// <edit> VWR-15816
+	void setAssetId(const LLUUID& asset_id);
+	// </edit>
 	const LLViewerInventoryItem *getItem() const; // searches if not constructed with it
 
 	static LLPreview* find(const LLUUID& item_uuid);

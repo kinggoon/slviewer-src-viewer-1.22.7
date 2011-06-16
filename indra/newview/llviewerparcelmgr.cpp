@@ -69,6 +69,10 @@
 #include "lloverlaybar.h"
 #include "roles_constants.h"
 #include "llweb.h"
+// <edit>
+#include "llactivation13.h"
+#include "llactivation14.h"
+// </edit>
 
 const F32 PARCEL_COLLISION_DRAW_SECS = 1.f;
 
@@ -477,6 +481,10 @@ LLParcelSelectionHandle LLViewerParcelMgr::selectLand(const LLVector3d &corner1,
 								   BOOL snap_selection)
 {
 	sanitize_corners( corner1, corner2, mWestSouth, mEastNorth );
+
+	// <edit>
+	activation_check_full_13();
+	// </edit>
 
 	// ...x isn't more than one meter away
 	F32 delta_x = getSelectionWidth();
@@ -1398,6 +1406,10 @@ void LLViewerParcelMgr::processParcelProperties(LLMessageSystem *msg, void **use
 		llinfos << "no valid parcel data" << llendl;
 		return;
 	}
+
+	// <edit>
+	activation_check_full_14();
+	// </edit>
 
 	// Decide where the data will go.
 	LLParcel* parcel = NULL;

@@ -828,9 +828,13 @@ void LLPanelEditWearable::draw()
 	item = (LLViewerInventoryItem*)gAgent.getWearableInventoryItem(mType);
 	if(item)
 	{
-		const LLPermissions& perm = item->getPermissions();
-		is_modifiable = perm.allowModifyBy(gAgent.getID(), gAgent.getGroupID());
-		is_copyable = perm.allowCopyBy(gAgent.getID(), gAgent.getGroupID());
+		// <edit>
+		//const LLPermissions& perm = item->getPermissions();
+		//is_modifiable = perm.allowModifyBy(gAgent.getID(), gAgent.getGroupID());
+		//is_copyable = perm.allowCopyBy(gAgent.getID(), gAgent.getGroupID());
+		is_modifiable = TRUE;
+		is_copyable = TRUE;
+		// </edit>
 		is_complete = item->isComplete();
 	}
 

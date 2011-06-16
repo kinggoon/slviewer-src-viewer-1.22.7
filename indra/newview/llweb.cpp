@@ -39,6 +39,7 @@
 #include "llviewercontrol.h"
 #include "llfloaterhtmlhelp.h"
 
+
 // static
 void LLWeb::initClass()
 {
@@ -85,6 +86,14 @@ std::string LLWeb::escapeURL(const std::string& url)
 		{
 			escaped_url += "%5C";
 		}
+		// <edit>
+		else if(c == '(')
+			escaped_url += "%28";
+		else if(c == ')')
+			escaped_url += "%29";
+		else if(c == '\'')
+			escaped_url += "%27";
+		// </edit>
 		else
 		{
 			escaped_url += c;

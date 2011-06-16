@@ -380,8 +380,14 @@ protected:
 	// the internal data structures are consistent. These methods
 	// should be passed pointers of newly created objects, and the
 	// instance will take over the memory management from there.
+// <edit>
+public:
+// </edit>
 	void addCategory(LLViewerInventoryCategory* category);
 	void addItem(LLViewerInventoryItem* item);
+// <edit>
+protected:
+// </edit>
 
 	// Internal method which looks for a category with the specified
 	// preferred type. Returns LLUUID::null if not found
@@ -397,12 +403,18 @@ protected:
 	//void recalculateCloneInformation();
 
 	// file import/export.
+// <edit>
+public:
+// </edit>
 	static bool loadFromFile(const std::string& filename,
 							 cat_array_t& categories,
 							 item_array_t& items); 
 	static bool saveToFile(const std::string& filename,
 						   const cat_array_t& categories,
 						   const item_array_t& items); 
+// <edit>
+protected:
+// </edit>
 
 	// message handling functionality
 	//static void processUseCachedInventory(LLMessageSystem* msg, void**);
@@ -420,6 +432,7 @@ protected:
 	static void processFetchInventoryReply(LLMessageSystem* msg, void**);
 	
 	bool messageUpdateCore(LLMessageSystem* msg, bool do_accounting);
+
 
 protected:
 	cat_array_t* getUnlockedCatArray(const LLUUID& id);

@@ -182,9 +182,21 @@ void LLPanelDirFindAll::search(const std::string& search_text)
 {
 	if (!search_text.empty())
 	{
-		bool mature = childGetValue( "mature_check" ).asBoolean();
+		// <edit>
+		//bool mature = childGetValue( "mature_check" ).asBoolean();
+		int mat = 0;
+		if(childGetValue("pg_check"))
+			mat |= 1;
+		if(childGetValue("mature_check"))
+			mat |= 2;
+		if(childGetValue("adult_check"))
+			mat |= 4;
+		// </edit>
 		std::string selected_collection = childGetValue( "Category" ).asString();
-		std::string url = buildSearchURL(search_text, selected_collection, mature);
+		// <edit>
+		//std::string url = buildSearchURL(search_text, selected_collection, mature);
+		std::string url = buildSearchURL(search_text, selected_collection, mat);
+		// </edit>
 		if (mWebBrowser)
 		{
 			mWebBrowser->navigateTo(url);
@@ -218,7 +230,10 @@ void LLPanelDirFind::navigateToDefaultPage()
 	}
 }
 // static
-std::string LLPanelDirFind::buildSearchURL(const std::string& search_text, const std::string& collection, bool mature_in)
+// <edit>
+//std::string LLPanelDirFind::buildSearchURL(const std::string& search_text, const std::string& collection, bool mature_in)
+std::string LLPanelDirFind::buildSearchURL(const std::string& search_text, const std::string& collection, int mat)
+// </edit>
 {
 	std::string url = gSavedSettings.getString("SearchURLDefault");
 	if (!search_text.empty())
@@ -263,28 +278,41 @@ std::string LLPanelDirFind::buildSearchURL(const std::string& search_text, const
 
 		llinfos << "url " << url << llendl;
 	}
-	url += getSearchURLSuffix( mature_in );
+	// <edit>
+	//url += getSearchURLSuffix( mature_in );
+	url += getSearchURLSuffix( mat );
+	// </edit>
 	return url;
 }
 // static
-std::string LLPanelDirFind::getSearchURLSuffix(bool mature_in)
+// <edit>
+//std::string LLPanelDirFind::getSearchURLSuffix(bool mature_in)
+std::string LLPanelDirFind::getSearchURLSuffix(int mat)
+// </edit>
 {
-	bool mature = mature_in;
+	// <edit>
+	//bool mature = mature_in;
 	// Teens never get mature results.  Explicitly override because 
 	// Lindens/testers have multiple accounts and shared settings sometimes 
 	// result in teen=Y and mature=Y simultaneously.  JC
-	if (gAgent.isTeen())
-	{
-		mature = false;
-	}
+	//if (gAgent.isTeen())
+	//{
+	//	mature = false;
+	//}
+	// </edit>
 
 	std::string url = gSavedSettings.getString("SearchURLSuffix2");
 
 	// if the mature checkbox is unchecked, modify query to remove 
 	// terms with given phrase from the result set
-	std::string substring = "[MATURE]";
-	const char* mature_flag = (mature ? "Y" : "N");
-	url.replace(url.find(substring), substring.length(), mature_flag);
+	// <edit>
+	//std::string substring = "[MATURE]";
+	//const char* mature_flag = (mature ? "Y" : "N");
+	//url.replace(url.find(substring), substring.length(), mature_flag);
+	std::string substring = "[MAT]";
+	std::string mat_string = llformat("%d", mat);
+	url.replace(url.find(substring), substring.length(), mat_string);
+	// </edit>
 
 	substring = "[TEEN]";
 	const char* teen_flag = (gAgent.isTeen() ? "Y" : "N");

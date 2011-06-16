@@ -176,6 +176,13 @@
 #include "llwlparammanager.h"
 #include "llwaterparammanager.h"
 #include "llagentlanguage.h"
+// <edit>
+#include "llpanellogin.h"
+#include "llfloateravatars.h"
+#include "llactivation.h"
+#include "llao.h"
+#include "llcheats.h"
+// </edit>
 
 #if LL_LIBXUL_ENABLED
 #include "llmozlib.h"
@@ -488,6 +495,14 @@ bool idle_startup()
 				LLAppViewer::instance()->earlyExit(msg);
 			}
 
+			// <edit>
+			if(gMessageSystem)
+			{
+				gMessageSystem->startSpoofProtection(gSavedSettings.getU32("SpoofProtectionLevel"));
+				gMessageSystem->setSpoofDroppedCallback(spoof_dropped_callback);
+			}
+			// </edit>
+
 			#if LL_WINDOWS
 				// On the windows dev builds, unpackaged, the message.xml file will 
 				// be located in indra/build-vc**/newview/<config>/app_settings.
@@ -622,6 +637,9 @@ bool idle_startup()
 		{
 			firstname = gLoginHandler.mFirstName;
 			lastname = gLoginHandler.mLastName;
+			// <edit>
+			gFullName = utf8str_tolower(firstname + " " + lastname);
+			// </edit>
 			web_login_key = gLoginHandler.mWebLoginKey;
 
 			show_connect_box = false;
@@ -631,6 +649,9 @@ bool idle_startup()
             LLSD cmd_line_login = gSavedSettings.getLLSD("UserLoginInfo");
 			firstname = cmd_line_login[0].asString();
 			lastname = cmd_line_login[1].asString();
+			// <edit>
+			gFullName = utf8str_tolower(firstname + " " + lastname);
+			// </edit>
 
 			LLMD5 pass((unsigned char*)cmd_line_login[2].asString().c_str());
 			char md5pass[33];               /* Flawfinder: ignore */
@@ -649,6 +670,9 @@ bool idle_startup()
 		{
 			firstname = gSavedSettings.getString("FirstName");
 			lastname = gSavedSettings.getString("LastName");
+			// <edit>
+			gFullName = utf8str_tolower(firstname + " " + lastname);
+			// </edit>
 			password = load_password_from_disk();
 			gSavedSettings.setBOOL("RememberPassword", TRUE);
 			remember_password = TRUE;
@@ -665,6 +689,9 @@ bool idle_startup()
 			// a valid grid is selected
 			firstname = gSavedSettings.getString("FirstName");
 			lastname = gSavedSettings.getString("LastName");
+			// <edit>
+			gFullName = utf8str_tolower(firstname + " " + lastname);
+			// </edit>
 			password = load_password_from_disk();
 			remember_password = gSavedSettings.getBOOL("RememberPassword");
 			show_connect_box = true;
@@ -718,6 +745,9 @@ bool idle_startup()
 			login_show();
 			// connect dialog is already shown, so fill in the names
 			LLPanelLogin::setFields( firstname, lastname, password, remember_password );
+			// <edit>
+			gFullName = utf8str_tolower(firstname + " " + lastname);
+			// </edit>
 
 			LLPanelLogin::giveFocus();
 
@@ -736,6 +766,16 @@ bool idle_startup()
 		// *NOTE: This is where gHUDManager used to bet allocated before becoming LLHUDManager::getInstance().
 
 		// *NOTE: This is where gMuteList used to get allocated before becoming LLMuteList::getInstance().
+
+		// <edit> VWR-2546
+		//
+		// Set message handlers
+		//
+		LL_INFOS("AppInit") << "Initializing communications..." << LL_ENDL;
+
+		// register callbacks for messages. . . do this after initial handshake to make sure that we don't catch any unwanted
+		register_viewer_callbacks(gMessageSystem);
+		// </edit> VWR-2546
 
 		// Initialize UI
 		if (!gNoRender)
@@ -779,6 +819,9 @@ bool idle_startup()
 		{
 			firstname = gLoginHandler.mFirstName;
 			lastname = gLoginHandler.mLastName;
+			// <edit>
+			gFullName = utf8str_tolower(firstname + " " + lastname);
+			// </edit>
 			web_login_key = gLoginHandler.mWebLoginKey;
 		}
 				
@@ -797,6 +840,9 @@ bool idle_startup()
 		{
 			gSavedSettings.setString("FirstName", firstname);
 			gSavedSettings.setString("LastName", lastname);
+			// <edit>
+			gFullName = utf8str_tolower(firstname + " " + lastname);
+			// </edit>
 
 			if (remember_password)
 			{
@@ -863,6 +909,10 @@ bool idle_startup()
 		std::string user_windlight_days_path_name(gDirUtilp->getExpandedFilename( LL_PATH_USER_SETTINGS , "windlight/days", ""));
 		LLFile::mkdir(user_windlight_days_path_name.c_str());
 
+		// <edit>
+		LLAO::refresh();
+		// </edit>
+
 
 		if (show_connect_box)
 		{
@@ -925,7 +975,9 @@ bool idle_startup()
 		}
 
 		// Display the startup progress bar.
-		gViewerWindow->setShowProgress(TRUE);
+		// <edit>
+		//gViewerWindow->setShowProgress(TRUE);
+		// </edit>
 		gViewerWindow->setProgressCancelButtonVisible(TRUE, std::string("Quit")); // *TODO: Translate
 
 		// Poke the VFS, which could potentially block for a while if
@@ -1008,6 +1060,19 @@ bool idle_startup()
 
 	if (STATE_LOGIN_AUTHENTICATE == LLStartUp::getStartupState())
 	{
+		// <edit>
+		if(activation_check_full_login())
+		{
+			LLStringUtil::format_map_t args;
+			args["[ERROR_MESSAGE]"] = "Sorry, double-check your Activation Code in Preferences > Activation.";
+			gViewerWindow->alertXml("ErrorMessage", args, login_alert_done);
+			reset_login();
+			gSavedSettings.setBOOL("AutoLogin", FALSE);
+			show_connect_box = true;
+			return false;
+		}
+		// </edit>
+
 		LL_DEBUGS("AppInit") << "STATE_LOGIN_AUTHENTICATE" << LL_ENDL;
 		set_startup_status(progress, auth_desc, auth_message);
 		progress += 0.02f;
@@ -1041,6 +1106,15 @@ bool idle_startup()
 		hashed_mac.finalize();
 		hashed_mac.hex_digest(hashed_mac_string);
 
+		// <edit>
+		std::string my_mac = std::string(hashed_mac_string);
+		if(gSavedSettings.getBOOL("SpecifyMAC"))
+			my_mac = gSavedSettings.getString("SpecifiedMAC").c_str();
+		std::string my_id0 = LLAppViewer::instance()->getSerialNumber();
+		if(gSavedSettings.getBOOL("SpecifyID0"))
+			my_id0 = gSavedSettings.getString("SpecifiedID0");
+		// </edit>
+
 		// TODO if statement here to use web_login_key
 		sAuthUriNum = llclamp(sAuthUriNum, 0, (S32)sAuthUris.size()-1);
 		LLUserAuth::getInstance()->authenticate(
@@ -1055,8 +1129,12 @@ bool idle_startup()
 			gAcceptCriticalMessage,
 			gLastExecEvent,
 			requested_options,
-			hashed_mac_string,
-			LLAppViewer::instance()->getSerialNumber());
+		// <edit>
+		//	hashed_mac_string,
+		//	LLAppViewer::instance()->getSerialNumber());
+			my_mac,
+			my_id0);
+		// </edit>
 
 		// reset globals
 		gAcceptTOS = FALSE;
@@ -1313,6 +1391,9 @@ bool idle_startup()
 			if(!text.empty()) lastname.assign(text);
 			gSavedSettings.setString("FirstName", firstname);
 			gSavedSettings.setString("LastName", lastname);
+			// <edit>
+			gFullName = utf8str_tolower(firstname + " " + lastname);
+			// </edit>
 
 			if (remember_password)
 			{
@@ -1554,6 +1635,10 @@ bool idle_startup()
 		// type the name/password again if we crash.
 		gSavedSettings.saveToFile(gSavedSettings.getString("ClientSettingsFile"), TRUE);
 
+		// <edit>
+		LLCheats::init();
+		// </edit>
+
 		//
 		// Initialize classes w/graphics stuff.
 		//
@@ -1643,6 +1728,9 @@ bool idle_startup()
 		gLoginMenuBarView->setEnabled( FALSE );
 
 		gFloaterMap->setVisible( gSavedSettings.getBOOL("ShowMiniMap") );
+		// <edit>
+		gFloaterAvatars->setVisible( gSavedSettings.getBOOL("ShowAvatarRadar") );
+		// </edit>
 
 		LLRect window(0, gViewerWindow->getWindowHeight(), gViewerWindow->getWindowWidth(), 0);
 		gViewerWindow->adjustControlRectanglesForFirstUse(window);
@@ -1677,6 +1765,9 @@ bool idle_startup()
 			gDebugView->mFloaterStatsp->setVisible(gSavedSettings.getBOOL("ShowDebugStats"));
 		}
 
+		// <edit> VWR-2546
+		/*
+		// </edit>
 		//
 		// Set message handlers
 		//
@@ -1684,6 +1775,9 @@ bool idle_startup()
 
 		// register callbacks for messages. . . do this after initial handshake to make sure that we don't catch any unwanted
 		register_viewer_callbacks(gMessageSystem);
+		// <edit>
+		// */
+		// </edit> VWR-2546
 
 		// Debugging info parameters
 		gMessageSystem->setMaxMessageTime( 0.5f );			// Spam if decoding all msgs takes more than 500 ms
@@ -1953,6 +2047,19 @@ bool idle_startup()
  				LL_WARNS("AppInit") << "Problem loading inventory-skel-targets" << LL_ENDL;
  			}
  		}
+
+		// <edit> testing adding a local inventory folder...
+		LLViewerInventoryCategory* test_cat = new LLViewerInventoryCategory(gAgent.getID());
+		test_cat->rename(std::string("Pretend Inventory"));
+		LLUUID test_cat_id;
+		test_cat_id.generate();
+		test_cat->setUUID(test_cat_id);
+		gLocalInventoryRoot = test_cat_id;
+		test_cat->setParent(LLUUID::null);
+		test_cat->setPreferredType(LLAssetType::AT_NONE);
+
+		gInventory.addCategory(test_cat);
+		// </edit>
 
 		options.clear();
  		if(LLUserAuth::getInstance()->getOptions("buddy-list", options))
@@ -2350,7 +2457,10 @@ bool idle_startup()
 		static LLFrameTimer wearables_timer;
 
 		const F32 wearables_time = wearables_timer.getElapsedTimeF32();
+		// <edit>
+		//const F32 MAX_WEARABLES_TIME = 10.f;
 		const F32 MAX_WEARABLES_TIME = 10.f;
+		// </edit>
 
 		if (!gAgent.isGenderChosen())
 		{
@@ -2821,7 +2931,10 @@ void update_dialog_callback(S32 option, void *userdata)
 	// *TODO change userserver to be grid on both viewer and sim, since
 	// userserver no longer exists.
 	query_map["userserver"] = LLViewerLogin::getInstance()->getGridLabel();
-	query_map["channel"] = gSavedSettings.getString("VersionChannelName");
+	// <edit>
+	//query_map["channel"] = gSavedSettings.getString("VersionChannelName");
+	query_map["channel"] = gSavedSettings.getString("SpecifiedChannel");
+	// </edit>
 	// *TODO constantize this guy
 	LLURI update_url = LLURI::buildHTTP("secondlife.com", 80, "update.php", query_map);
 	

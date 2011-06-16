@@ -70,9 +70,15 @@ public:
 	// Add chat to console and history list.
 	// Color based on source, type, distance.
 	static void addChat(const LLChat& chat, BOOL from_im = FALSE, BOOL local_agent = FALSE);
+	// <edit>
+	static void addChatWithLinky(const LLChat& chat, std::string link_text, std::string link_url, BOOL from_instant_message, BOOL local_agent);
+	// </edit>
 	
 	// Add chat to history alone.
 	static void addChatHistory(const LLChat& chat, bool log_to_file = true);
+	// <edit>
+	static void addChatHistoryWithLinky(const LLChat& chat, std::string link_text, std::string link_url, bool log_to_file);
+	// </edit>
 	
 	static void onClickMute(void *data);
 	static void onClickToggleShowMute(LLUICtrl* caller, void *data);

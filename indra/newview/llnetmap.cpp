@@ -592,7 +592,9 @@ BOOL LLNetMap::handleToolTip( S32 x, S32 y, std::string& msg, LLRect* sticky_rec
 	{
 		msg.assign( region->getName() );
 
-#ifndef LL_RELEASE_FOR_DOWNLOAD
+// <edit> hmm
+//#ifndef LL_RELEASE_FOR_DOWNLOAD
+// </edit>
 		std::string buffer;
 		msg.append("\n");
 		buffer = region->getHost().getHostName();
@@ -600,7 +602,9 @@ BOOL LLNetMap::handleToolTip( S32 x, S32 y, std::string& msg, LLRect* sticky_rec
 		msg.append("\n");
 		buffer = region->getHost().getString();
 		msg.append(buffer);
-#endif
+// <edit>
+//#endif
+// </edit>
 		// *TODO: put this under the control of XUI so it can be
 		// translated.
 		msg.append("\n(Double-click to open Map)");

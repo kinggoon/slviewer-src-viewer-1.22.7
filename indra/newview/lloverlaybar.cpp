@@ -77,6 +77,7 @@ extern S32 MENU_BAR_HEIGHT;
 
 
 
+
 void* LLOverlayBar::createMediaRemote(void* userdata)
 {
 	LLOverlayBar *self = (LLOverlayBar*)userdata;	

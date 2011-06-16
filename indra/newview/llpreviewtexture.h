@@ -61,6 +61,9 @@ public:
 
 	virtual BOOL		canSaveAs() const;
 	virtual void		saveAs();
+	// <edit>
+	virtual LLUUID getItemID();
+	// </edit>
 
 	virtual void		loadAsset();
 	virtual EAssetStatus	getAssetStatus();
