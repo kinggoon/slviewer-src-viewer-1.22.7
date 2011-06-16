@@ -39,6 +39,7 @@
 #include "llhandmotion.h"
 #include "llcriticaldamp.h"
 
+
 //-----------------------------------------------------------------------------
 // Constants
 //-----------------------------------------------------------------------------
@@ -189,8 +190,19 @@ BOOL LLEditingMotion::onUpdate(F32 time, U8* joint_mask)
 	if (!llfinite(focus_pt.magVecSquared()))
 	{
 		LLVector3 tmp = mCharacter->getCharacterPosition() ;
-		llerrs << "Non finite focus point in editing motion. focus point: " << focus_pt << " and character position: " <<
+		// <edit>
+		//llerrs << "Non finite focus point in editing motion. focus point: " << focus_pt << " and character position: " <<
+		//	tmp << " and pointAtPt: " << *pointAtPt << llendl;
+		llwarns << "Non finite focus point in editing motion. focus point: " << focus_pt << " and character position: " <<
 			tmp << " and pointAtPt: " << *pointAtPt << llendl;
+		/*
+		std::string msg;
+		msg.assign("Non finite focus point in editing motion: ");
+		msg.append(mCharacter->getID());
+		LLChat chat(msg);
+		LLFloaterChat::addChat(chat);
+		*/
+		// </edit>
 	}
 
 	// propagate joint positions to kinematic chain
