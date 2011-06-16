@@ -41,9 +41,9 @@
 				     use_bounding_rect="true" width="395" />
 			</layout_stack>
 		</layout_panel>
-		<layout_panel auto_resize="false" bottom="0" left="0" min_width="220" mouse_opaque="false"
+		<layout_panel auto_resize="false" bottom="0" left="0" min_width="300" mouse_opaque="false"
 		     name="media_remote_container" use_bounding_rect="true" user_resize="false"
-		     width="220">
+		     width="300">
 			<panel background_visible="false" border="false" bottom="0" name="media_remote" />
 		</layout_panel>
 		<layout_panel auto_resize="false" bottom="0" left="0" min_width="130" mouse_opaque="false"

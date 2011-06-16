@@ -121,7 +121,7 @@
 	     bottom="-362" drop_shadow_visible="true" enabled="true" follows="left|top"
 	     font="SansSerifSmall" h_pad="0" halign="left" height="18" left="10"
 	     mouse_opaque="true" name="crash_report_textbox" v_pad="0" width="394">
-		Crash reports:
+		Maturity (Write-Only):
 	</text>
 	<text type="string" length="1" bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
 	     bottom="-384" drop_shadow_visible="true" enabled="true" follows="left|top"
@@ -139,17 +139,19 @@
 	<string name="region_name_prompt">
 		&lt;Type region name&gt;
 	</string>
-	<combo_box allow_text_entry="false" bottom="-362" enabled="true" follows="left|top"
-	     height="18" left="153" max_chars="20" mouse_opaque="true"
-	     name="crash_behavior_combobox" width="146">
-		<combo_item type="string" length="1" enabled="true" name="Askbeforesending" value="Ask before sending">
-			Ask before sending
+	<combo_box bottom="-362" follows="left|top" height="18" left="153"
+	     mouse_opaque="true" name="maturity_desired_combobox" width="146">
+		<combo_item name="None" value="None">
+			(Choose One)
 		</combo_item>
-		<combo_item type="string" length="1" enabled="true" name="Alwayssend" value="Always send">
-			Always send
+		<combo_item name="Desired_Adult" value="A">
+			PG, Mature and Adult
 		</combo_item>
-		<combo_item type="string" length="1" enabled="true" name="Neversend" value="Never send">
-			Never send
+		<combo_item name="Desired_Mature" value="M">
+			PG and Mature
+		</combo_item>
+		<combo_item name="Desired_PG" value="PG">
+			PG only
 		</combo_item>
 	</combo_box>
 	<combo_box allow_text_entry="true" bottom="-382" enabled="true"

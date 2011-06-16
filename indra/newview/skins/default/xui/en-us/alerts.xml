@@ -48,10 +48,47 @@
 			Cancel
 		</option>
 	</alert>
+	<alert modal="true" name="GenericAlertYesNoCancel">
+		<message name="message">
+			[MESSAGE]
+		</message>
+		<option name="Yes">
+			Yes
+		</option>
+		<option name="No">
+			No
+		</option>
+		<option name="Cancel">
+			Cancel
+		</option>
+	</alert>
+	<alert modal="true" name="GenericAlertYesNo">
+		<message name="message">
+			[MESSAGE]
+		</message>
+		<option name="Yes">
+			Yes
+		</option>
+		<option name="No">
+			No
+		</option>
+	</alert>
 	<alert modal="true" name="GenericServerAlert">
 		<message name="message">
 			[MESSAGE]
 		</message>
+	</alert>
+	<alert name="GenericAlertEditText">
+		<message name="message">
+			[MESSAGE]
+		</message>
+		<editline name="editline"/>
+		<option name="OK">
+			OK
+		</option>
+		<option name="Cancel">
+			Cancel
+		</option>
 	</alert>
 	<alert modal="true" name="ConnectTimeout">
 		<message name="message">
@@ -2576,14 +2613,24 @@ You can change your mind later.
 			[NAME] L$ [PRICE] You don&apos;t have enough L$ to do that.
 		</message>
 	</alert>
-	<alert modal="true" name="GrantedModifyRights">
+	<alert modal="false" name="GrantedModifyRights">
 		<message name="message">
 			You have been granted the privilege to modify [FIRST_NAME] [LAST_NAME]&apos;s objects.
 		</message>
 	</alert>
-	<alert modal="true" name="RevokedModifyRights">
+	<alert modal="false" name="RevokedModifyRights">
 		<message name="message">
-			Your privilege to modify [FIRST_NAME] [LAST_NAME]&apos;s objects has been revoked
+			Your privilege to modify [FIRST_NAME] [LAST_NAME]&apos;s objects has been revoked.
+		</message>
+	</alert>
+	<alert modal="false" name="GrantedMapRights">
+		<message name="message">
+			You have been granted the privilege to find [FIRST_NAME] [LAST_NAME] on the map.
+		</message>
+	</alert>
+	<alert modal="false" name="RevokedMapRights">
+		<message name="message">
+			Your privilege to find [FIRST_NAME] [LAST_NAME] on the map has been revoked.
 		</message>
 	</alert>
 	<alert modal="true" name="FlushMapVisibilityCaches">
@@ -4939,9 +4986,9 @@ Would you like to visit the Second Life website to verify your age?
 		<option name="No">
 			No
 		</option>
-		<url option="0">
+		<!--<url option="0">
 			https://secondlife.com/account/verification.php
-		</url>
+		</url>-->
 	</alert>
 	<alert modal="true" name="Cannot enter parcel: no payment info on file">
 		<message name="message">
@@ -4959,9 +5006,9 @@ Would you like to visit the Second Life website to set this up?
 		<option name="No">
 			No
 		</option>
-		<url option="0">
+		<!--<url option="0">
 			https://secondlife.com/account/
-		</url>
+		</url>-->
 	</alert>
 	<alert modal="true" name="MissingString">
 		<message name="message">

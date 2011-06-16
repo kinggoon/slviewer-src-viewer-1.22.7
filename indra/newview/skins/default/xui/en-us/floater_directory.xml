@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <floater can_close="true" can_drag_on_left="false" can_minimize="true"
-     can_resize="true" height="570" min_height="570" min_width="780"
+     can_resize="true" height="580" min_height="570" min_width="780"
      name="directory" rect_control="FloaterFindRect2" title="Search Second Life"
      width="780">
 	<tab_container bottom="-570" follows="left|top|right|bottom" height="550" left="0"
@@ -27,7 +27,7 @@
 			<button bottom_delta="0" follows="top|right" font="SansSerif" height="20"
 			     label="Search" left_delta="185" name="search_btn" width="70" />
 			<combo_box allow_text_entry="false" bottom_delta="0" follows="right|top" height="18"
-			     left_delta="100" max_chars="20" mouse_opaque="true" name="Category"
+			     left_delta="80" max_chars="20" mouse_opaque="true" name="Category"
 			     width="128">
 				<combo_item name="AnyCategory" value="All">
 					Any Category
@@ -48,10 +48,18 @@
 					Wiki
 				</combo_item>
 			</combo_box>
-			<check_box bottom_delta="0" control_name="ShowMatureFindAll" follows="right|top"
-			     font="SansSerifSmall" height="16" initial_value="false"
-			     label="Include Mature content" left_delta="133" name="mature_check"
-			     width="156" />
+			<check_box bottom_delta="0" follows="right|top"
+			     font="SansSerifSmall" height="16" initial_value="true"
+			     label="PG" left_delta="133" name="pg_check"
+			     width="64" />
+			<check_box bottom_delta="0" follows="right|top"
+			     font="SansSerifSmall" height="16" initial_value="true"
+			     label="M" left_delta="40" name="mature_check"
+			     width="64" />
+			<check_box bottom_delta="0" follows="right|top"
+			     font="SansSerifSmall" height="16" initial_value="true"
+			     label="A" left_delta="40" name="adult_check"
+			     width="64" />
 			<web_browser bottom="25" follows="top|left|bottom|right" font="SansSerifSmall" left="10"
 			     name="find_browser" right="-10" top="-40" />
 			<text bottom="5" follows="bottom|left" halign="left" height="16" left="10"
@@ -65,7 +73,7 @@
 			<string name="redirect_404_url">
 				http://secondlife.com/app/search/notfound.html
 			</string>
-      <string name="default_search_page">"http://secondlife.com/app/search/index.php?"</string>
+      <string name="default_search_page">"http://search.secondlife.com/client_search.php?"</string>
     </panel>
 		<panel border="true" bottom="-549" follows="left|top|right|bottom" height="533"
 		     label="Classifieds" left="1" left_delta="68" mouse_opaque="false"
@@ -91,10 +99,18 @@
 			<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom="-24"
 			     follows="left|top" font="SansSerif" height="18" left_delta="38"
 			     max_length="63" mouse_opaque="true" name="name" width="128" />
-			<check_box bottom_delta="-18" control_name="ShowMatureClassifieds" follows="left|top"
+			<check_box bottom_delta="-20" follows="left|top"
 			     font="SansSerifSmall" height="16" initial_value="true"
-			     label="Include Mature content" left_delta="0" mouse_opaque="true"
-			     name="incmature" width="156" />
+			     label="PG" left_delta="150" name="pg_check"
+			     width="64" />
+			<check_box bottom_delta="0" follows="left|top"
+			     font="SansSerifSmall" height="16" initial_value="true"
+			     label="M" left_delta="40" name="mature_check"
+			     width="64" />
+			<check_box bottom_delta="0" follows="left|top"
+			     font="SansSerifSmall" height="16" initial_value="true"
+			     label="A" left_delta="40" name="adult_check"
+			     width="64" />
 			<combo_box allow_text_entry="false" bottom="-24" follows="left|top" height="18" left="182"
 			     max_chars="20" mouse_opaque="true" name="Category" width="128">
 				<combo_item name="AnyCategory" value="0">
@@ -242,11 +258,20 @@
 			     follows="left|top" font="SansSerifSmall" height="18" left="379"
 			     max_length="32" mouse_opaque="true" name="event_search_text" tab_group="1"
 			     width="180" />
-			<check_box bottom="-30" control_name="ShowMatureEvents" follows="left|top"
-			     font="SansSerifSmall" height="16" initial_value="false" label="Show Mature"
-			     left="569" mouse_opaque="true" name="incmature" width="120" />
-			<button bottom="-28" follows="left|top" font="SansSerif" halign="center" height="20"
-			     label="Search" label_selected="Search" left_delta="110" mouse_opaque="true"
+			<check_box bottom="-45" follows="left|top"
+			     font="SansSerifSmall" height="16" initial_value="true"
+			     label="PG" left="569" name="pg_check"
+			     width="64" />
+			<check_box bottom_delta="0" follows="left|top"
+			     font="SansSerifSmall" height="16" initial_value="true"
+			     label="M" left_delta="40" name="mature_check"
+			     width="64" />
+			<check_box bottom_delta="0" follows="left|top"
+			     font="SansSerifSmall" height="16" initial_value="true"
+			     label="A" left_delta="40" name="adult_check"
+			     width="64" />
+			<button bottom="-24" follows="left|top" font="SansSerif" halign="center" height="20"
+			     label="Search" label_selected="Search" left="570" mouse_opaque="true"
 			     name="Search" tool_tip="Search" width="80" />
 			<button bottom="-533" follows="left|bottom" font="SansSerif" halign="center"
 			     height="20" label="Delete" label_selected="Delete" left="80"
@@ -334,18 +359,18 @@
 					For Sale - Estate
 				</combo_item>
 			</combo_box>
-			<combo_box allow_text_entry="false" bottom_delta="-18" follows="left|top" height="18"
-			     left="4" max_chars="20" mouse_opaque="true" name="rating" width="125">
-				<combo_item name="PG&amp;Mature" value="PG &amp; Mature">
-					PG &amp; Mature
-				</combo_item>
-				<combo_item name="PGonly" value="PG only">
-					PG only
-				</combo_item>
-				<combo_item name="Matureonly" value="Mature only">
-					Mature only
-				</combo_item>
-			</combo_box>
+			<check_box bottom_delta="-20" follows="right|top"
+			     font="SansSerifSmall" height="16" initial_value="true"
+			     label="PG" left="4" name="pg_check"
+			     width="64" />
+			<check_box bottom_delta="0" follows="right|top"
+			     font="SansSerifSmall" height="16" initial_value="true"
+			     label="M" left_delta="40" name="mature_check"
+			     width="64" />
+			<check_box bottom_delta="0" follows="right|top"
+			     font="SansSerifSmall" height="16" initial_value="true"
+			     label="A" left_delta="40" name="adult_check"
+			     width="64" />
 			<check_box bottom="-22" control_name="FindLandPrice" follows="left|top"
 			     font="SansSerifSmall" height="16" initial_value="true"
 			     label="Price &lt;= L$" left="132" mouse_opaque="true" name="pricecheck"
@@ -409,10 +434,18 @@ To buy direct, visit the land and click on the place name in the title bar.
 			<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom="-24"
 			     follows="left|top" font="SansSerif" height="18" left_delta="38"
 			     max_length="63" mouse_opaque="true" name="name" width="128" />
-			<check_box bottom_delta="-18" control_name="ShowMatureSims" follows="left|top"
-			     font="SansSerifSmall" height="16" initial_value="false"
-			     label="Include parcels with Mature content" left_delta="0"
-			     mouse_opaque="true" name="incmature" width="204" />
+			<check_box bottom_delta="-20" follows="right|top"
+			     font="SansSerifSmall" height="16" initial_value="true"
+			     label="PG" left_delta="0" name="pg_check"
+			     width="64" />
+			<check_box bottom_delta="0" follows="right|top"
+			     font="SansSerifSmall" height="16" initial_value="true"
+			     label="M" left_delta="40" name="mature_check"
+			     width="64" />
+			<check_box bottom_delta="0" follows="right|top"
+			     font="SansSerifSmall" height="16" initial_value="true"
+			     label="A" left_delta="40" name="adult_check"
+			     width="64" />
 			<combo_box allow_text_entry="false" bottom="-24" follows="left|top" height="18" left="182"
 			     max_chars="20" mouse_opaque="true" name="Category" width="128">
 				<combo_item name="AnyCategory" value="any">
@@ -553,13 +586,18 @@ To buy direct, visit the land and click on the place name in the title bar.
 				left_delta="185"
 				bottom_delta="0"
 				name="search_btn" width="70" />
-      <check_box bottom_delta="0"
-				control_name="ShowMatureFindAll" follows="right|top"
-			     font="SansSerifSmall" height="16" initial_value="false"
-			     label="Include Mature content"
-			     left_delta="133"
-			     name="mature_check"
-			     width="156" />
+		<check_box bottom_delta="0" follows="right|top"
+				   font="SansSerifSmall" height="16" initial_value="true"
+				   label="PG" left_delta="133" name="pg_check"
+				   width="64" />
+		<check_box bottom_delta="0" follows="right|top"
+			 font="SansSerifSmall" height="16" initial_value="true"
+			 label="M" left_delta="40" name="mature_check"
+			 width="64" />
+		<check_box bottom_delta="0" follows="right|top"
+			 font="SansSerifSmall" height="16" initial_value="true"
+			 label="A" left_delta="40" name="adult_check"
+			 width="64" />
       <web_browser name="groups_browser"
 				bottom="25"
 				follows="top|left|bottom|right"
@@ -582,7 +620,9 @@ To buy direct, visit the land and click on the place name in the title bar.
 	</tab_container>
 	<panel bottom="-560" follows="right|top" height="470" left="340"
 	     name="classified_details_panel" width="440" />
-	<panel bottom="-560" follows="right|top" height="486" left="350" name="Panel Avatar"
+	<!--<panel bottom="-560" follows="right|top" height="486" left="350" name="Panel Avatar"
+	     width="430" />-->
+	<panel bottom="-540" follows="right|top" height="500" left="350" name="Panel Avatar"
 	     width="430" />
 	<panel bottom="-560" follows="right|top" height="470" left="340"
 	     name="event_details_panel" width="440" />

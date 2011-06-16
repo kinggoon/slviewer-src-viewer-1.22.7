@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <floater bottom="-762" can_close="true" can_drag_on_left="false" can_minimize="true"
      can_resize="true" enabled="true" follows="left|top" height="361" left="273"
-     min_height="243" min_width="234" mouse_opaque="true"
+     min_height="243" min_width="340" mouse_opaque="true"
      name="preview notecard" title="Note:" width="400">
 	<button bottom="-352" enabled="false" follows="left|bottom" font="SansSerif"
 	     halign="center" height="20" label="Save" label_selected="Save" left="9"
 	     mouse_opaque="false" name="Save" scale_image="true" width="100" />
+	<button bottom="-352" enabled="true" follows="left|bottom" font="SansSerif"
+	     halign="center" height="20" label="Get Items" label_selected="Get Items" left_delta="110"
+	     mouse_opaque="false" name="Get Items" scale_image="true" width="100" />
+	<!--<check_box follows="left|bottom" bottom_delta="0" left_delta="110" name="https_chk" label="Saves via HTTPS" />-->
 	<icon bottom="-19" color="1 1 1 1" enabled="true" follows="top|right" height="16"
 	     image_name="icon_lock.tga" left="344" mouse_opaque="true" name="lock"
 	     width="16" />

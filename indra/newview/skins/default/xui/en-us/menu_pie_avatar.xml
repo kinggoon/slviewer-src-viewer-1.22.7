@@ -10,7 +10,10 @@
 	<menu_item_call enabled="false" label="Go To" mouse_opaque="true" name="Go To">
 		<on_click function="GoToObject" />
 	</menu_item_call>
-	<menu_item_separator />
+	<menu_item_call enabled="false" label="Copy UUID" mouse_opaque="true" name="Object Copy UUID">
+		<on_click function="Object.CopyUUID" />
+		<on_enable function="Object.EnableCopyUUID" />
+	</menu_item_call>
 	<menu_item_call enabled="false" label="Add Friend..." mouse_opaque="true" name="Add Friend">
 		<on_click function="Avatar.AddFriend" />
 		<on_enable function="Avatar.EnableAddFriend" />
@@ -30,7 +33,11 @@
 		<menu_item_call enabled="true" label="Group Invite..." mouse_opaque="true" name="Invite...">
 			<on_click function="Avatar.InviteToGroup" />
 		</menu_item_call>
-		<menu_item_separator />
+		<menu_item_call enabled="false" hidden="false" label="Save As..." mouse_opaque="true"
+							 name="Save As...">
+			<on_click function="Object.SaveAs" />
+			<on_enable function="Object.EnableSaveAs" />
+		</menu_item_call>
 		<menu_item_call enabled="false" label="Eject..." mouse_opaque="true" name="Eject...">
 			<on_click function="Avatar.Eject" />
 			<on_enable function="Avatar.EnableFreezeEject" />
@@ -39,6 +46,10 @@
 			<on_click function="Avatar.Debug" />
 			<on_visible function="Avatar.VisibleDebug" />
 			<on_enable function="Avatar.EnableDebug" />
+		</menu_item_call>
+		<menu_item_call enabled="true" hidden="false" label="Anims..." mouse_opaque="true"
+							 name="Anims...">
+			<on_click function="Avatar.Anims" />
 		</menu_item_call>
 		<menu_item_call enabled="true" label="Inspect" mouse_opaque="true" name="Object Inspect">
 			<on_click function="Object.Inspect" />

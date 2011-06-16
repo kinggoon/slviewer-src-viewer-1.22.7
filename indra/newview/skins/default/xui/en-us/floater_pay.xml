@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<!-- added 30 to height -->
 <floater bottom="-197" can_close="true" can_drag_on_left="false" can_minimize="false"
-     can_resize="false" enabled="true" height="140" left="439" min_height="100"
+     can_resize="false" enabled="true" height="170" left="439" min_height="100"
      min_width="100" mouse_opaque="true" name="Give Money"
      rect_control="FloaterPayRectB" title="" width="300">
 	<button bottom="-74" enabled="true" font="SansSerif" halign="center" height="20"
@@ -50,4 +51,16 @@
 	     handle_edit_keys_directly="false" height="18" left="58" max_length="9"
 	     mouse_opaque="true" name="amount" select_all_on_focus_received="false"
 	     select_on_focus="false" width="57" />
+	<!-- added these two things -->
+	<text type="string" length="1" bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+	     bottom="-155" drop_shadow_visible="true" enabled="true" follows="left|top"
+	     font="SansSerif" h_pad="0" halign="right" height="18" left="5"
+	     mouse_opaque="true" name="desc text" v_pad="0" width="75">
+		Description:
+	</text>
+	<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom="-155"
+	     enabled="true" follows="left|top|right" font="SansSerif"
+	     height="18" left="85" max_length="254"
+	     mouse_opaque="true" name="description" select_all_on_focus_received="false"
+	     select_on_focus="false" width="200" />
 </floater>

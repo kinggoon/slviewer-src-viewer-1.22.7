@@ -13,7 +13,21 @@
 	<menu bottom="97" create_jump_keys="true" drop_shadow="true" enabled="true"
 	     height="439" label="Edit" left="38" mouse_opaque="false" name="Edit"
 	     opaque="true" tear_off="false" width="153">
-		<menu_item_call bottom="-29" enabled="true" height="19" label="Preferences..." left="0"
+		<menu_item_call bottom="-29" enabled="true" height="19" label="Cut" left="0"
+		     mouse_opaque="true" name="Cut" shortcut="control|X" width="153">
+			<on_click function="Edit.Cut" userdata="" />
+		</menu_item_call>
+		<menu_item_call bottom="-48" enabled="true" height="19" label="Copy" left="0"
+		     mouse_opaque="true" name="Copy" shortcut="control|C" width="153">
+			<on_click function="Edit.Copy" userdata="" />
+		</menu_item_call>
+		<menu_item_call bottom="-67" enabled="true" height="19" label="Paste" left="0"
+		     mouse_opaque="true" name="Paste" shortcut="control|V" width="153">
+			<on_click function="Edit.Paste" userdata="" />
+		</menu_item_call>
+		<menu_item_separator bottom="-75" enabled="true" height="8" label="-----------" left="0"
+		     mouse_opaque="true" name="separator" width="153" />
+		<menu_item_call bottom="-94" enabled="true" height="19" label="Preferences..." left="0"
 		     mouse_opaque="true" name="Preferences..." shortcut="control|P" width="153">
 			<on_click function="ShowFloater" userdata="preferences" />
 		</menu_item_call>

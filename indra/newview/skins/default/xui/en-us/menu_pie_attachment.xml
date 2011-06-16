@@ -6,9 +6,19 @@
 	</menu_item_call>
 	<menu_item_separator />
 	<menu_item_separator />
-	<menu_item_separator />
-	<menu_item_separator />
-	<menu_item_separator />
+	<menu_item_call enabled="false" hidden="false" label="Save As..." mouse_opaque="true"
+							 name="Save As...">
+		<on_click function="Object.SaveAs" />
+		<on_enable function="Object.EnableSaveAs" />
+	</menu_item_call>
+	<menu_item_call enabled="false" label="Copy UUID" mouse_opaque="true" name="Object Copy UUID">
+		<on_click function="Object.CopyUUID" />
+		<on_enable function="Object.EnableCopyUUID" />
+	</menu_item_call>
+	<menu_item_call enabled="true" hidden="false" label="Anims..." mouse_opaque="true"
+							 name="Anims...">
+		<on_click function="Avatar.Anims" />
+	</menu_item_call>
 	<menu_item_call enabled="false" label="Detach" mouse_opaque="true" name="Detach">
 		<on_click function="Attachment.Detach" />
 		<on_enable function="Attachment.EnableDetach" />

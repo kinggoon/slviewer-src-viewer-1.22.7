@@ -76,12 +76,17 @@
 	     left="205" name="access_help" width="18" />
 	<button bottom_delta="-30" enabled="false" follows="left|top" height="20" label="Apply"
 	     left="108" name="apply_btn" width="100" />
-	<button bottom_delta="-80" follows="left|top" height="20"
+	<button bottom_delta="-30" follows="left|top" height="20"
 	     label="Teleport Home One User..." left="10" name="kick_btn" width="250" />
 	<button bottom_delta="-23" follows="left|top" height="20"
 	     label="Teleport Home All Users..." left="10" name="kick_all_btn" width="250" />
 	<button bottom_delta="-40" follows="left|top" height="20"
 	     label="Send Message To Region..." left="10" name="im_btn" width="200" />
+	<text bottom_delta="5" left_delta="210" follows="left|top">with...</text>
+	<text bottom_delta="-27" left="10" follows="left|top">ID:</text>
+	<line_editor left="80" bottom_delta="-5" width="300" height="20" follows="left|top" name="im_id">00000000-0000-0000-0000-000000000000</line_editor>
+	<text bottom_delta="-22" left="10" follows="left|top">Name:</text>
+	<line_editor left="80" bottom_delta="-5" width="300" height="20" follows="left|top" name="im_name">Second Life</line_editor>
 	<button bottom="-70" follows="left|top" height="20" label="Manage Telehub..."
 	     left="250" name="manage_telehub_btn" width="150" />
 </panel>

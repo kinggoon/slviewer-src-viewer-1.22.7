@@ -11,6 +11,9 @@
 	<button bottom="-499" enabled="true" follows="right|bottom" font="SansSerif"
 	     halign="center" height="20" label="Save" label_selected="Save" left="360"
 	     mouse_opaque="true" name="Save_btn" width="128" />
+	<check_box bottom_delta="20" enabled="false" follows="right|bottom" font="SansSerif"
+	     height="18" visible="false" initial_value="false" label="Mono" left_delta="70"
+	     mouse_opaque="true" name="mono_agent" radio_style="false" />
 	<scroll_list background_visible="true" bottom="-457" column_padding="5" draw_border="true"
 	     draw_heading="false" draw_stripes="true" enabled="true"
 	     follows="left|right|bottom" height="60" left="4" mouse_opaque="true"

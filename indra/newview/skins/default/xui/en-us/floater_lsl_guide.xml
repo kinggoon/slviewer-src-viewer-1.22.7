@@ -9,7 +9,7 @@
 	<combo_box allow_text_entry="true" bottom_delta="0" enabled="true"
 	     follows="top|left|right" font="SansSerif" halign="center" height="20"
 	     label="Lock" left_delta="100" mouse_opaque="true" name="history_combo"
-	     width="90" />
+	     width="90" max_chars="512" />
 	<button bottom_delta="0" enabled="true" follows="top|right" font="SansSerif"
 	     halign="center" height="20" label="Back" left_delta="95"
 	     mouse_opaque="true" name="back_btn" width="70" />

@@ -73,12 +73,12 @@ unless you add wait steps.
 	</text>
 	<text bottom_delta="0" follows="top|left" height="60" left="222" name="options_text"
 	     width="205" />
-	<combo_box bottom_delta="20" follows="top|left" height="20" left_delta="10"
+	<combo_box bottom_delta="30" follows="top|left" height="20" left_delta="10"
 	     name="animation_list" width="100" />
 	<combo_box bottom_delta="0" follows="top|left" height="20" left_delta="0"
 	     name="sound_list" width="100" />
 	<line_editor bottom_delta="0" follows="top|left" height="20" left_delta="0" max_length="127"
-	     name="chat_editor" width="100" />
+	     name="chat_editor" width="180" />
 	<radio_group bottom_delta="-20" draw_border="false" follows="top|left" height="40"
 	     left="340" name="animation_trigger_type" width="80">
 		<radio_item bottom_delta="-5" follows="left|top" height="16" left="3" mouse_opaque="true"
@@ -97,12 +97,16 @@ unless you add wait steps.
 	     left_delta="0" name="wait_time_check" width="100" />
 	<line_editor bottom_delta="0" follows="top|left" height="20" left_delta="105"
 	     max_length="15" name="wait_time_editor" width="50" />
-	<check_box bottom="7" follows="top|left" height="20" label="Active" left="140"
+	<button bottom_delta="-10" follows="top|left" height="20" left="233"
+	     label="Open" name="open_btn" width="64" />
+	<check_box bottom="7" follows="top|left" height="20" label="Active" left="100"
 	     name="active_check"
 	     tool_tip="Active gestures can be triggered by chatting their trigger phrases or pressing their hot keys.  Gestures usually become inactive when there is a key binding conflict."
 	     width="100" />
-	<button bottom="5" follows="top|left" height="20" label="Preview" left="215"
+	<button bottom="5" follows="top|left" height="20" label="Preview" left_delta="80"
 	     name="preview_btn" width="80" />
 	<button bottom="5" follows="top|left" height="20" label="Save" left_delta="90"
 	     name="save_btn" width="80" />
+	<button bottom="5" follows="top|left" height="20" label="Make Copy" left_delta="90"
+	     name="duplicate_btn" width="80" />
 </floater>
