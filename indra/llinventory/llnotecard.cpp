@@ -202,7 +202,10 @@ bool LLNotecard::importStream(std::istream& str)
 		return FALSE;
 	}
 
-	if(text_len > mMaxText)
+	// <edit> crasher
+	//if(text_len > mMaxText)
+	if((text_len > mMaxText) || (text_len < 0))
+	// <edit>
 	{
 		llwarns << "Invalid Linden text length: " << text_len << llendl;
 		return FALSE;
