@@ -1044,6 +1044,11 @@ void LLCircuitData::clearDuplicateList(TPACKETID oldest_id)
 
 BOOL LLCircuitData::checkCircuitTimeout()
 {
+	// <edit> never time out circuits... I'm trying to apply code changes :D
+#ifndef LL_RELEASE_FOR_DOWNLOAD
+	if(1) return TRUE;
+#endif
+	// </edit>
 	F64 time_since_last_ping = LLMessageSystem::getMessageTimeSeconds() - mLastPingReceivedTime;
 
 	// Nota Bene: This needs to be turned off if you are debugging multiple simulators
@@ -1229,6 +1234,17 @@ void LLCircuit::getCircuitRange(
 	end = mCircuitData.end();
 	first = mCircuitData.upper_bound(key);
 }
+
+// <edit>
+std::vector<LLCircuitData*> LLCircuit::getCircuitDataList()
+{
+	std::vector<LLCircuitData*> list;
+	circuit_data_map::iterator end = mCircuitData.end();
+	for(circuit_data_map::iterator iter = mCircuitData.begin(); iter != end; ++iter)
+		list.push_back((*iter).second);
+	return list;
+}
+// </edit>
 
 TPACKETID LLCircuitData::nextPacketOutID()
 {

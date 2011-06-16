@@ -64,6 +64,15 @@ const U32 DFQ_LIMIT_BY_AREA		= 0x1 << 21;
 const U32 DFQ_FILTER_MATURE		= 0x1 << 22;
 const U32 DFQ_PG_PARCELS_ONLY	= 0x1 << 23;
 
+// <edit>
+const U32 DFQ_INC_PG		 	= 0x1 << 24;	// Flags appear in 1.23 viewer or later
+const U32 DFQ_INC_MATURE     	= 0x1 << 25;
+const U32 DFQ_INC_ADULT     	= 0x1 << 26;
+const U32 DFQ_INC_NEW_VIEWER	= (DFQ_INC_PG | DFQ_INC_MATURE | DFQ_INC_ADULT);	// Indicates 1.23 viewer or later
+
+const U32 DFQ_ADULT_SIMS_ONLY	= 0x1 << 27;
+// </edit>
+
 // Sell Type flags
 const U32 ST_AUCTION	= 0x1 << 1;
 const U32 ST_NEWBIE		= 0x1 << 2;

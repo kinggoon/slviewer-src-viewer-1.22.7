@@ -51,11 +51,14 @@ set(llmessage_SOURCE_FILES
     llmessagethrottle.cpp
     llmime.cpp
     llnamevalue.cpp
+    llnetcanary.cpp
+    llmessagelog.cpp
     llnullcipher.cpp
     llpacketack.cpp
     llpacketbuffer.cpp
     llpacketring.cpp
     llpartdata.cpp
+    llpcap.cpp
     llpumpio.cpp
     llsdappservices.cpp
     llsdhttpserver.cpp
@@ -139,7 +142,10 @@ set(llmessage_HEADER_FILES
     llpacketack.h
     llpacketbuffer.h
     llpacketring.h
+    llnetcanary.h
+    llmessagelog.h
     llpartdata.h
+    llpcap.h
     llpumpio.h
     llqueryflags.h
     llregionflags.h

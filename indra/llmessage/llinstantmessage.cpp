@@ -45,6 +45,7 @@
 
 #include "message.h"
 
+
 const U8 IM_ONLINE = 0;
 const U8 IM_OFFLINE = 1;
 
