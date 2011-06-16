@@ -222,8 +222,20 @@ BOOL LLVorbisDecodeState::initDecode()
 	size_guess *= vi->channels;
 	size_guess *= 2;
 	size_guess += 2048;
-	mWAVBuffer.reserve(size_guess);
-	mWAVBuffer.resize(WAV_HEADER_SIZE);
+	// <edit>
+	try
+	{
+	// </edit>
+		mWAVBuffer.reserve(size_guess);
+		mWAVBuffer.resize(WAV_HEADER_SIZE);
+	// <edit>
+	}
+	catch(std::bad_alloc)
+	{
+		llwarns << "bad_alloc" << llendl;
+		return(FALSE);
+	}
+	// </edit>
 
 	{
 		// write the .wav format header
@@ -395,8 +407,11 @@ BOOL LLVorbisDecodeState::finishDecode()
 			S32 fade_length;
 			char pcmout[4096];		/*Flawfinder: ignore*/ 	
 
-			fade_length = llmin((S32)128,(S32)(data_length-36)/8);			
-			if((S32)mWAVBuffer.size() >= (WAV_HEADER_SIZE + 2* fade_length))
+			fade_length = llmin((S32)128,(S32)(data_length-36)/8);
+			// <edit>
+			//if((S32)mWAVBuffer.size() >= (WAV_HEADER_SIZE + 2* fade_length))
+			if((S32)mWAVBuffer.size() > (WAV_HEADER_SIZE + 2* fade_length))
+			// </edit>
 			{
 				memcpy(pcmout, &mWAVBuffer[WAV_HEADER_SIZE], (2 * fade_length));	/*Flawfinder: ignore*/
 			}
@@ -415,7 +430,10 @@ BOOL LLVorbisDecodeState::finishDecode()
 				memcpy(&mWAVBuffer[WAV_HEADER_SIZE], pcmout, (2 * fade_length));	/*Flawfinder: ignore*/
 			}
 			S32 near_end = mWAVBuffer.size() - (2 * fade_length);
-			if ((S32)mWAVBuffer.size() >= ( near_end + 2* fade_length))
+			// <edit>
+			//if ((S32)mWAVBuffer.size() >= ( near_end + 2* fade_length))
+			if ((S32)mWAVBuffer.size() > ( near_end + 2* fade_length))
+			// </edit>
 			{
 				memcpy(pcmout, &mWAVBuffer[near_end], (2 * fade_length));	/*Flawfinder: ignore*/
 			}
@@ -514,13 +532,18 @@ void LLAudioDecodeMgr::Impl::processQueue(const F32 num_secs)
 	{
 		if (mCurrentDecodep)
 		{
-			BOOL res;
+			// <edit> rawrning
+			//BOOL res;
+			BOOL res = false;
+			// </edit>
 
 			// Decode in a loop until we're done or have run out of time.
+			/* <edit> */ try{ /* </edit> */
 			while(!(res = mCurrentDecodep->decodeSection()) && (decode_timer.getElapsedTimeF32() < num_secs))
 			{
 				// decodeSection does all of the work above
 			}
+			/* <edit> */ }catch(std::bad_alloc){llerrs<<"bad_alloc whilst decoding"<<llendl;} /* </edit> */
 
 			if (mCurrentDecodep->isDone() && !mCurrentDecodep->isValid())
 			{

@@ -44,6 +44,10 @@
 #include "llaudiodecodemgr.h"
 #include "llassetstorage.h"
 
+// <edit>
+
+// </edit>
+
 // necessary for grabbing sounds from sim (implemented in viewer)	
 extern void request_sound(const LLUUID &sound_guid);
 
@@ -213,11 +217,9 @@ void LLAudioEngine::idle(F32 max_decode_time)
 	for (iter = mAllSources.begin(); iter != mAllSources.end();)
 	{
 		LLAudioSource *sourcep = iter->second;
-
 		// Update this source
 		sourcep->update();
 		sourcep->updatePriority();
-
 		if (sourcep->isDone())
 		{
 			// The source is done playing, clean it up.
@@ -225,7 +227,6 @@ void LLAudioEngine::idle(F32 max_decode_time)
 			mAllSources.erase(iter++);
 			continue;
 		}
-
 		if (!sourcep->getChannel() && sourcep->getCurrentBuffer())
 		{
 			// We could potentially play this sound if its priority is high enough.
@@ -235,7 +236,6 @@ void LLAudioEngine::idle(F32 max_decode_time)
 				max_sourcep = sourcep;
 			}
 		}
-
 		// Move on to the next source
 		iter++;
 	}
@@ -265,12 +265,10 @@ void LLAudioEngine::idle(F32 max_decode_time)
 		}
 	}
 
-	
 	// Do this BEFORE we update the channels
 	// Update the channels to sync up with any changes that the source made,
 	// such as changing what sound was playing.
 	updateChannels();
-
 	// Update queued sounds (switch to next queued data if the current has finished playing)
 	for (iter = mAllSources.begin(); iter != mAllSources.end(); ++iter)
 	{
@@ -352,7 +350,6 @@ void LLAudioEngine::idle(F32 max_decode_time)
 	// Update the channels to sync up with any changes that the source made,
 	// such as changing what sound was playing.
 	updateChannels();
-	
 	// Hack!  For now, just use a global sync master;
 	LLAudioSource *sync_masterp = NULL;
 	LLAudioChannel *master_channelp = NULL;
@@ -734,7 +731,10 @@ F64 LLAudioEngine::mapWindVecToPan(LLVector3 wind_vec)
 
 
 void LLAudioEngine::triggerSound(const LLUUID &audio_uuid, const LLUUID& owner_id, const F32 gain,
-								 const S32 type, const LLVector3d &pos_global)
+								 // <edit>
+								 //const S32 type, const LLVector3d &pos_global)
+								 const S32 type, const LLVector3d &pos_global, const LLUUID source_object)
+								 // </edit>
 {
 	// Create a new source (since this can't be associated with an existing source.
 	//llinfos << "Localized: " << audio_uuid << llendl;
@@ -747,7 +747,10 @@ void LLAudioEngine::triggerSound(const LLUUID &audio_uuid, const LLUUID& owner_i
 	LLUUID source_id;
 	source_id.generate();
 
-	LLAudioSource *asp = new LLAudioSource(source_id, owner_id, gain, type);
+	// <edit>
+	//LLAudioSource *asp = new LLAudioSource(source_id, owner_id, gain, type);
+	LLAudioSource *asp = new LLAudioSource(source_id, owner_id, gain, type, source_object, true);
+	// </edit>
 	gAudiop->addAudioSource(asp);
 	if (pos_global.isExactlyZero())
 	{
@@ -1196,12 +1199,19 @@ void LLAudioEngine::assetCallback(LLVFS *vfs, const LLUUID &uuid, LLAssetType::E
 //
 
 
-LLAudioSource::LLAudioSource(const LLUUID& id, const LLUUID& owner_id, const F32 gain, const S32 type)
+// <edit>
+//LLAudioSource::LLAudioSource(const LLUUID& id, const LLUUID& owner_id, const F32 gain, const S32 type)
+LLAudioSource::LLAudioSource(const LLUUID& id, const LLUUID& owner_id, const F32 gain, const S32 type, const LLUUID source_id, const bool isTrigger)
+// </edit>
 :	mID(id),
 	mOwnerID(owner_id),
 	mPriority(0.f),
 	mGain(gain),
 	mType(type),
+// <edit>
+	mSourceID(source_id),
+	mIsTrigger(isTrigger),
+// </edit>
 	mAmbient(FALSE),
 	mLoop(FALSE),
 	mSyncMaster(FALSE),
@@ -1212,6 +1222,9 @@ LLAudioSource::LLAudioSource(const LLUUID& id, const LLUUID& owner_id, const F32
 	mCurrentDatap(NULL),
 	mQueuedDatap(NULL)
 {
+	LLUUID log_id;
+	log_id.generate();
+	mLogID = log_id;
 }
 
 
@@ -1223,6 +1236,10 @@ LLAudioSource::~LLAudioSource()
 		mChannelp->setSource(NULL);
 		mChannelp = NULL;
 	}
+	// <edit>
+	if(mType != LLAudioEngine::AUDIO_TYPE_UI) // && mSourceID.notNull())
+		logSoundStop(mLogID);
+	// </edit>
 }
 
 
@@ -1307,6 +1324,10 @@ BOOL LLAudioSource::setupChannel()
 
 BOOL LLAudioSource::play(const LLUUID &audio_uuid)
 {
+	// <edit>
+	if(mType != LLAudioEngine::AUDIO_TYPE_UI) //&& mSourceID.notNull())
+		logSoundPlay(mLogID, this, mPositionGlobal, mType, audio_uuid, mOwnerID, mSourceID, mIsTrigger, mLoop); // is mID okay for source id?
+	// </edit>
 	if (audio_uuid.isNull())
 	{
 		if (getChannel())
@@ -1696,4 +1717,66 @@ BOOL LLAudioData::load()
 	return TRUE;
 }
 
+// <edit>
+std::map<LLUUID, LLSoundHistoryItem> gSoundHistory;
+
+// static
+void logSoundPlay(LLUUID id, LLAudioSource* audio_source, LLVector3d position, S32 type, LLUUID assetid, LLUUID ownerid, LLUUID sourceid, bool is_trigger, bool is_looped)
+{
+	LLSoundHistoryItem item;
+	item.mID = id;
+	item.mAudioSource = audio_source;
+	item.mPosition = position;
+	item.mType = type;
+	item.mAssetID = assetid;
+	item.mOwnerID = ownerid;
+	item.mSourceID = sourceid;
+	item.mPlaying = true;
+	item.mTimeStarted = LLTimer::getElapsedSeconds();
+	item.mTimeStopped = F64_MAX;
+	item.mIsTrigger = is_trigger;
+	item.mIsLooped = is_looped;
+
+	item.mReviewed = false;
+	item.mReviewedCollision = false;
+
+	gSoundHistory[id] = item;
+}
+
+static void logSoundStop(LLUUID id)
+{
+	if(gSoundHistory.find(id) != gSoundHistory.end())
+	{
+		gSoundHistory[id].mPlaying = false;
+		gSoundHistory[id].mTimeStopped = LLTimer::getElapsedSeconds();
+		gSoundHistory[id].mAudioSource = NULL; // just in case
+		pruneSoundLog();
+	}
+}
+
+static void pruneSoundLog()
+{
+	if(++gSoundHistoryPruneCounter >= 64)
+	{
+		gSoundHistoryPruneCounter = 0;
+		while(gSoundHistory.size() > 256)
+		{
+			std::map<LLUUID, LLSoundHistoryItem>::iterator iter = gSoundHistory.begin();
+			std::map<LLUUID, LLSoundHistoryItem>::iterator end = gSoundHistory.end();
+			U64 lowest_time = (*iter).second.mTimeStopped;
+			LLUUID lowest_id = (*iter).first;
+			for( ; iter != end; ++iter)
+			{
+				if((*iter).second.mTimeStopped < lowest_time)
+				{
+					lowest_time = (*iter).second.mTimeStopped;
+					lowest_id = (*iter).first;
+				}
+			}
+			gSoundHistory.erase(lowest_id);
+		}
+	}
+}
+
+// </edit>
 
