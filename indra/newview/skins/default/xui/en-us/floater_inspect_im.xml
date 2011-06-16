@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater can_close="true" can_drag_on_left="false" can_minimize="true"
+     can_resize="false" height="110"
+     name="floater_inspect_im" title="Inspect IM" width="485">
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+			     bottom_delta="-40" drop_shadow_visible="true" follows="left|top"
+			     font="SansSerifSmall" h_pad="0" halign="right" height="16" left="4"
+			     mouse_opaque="true" name="FromName:" v_pad="0" width="80">
+		FromName:
+	</text>
+	<line_editor bevel_style="in" border_style="line"
+			     border_thickness="1" bottom_delta="0" enabled="false" follows="left|top"
+			     font="SansSerifSmall" height="16" is_unicode="false" left="100"
+			     max_length="254" mouse_opaque="false" name="FromName"
+			     width="256" />
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+					 bottom_delta="-20" drop_shadow_visible="true" follows="left|top"
+					 font="SansSerifSmall" h_pad="0" halign="right" height="16" left="4"
+					 mouse_opaque="true" name="AgentID:" v_pad="0" width="80">
+		AgentID:
+	</text>
+	<line_editor bevel_style="in" border_style="line"
+			     border_thickness="1" bottom_delta="0" enabled="false" follows="left|top"
+			     font="SansSerifSmall" height="16" is_unicode="false" left="100"
+			     max_length="254" mouse_opaque="false" name="AgentID"
+			     width="256" />
+	<button bottom_delta="0" font="SansSerif" halign="center" height="16" label="Profile"
+			     label_selected="Profile" left_delta="270" mouse_opaque="true" name="OwnerProfile"
+			     width="100" />
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+					 bottom_delta="-20" drop_shadow_visible="true" follows="left|top"
+					 font="SansSerifSmall" h_pad="0" halign="right" height="16" left="4"
+					 mouse_opaque="true" name="RegionID:" v_pad="0" width="80">
+		RegionID:
+	</text>
+	<line_editor bevel_style="in" border_style="line"
+			     border_thickness="1" bottom_delta="0" enabled="false" follows="left|top"
+			     font="SansSerifSmall" height="16" is_unicode="false" left="100"
+			     max_length="254" mouse_opaque="false" name="RegionID"
+			     width="256" />
+	<button bottom_delta="0" font="SansSerif" halign="center" height="16" label="Profile"
+			     label_selected="Profile" left_delta="270" mouse_opaque="true" name="RegionProfile"
+			     width="100" />
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+					 bottom_delta="-20" drop_shadow_visible="true" follows="left|top"
+					 font="SansSerifSmall" h_pad="0" halign="right" height="16" left="4"
+					 mouse_opaque="true" name="Position:" v_pad="0" width="80">
+		Position:
+	</text>
+	<line_editor bevel_style="in" border_style="line"
+			     border_thickness="1" bottom_delta="0" enabled="false" follows="left|top"
+			     font="SansSerifSmall" height="16" is_unicode="false" left="100"
+			     max_length="254" mouse_opaque="false" name="Position"
+			     width="256" />
+</floater>

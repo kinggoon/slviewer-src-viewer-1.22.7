@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="false"
+     width="500" height="555" name="Embed..." title="Embed...">
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+	     top="-25" drop_shadow_visible="true" follows="left|bottom" bottom="455" 
+	     font="SansSerif" h_pad="0" halign="right" height="16"
+	     left="10" mouse_opaque="true" name="item_id_text" v_pad="0" width="90">
+		item_id
+	</text>
+	<line_editor bevel_style="in" border_style="line" border_thickness="1" top="-25"
+	     font="SansSerifSmall" height="20" left_delta="100" bottom="510" 
+	     max_length="512" mouse_opaque="true" name="item_id_line" width="380" />
+	
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+	     bottom_delta="-25" drop_shadow_visible="true" follows="left|bottom"
+	     font="SansSerif" h_pad="0" halign="right" height="16"
+	     left="10" mouse_opaque="true" name="parent_id_text" v_pad="0" width="90">
+		parent_id
+	</text>
+	<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom_delta="0"
+	     font="SansSerifSmall" height="20" left_delta="100"
+	     max_length="512" mouse_opaque="true" name="parent_id_line" width="380" />
+	
+	<!-- permissions 0 -->
+
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+	 bottom_delta="-25" drop_shadow_visible="true" follows="left|bottom"
+	 font="SansSerif" h_pad="0" halign="right" height="16"
+	 left="10" mouse_opaque="true" name="base_mask_text" v_pad="0" width="90">
+		base_mask
+	</text>
+	<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom_delta="0"
+	     font="SansSerifSmall" height="20" left_delta="100"
+	     max_length="512" mouse_opaque="true" name="base_mask_line" width="380" />
+
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+	 bottom_delta="-25" drop_shadow_visible="true" follows="left|bottom"
+	 font="SansSerif" h_pad="0" halign="right" height="16"
+	 left="10" mouse_opaque="true" name="owner_mask_text" v_pad="0" width="90">
+		owner_mask
+	</text>
+	<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom_delta="0"
+	     font="SansSerifSmall" height="20" left_delta="100"
+	     max_length="512" mouse_opaque="true" name="owner_mask_line" width="380" />
+
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+	 bottom_delta="-25" drop_shadow_visible="true" follows="left|bottom"
+	 font="SansSerif" h_pad="0" halign="right" height="16"
+	 left="10" mouse_opaque="true" name="group_mask_text" v_pad="0" width="90">
+		group_mask
+	</text>
+	<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom_delta="0"
+	     font="SansSerifSmall" height="20" left_delta="100"
+	     max_length="512" mouse_opaque="true" name="group_mask_line" width="380" />
+
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+	 bottom_delta="-25" drop_shadow_visible="true" follows="left|bottom"
+	 font="SansSerif" h_pad="0" halign="right" height="16"
+	 left="10" mouse_opaque="true" name="everyone_mask_text" v_pad="0" width="90">
+		everyone_mask
+	</text>
+	<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom_delta="0"
+	     font="SansSerifSmall" height="20" left_delta="100"
+	     max_length="512" mouse_opaque="true" name="everyone_mask_line" width="380" />
+	
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+	 bottom_delta="-25" drop_shadow_visible="true" follows="left|bottom"
+	 font="SansSerif" h_pad="0" halign="right" height="16"
+	 left="10" mouse_opaque="true" name="next_owner_mask_text" v_pad="0" width="90">
+		next_owner_mask
+	</text>
+	<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom_delta="0"
+	     font="SansSerifSmall" height="20" left_delta="100"
+	     max_length="512" mouse_opaque="true" name="next_owner_mask_line" width="380" />
+	
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+	 bottom_delta="-25" drop_shadow_visible="true" follows="left|bottom"
+	 font="SansSerif" h_pad="0" halign="right" height="16"
+	 left="10" mouse_opaque="true" name="creator_id_text" v_pad="0" width="90">
+		creator_id
+	</text>
+	<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom_delta="0"
+	     font="SansSerifSmall" height="20" left_delta="100"
+	     max_length="512" mouse_opaque="true" name="creator_id_line" width="380" />
+
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+	     bottom_delta="-25" drop_shadow_visible="true" follows="left|bottom"
+	     font="SansSerif" h_pad="0" halign="right" height="16"
+	     left="10" mouse_opaque="true" name="owner_id_text" v_pad="0" width="90">
+		owner_id
+	</text>
+	<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom_delta="0"
+	     font="SansSerifSmall" height="20" left_delta="100"
+	     max_length="512" mouse_opaque="true" name="owner_id_line" width="380" />
+
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+	     bottom_delta="-25" drop_shadow_visible="true" follows="left|bottom"
+	     font="SansSerif" h_pad="0" halign="right" height="16"
+	     left="10" mouse_opaque="true" name="last_owner_id_text" v_pad="0" width="90">
+		last_owner_id
+	</text>
+	<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom_delta="0"
+	     font="SansSerifSmall" height="20" left_delta="100"
+	     max_length="512" mouse_opaque="true" name="last_owner_id_line" width="380" />
+
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+	     bottom_delta="-25" drop_shadow_visible="true" follows="left|bottom"
+	     font="SansSerif" h_pad="0" halign="right" height="16"
+	     left="10" mouse_opaque="true" name="group_id_text" v_pad="0" width="90">
+		group_id
+	</text>
+	<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom_delta="0"
+	     font="SansSerifSmall" height="20" left_delta="100"
+	     max_length="512" mouse_opaque="true" name="group_id_line" width="380" />
+
+	<!-- end permissions 0 -->
+
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+	     bottom_delta="-25" drop_shadow_visible="true" follows="left|bottom"
+	     font="SansSerif" h_pad="0" halign="right" height="16"
+	     left="10" mouse_opaque="true" name="asset_id_text" v_pad="0" width="90">
+		asset_id
+	</text>
+	<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom_delta="0"
+	     font="SansSerifSmall" height="20" left_delta="100"
+	     max_length="512" mouse_opaque="true" name="asset_id_line" width="380" />
+
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+	     bottom_delta="-25" drop_shadow_visible="true" follows="left|bottom"
+	     font="SansSerif" h_pad="0" halign="right" height="16"
+	     left="10" mouse_opaque="true" name="type_text" v_pad="0" width="90">
+		type
+	</text>
+	<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom_delta="0"
+	     font="SansSerifSmall" height="20" left_delta="100"
+	     max_length="512" mouse_opaque="true" name="type_line" width="380" />
+
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+	 bottom_delta="-25" drop_shadow_visible="true" follows="left|bottom"
+	 font="SansSerif" h_pad="0" halign="right" height="16"
+	 left="10" mouse_opaque="true" name="inv_type_text" v_pad="0" width="90">
+		inv_type
+	</text>
+	<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom_delta="0"
+	     font="SansSerifSmall" height="20" left_delta="100"
+	     max_length="512" mouse_opaque="true" name="inv_type_line" width="380" />
+
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+	 bottom_delta="-25" drop_shadow_visible="true" follows="left|bottom"
+	 font="SansSerif" h_pad="0" halign="right" height="16"
+	 left="10" mouse_opaque="true" name="flags_text" v_pad="0" width="90">
+		flags
+	</text>
+	<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom_delta="0"
+	     font="SansSerifSmall" height="20" left_delta="100"
+	     max_length="512" mouse_opaque="true" name="flags_line" width="380" />
+	
+	<!-- sale_info 0 -->
+
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+	 bottom_delta="-25" drop_shadow_visible="true" follows="left|bottom"
+	 font="SansSerif" h_pad="0" halign="right" height="16"
+	 left="10" mouse_opaque="true" name="sale_type_text" v_pad="0" width="90">
+		sale_type
+	</text>
+	<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom_delta="0"
+	     font="SansSerifSmall" height="20" left_delta="100"
+	     max_length="512" mouse_opaque="true" name="sale_type_line" width="380" />
+	
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+	 bottom_delta="-25" drop_shadow_visible="true" follows="left|bottom"
+	 font="SansSerif" h_pad="0" halign="right" height="16"
+	 left="10" mouse_opaque="true" name="sale_price_text" v_pad="0" width="90">
+		sale_price
+	</text>
+	<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom_delta="0"
+	     font="SansSerifSmall" height="20" left_delta="100"
+	     max_length="512" mouse_opaque="true" name="sale_price_line" width="380" />
+	
+	<!-- end sale_info 0-->
+		
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+	     bottom_delta="-25" drop_shadow_visible="true" follows="left|bottom"
+	     font="SansSerif" h_pad="0" halign="right" height="16"
+	     left="10" mouse_opaque="true" name="name_text" v_pad="0" width="90">
+		name
+	</text>
+	<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom_delta="0"
+	     font="SansSerifSmall" height="20" left_delta="100"
+	     max_length="512" mouse_opaque="true" name="name_line" width="380" />
+	
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+	     bottom_delta="-25" drop_shadow_visible="true" follows="left|bottom"
+	     font="SansSerif" h_pad="0" halign="right" height="16"
+	     left="10" mouse_opaque="true" name="desc_text" v_pad="0" width="90">
+		desc
+	</text>
+	<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom_delta="0"
+	     font="SansSerifSmall" height="20" left_delta="100"
+	     max_length="512" mouse_opaque="true" name="desc_line" width="380" />
+
+	<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
+	 bottom_delta="-25" drop_shadow_visible="true" follows="left|bottom"
+	 font="SansSerif" h_pad="0" halign="right" height="16"
+	 left="10" mouse_opaque="true" name="creation_date_text" v_pad="0" width="90">
+		creation_date
+	</text>
+	<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom_delta="0"
+	     font="SansSerifSmall" height="20" left_delta="100"
+	     max_length="512" mouse_opaque="true" name="creation_date_line" width="380" />
+
+	<button bottom_delta="-25" font="SansSerif"
+	     height="20" label="OK" right="490" 
+	     mouse_opaque="true" name="ok_btn" width="100" />
+</floater>

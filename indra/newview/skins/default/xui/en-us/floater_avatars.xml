@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater can_close="false" can_drag_on_left="false" can_minimize="false"
+     can_resize="true" height="200" width="200" min_width="150" min_height="150"  
+     name="floater_avatars" title="" rect_control="FloaterAvatarsRect">
+	<scroll_list bottom="40" can_resize="true" column_padding="0" draw_heading="true"
+	     follows="left|top|bottom|right" left="10" multi_select="true"
+	     name="avatar_list" right="-10" search_column="0" top="-10">
+		<column dynamicwidth="true"  name="name" label="Name" />
+		<column name="distance" label="Distance" width="50" />
+	</scroll_list>
+	<button bottom="10" left="10" follows="bottom|left" height="20" label="" 
+	 width="20" name="profile_btn" image_overlay="icon_avatar_offline.tga" 
+	 scale_image="true" tool_tip="Profile" />
+	<button bottom="10" left_delta="20" follows="bottom|left" height="20" label=""
+	 width="20" name="camera_btn" image_overlay="tool_zoom.tga" scale_image="true"
+	 tool_tip="Zoom"/>
+	<button bottom="10" left_delta="20" follows="bottom|left" height="20" label=""
+	 width="20" name="teleport_btn" image_overlay="tpto.tga" scale_image="true"
+	 tool_tip="Teleport to"/>
+	<button bottom="10" left_delta="20" follows="bottom|left" height="20" label=""
+	 width="20" name="offer_teleport_btn" image_overlay="tpof.tga" scale_image="true"
+	 tool_tip="Offer teleport"/>
+	<button bottom="10" left_delta="20" follows="bottom|left" height="20" label=""
+	 width="20" name="chat_btn" image_overlay="icn_chatbar.tga" scale_image="true"
+	 tool_tip="Chat from"/>
+	<button bottom="10" left_delta="20" follows="bottom|left" height="20" label=""
+	 width="20" name="sound_btn" image_overlay="icn_speaker_dark.tga" scale_image="true"
+	 tool_tip="Sound from"/>
+	<button bottom="10" left_delta="20" follows="bottom|left" height="20" label=""
+	 width="20" name="track_btn" image_overlay="orangeflag.tga" scale_image="true"
+	 tool_tip="Track"/>
+</floater>

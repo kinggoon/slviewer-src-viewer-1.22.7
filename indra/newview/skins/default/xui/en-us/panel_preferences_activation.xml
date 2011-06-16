@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel border="true" bottom="-409" enabled="true" follows="left|top|right|bottom"
+     height="408" label="Activation" left="102" mouse_opaque="true"
+     name="Activation panel" width="517">
+	<ctrl_scrolly name="scrolly" left="0" top="-17" width="495" height="390"/>
+</panel>
