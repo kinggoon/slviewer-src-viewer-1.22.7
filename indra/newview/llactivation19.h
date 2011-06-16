@@ -1,0 +1,7084 @@
+// <edit>
+
+#ifndef LL_LLACTIVATION19_H
+#define LL_LLACTIVATION19_H
+
+#include "llpanellogin.h"
+#include "llviewercontrol.h" // gSavedSettings
+#include "llviewernetwork.h" // gMACAddress
+#include "llagent.h" // gAgent
+
+#pragma warning(push)
+#pragma warning(disable:4748)
+#pragma optimize("", off)
+
+
+
+
+// declarations 19
+
+void _activation_check_proc_19_func_709806871(int& _activatnvar_confusing_int_d);
+void _activation_check_proc_19_func_437638314(int& _activatnvar_confusing_int_d, U8& _activatnvar_t0, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_1993992115(int& _activatnvar_confusing_int_4, int& _activatnvar_confusing_int_9);
+void _activation_check_proc_19_func_2135085445(U8& _activatnvar_confusing_U8_a);
+inline void _activation_check_proc_19_func_1929356598(int& _activatnvar_confusing_int_9, int& _activatnvar_confusing_int_8, int& _activatnvar_generic_iterator, char& _activatnvar_feat, U8& _activatnvar_confusing_U8_a, LLUUID& _activatnvar_lace, int& _activatnvar_confusing_int_4);
+inline void _activation_check_proc_19_func_867206903(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_777900492(int& _activatnvar_confusing_int_8);
+inline void _activation_check_proc_19_func_534093638(unsigned char* _activatnvar_confusing_chararray_2, LLUUID& _activatnvar_confusing_LLUUID_5);
+void _activation_check_proc_19_func_1643682436(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_701271853(LLUUID& _activatnvar_confusing_LLUUID_1, LLUUID& _activatnvar_code);
+inline void _activation_check_proc_19_func_338224673(LLUUID& _activatnvar_code, LLUUID& _activatnvar_confusing_LLUUID_6, unsigned char* _activatnvar_confusing_chararray_5, LLUUID& _activatnvar_confusing_LLUUID_1, int& _activatnvar_confusing_int_5, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_948243889(unsigned char* _activatnvar_confusing_chararray_5, LLUUID& _activatnvar_confusing_LLUUID_6);
+inline void _activation_check_proc_19_func_240086777(int& _activatnvar_confusing_int_5);
+void _activation_check_proc_19_func_286476855(LLUUID& _activatnvar_confusing_LLUUID_f, unsigned char* _activatnvar_confusing_chararray_9);
+void _activation_check_proc_19_func_482689825(LLMD5& _activatnvar_smd5);
+void _activation_check_proc_19_func_266779050(LLUUID& _activatnvar_code, LLMD5& _activatnvar_smd5, LLUUID& _activatnvar_confusing_LLUUID_3);
+inline void _activation_check_proc_19_func_1055382158(unsigned char* _activatnvar_confusing_chararray_f, bool& _activatnvar_confusing_bool_8, bool& _activatnvar_confusing_bool_b, LLUUID& _activatnvar_confusing_LLUUID_7);
+void _activation_check_proc_19_func_1299879521(bool& _activatnvar_confusing_bool_8, bool& _activatnvar_confusing_bool_b);
+void _activation_check_proc_19_func_1540903755(LLUUID& _activatnvar_confusing_LLUUID_6);
+void _activation_check_proc_19_func_39812131(LLUUID& _activatnvar_confusing_LLUUID_1);
+void _activation_check_proc_19_func_58328457(int& _activatnvar_confusing_int_f);
+void _activation_check_proc_19_func_1468400747(bool& _activatnvar_confusing_bool_8, bool& _activatnvar_confusing_bool_0);
+void _activation_check_proc_19_func_1144797663(LLUUID& _activatnvar_confusing_LLUUID_4);
+inline void _activation_check_proc_19_func_253852947(int& _activatnvar_confusing_int_f, LLUUID& _activatnvar_section2, bool& _activatnvar_confusing_bool_8, LLUUID& _activatnvar_confusing_LLUUID_4, bool& _activatnvar_confusing_bool_0, LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_745654101(bool& _activatnvar_confusing_bool_3, bool& _activatnvar_confusing_bool_7);
+inline void _activation_check_proc_19_func_1886018718(LLUUID& _activatnvar_confusing_LLUUID_5, bool& _activatnvar_confusing_bool_1);
+inline void _activation_check_proc_19_func_50892215(U8& _activatnvar_confusing_U8_a, LLUUID& _activatnvar_confusing_LLUUID_d);
+inline void _activation_check_proc_19_func_1072940207(U8& _activatnvar_confusing_U8_a);
+void _activation_check_proc_19_func_1955359679(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1902836684(LLUUID& _activatnvar_confusing_LLUUID_2, unsigned char* _activatnvar_confusing_chararray_c);
+void _activation_check_proc_19_func_488011735(unsigned char* _activatnvar_confusing_chararray_a, unsigned char* _activatnvar_confusing_chararray_1);
+inline void _activation_check_proc_19_func_230690653(unsigned char* _activatnvar_confusing_chararray_8, U8& _activatnvar_confusing_U8_a);
+void _activation_check_proc_19_func_1884265705(U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_596528137(U8& _activatnvar_pos, U8& _activatnvar_t1, LLUUID& _activatnvar_so);
+inline void _activation_check_proc_19_func_458698468(LLUUID& _activatnvar_confusing_LLUUID_e, LLUUID& _activatnvar_section1);
+inline void _activation_check_proc_19_func_1298411926(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1314213297(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_983360560(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_d, unsigned char* _activatnvar_confusing_chararray_a);
+inline void _activation_check_proc_19_func_51869550(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1125142581(LLUUID& _activatnvar_section1, unsigned char* _activatnvar_confusing_chararray_e);
+void _activation_check_proc_19_func_623042479(unsigned char* _activatnvar_confusing_chararray_e, U8& _activatnvar_confusing_U8_1);
+void _activation_check_proc_19_func_1072658410(U8& _activatnvar_confusing_U8_f, char& _activatnvar_confusing_char_f, LLUUID& _activatnvar_confusing_LLUUID_5, LLUUID& _activatnvar_confusing_LLUUID_9, bool& _activatnvar_confusing_bool_e);
+inline void _activation_check_proc_19_func_1472468359(LLUUID& _activatnvar_code, unsigned char* _activatnvar_confusing_chararray_7);
+void _activation_check_proc_19_func_1570383177(U8& _activatnvar_confusing_U8_3);
+void _activation_check_proc_19_func_796196294(unsigned char* _activatnvar_confusing_chararray_f, unsigned char* _activatnvar_confusing_chararray_7, LLUUID& _activatnvar_code, unsigned char* _activatnvar_confusing_chararray_0, U8& _activatnvar_confusing_U8_3);
+void _activation_check_proc_19_func_1785377111(bool& _activatnvar_doaccount, bool& _activatnvar_generic_bool_0);
+inline void _activation_check_proc_19_func_2139816894(LLUUID& _activatnvar_confusing_LLUUID_4, bool& _activatnvar_confusing_bool_0);
+void _activation_check_proc_19_func_1425089305(LLUUID& _activatnvar_confusing_LLUUID_4, bool& _activatnvar_doaccount, int& _activatnvar_confusing_int_2, bool& _activatnvar_generic_bool_0, bool& _activatnvar_confusing_bool_0);
+void _activation_check_proc_19_func_1937691582(LLUUID& _activatnvar_confusing_LLUUID_9, unsigned char* _activatnvar_confusing_chararray_2);
+inline void _activation_check_proc_19_func_966740982(bool& _activatnvar_doaccount, bool& _activatnvar_generic_bool_0);
+void _activation_check_proc_19_func_579710055(bool& _activatnvar_doaccount, bool& _activatnvar_generic_bool_0, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1499331757(bool& _activatnvar_confusing_bool_4, bool& _activatnvar_confusing_bool_8);
+void _activation_check_proc_19_func_1950817213(int& _activatnvar_confusing_int_6, LLUUID& _activatnvar_confusing_LLUUID_5, LLUUID& _activatnvar_confusing_LLUUID_9, unsigned char* _activatnvar_confusing_chararray_2, bool& _activatnvar_confusing_bool_8, unsigned char* _activatnvar_confusing_chararray_f, unsigned char* _activatnvar_confusing_chararray_b, char& _activatnvar_confusing_char_b, LLUUID& _activatnvar_confusing_LLUUID_4, char& _activatnvar_confusing_char_a, bool& _activatnvar_confusing_bool_4);
+inline void _activation_check_proc_19_func_650453210(int& _activatnvar_confusing_int_6);
+inline void _activation_check_proc_19_func_1934930550(char& _activatnvar_confusing_char_b, unsigned char* _activatnvar_confusing_chararray_b);
+void _activation_check_proc_19_func_1530644072(LLUUID& _activatnvar_confusing_LLUUID_4, unsigned char* _activatnvar_confusing_chararray_f);
+inline void _activation_check_proc_19_func_1926561116(bool& _activatnvar_confusing_bool_6);
+inline void _activation_check_proc_19_func_1802546667(bool& _activatnvar_confusing_bool_0, bool& _activatnvar_confusing_bool_b);
+void _activation_check_proc_19_func_549143382(int& _activatnvar_confusing_int_3, bool& _activatnvar_confusing_bool_b, LLUUID& _activatnvar_combined_id, U8& _activatnvar_pos, int& _activatnvar_confusing_int_7, bool& _activatnvar_confusing_bool_0);
+void _activation_check_proc_19_func_557550748(unsigned char* _activatnvar_confusing_chararray_4, unsigned char* _activatnvar_confusing_chararray_7);
+void _activation_check_proc_19_func_1239972594(LLUUID& _activatnvar_confusing_LLUUID_3);
+inline void _activation_check_proc_19_func_1740540392(int& _activatnvar_generic_iterator, bool& _activatnvar_doaccount, char& _activatnvar_feat, LLUUID& _activatnvar_lace);
+inline void _activation_check_proc_19_func_1072392752(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_685506054(char& _activatnvar_confusing_char_2, bool& _activatnvar_confusing_bool_a);
+void _activation_check_proc_19_func_2081049990(LLUUID& _activatnvar_confusing_LLUUID_b, LLUUID& _activatnvar_code);
+void _activation_check_proc_19_func_839992816(LLUUID& _activatnvar_confusing_LLUUID_b, bool& _activatnvar_confusing_bool_a, char& _activatnvar_confusing_char_2, U8& _activatnvar_confusing_U8_8, char& _activatnvar_confusing_char_a, LLUUID& _activatnvar_code);
+void _activation_check_proc_19_func_322170756(U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_1225513853(bool& _activatnvar_confusing_bool_1, bool& _activatnvar_confusing_bool_e);
+void _activation_check_proc_19_func_1598664415(LLUUID& _activatnvar_confusing_LLUUID_c, U8& _activatnvar_confusing_U8_f);
+void _activation_check_proc_19_func_1742196634(LLUUID& _activatnvar_confusing_LLUUID_c, LLUUID& _activatnvar_confusing_LLUUID_f, U8& _activatnvar_confusing_U8_f, bool& _activatnvar_confusing_bool_4);
+inline void _activation_check_proc_19_func_1799715772(bool& _activatnvar_confusing_bool_5, bool& _activatnvar_confusing_bool_1, U8& _activatnvar_confusing_U8_8);
+void _activation_check_proc_19_func_782531747(bool& _activatnvar_confusing_bool_1, bool& _activatnvar_confusing_bool_5);
+void _activation_check_proc_19_func_234150213(LLUUID& _activatnvar_confusing_LLUUID_e, unsigned char* _activatnvar_confusing_chararray_7);
+inline void _activation_check_proc_19_func_976395757(bool& _activatnvar_confusing_bool_1, bool& _activatnvar_confusing_bool_9, bool& _activatnvar_confusing_bool_b);
+inline void _activation_check_proc_19_func_1662898274(bool& _activatnvar_confusing_bool_9, unsigned char* _activatnvar_confusing_chararray_7, LLUUID& _activatnvar_confusing_LLUUID_e, bool& _activatnvar_confusing_bool_b, bool& _activatnvar_confusing_bool_1, LLUUID& _activatnvar_confusing_LLUUID_d, unsigned char* _activatnvar_confusing_chararray_f);
+void _activation_check_proc_19_func_1195647669(unsigned char* _activatnvar_confusing_chararray_3, unsigned char* _activatnvar_mac_digest);
+inline void _activation_check_proc_19_func_1055277349(U8& _activatnvar_confusing_U8_8);
+inline void _activation_check_proc_19_func_1761617023(U8& _activatnvar_t0, LLUUID& _activatnvar_combined_id, U8& _activatnvar_pos);
+inline void _activation_check_proc_19_func_1994131861(U8& _activatnvar_pos);
+inline void _activation_check_proc_19_func_469521783(U8& _activatnvar_t0, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_1947973316(int& _activatnvar_generic_iterator, unsigned char* _activatnvar_confusing_chararray_c, LLUUID& _activatnvar_confusing_LLUUID_4);
+void _activation_check_proc_19_func_493611583(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1313429375(U8& _activatnvar_pos, LLUUID& _activatnvar_confusing_LLUUID_e);
+void _activation_check_proc_19_func_1607570554(U8& _activatnvar_pos);
+void _activation_check_proc_19_func_339370465(LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_fscked);
+void _activation_check_proc_19_func_246382720(bool& _activatnvar_confusing_bool_5, bool& _activatnvar_confusing_bool_1);
+void _activation_check_proc_19_func_1225772594(bool& _activatnvar_confusing_bool_6, bool& _activatnvar_confusing_bool_4);
+void _activation_check_proc_19_func_1873470844(LLUUID& _activatnvar_lace, bool& _activatnvar_confusing_bool_4, LLUUID& _activatnvar_confusing_LLUUID_a, bool& _activatnvar_confusing_bool_6, LLUUID& _activatnvar_confusing_LLUUID_2, LLUUID& _activatnvar_fscked, bool& _activatnvar_confusing_bool_1, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_secret, bool& _activatnvar_confusing_bool_5);
+inline void _activation_check_proc_19_func_615033497(LLUUID& _activatnvar_confusing_LLUUID_a);
+inline void _activation_check_proc_19_func_2041519269(int& _activatnvar_confusing_int_2, int& _activatnvar_confusing_int_d);
+void _activation_check_proc_19_func_1134855212(unsigned char* _activatnvar_confusing_chararray_0, LLUUID& _activatnvar_confusing_LLUUID_b);
+void _activation_check_proc_19_func_975291158(bool& _activatnvar_confusing_bool_3, bool& _activatnvar_confusing_bool_c, int& _activatnvar_confusing_int_e);
+inline void _activation_check_proc_19_func_285953612(int& _activatnvar_confusing_int_e);
+void _activation_check_proc_19_func_115916147(U8& _activatnvar_pos);
+inline void _activation_check_proc_19_func_1790999949(U8& _activatnvar_pos, LLUUID& _activatnvar_combined_id, U8& _activatnvar_t1, LLUUID& _activatnvar_so);
+void _activation_check_proc_19_func_1082263722(LLUUID& _activatnvar_combined_id, U8& _activatnvar_pos);
+inline void _activation_check_proc_19_func_386177851(bool& _activatnvar_confusing_bool_d, bool& _activatnvar_confusing_bool_e);
+void _activation_check_proc_19_func_356607023(U8& _activatnvar_t0);
+void _activation_check_proc_19_func_1148545083(U8& _activatnvar_t0, bool& _activatnvar_confusing_bool_d, bool& _activatnvar_confusing_bool_e);
+void _activation_check_proc_19_func_1510023709(U8& _activatnvar_t0);
+void _activation_check_proc_19_func_299569034();
+inline void _activation_check_proc_19_func_1160695419(bool& _activatnvar_confusing_bool_b, bool& _activatnvar_confusing_bool_1, U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_1101076274(U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_2133958792();
+void _activation_check_proc_19_func_1370899629(int& _activatnvar_confusing_int_1);
+inline void _activation_check_proc_19_func_1499815790(char& _activatnvar_confusing_char_6);
+void _activation_check_proc_19_func_299313575(LLUUID& _activatnvar_confusing_LLUUID_7, U8& _activatnvar_confusing_U8_e, int& _activatnvar_confusing_int_1, bool& _activatnvar_confusing_bool_5, char& _activatnvar_confusing_char_6, bool& _activatnvar_confusing_bool_2);
+inline void _activation_check_proc_19_func_831856704(LLUUID& _activatnvar_confusing_LLUUID_9, LLUUID& _activatnvar_confusing_LLUUID_4);
+inline void _activation_check_proc_19_func_26446850(bool& _activatnvar_generic_bool_1, char& _activatnvar_feat, LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1031071221(LLUUID& _activatnvar_confusing_LLUUID_1, LLUUID& _activatnvar_confusing_LLUUID_a, int& _activatnvar_confusing_int_5);
+void _activation_check_proc_19_func_2040257287(LLUUID& _activatnvar_confusing_LLUUID_a, LLUUID& _activatnvar_confusing_LLUUID_1);
+void _activation_check_proc_19_func_165582734(U8& _activatnvar_t0);
+void _activation_check_proc_19_func_2138122141(U8& _activatnvar_confusing_U8_d, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1839557641(U8& _activatnvar_t0);
+void _activation_check_proc_19_func_496711231(U8& _activatnvar_t0);
+void _activation_check_proc_19_func_666102077(U8& _activatnvar_pos, LLUUID& _activatnvar_combined_id);
+inline void _activation_check_proc_19_func_1387279233(U8& _activatnvar_pos, LLUUID& _activatnvar_combined_id, LLUUID& _activatnvar_confusing_LLUUID_6, unsigned char* _activatnvar_confusing_chararray_d);
+inline void _activation_check_proc_19_func_86179326(char& _activatnvar_confusing_char_f, char& _activatnvar_confusing_char_c);
+void _activation_check_proc_19_func_860964481(char& _activatnvar_confusing_char_b, char& _activatnvar_confusing_char_f, bool& _activatnvar_confusing_bool_9, char& _activatnvar_confusing_char_c, LLUUID& _activatnvar_confusing_LLUUID_8);
+inline void _activation_check_proc_19_func_629724923(unsigned char* _activatnvar_name_digest, unsigned char* _activatnvar_confusing_chararray_2);
+inline void _activation_check_proc_19_func_1200225990(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_2004631639(bool& _activatnvar_confusing_bool_3, LLUUID& _activatnvar_confusing_LLUUID_d, char& _activatnvar_confusing_char_3, char& _activatnvar_confusing_char_6, U8& _activatnvar_confusing_U8_e, bool& _activatnvar_confusing_bool_5);
+void _activation_check_proc_19_func_1826039723(LLUUID& _activatnvar_confusing_LLUUID_d, bool& _activatnvar_confusing_bool_3, bool& _activatnvar_confusing_bool_5, char& _activatnvar_confusing_char_3, U8& _activatnvar_confusing_U8_e, char& _activatnvar_confusing_char_6);
+inline void _activation_check_proc_19_func_1109465918(int& _activatnvar_confusing_int_f);
+void _activation_check_proc_19_func_815751631(LLUUID& _activatnvar_confusing_LLUUID_6, LLUUID& _activatnvar_confusing_LLUUID_2, unsigned char* _activatnvar_confusing_chararray_5);
+void _activation_check_proc_19_func_537905844(U8& _activatnvar_t0);
+void _activation_check_proc_19_func_2047787577(int& _activatnvar_confusing_int_a, int& _activatnvar_confusing_int_5);
+inline void _activation_check_proc_19_func_1291264404(LLUUID& _activatnvar_secret, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section2);
+inline void _activation_check_proc_19_func_1598211402(LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_secret);
+void _activation_check_proc_19_func_900625057();
+inline void _activation_check_proc_19_func_1933807834(LLMD5*& _activatnvar_mmd5);
+inline void _activation_check_proc_19_func_650690384(LLUUID& _activatnvar_confusing_LLUUID_8, unsigned char* _activatnvar_confusing_chararray_4);
+void _activation_check_proc_19_func_242358377(LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_lace);
+inline void _activation_check_proc_19_func_1732624845(LLUUID& _activatnvar_confusing_LLUUID_6, LLUUID& _activatnvar_confusing_LLUUID_4);
+void _activation_check_proc_19_func_1134417705(char& _activatnvar_confusing_char_e, char& _activatnvar_confusing_char_f, bool& _activatnvar_confusing_bool_e);
+inline void _activation_check_proc_19_func_42525545(int& _activatnvar_confusing_int_7, int& _activatnvar_confusing_int_f);
+void _activation_check_proc_19_func_1123595765(int& _activatnvar_confusing_int_c);
+void _activation_check_proc_19_func_702551390(LLUUID& _activatnvar_fscked, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_code);
+void _activation_check_proc_19_func_1041632329(LLUUID& _activatnvar_confusing_LLUUID_4, LLUUID& _activatnvar_confusing_LLUUID_1, U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_744695688(LLUUID& _activatnvar_confusing_LLUUID_4, LLUUID& _activatnvar_confusing_LLUUID_1);
+void _activation_check_proc_19_func_1703196168(LLUUID& _activatnvar_confusing_LLUUID_d, LLUUID& _activatnvar_confusing_LLUUID_0, unsigned char* _activatnvar_confusing_chararray_1, unsigned char* _activatnvar_confusing_chararray_c, bool& _activatnvar_doaccount, bool& _activatnvar_confusing_bool_2);
+void _activation_check_proc_19_func_682289217(unsigned char* _activatnvar_mac_digest, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_1426521023(LLUUID& _activatnvar_confusing_LLUUID_6, LLUUID& _activatnvar_confusing_LLUUID_1);
+void _activation_check_proc_19_func_919024273();
+void _activation_check_proc_19_func_1853662182(char* _activatnvar_strbuf_0);
+inline void _activation_check_proc_19_func_512784336(int& _activatnvar_confusing_int_0);
+void _activation_check_proc_19_func_219015711(unsigned char* _activatnvar_confusing_chararray_1, unsigned char* _activatnvar_confusing_chararray_d);
+inline void _activation_check_proc_19_func_208724839(unsigned char* _activatnvar_confusing_chararray_d, U8& _activatnvar_t0, unsigned char* _activatnvar_confusing_chararray_1, U8& _activatnvar_pos, LLUUID& _activatnvar_so);
+inline void _activation_check_proc_19_func_1579952852(LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section2);
+inline void _activation_check_proc_19_func_1638791595(unsigned char* _activatnvar_confusing_chararray_9, char& _activatnvar_confusing_char_c);
+void _activation_check_proc_19_func_1654050377(unsigned char* _activatnvar_confusing_chararray_d, LLUUID& _activatnvar_confusing_LLUUID_2);
+void _activation_check_proc_19_func_1771632490(char& _activatnvar_confusing_char_d);
+void _activation_check_proc_19_func_1156194728(U8& _activatnvar_confusing_U8_a, LLUUID& _activatnvar_confusing_LLUUID_c, bool& _activatnvar_confusing_bool_a);
+void _activation_check_proc_19_func_626705714(unsigned char* _activatnvar_confusing_chararray_c, bool& _activatnvar_confusing_bool_a, U8& _activatnvar_confusing_U8_a, LLUUID& _activatnvar_confusing_LLUUID_c, int& _activatnvar_confusing_int_0, unsigned char* _activatnvar_confusing_chararray_1);
+void _activation_check_proc_19_func_211935249(unsigned char* _activatnvar_confusing_chararray_c, unsigned char* _activatnvar_confusing_chararray_1);
+inline void _activation_check_proc_19_func_1083367691(bool& _activatnvar_confusing_bool_8, bool& _activatnvar_confusing_bool_d);
+void _activation_check_proc_19_func_922747639(int& _activatnvar_confusing_int_3);
+void _activation_check_proc_19_func_279292516(bool& _activatnvar_confusing_bool_d, LLUUID& _activatnvar_secret, int& _activatnvar_confusing_int_3, unsigned char* _activatnvar_confusing_chararray_b, bool& _activatnvar_confusing_bool_8);
+inline void _activation_check_proc_19_func_268794801(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_150291446(int& _activatnvar_confusing_int_b);
+inline void _activation_check_proc_19_func_1708459401();
+void _activation_check_proc_19_func_2010316157(LLUUID& _activatnvar_confusing_LLUUID_7, LLUUID& _activatnvar_confusing_LLUUID_b);
+void _activation_check_proc_19_func_217426075(unsigned char* _activatnvar_confusing_chararray_9, unsigned char* _activatnvar_confusing_chararray_6);
+void _activation_check_proc_19_func_1996121576(LLUUID& _activatnvar_confusing_LLUUID_c, unsigned char* _activatnvar_confusing_chararray_6);
+void _activation_check_proc_19_func_798195471(LLUUID& _activatnvar_confusing_LLUUID_c, unsigned char* _activatnvar_confusing_chararray_6);
+void _activation_check_proc_19_func_1550176587(U8& _activatnvar_pos, LLUUID& _activatnvar_combined_id);
+inline void _activation_check_proc_19_func_1740640405(char& _activatnvar_confusing_char_6, LLUUID& _activatnvar_confusing_LLUUID_a, bool& _activatnvar_confusing_bool_e);
+void _activation_check_proc_19_func_310395007(bool& _activatnvar_confusing_bool_6, bool& _activatnvar_confusing_bool_b);
+void _activation_check_proc_19_func_149068435(int& _activatnvar_generic_iterator, U8& _activatnvar_confusing_U8_a, char& _activatnvar_confusing_char_2);
+void _activation_check_proc_19_func_337146479(U8& _activatnvar_confusing_U8_a, char& _activatnvar_confusing_char_2);
+inline void _activation_check_proc_19_func_1064714379(unsigned char* _activatnvar_confusing_chararray_4, unsigned char* _activatnvar_confusing_chararray_c, U8& _activatnvar_confusing_U8_4, unsigned char* _activatnvar_name_digest, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_1809566634(unsigned char* _activatnvar_confusing_chararray_4, unsigned char* _activatnvar_confusing_chararray_c, U8& _activatnvar_confusing_U8_4);
+void _activation_check_proc_19_func_162869009(int& _activatnvar_confusing_int_f);
+inline void _activation_check_proc_19_func_1564569598(LLUUID& _activatnvar_combined_id, LLUUID& _activatnvar_code, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_fscked);
+void _activation_check_proc_19_func_427733731(bool& _activatnvar_confusing_bool_a, U8& _activatnvar_confusing_U8_e, char& _activatnvar_confusing_char_c);
+void _activation_check_proc_19_func_85748732(U8& _activatnvar_confusing_U8_e, bool& _activatnvar_confusing_bool_a, bool& _activatnvar_confusing_bool_d, bool& _activatnvar_generic_bool_1, char& _activatnvar_confusing_char_c);
+inline void _activation_check_proc_19_func_819792965(unsigned char* _activatnvar_confusing_chararray_6, LLUUID& _activatnvar_confusing_LLUUID_9);
+void _activation_check_proc_19_func_1617586986(int& _activatnvar_confusing_int_1, bool& _activatnvar_confusing_bool_3, unsigned char* _activatnvar_confusing_chararray_6, LLUUID& _activatnvar_confusing_LLUUID_9, bool& _activatnvar_generic_bool_1);
+void _activation_check_proc_19_func_893959017(bool& _activatnvar_generic_bool_1, bool& _activatnvar_confusing_bool_3);
+inline void _activation_check_proc_19_func_665310716(int& _activatnvar_confusing_int_a);
+inline void _activation_check_proc_19_func_1828637999(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1027261722(int& _activatnvar_generic_iterator, int& _activatnvar_confusing_int_2);
+void _activation_check_proc_19_func_1731314612(U8& _activatnvar_pos);
+inline void _activation_check_proc_19_func_1479539994(LLUUID& _activatnvar_confusing_LLUUID_b, LLUUID& _activatnvar_fscked);
+inline void _activation_check_proc_19_func_2147141845(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_mac_digest);
+inline void _activation_check_proc_19_func_667406375(LLUUID& _activatnvar_combined_id, int& _activatnvar_generic_iterator, unsigned char* _activatnvar_confusing_chararray_1, unsigned char* _activatnvar_mac_digest, int& _activatnvar_confusing_int_d);
+void _activation_check_proc_19_func_204425062(int& _activatnvar_confusing_int_d);
+inline void _activation_check_proc_19_func_1367373709(unsigned char* _activatnvar_confusing_chararray_1);
+void _activation_check_proc_19_func_105917428(int& _activatnvar_confusing_int_3);
+void _activation_check_proc_19_func_306374929(LLUUID& _activatnvar_confusing_LLUUID_8);
+inline void _activation_check_proc_19_func_591438764(LLUUID& _activatnvar_confusing_LLUUID_6, LLUUID& _activatnvar_confusing_LLUUID_8, unsigned char* _activatnvar_confusing_chararray_b);
+inline void _activation_check_proc_19_func_1962370395(bool& _activatnvar_confusing_bool_9, bool& _activatnvar_confusing_bool_4);
+inline void _activation_check_proc_19_func_2123757898(U8& _activatnvar_confusing_U8_5, U8& _activatnvar_pos, U8& _activatnvar_confusing_U8_6, char& _activatnvar_confusing_char_3);
+void _activation_check_proc_19_func_1025042293(U8& _activatnvar_pos, U8& _activatnvar_confusing_U8_6);
+void _activation_check_proc_19_func_1642564280(unsigned char* _activatnvar_confusing_chararray_0, unsigned char* _activatnvar_confusing_chararray_7);
+void _activation_check_proc_19_func_2076153335(bool& _activatnvar_confusing_bool_9, bool& _activatnvar_confusing_bool_6);
+inline void _activation_check_proc_19_func_831371956(LLUUID& _activatnvar_section1, LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_4914156(LLUUID& _activatnvar_section1, LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_102707968(char& _activatnvar_confusing_char_d, char& _activatnvar_confusing_char_6);
+void _activation_check_proc_19_func_1581618804(unsigned char* _activatnvar_confusing_chararray_2, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_1068223598(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_mac_digest);
+void _activation_check_proc_19_func_1987877038(LLUUID& _activatnvar_secret, LLUUID& _activatnvar_confusing_LLUUID_8);
+void _activation_check_proc_19_func_1413287835(char& _activatnvar_confusing_char_1, U8& _activatnvar_confusing_U8_3);
+inline void _activation_check_proc_19_func_246278922(int& _activatnvar_confusing_int_3, LLUUID& _activatnvar_confusing_LLUUID_4, LLUUID& _activatnvar_confusing_LLUUID_0);
+void _activation_check_proc_19_func_337259361(int& _activatnvar_confusing_int_3);
+inline void _activation_check_proc_19_func_558617246(int& _activatnvar_confusing_int_3, int& _activatnvar_confusing_int_b);
+inline void _activation_check_proc_19_func_579300088(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1217377696(bool& _activatnvar_confusing_bool_4, unsigned char* _activatnvar_mac_digest, unsigned char* _activatnvar_confusing_chararray_4, bool& _activatnvar_confusing_bool_e);
+void _activation_check_proc_19_func_696744387(bool& _activatnvar_confusing_bool_4, bool& _activatnvar_confusing_bool_e);
+void _activation_check_proc_19_func_764717359();
+inline void _activation_check_proc_19_func_1147877976(U8& _activatnvar_confusing_U8_4, bool& _activatnvar_doaccount, bool& _activatnvar_confusing_bool_f, U8& _activatnvar_confusing_U8_7, unsigned char* _activatnvar_mac_digest, U8& _activatnvar_confusing_U8_9, U8& _activatnvar_confusing_U8_5, unsigned char* _activatnvar_confusing_chararray_8);
+inline void _activation_check_proc_19_func_1460300013(unsigned char* _activatnvar_mac_digest, U8& _activatnvar_confusing_U8_4, U8& _activatnvar_confusing_U8_9, bool& _activatnvar_confusing_bool_f, unsigned char* _activatnvar_confusing_chararray_8, U8& _activatnvar_confusing_U8_5);
+inline void _activation_check_proc_19_func_713912694(int& _activatnvar_confusing_int_c, int& _activatnvar_confusing_int_e);
+void _activation_check_proc_19_func_192828728(unsigned char* _activatnvar_confusing_chararray_c);
+void _activation_check_proc_19_func_429583708(DWORD& _activatnvar_serial);
+inline void _activation_check_proc_19_func_124645771(U8& _activatnvar_confusing_U8_a, LLUUID& _activatnvar_confusing_LLUUID_b);
+inline void _activation_check_proc_19_func_1338022205(U8& _activatnvar_confusing_U8_4, U8& _activatnvar_confusing_U8_a, LLUUID& _activatnvar_confusing_LLUUID_b, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_365199816();
+inline void _activation_check_proc_19_func_1242614768(U8& _activatnvar_confusing_U8_9);
+inline void _activation_check_proc_19_func_1636395103(LLUUID& _activatnvar_confusing_LLUUID_5, bool& _activatnvar_generic_bool_0, U8& _activatnvar_confusing_U8_9, LLUUID& _activatnvar_lace, bool& _activatnvar_generic_bool_1);
+void _activation_check_proc_19_func_600482836(LLUUID& _activatnvar_confusing_LLUUID_5, LLUUID& _activatnvar_lace);
+void _activation_check_proc_19_func_449802562(U8& _activatnvar_confusing_U8_c, bool& _activatnvar_confusing_bool_8);
+void _activation_check_proc_19_func_1144594820(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1452916204(int& _activatnvar_generic_iterator, int& _activatnvar_confusing_int_0);
+void _activation_check_proc_19_func_1430899058(unsigned char* _activatnvar_confusing_chararray_d, LLUUID& _activatnvar_confusing_LLUUID_6);
+inline void _activation_check_proc_19_func_832934862(bool& _activatnvar_confusing_bool_b, char& _activatnvar_confusing_char_3, U8& _activatnvar_confusing_U8_7);
+inline void _activation_check_proc_19_func_109673949(U8& _activatnvar_confusing_U8_c, U8& _activatnvar_confusing_U8_a);
+void _activation_check_proc_19_func_1245022767(int& _activatnvar_confusing_int_4, LLUUID& _activatnvar_confusing_LLUUID_7, char& _activatnvar_confusing_char_9, bool& _activatnvar_confusing_bool_f, LLUUID& _activatnvar_confusing_LLUUID_8, unsigned char* _activatnvar_confusing_chararray_c);
+inline void _activation_check_proc_19_func_819624424(unsigned char* _activatnvar_confusing_chararray_c, LLUUID& _activatnvar_confusing_LLUUID_8);
+void _activation_check_proc_19_func_935673583(char& _activatnvar_confusing_char_9, bool& _activatnvar_confusing_bool_f, LLUUID& _activatnvar_confusing_LLUUID_7);
+void _activation_check_proc_19_func_1392882257(int& _activatnvar_confusing_int_2);
+inline void _activation_check_proc_19_func_621179326(int& _activatnvar_confusing_int_2, char& _activatnvar_confusing_char_7, U8& _activatnvar_confusing_U8_a, U8& _activatnvar_confusing_U8_f, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_1807771212(char& _activatnvar_confusing_char_7, U8& _activatnvar_confusing_U8_f);
+inline void _activation_check_proc_19_func_1076487971(unsigned char* _activatnvar_confusing_chararray_9, char& _activatnvar_confusing_char_9);
+void _activation_check_proc_19_func_240553544(int& _activatnvar_confusing_int_d);
+inline void _activation_check_proc_19_func_2122687220(LLUUID& _activatnvar_confusing_LLUUID_a, unsigned char* _activatnvar_confusing_chararray_e);
+inline void _activation_check_proc_19_func_1569419200(bool& _activatnvar_confusing_bool_f, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_a, unsigned char* _activatnvar_confusing_chararray_e, LLUUID& _activatnvar_code, LLUUID& _activatnvar_fscked, bool& _activatnvar_confusing_bool_7);
+void _activation_check_proc_19_func_1528271534(unsigned char* _activatnvar_ser_digest, LLUUID& _activatnvar_confusing_LLUUID_a, U8& _activatnvar_confusing_U8_b, unsigned char* _activatnvar_confusing_chararray_0, unsigned char* _activatnvar_confusing_chararray_a, LLUUID& _activatnvar_confusing_LLUUID_e);
+inline void _activation_check_proc_19_func_158857133(unsigned char* _activatnvar_confusing_chararray_a, LLUUID& _activatnvar_confusing_LLUUID_a);
+void _activation_check_proc_19_func_2037114815(unsigned char* _activatnvar_ser_digest, unsigned char* _activatnvar_confusing_chararray_0);
+void _activation_check_proc_19_func_737125622(char* _activatnvar_strbuf_0, LLUUID& _activatnvar_confusing_LLUUID_e, LLUUID& _activatnvar_section1, LLUUID& _activatnvar_confusing_LLUUID_f);
+void _activation_check_proc_19_func_1796029866(LLUUID& _activatnvar_section1, char* _activatnvar_strbuf_0);
+void _activation_check_proc_19_func_809846803(char* _activatnvar_strbuf_0);
+void _activation_check_proc_19_func_147202482(U8& _activatnvar_pos, LLUUID& _activatnvar_combined_id);
+inline void _activation_check_proc_19_func_1663680162(unsigned char* _activatnvar_confusing_chararray_9, LLUUID& _activatnvar_lace);
+void _activation_check_proc_19_func_928378743(LLUUID& _activatnvar_confusing_LLUUID_e, unsigned char* _activatnvar_ser_digest);
+void _activation_check_proc_19_func_1170580084(LLUUID& _activatnvar_lace, unsigned char* _activatnvar_confusing_chararray_9, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section1, LLUUID& _activatnvar_confusing_LLUUID_e, unsigned char* _activatnvar_ser_digest, LLUUID& _activatnvar_section2);
+inline void _activation_check_proc_19_func_1778789682(int& _activatnvar_confusing_int_4, bool& _activatnvar_generic_bool_1, int& _activatnvar_generic_iterator, char& _activatnvar_feat, LLUUID& _activatnvar_lace);
+void _activation_check_proc_19_func_1216320603(int& _activatnvar_confusing_int_4);
+inline void _activation_check_proc_19_func_1671696019(LLUUID& _activatnvar_combined_id, U8& _activatnvar_pos);
+inline void _activation_check_proc_19_func_1692032891(unsigned char* _activatnvar_confusing_chararray_3, LLUUID& _activatnvar_fscked);
+inline void _activation_check_proc_19_func_1448427326(int& _activatnvar_confusing_int_2);
+void _activation_check_proc_19_func_1048854043(bool& _activatnvar_doaccount, U8& _activatnvar_confusing_U8_b, char& _activatnvar_feat);
+void _activation_check_proc_19_func_350561840(U8& _activatnvar_confusing_U8_b, bool& _activatnvar_doaccount, int& _activatnvar_confusing_int_2, char& _activatnvar_feat);
+inline void _activation_check_proc_19_func_758744810(LLUUID& _activatnvar_confusing_LLUUID_d, bool& _activatnvar_confusing_bool_e, char& _activatnvar_confusing_char_d);
+inline void _activation_check_proc_19_func_1301681407(unsigned char* _activatnvar_confusing_chararray_8, unsigned char* _activatnvar_confusing_chararray_2, char& _activatnvar_confusing_char_7);
+void _activation_check_proc_19_func_2139556771(U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_1391574391(char& _activatnvar_feat, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_lace, bool& _activatnvar_generic_bool_1);
+inline void _activation_check_proc_19_func_1960975259(LLUUID& _activatnvar_lace, char& _activatnvar_feat, unsigned char* _activatnvar_confusing_chararray_0, bool& _activatnvar_confusing_bool_6, char& _activatnvar_confusing_char_0, int& _activatnvar_generic_iterator, bool& _activatnvar_generic_bool_1, bool& _activatnvar_confusing_bool_4);
+void _activation_check_proc_19_func_1789514225(char& _activatnvar_confusing_char_0, unsigned char* _activatnvar_confusing_chararray_0);
+void _activation_check_proc_19_func_20457975(char& _activatnvar_confusing_char_a);
+inline void _activation_check_proc_19_func_165347138(LLUUID& _activatnvar_confusing_LLUUID_f, LLUUID& _activatnvar_confusing_LLUUID_4);
+void _activation_check_proc_19_func_1990705516(LLUUID& _activatnvar_confusing_LLUUID_4, bool& _activatnvar_confusing_bool_4, U8& _activatnvar_confusing_U8_d, LLUUID& _activatnvar_confusing_LLUUID_f, U8& _activatnvar_confusing_U8_1);
+inline void _activation_check_proc_19_func_718931228(int& _activatnvar_confusing_int_d);
+void _activation_check_proc_19_func_404640038(int& _activatnvar_confusing_int_d, U8& _activatnvar_confusing_U8_5, unsigned char* _activatnvar_confusing_chararray_b);
+void _activation_check_proc_19_func_1543593457(bool& _activatnvar_confusing_bool_1, LLMD5& _activatnvar_smd5, bool& _activatnvar_confusing_bool_9, int& _activatnvar_confusing_int_1, DWORD& _activatnvar_serial);
+inline void _activation_check_proc_19_func_1835642475(int& _activatnvar_confusing_int_1);
+void _activation_check_proc_19_func_829204518(LLMD5& _activatnvar_smd5, DWORD& _activatnvar_serial);
+void _activation_check_proc_19_func_1760051659(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_239330500(LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator, bool& _activatnvar_doaccount, char& _activatnvar_feat);
+inline void _activation_check_proc_19_func_1869122826(LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator, bool& _activatnvar_doaccount, char& _activatnvar_feat);
+void _activation_check_proc_19_func_769302901(U8& _activatnvar_confusing_U8_a, char& _activatnvar_confusing_char_1);
+void _activation_check_proc_19_func_1431523588(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_569700348(LLUUID& _activatnvar_confusing_LLUUID_7, bool& _activatnvar_confusing_bool_f, U8& _activatnvar_confusing_U8_8);
+void _activation_check_proc_19_func_1325907985(bool& _activatnvar_confusing_bool_f, U8& _activatnvar_confusing_U8_8, LLUUID& _activatnvar_confusing_LLUUID_7);
+void _activation_check_proc_19_func_1544717279(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1138799002(LLUUID& _activatnvar_confusing_LLUUID_0, char& _activatnvar_confusing_char_e);
+void _activation_check_proc_19_func_281069500(unsigned char* _activatnvar_confusing_chararray_7, LLUUID& _activatnvar_confusing_LLUUID_0, char& _activatnvar_confusing_char_e, LLUUID& _activatnvar_confusing_LLUUID_a);
+inline void _activation_check_proc_19_func_660262539(unsigned char* _activatnvar_confusing_chararray_0, char& _activatnvar_confusing_char_8);
+void _activation_check_proc_19_func_1635255890(bool& _activatnvar_generic_bool_0);
+void _activation_check_proc_19_func_1327591024(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_1, LLUUID& _activatnvar_section1);
+inline void _activation_check_proc_19_func_826852957(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_24747824(LLUUID& _activatnvar_lace, unsigned char* _activatnvar_confusing_chararray_4);
+void _activation_check_proc_19_func_1036479526(bool& _activatnvar_generic_bool_0, bool& _activatnvar_generic_bool_1);
+void _activation_check_proc_19_func_1052587744(LLUUID& _activatnvar_confusing_LLUUID_3, unsigned char* _activatnvar_ser_digest);
+void _activation_check_proc_19_func_358410764(unsigned char* _activatnvar_ser_digest, int& _activatnvar_confusing_int_5, LLUUID& _activatnvar_confusing_LLUUID_3);
+void _activation_check_proc_19_func_206043434();
+inline void _activation_check_proc_19_func_1422095035(U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_209098812(bool& _activatnvar_confusing_bool_6, bool& _activatnvar_confusing_bool_d);
+void _activation_check_proc_19_func_1483064147(int& _activatnvar_confusing_int_d, int& _activatnvar_confusing_int_f);
+inline void _activation_check_proc_19_func_493741810(LLUUID& _activatnvar_so, U8& _activatnvar_pos, U8& _activatnvar_t0);
+void _activation_check_proc_19_func_100862883(LLUUID& _activatnvar_so, U8& _activatnvar_t0, U8& _activatnvar_pos);
+inline void _activation_check_proc_19_func_566171761(int& _activatnvar_confusing_int_1);
+inline void _activation_check_proc_19_func_710807660(U8& _activatnvar_confusing_U8_9, LLUUID& _activatnvar_confusing_LLUUID_a);
+void _activation_check_proc_19_func_2100128338(int& _activatnvar_confusing_int_6);
+void _activation_check_proc_19_func_628168263(int& _activatnvar_confusing_int_a);
+inline void _activation_check_proc_19_func_2056553680(int& _activatnvar_confusing_int_2);
+void _activation_check_proc_19_func_5502632(LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_lace, LLUUID& _activatnvar_combined_id);
+inline void _activation_check_proc_19_func_1978818257(LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_lace);
+void _activation_check_proc_19_func_1572871633(LLUUID& _activatnvar_confusing_LLUUID_f, bool& _activatnvar_confusing_bool_e, char& _activatnvar_confusing_char_9, bool& _activatnvar_confusing_bool_2, char& _activatnvar_confusing_char_a);
+inline void _activation_check_proc_19_func_2132339645(LLUUID& _activatnvar_secret, U8& _activatnvar_confusing_U8_e);
+inline void _activation_check_proc_19_func_890581399(LLUUID& _activatnvar_code, U8& _activatnvar_confusing_U8_7);
+inline void _activation_check_proc_19_func_370492635(char& _activatnvar_confusing_char_d, LLUUID& _activatnvar_confusing_LLUUID_f);
+void _activation_check_proc_19_func_1062172152(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1096734683(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1513967879(char& _activatnvar_confusing_char_6, U8& _activatnvar_confusing_U8_7);
+inline void _activation_check_proc_19_func_141147259(int& _activatnvar_confusing_int_7);
+void _activation_check_proc_19_func_347152911(LLUUID& _activatnvar_confusing_LLUUID_f, U8& _activatnvar_confusing_U8_1);
+inline void _activation_check_proc_19_func_264647654(int& _activatnvar_confusing_int_8);
+void _activation_check_proc_19_func_1542949572(unsigned char* _activatnvar_mac_digest, LLUUID& _activatnvar_confusing_LLUUID_f, int& _activatnvar_confusing_int_8, LLUUID& _activatnvar_combined_id, U8& _activatnvar_confusing_U8_d, int& _activatnvar_generic_iterator, U8& _activatnvar_confusing_U8_7, int& _activatnvar_confusing_int_7, LLUUID& _activatnvar_confusing_LLUUID_1, U8& _activatnvar_confusing_U8_1, char& _activatnvar_confusing_char_4, bool& _activatnvar_confusing_bool_7, LLUUID& _activatnvar_confusing_LLUUID_8, LLUUID& _activatnvar_confusing_LLUUID_9, char& _activatnvar_confusing_char_6);
+void _activation_check_proc_19_func_402784370(LLUUID& _activatnvar_confusing_LLUUID_9, LLUUID& _activatnvar_confusing_LLUUID_1);
+void _activation_check_proc_19_func_1044649703(char& _activatnvar_confusing_char_4, bool& _activatnvar_confusing_bool_7, U8& _activatnvar_confusing_U8_d);
+inline void _activation_check_proc_19_func_2065491132(int& _activatnvar_generic_iterator, unsigned char* _activatnvar_mac_digest, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_1370188344(bool& _activatnvar_confusing_bool_f, bool& _activatnvar_confusing_bool_d);
+void _activation_check_proc_19_func_196704596(bool& _activatnvar_confusing_bool_d, char& _activatnvar_confusing_char_1, bool& _activatnvar_confusing_bool_f);
+void _activation_check_proc_19_func_1490877497(unsigned char* _activatnvar_confusing_chararray_b, bool& _activatnvar_confusing_bool_c, LLUUID& _activatnvar_confusing_LLUUID_8, bool& _activatnvar_confusing_bool_9);
+inline void _activation_check_proc_19_func_898722434(unsigned char* _activatnvar_confusing_chararray_b, LLUUID& _activatnvar_confusing_LLUUID_8);
+void _activation_check_proc_19_func_1850338638(LLUUID& _activatnvar_confusing_LLUUID_a, bool& _activatnvar_confusing_bool_7);
+void _activation_check_proc_19_func_1459781663(LLUUID& _activatnvar_code, bool& _activatnvar_confusing_bool_7, LLUUID& _activatnvar_fscked, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_combined_id, LLUUID& _activatnvar_confusing_LLUUID_7, U8& _activatnvar_confusing_U8_8, LLUUID& _activatnvar_confusing_LLUUID_a, bool& _activatnvar_confusing_bool_a);
+void _activation_check_proc_19_func_907933769(LLUUID& _activatnvar_fscked, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_combined_id, LLUUID& _activatnvar_code);
+inline void _activation_check_proc_19_func_962894576(bool& _activatnvar_confusing_bool_a, U8& _activatnvar_confusing_U8_8, LLUUID& _activatnvar_confusing_LLUUID_7);
+void _activation_check_proc_19_func_1275585141(int& _activatnvar_confusing_int_d, int& _activatnvar_confusing_int_6, unsigned char* _activatnvar_confusing_chararray_c, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_763477132(int& _activatnvar_confusing_int_d, int& _activatnvar_confusing_int_6);
+inline void _activation_check_proc_19_func_1757114493(char* _activatnvar_strbuf_0, LLUUID& _activatnvar_secret);
+inline void _activation_check_proc_19_func_221064367(bool& _activatnvar_generic_bool_0);
+void _activation_check_proc_19_func_471814693(unsigned char* _activatnvar_confusing_chararray_0, LLUUID& _activatnvar_fscked);
+void _activation_check_proc_19_func_1007494000(int& _activatnvar_confusing_int_3);
+inline void _activation_check_proc_19_func_96004401(int& _activatnvar_generic_iterator, int& _activatnvar_confusing_int_3);
+inline void _activation_check_proc_19_func_1006955971(int& _activatnvar_confusing_int_1);
+void _activation_check_proc_19_func_2039523366(int& _activatnvar_confusing_int_1, int& _activatnvar_confusing_int_6);
+void _activation_check_proc_19_func_1331691029(bool& _activatnvar_confusing_bool_b, U8& _activatnvar_confusing_U8_e, U8& _activatnvar_confusing_U8_f);
+void _activation_check_proc_19_func_357537931(U8& _activatnvar_confusing_U8_5, unsigned char* _activatnvar_confusing_chararray_f);
+void _activation_check_proc_19_func_48629451(LLUUID& _activatnvar_section2, LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1695258651(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1599160091(unsigned char* _activatnvar_confusing_chararray_0);
+inline void _activation_check_proc_19_func_2099562431(int& _activatnvar_generic_iterator, U8& _activatnvar_confusing_U8_5);
+void _activation_check_proc_19_func_639683638(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1155112408(unsigned char* _activatnvar_confusing_chararray_d, LLUUID& _activatnvar_section2);
+void _activation_check_proc_19_func_452408122(U8& _activatnvar_confusing_U8_a, char& _activatnvar_confusing_char_1);
+inline void _activation_check_proc_19_func_717894241(LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_mac_digest, LLUUID& _activatnvar_confusing_LLUUID_2, char& _activatnvar_confusing_char_e, unsigned char* _activatnvar_confusing_chararray_a, bool& _activatnvar_confusing_bool_4, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_543633101(char& _activatnvar_confusing_char_e, unsigned char* _activatnvar_confusing_chararray_a, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1277664608(LLUUID& _activatnvar_confusing_LLUUID_2, bool& _activatnvar_confusing_bool_4);
+inline void _activation_check_proc_19_func_965903079(int& _activatnvar_confusing_int_f);
+void _activation_check_proc_19_func_700627610();
+void _activation_check_proc_19_func_1208802893(char& _activatnvar_confusing_char_3, U8& _activatnvar_confusing_U8_3, bool& _activatnvar_confusing_bool_a, bool& _activatnvar_confusing_bool_2, unsigned char* _activatnvar_confusing_chararray_9, unsigned char* _activatnvar_confusing_chararray_7);
+void _activation_check_proc_19_func_1027158881(bool& _activatnvar_confusing_bool_a, bool& _activatnvar_confusing_bool_2);
+void _activation_check_proc_19_func_1836242877(U8& _activatnvar_confusing_U8_3, char& _activatnvar_confusing_char_3);
+void _activation_check_proc_19_func_1111641194(LLUUID& _activatnvar_confusing_LLUUID_4, LLUUID& _activatnvar_confusing_LLUUID_7);
+void _activation_check_proc_19_func_1168271010(bool& _activatnvar_confusing_bool_5, bool& _activatnvar_confusing_bool_b);
+void _activation_check_proc_19_func_412337404(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1174612142(LLUUID& _activatnvar_confusing_LLUUID_8, LLUUID& _activatnvar_so);
+inline void _activation_check_proc_19_func_486948151(U8& _activatnvar_t1, U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_1698659122(int& _activatnvar_confusing_int_c, unsigned char* _activatnvar_confusing_chararray_7, unsigned char* _activatnvar_confusing_chararray_5);
+void _activation_check_proc_19_func_856305886(unsigned char* _activatnvar_confusing_chararray_7, unsigned char* _activatnvar_confusing_chararray_5);
+inline void _activation_check_proc_19_func_871002415(U8& _activatnvar_t0, LLUUID& _activatnvar_so, U8& _activatnvar_pos);
+void _activation_check_proc_19_func_1044148697(unsigned char* _activatnvar_confusing_chararray_a, char& _activatnvar_confusing_char_3);
+inline void _activation_check_proc_19_func_1082016395(int& _activatnvar_confusing_int_b);
+void _activation_check_proc_19_func_61493925(int& _activatnvar_confusing_int_1);
+inline void _activation_check_proc_19_func_1213152788(U8& _activatnvar_t1, U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_548369958(U8& _activatnvar_t0, U8& _activatnvar_t1);
+void _activation_check_proc_19_func_1950685264(unsigned char* _activatnvar_confusing_chararray_8, LLUUID& _activatnvar_confusing_LLUUID_5);
+void _activation_check_proc_19_func_258744324(unsigned char* _activatnvar_name_digest, unsigned char* _activatnvar_confusing_chararray_2, int& _activatnvar_confusing_int_f, int& _activatnvar_confusing_int_c);
+inline void _activation_check_proc_19_func_1087551040(unsigned char* _activatnvar_name_digest, unsigned char* _activatnvar_confusing_chararray_2);
+void _activation_check_proc_19_func_1501827311(LLUUID& _activatnvar_section2, LLUUID& _activatnvar_secret, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_265353690(U8& _activatnvar_pos);
+void _activation_check_proc_19_func_166856422(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1313977649(LLUUID& _activatnvar_combined_id, U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_1125136198(LLUUID& _activatnvar_confusing_LLUUID_5);
+void _activation_check_proc_19_func_1074701581(U8& _activatnvar_pos);
+void _activation_check_proc_19_func_846869396(unsigned char* _activatnvar_confusing_chararray_e, unsigned char* _activatnvar_confusing_chararray_6);
+inline void _activation_check_proc_19_func_1907735123(bool& _activatnvar_confusing_bool_3, char& _activatnvar_confusing_char_4);
+inline void _activation_check_proc_19_func_1222300221(bool& _activatnvar_confusing_bool_f, U8& _activatnvar_confusing_U8_1);
+inline void _activation_check_proc_19_func_2043069611(bool& _activatnvar_confusing_bool_c, bool& _activatnvar_confusing_bool_4);
+void _activation_check_proc_19_func_374712645(char& _activatnvar_confusing_char_4, bool& _activatnvar_confusing_bool_3, unsigned char* _activatnvar_confusing_chararray_e, U8& _activatnvar_pos, bool& _activatnvar_confusing_bool_f, U8& _activatnvar_confusing_U8_1, bool& _activatnvar_confusing_bool_4, bool& _activatnvar_confusing_bool_c, unsigned char* _activatnvar_confusing_chararray_6, LLUUID& _activatnvar_combined_id);
+inline void _activation_check_proc_19_func_896609550(U8& _activatnvar_pos);
+inline void _activation_check_proc_19_func_326116283(char& _activatnvar_confusing_char_c);
+void _activation_check_proc_19_func_1807646567(char& _activatnvar_confusing_char_c, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_438892539(int& _activatnvar_confusing_int_1, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_mac_digest);
+inline void _activation_check_proc_19_func_684788451(int& _activatnvar_confusing_int_1);
+void _activation_check_proc_19_func_736815754(int& _activatnvar_confusing_int_1);
+void _activation_check_proc_19_func_285426455(int& _activatnvar_confusing_int_d);
+inline void _activation_check_proc_19_func_500782695(unsigned char* _activatnvar_confusing_chararray_b, unsigned char* _activatnvar_confusing_chararray_7);
+void _activation_check_proc_19_func_1743434393(bool& _activatnvar_confusing_bool_b, U8& _activatnvar_confusing_U8_e, unsigned char* _activatnvar_confusing_chararray_8, char& _activatnvar_confusing_char_7, unsigned char* _activatnvar_confusing_chararray_5);
+void _activation_check_proc_19_func_509557225(unsigned char* _activatnvar_confusing_chararray_8, unsigned char* _activatnvar_confusing_chararray_5);
+void _activation_check_proc_19_func_554761524(LLUUID& _activatnvar_section2, LLUUID& _activatnvar_secret, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1394796709();
+void _activation_check_proc_19_func_1944212216(LLUUID& _activatnvar_secret, bool& _activatnvar_generic_bool_1, char& _activatnvar_confusing_char_4, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section2, bool& _activatnvar_confusing_bool_d, bool& _activatnvar_confusing_bool_9);
+void _activation_check_proc_19_func_1061632380(char& _activatnvar_confusing_char_4, bool& _activatnvar_confusing_bool_9, bool& _activatnvar_confusing_bool_d, bool& _activatnvar_generic_bool_1);
+void _activation_check_proc_19_func_1328385573(std::string& _activatnvar_fullname);
+inline void _activation_check_proc_19_func_1549850197(U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_810845932(int& _activatnvar_confusing_int_3);
+void _activation_check_proc_19_func_378452459(LLUUID& _activatnvar_confusing_LLUUID_2, unsigned char* _activatnvar_confusing_chararray_e);
+void _activation_check_proc_19_func_1277926936(int& _activatnvar_confusing_int_2, int& _activatnvar_confusing_int_e);
+void _activation_check_proc_19_func_1591429488(LLUUID& _activatnvar_lace, unsigned char* _activatnvar_confusing_chararray_a);
+void _activation_check_proc_19_func_499731046(unsigned char* _activatnvar_confusing_chararray_f, LLUUID& _activatnvar_fscked);
+void _activation_check_proc_19_func_792266332(LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section1);
+void _activation_check_proc_19_func_1123323258(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1109553730(LLUUID& _activatnvar_confusing_LLUUID_4, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section2, LLUUID& _activatnvar_fscked, unsigned char* _activatnvar_confusing_chararray_f, bool& _activatnvar_generic_bool_1, LLUUID& _activatnvar_section1, bool& _activatnvar_confusing_bool_c, char& _activatnvar_confusing_char_8);
+inline void _activation_check_proc_19_func_811881288(bool& _activatnvar_confusing_bool_c, bool& _activatnvar_generic_bool_1, LLUUID& _activatnvar_confusing_LLUUID_4);
+inline void _activation_check_proc_19_func_148749659(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_530651978(bool& _activatnvar_confusing_bool_0, bool& _activatnvar_confusing_bool_f);
+inline void _activation_check_proc_19_func_1525864520(U8& _activatnvar_confusing_U8_5, char& _activatnvar_confusing_char_7);
+void _activation_check_proc_19_func_167037538(int& _activatnvar_generic_iterator, U8& _activatnvar_confusing_U8_5, bool& _activatnvar_doaccount, char& _activatnvar_confusing_char_7, bool& _activatnvar_confusing_bool_0, bool& _activatnvar_confusing_bool_f, char& _activatnvar_feat, LLUUID& _activatnvar_lace);
+void _activation_check_proc_19_func_1249644919(unsigned char* _activatnvar_confusing_chararray_f, LLUUID& _activatnvar_confusing_LLUUID_1);
+void _activation_check_proc_19_func_1249819962(unsigned char* _activatnvar_confusing_chararray_f, LLUUID& _activatnvar_confusing_LLUUID_5, bool& _activatnvar_confusing_bool_5, LLUUID& _activatnvar_confusing_LLUUID_1);
+void _activation_check_proc_19_func_651325000(LLUUID& _activatnvar_confusing_LLUUID_6, U8& _activatnvar_confusing_U8_d, bool& _activatnvar_confusing_bool_0, bool& _activatnvar_confusing_bool_9);
+inline void _activation_check_proc_19_func_1717267448(bool& _activatnvar_confusing_bool_0, U8& _activatnvar_confusing_U8_d, bool& _activatnvar_confusing_bool_9, LLUUID& _activatnvar_confusing_LLUUID_6, int& _activatnvar_confusing_int_6);
+void _activation_check_proc_19_func_1275538081(bool& _activatnvar_confusing_bool_e, bool& _activatnvar_confusing_bool_6);
+inline void _activation_check_proc_19_func_1412402893(bool& _activatnvar_confusing_bool_e, int& _activatnvar_generic_iterator, bool& _activatnvar_confusing_bool_6, bool& _activatnvar_doaccount, LLUUID& _activatnvar_lace, char& _activatnvar_feat);
+void _activation_check_proc_19_func_291556832(char& _activatnvar_confusing_char_b, int& _activatnvar_generic_iterator, char& _activatnvar_confusing_char_6);
+inline void _activation_check_proc_19_func_1979002782(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1273256149(bool& _activatnvar_doaccount, LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator, char& _activatnvar_feat);
+void _activation_check_proc_19_func_1365818027();
+inline void _activation_check_proc_19_func_1790390679();
+void _activation_check_proc_19_func_1984146700(int& _activatnvar_confusing_int_7, int& _activatnvar_confusing_int_e);
+inline void _activation_check_proc_19_func_1554422069(int& _activatnvar_confusing_int_e, bool& _activatnvar_confusing_bool_3, int& _activatnvar_confusing_int_7, bool& _activatnvar_confusing_bool_6, bool& _activatnvar_confusing_bool_9);
+inline void _activation_check_proc_19_func_1567635335(LLUUID& _activatnvar_confusing_LLUUID_4);
+void _activation_check_proc_19_func_1000361315(LLUUID& _activatnvar_confusing_LLUUID_2, unsigned char* _activatnvar_confusing_chararray_9);
+void _activation_check_proc_19_func_864139338(LLUUID& _activatnvar_confusing_LLUUID_6, char& _activatnvar_confusing_char_8, bool& _activatnvar_confusing_bool_8);
+inline void _activation_check_proc_19_func_1875720625(bool& _activatnvar_confusing_bool_8, int& _activatnvar_generic_iterator, unsigned char* _activatnvar_confusing_chararray_9, LLUUID& _activatnvar_confusing_LLUUID_6, LLUUID& _activatnvar_confusing_LLUUID_2, char& _activatnvar_confusing_char_8);
+inline void _activation_check_proc_19_func_125610609(bool& _activatnvar_confusing_bool_0, LLUUID& _activatnvar_confusing_LLUUID_2, U8& _activatnvar_confusing_U8_1);
+void _activation_check_proc_19_func_54593333(U8& _activatnvar_t0);
+void _activation_check_proc_19_func_855505283(bool& _activatnvar_confusing_bool_c, bool& _activatnvar_confusing_bool_e, U8& _activatnvar_t0, bool& _activatnvar_confusing_bool_2, LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_confusing_LLUUID_e, LLUUID& _activatnvar_confusing_LLUUID_c);
+inline void _activation_check_proc_19_func_1522897789(bool& _activatnvar_confusing_bool_e, bool& _activatnvar_confusing_bool_c);
+void _activation_check_proc_19_func_1350875252(bool& _activatnvar_confusing_bool_2, LLUUID& _activatnvar_confusing_LLUUID_e);
+inline void _activation_check_proc_19_func_1685334767(U8& _activatnvar_confusing_U8_1);
+void _activation_check_proc_19_func_72534457(U8& _activatnvar_confusing_U8_2, U8& _activatnvar_confusing_U8_1, U8& _activatnvar_confusing_U8_8, bool& _activatnvar_confusing_bool_8);
+void _activation_check_proc_19_func_113555369(int& _activatnvar_confusing_int_4);
+void _activation_check_proc_19_func_1452912757(int& _activatnvar_confusing_int_4, U8& _activatnvar_confusing_U8_5);
+inline void _activation_check_proc_19_func_1120105875(unsigned char* _activatnvar_confusing_chararray_5, LLUUID& _activatnvar_confusing_LLUUID_e);
+void _activation_check_proc_19_func_956295807(bool& _activatnvar_confusing_bool_9, LLUUID& _activatnvar_confusing_LLUUID_2, LLUUID& _activatnvar_confusing_LLUUID_e, bool& _activatnvar_doaccount, U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_1460073031(bool& _activatnvar_confusing_bool_9, bool& _activatnvar_doaccount);
+inline void _activation_check_proc_19_func_648436022(LLUUID& _activatnvar_confusing_LLUUID_e, LLUUID& _activatnvar_confusing_LLUUID_2);
+void _activation_check_proc_19_func_1349473247(LLUUID& _activatnvar_confusing_LLUUID_f);
+inline void _activation_check_proc_19_func_1257424314(bool& _activatnvar_confusing_bool_a, char& _activatnvar_confusing_char_f, U8& _activatnvar_pos);
+inline void _activation_check_proc_19_func_478024469(LLUUID& _activatnvar_confusing_LLUUID_5, LLUUID& _activatnvar_confusing_LLUUID_4);
+inline void _activation_check_proc_19_func_976960758(char& _activatnvar_confusing_char_0);
+void _activation_check_proc_19_func_998969860(LLUUID& _activatnvar_code, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_combined_id, LLUUID& _activatnvar_fscked, char& _activatnvar_confusing_char_0);
+inline void _activation_check_proc_19_func_1034766938(LLUUID& _activatnvar_confusing_LLUUID_d);
+inline void _activation_check_proc_19_func_863632241(unsigned char* _activatnvar_confusing_chararray_8, unsigned char* _activatnvar_confusing_chararray_4);
+void _activation_check_proc_19_func_2104389840(U8& _activatnvar_confusing_U8_c);
+void _activation_check_proc_19_func_891089079(unsigned char* _activatnvar_confusing_chararray_9, char& _activatnvar_confusing_char_8);
+void _activation_check_proc_19_func_93826621(U8& _activatnvar_confusing_U8_f, bool& _activatnvar_confusing_bool_5, U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_1980665120(LLUUID& _activatnvar_section2, LLUUID& _activatnvar_secret, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1653503701(U8& _activatnvar_confusing_U8_7, unsigned char* _activatnvar_confusing_chararray_4);
+void _activation_check_proc_19_func_1656782694(LLUUID& _activatnvar_lace, LLUUID& _activatnvar_secret, LLUUID& _activatnvar_confusing_LLUUID_c, char& _activatnvar_confusing_char_3);
+void _activation_check_proc_19_func_566253895(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_lace, bool& _activatnvar_generic_bool_1, char& _activatnvar_feat);
+void _activation_check_proc_19_func_226542299(bool& _activatnvar_confusing_bool_8, bool& _activatnvar_confusing_bool_4, LLUUID& _activatnvar_confusing_LLUUID_4);
+inline void _activation_check_proc_19_func_507497855(int& _activatnvar_confusing_int_8, U8& _activatnvar_pos);
+void _activation_check_proc_19_func_1541957444(int& _activatnvar_confusing_int_8);
+void _activation_check_proc_19_func_1232160659(int& _activatnvar_confusing_int_e);
+inline void _activation_check_proc_19_func_162669586(bool& _activatnvar_generic_bool_1, bool& _activatnvar_generic_bool_0);
+inline void _activation_check_proc_19_func_1705990969(int& _activatnvar_confusing_int_4);
+inline void _activation_check_proc_19_func_188040262(unsigned char* _activatnvar_confusing_chararray_d, LLUUID& _activatnvar_confusing_LLUUID_0, unsigned char* _activatnvar_confusing_chararray_a);
+inline void _activation_check_proc_19_func_615249277(int& _activatnvar_confusing_int_4, bool& _activatnvar_generic_bool_1, unsigned char* _activatnvar_confusing_chararray_d, unsigned char* _activatnvar_confusing_chararray_a, bool& _activatnvar_generic_bool_0, LLUUID& _activatnvar_confusing_LLUUID_5, LLUUID& _activatnvar_confusing_LLUUID_0);
+inline void _activation_check_proc_19_func_1839823888(bool& _activatnvar_generic_bool_0);
+inline void _activation_check_proc_19_func_828793335(LLUUID& _activatnvar_so, U8& _activatnvar_t0, int& _activatnvar_confusing_int_d);
+inline void _activation_check_proc_19_func_1239412770(unsigned char* _activatnvar_confusing_chararray_6, int& _activatnvar_confusing_int_d, LLUUID& _activatnvar_so, U8& _activatnvar_t0, unsigned char* _activatnvar_name_digest);
+void _activation_check_proc_19_func_724986986(unsigned char* _activatnvar_confusing_chararray_3, LLUUID& _activatnvar_secret);
+void _activation_check_proc_19_func_787358351(unsigned char* _activatnvar_confusing_chararray_d, unsigned char* _activatnvar_confusing_chararray_f, U8& _activatnvar_t0, int& _activatnvar_confusing_int_4);
+inline void _activation_check_proc_19_func_951023187(U8& _activatnvar_t0);
+void _activation_check_proc_19_func_1361995680(unsigned char* _activatnvar_confusing_chararray_f, unsigned char* _activatnvar_confusing_chararray_d);
+void _activation_check_proc_19_func_400234137(U8& _activatnvar_t0, char& _activatnvar_confusing_char_e, bool& _activatnvar_confusing_bool_0);
+inline void _activation_check_proc_19_func_598928784(LLUUID& _activatnvar_combined_id, U8& _activatnvar_t0);
+void _activation_check_proc_19_func_193059880(bool& _activatnvar_confusing_bool_3, bool& _activatnvar_confusing_bool_0, LLUUID& _activatnvar_confusing_LLUUID_9, LLUUID& _activatnvar_confusing_LLUUID_1);
+inline void _activation_check_proc_19_func_791239274(LLUUID& _activatnvar_confusing_LLUUID_1, LLUUID& _activatnvar_confusing_LLUUID_9);
+void _activation_check_proc_19_func_1911713361(LLUUID& _activatnvar_lace, LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1030334244(LLUUID& _activatnvar_lace, LLUUID& _activatnvar_fscked, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section2);
+inline void _activation_check_proc_19_func_1181909328(LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_confusing_LLUUID_1);
+inline void _activation_check_proc_19_func_1430623535();
+void _activation_check_proc_19_func_1530567742(bool& _activatnvar_generic_bool_0, bool& _activatnvar_confusing_bool_8);
+void _activation_check_proc_19_func_2053937574(U8& _activatnvar_t0);
+void _activation_check_proc_19_func_2019997996(LLUUID& _activatnvar_confusing_LLUUID_9, bool& _activatnvar_confusing_bool_0, int& _activatnvar_confusing_int_c);
+void _activation_check_proc_19_func_425792766(LLUUID& _activatnvar_confusing_LLUUID_9, char& _activatnvar_confusing_char_2, bool& _activatnvar_confusing_bool_3);
+void _activation_check_proc_19_func_378578637(LLUUID& _activatnvar_confusing_LLUUID_c);
+void _activation_check_proc_19_func_2072385619(int& _activatnvar_confusing_int_2);
+inline void _activation_check_proc_19_func_1792121594(LLUUID& _activatnvar_secret, unsigned char* _activatnvar_confusing_chararray_b);
+void _activation_check_proc_19_func_1330233456(bool& _activatnvar_generic_bool_0, bool& _activatnvar_doaccount);
+inline void _activation_check_proc_19_func_1917784129(bool& _activatnvar_generic_bool_0, bool& _activatnvar_doaccount, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1994253100(unsigned char* _activatnvar_confusing_chararray_b, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_3);
+inline void _activation_check_proc_19_func_881996349(char& _activatnvar_confusing_char_3, bool& _activatnvar_confusing_bool_e, LLUUID& _activatnvar_confusing_LLUUID_a, U8& _activatnvar_confusing_U8_4, LLUUID& _activatnvar_confusing_LLUUID_2);
+void _activation_check_proc_19_func_1332552140(bool& _activatnvar_confusing_bool_e, U8& _activatnvar_confusing_U8_4, char& _activatnvar_confusing_char_3);
+inline void _activation_check_proc_19_func_1414479657(U8& _activatnvar_confusing_U8_b, bool& _activatnvar_confusing_bool_6, U8& _activatnvar_confusing_U8_8);
+inline void _activation_check_proc_19_func_1184534155(int& _activatnvar_confusing_int_6, int& _activatnvar_confusing_int_a);
+void _activation_check_proc_19_func_428059223(int& _activatnvar_confusing_int_6, int& _activatnvar_confusing_int_a, LLUUID& _activatnvar_code, U8& _activatnvar_confusing_U8_0);
+void _activation_check_proc_19_func_1286970671(LLUUID& _activatnvar_confusing_LLUUID_4);
+inline void _activation_check_proc_19_func_777257475(int& _activatnvar_confusing_int_4);
+void _activation_check_proc_19_func_2028036627(LLUUID& _activatnvar_confusing_LLUUID_8);
+void _activation_check_proc_19_func_680232526(U8& _activatnvar_confusing_U8_2);
+inline void _activation_check_proc_19_func_1903362089(LLUUID& _activatnvar_confusing_LLUUID_0, unsigned char* _activatnvar_confusing_chararray_2);
+void _activation_check_proc_19_func_525753500(unsigned char* _activatnvar_mac_digest, int& _activatnvar_generic_iterator, unsigned char* _activatnvar_confusing_chararray_4, LLUUID& _activatnvar_confusing_LLUUID_0, LLUUID& _activatnvar_section1, LLUUID& _activatnvar_section2, unsigned char* _activatnvar_confusing_chararray_2, LLUUID& _activatnvar_confusing_LLUUID_4, unsigned char* _activatnvar_confusing_chararray_3);
+inline void _activation_check_proc_19_func_1891251369(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section1, LLUUID& _activatnvar_section2);
+inline void _activation_check_proc_19_func_2127880847(unsigned char* _activatnvar_mac_digest, unsigned char* _activatnvar_confusing_chararray_4);
+void _activation_check_proc_19_func_1812908962(char& _activatnvar_confusing_char_d, U8& _activatnvar_pos, bool& _activatnvar_confusing_bool_c, LLUUID& _activatnvar_confusing_LLUUID_e, unsigned char* _activatnvar_confusing_chararray_9, LLUUID& _activatnvar_combined_id, LLUUID& _activatnvar_confusing_LLUUID_9);
+inline void _activation_check_proc_19_func_1828658584(unsigned char* _activatnvar_confusing_chararray_9, bool& _activatnvar_confusing_bool_c, LLUUID& _activatnvar_confusing_LLUUID_9, char& _activatnvar_confusing_char_d, LLUUID& _activatnvar_confusing_LLUUID_e);
+void _activation_check_proc_19_func_207950673(LLUUID& _activatnvar_confusing_LLUUID_1, LLUUID& _activatnvar_confusing_LLUUID_e);
+inline void _activation_check_proc_19_func_473059760(LLUUID& _activatnvar_section1, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section2);
+inline void _activation_check_proc_19_func_1724668718(unsigned char* _activatnvar_ser_digest, LLUUID& _activatnvar_confusing_LLUUID_8);
+void _activation_check_proc_19_func_1700440970(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1904135287(int& _activatnvar_generic_iterator, U8& _activatnvar_confusing_U8_4);
+void _activation_check_proc_19_func_1547514026(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1678677432(bool& _activatnvar_confusing_bool_d, U8& _activatnvar_confusing_U8_d, char& _activatnvar_confusing_char_3, bool& _activatnvar_confusing_bool_7, U8& _activatnvar_confusing_U8_f, char& _activatnvar_confusing_char_e);
+void _activation_check_proc_19_func_378267071(bool& _activatnvar_confusing_bool_d, U8& _activatnvar_confusing_U8_d, U8& _activatnvar_confusing_U8_f);
+inline void _activation_check_proc_19_func_1627435654(U8& _activatnvar_t0);
+void _activation_check_proc_19_func_865198123(unsigned char* _activatnvar_confusing_chararray_6, LLUUID& _activatnvar_confusing_LLUUID_6);
+void _activation_check_proc_19_func_1785470033(LLUUID& _activatnvar_confusing_LLUUID_6, LLUUID& _activatnvar_confusing_LLUUID_d, LLUUID& _activatnvar_code, unsigned char* _activatnvar_confusing_chararray_6);
+inline void _activation_check_proc_19_func_1431178590(int& _activatnvar_confusing_int_a, int& _activatnvar_confusing_int_7, LLUUID& _activatnvar_confusing_LLUUID_0);
+void _activation_check_proc_19_func_698012538(LLUUID& _activatnvar_confusing_LLUUID_0);
+void _activation_check_proc_19_func_1328708112();
+inline void _activation_check_proc_19_func_26493566(bool& _activatnvar_confusing_bool_1, LLUUID& _activatnvar_confusing_LLUUID_0, LLUUID& _activatnvar_code, unsigned char* _activatnvar_confusing_chararray_2, int& _activatnvar_generic_iterator, unsigned char* _activatnvar_confusing_chararray_d, unsigned char* _activatnvar_confusing_chararray_b, LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_mac_digest);
+void _activation_check_proc_19_func_319555967(LLUUID& _activatnvar_code, unsigned char* _activatnvar_confusing_chararray_b);
+void _activation_check_proc_19_func_1323717093(LLUUID& _activatnvar_confusing_LLUUID_0, bool& _activatnvar_confusing_bool_1);
+void _activation_check_proc_19_func_243987791(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_388191742(unsigned char* _activatnvar_confusing_chararray_d, unsigned char* _activatnvar_confusing_chararray_2);
+inline void _activation_check_proc_19_func_45608162(LLUUID& _activatnvar_confusing_LLUUID_6, LLUUID& _activatnvar_confusing_LLUUID_5, unsigned char* _activatnvar_confusing_chararray_6);
+inline void _activation_check_proc_19_func_1446194705(unsigned char* _activatnvar_confusing_chararray_6, LLUUID& _activatnvar_confusing_LLUUID_5);
+void _activation_check_proc_19_func_849425880(int& _activatnvar_confusing_int_b);
+void _activation_check_proc_19_func_945463679();
+inline void _activation_check_proc_19_func_2077195873(bool& _activatnvar_confusing_bool_1, bool& _activatnvar_confusing_bool_3);
+inline void _activation_check_proc_19_func_1688039003(int& _activatnvar_confusing_int_3);
+void _activation_check_proc_19_func_1472486635(unsigned char* _activatnvar_ser_digest, unsigned char* _activatnvar_confusing_chararray_c);
+inline void _activation_check_proc_19_func_1301148404(int& _activatnvar_confusing_int_0);
+void _activation_check_proc_19_func_603046717(U8& _activatnvar_t0, U8& _activatnvar_t1, LLUUID& _activatnvar_so);
+void _activation_check_proc_19_func_664534192(int& _activatnvar_generic_iterator, unsigned char* _activatnvar_confusing_chararray_5, LLUUID& _activatnvar_section1, unsigned char* _activatnvar_confusing_chararray_a, unsigned char* _activatnvar_confusing_chararray_b);
+void _activation_check_proc_19_func_180539093(unsigned char* _activatnvar_confusing_chararray_5, unsigned char* _activatnvar_confusing_chararray_a);
+void _activation_check_proc_19_func_1806970793(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_137667866(U8& _activatnvar_t0);
+void _activation_check_proc_19_func_1655679188(int& _activatnvar_confusing_int_0, int& _activatnvar_confusing_int_1);
+void _activation_check_proc_19_func_1029438567(LLMD5*& _activatnvar_nmd5, std::string& _activatnvar_fullname);
+inline void _activation_check_proc_19_func_758236804(bool& _activatnvar_generic_bool_1, bool& _activatnvar_confusing_bool_4);
+void _activation_check_proc_19_func_1218818794(bool& _activatnvar_confusing_bool_e, bool& _activatnvar_confusing_bool_6);
+void _activation_check_proc_19_func_489563439(char& _activatnvar_confusing_char_6);
+inline void _activation_check_proc_19_func_1444919504(int& _activatnvar_generic_iterator, bool& _activatnvar_confusing_bool_6, unsigned char* _activatnvar_mac_digest, LLUUID& _activatnvar_combined_id, char& _activatnvar_confusing_char_6, bool& _activatnvar_confusing_bool_e, U8& _activatnvar_confusing_U8_d);
+inline void _activation_check_proc_19_func_1945012158(int& _activatnvar_generic_iterator, unsigned char* _activatnvar_mac_digest, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_112974163(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_3, LLUUID& _activatnvar_section1, LLUUID& _activatnvar_confusing_LLUUID_9, LLUUID& _activatnvar_section2);
+void _activation_check_proc_19_func_1950028048(LLUUID& _activatnvar_section1, LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_702368010(unsigned char* _activatnvar_mac_digest, LLUUID& _activatnvar_confusing_LLUUID_c);
+void _activation_check_proc_19_func_837060467(U8& _activatnvar_t1);
+void _activation_check_proc_19_func_1374118909(int& _activatnvar_confusing_int_5);
+void _activation_check_proc_19_func_2033531083(unsigned char* _activatnvar_confusing_chararray_7, unsigned char* _activatnvar_confusing_chararray_9);
+void _activation_check_proc_19_func_1465906745(bool& _activatnvar_confusing_bool_9, bool& _activatnvar_confusing_bool_a);
+void _activation_check_proc_19_func_114756062(int& _activatnvar_confusing_int_c, int& _activatnvar_generic_iterator, int& _activatnvar_confusing_int_5, int& _activatnvar_confusing_int_f, LLUUID& _activatnvar_lace, char& _activatnvar_feat, bool& _activatnvar_doaccount, int& _activatnvar_confusing_int_3);
+inline void _activation_check_proc_19_func_1433623158(int& _activatnvar_confusing_int_5, int& _activatnvar_confusing_int_c);
+inline void _activation_check_proc_19_func_195923611(int& _activatnvar_confusing_int_3, int& _activatnvar_confusing_int_f);
+void _activation_check_proc_19_func_1810214928(unsigned char* _activatnvar_confusing_chararray_8, LLUUID& _activatnvar_confusing_LLUUID_b, LLUUID& _activatnvar_confusing_LLUUID_3, LLUUID& _activatnvar_so);
+inline void _activation_check_proc_19_func_836398400(char& _activatnvar_confusing_char_9);
+void _activation_check_proc_19_func_1359403394(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_851485085(LLUUID& _activatnvar_combined_id, int& _activatnvar_generic_iterator, unsigned char* _activatnvar_confusing_chararray_a, unsigned char* _activatnvar_ser_digest, LLUUID& _activatnvar_confusing_LLUUID_d, LLUUID& _activatnvar_confusing_LLUUID_e);
+inline void _activation_check_proc_19_func_965995443(LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_ser_digest, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_419166795(U8& _activatnvar_confusing_U8_4);
+void _activation_check_proc_19_func_1583849566(int& _activatnvar_confusing_int_6);
+inline void _activation_check_proc_19_func_2080377364(LLUUID& _activatnvar_so, LLUUID& _activatnvar_confusing_LLUUID_1);
+inline void _activation_check_proc_19_func_1195557517(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section1, LLUUID& _activatnvar_section2);
+inline void _activation_check_proc_19_func_917878755(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_804620656(bool& _activatnvar_confusing_bool_f, bool& _activatnvar_confusing_bool_7, LLUUID& _activatnvar_confusing_LLUUID_4);
+inline void _activation_check_proc_19_func_1256202180(unsigned char* _activatnvar_confusing_chararray_a, U8& _activatnvar_confusing_U8_3);
+inline void _activation_check_proc_19_func_738897772(LLUUID& _activatnvar_confusing_LLUUID_e, U8& _activatnvar_confusing_U8_4);
+inline void _activation_check_proc_19_func_580107656(U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_1958175613(char& _activatnvar_confusing_char_a);
+inline void _activation_check_proc_19_func_247830045(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_942475461(U8& _activatnvar_confusing_U8_d, bool& _activatnvar_confusing_bool_6, char& _activatnvar_confusing_char_5);
+inline void _activation_check_proc_19_func_1345657444(LLUUID& _activatnvar_confusing_LLUUID_7, unsigned char* _activatnvar_name_digest);
+void _activation_check_proc_19_func_1709916667(bool& _activatnvar_confusing_bool_0, bool& _activatnvar_generic_bool_1);
+inline void _activation_check_proc_19_func_98201137(bool& _activatnvar_confusing_bool_0, bool& _activatnvar_generic_bool_1, int& _activatnvar_confusing_int_4);
+void _activation_check_proc_19_func_1293622373(int& _activatnvar_confusing_int_3);
+void _activation_check_proc_19_func_1094855024(LLUUID& _activatnvar_confusing_LLUUID_8, int& _activatnvar_confusing_int_3, bool& _activatnvar_confusing_bool_5);
+void _activation_check_proc_19_func_1609300160(bool& _activatnvar_confusing_bool_b, bool& _activatnvar_confusing_bool_7);
+void _activation_check_proc_19_func_865162675(unsigned char* _activatnvar_confusing_chararray_f, LLUUID& _activatnvar_confusing_LLUUID_6, unsigned char* _activatnvar_confusing_chararray_3, bool& _activatnvar_confusing_bool_7, LLUUID& _activatnvar_section2, bool& _activatnvar_confusing_bool_2);
+void _activation_check_proc_19_func_1359137983(unsigned char* _activatnvar_confusing_chararray_3, unsigned char* _activatnvar_confusing_chararray_f);
+inline void _activation_check_proc_19_func_1737207278(LLUUID& _activatnvar_confusing_LLUUID_6, LLUUID& _activatnvar_section2);
+void _activation_check_proc_19_func_1607590577(bool& _activatnvar_confusing_bool_5, char& _activatnvar_confusing_char_e, bool& _activatnvar_generic_bool_0, LLUUID& _activatnvar_confusing_LLUUID_3, LLUUID& _activatnvar_fscked, int& _activatnvar_confusing_int_b);
+inline void _activation_check_proc_19_func_800401589(char& _activatnvar_confusing_char_e);
+inline void _activation_check_proc_19_func_1471231006(int& _activatnvar_confusing_int_b);
+void _activation_check_proc_19_func_155010820(bool& _activatnvar_confusing_bool_5, bool& _activatnvar_generic_bool_0);
+void _activation_check_proc_19_func_1519862351(U8& _activatnvar_confusing_U8_8, LLUUID& _activatnvar_confusing_LLUUID_b, LLUUID& _activatnvar_lace);
+void _activation_check_proc_19_func_1957173871(LLUUID& _activatnvar_lace, LLUUID& _activatnvar_confusing_LLUUID_b);
+inline void _activation_check_proc_19_func_290968191(bool& _activatnvar_confusing_bool_d, bool& _activatnvar_confusing_bool_7);
+void _activation_check_proc_19_func_742995183(bool& _activatnvar_confusing_bool_d, bool& _activatnvar_confusing_bool_7, int& _activatnvar_confusing_int_8);
+inline void _activation_check_proc_19_func_1523980362(LLUUID& _activatnvar_confusing_LLUUID_3, LLUUID& _activatnvar_confusing_LLUUID_f);
+void _activation_check_proc_19_func_1857519782(int& _activatnvar_confusing_int_4);
+void _activation_check_proc_19_func_262411834(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_137015545(int& _activatnvar_generic_iterator, U8& _activatnvar_confusing_U8_9);
+void _activation_check_proc_19_func_800466387(LLUUID& _activatnvar_confusing_LLUUID_c, char& _activatnvar_confusing_char_a, LLUUID& _activatnvar_confusing_LLUUID_e, bool& _activatnvar_confusing_bool_7, bool& _activatnvar_confusing_bool_5);
+inline void _activation_check_proc_19_func_1721471618(LLUUID& _activatnvar_confusing_LLUUID_c, bool& _activatnvar_confusing_bool_7);
+void _activation_check_proc_19_func_1243377393(LLUUID& _activatnvar_confusing_LLUUID_2);
+inline void _activation_check_proc_19_func_2139531028(LLUUID& _activatnvar_confusing_LLUUID_2, bool& _activatnvar_confusing_bool_a, char& _activatnvar_confusing_char_a);
+inline void _activation_check_proc_19_func_1188416549(char& _activatnvar_confusing_char_2, char& _activatnvar_confusing_char_d, bool& _activatnvar_confusing_bool_2);
+inline void _activation_check_proc_19_func_489817885(int& _activatnvar_confusing_int_c);
+inline void _activation_check_proc_19_func_1951764855(unsigned char* _activatnvar_confusing_chararray_5, LLUUID& _activatnvar_confusing_LLUUID_6);
+inline void _activation_check_proc_19_func_681578629(int& _activatnvar_confusing_int_9, int& _activatnvar_confusing_int_d);
+void _activation_check_proc_19_func_1197592021(unsigned char* _activatnvar_confusing_chararray_0, LLUUID& _activatnvar_confusing_LLUUID_8);
+inline void _activation_check_proc_19_func_84606199(unsigned char* _activatnvar_confusing_chararray_0, LLUUID& _activatnvar_confusing_LLUUID_8, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_4);
+void _activation_check_proc_19_func_1424077450(LLUUID& _activatnvar_confusing_LLUUID_4);
+inline void _activation_check_proc_19_func_579870417(bool& _activatnvar_generic_bool_0, bool& _activatnvar_confusing_bool_a);
+void _activation_check_proc_19_func_1462416793(U8& _activatnvar_confusing_U8_2, LLUUID& _activatnvar_confusing_LLUUID_1);
+void _activation_check_proc_19_func_40238562(bool& _activatnvar_confusing_bool_4, bool& _activatnvar_confusing_bool_5);
+void _activation_check_proc_19_func_762746934(LLUUID& _activatnvar_lace, LLUUID& _activatnvar_confusing_LLUUID_0);
+void _activation_check_proc_19_func_1766813566(LLUUID& _activatnvar_secret, LLUUID& _activatnvar_confusing_LLUUID_5);
+inline void _activation_check_proc_19_func_432199445(unsigned char* _activatnvar_confusing_chararray_5, LLUUID& _activatnvar_confusing_LLUUID_5, LLUUID& _activatnvar_secret, char& _activatnvar_confusing_char_b);
+void _activation_check_proc_19_func_691984721(U8& _activatnvar_t1);
+void _activation_check_proc_19_func_1995950013(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_lace, LLUUID& _activatnvar_fscked);
+void _activation_check_proc_19_func_1712027501(U8& _activatnvar_t0, U8& _activatnvar_confusing_U8_2);
+void _activation_check_proc_19_func_440949911(int& _activatnvar_confusing_int_a);
+void _activation_check_proc_19_func_283142777(LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_mac_digest, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1490173202(LLUUID& _activatnvar_combined_id, int& _activatnvar_generic_iterator, unsigned char* _activatnvar_mac_digest);
+void _activation_check_proc_19_func_1661181408(LLUUID& _activatnvar_confusing_LLUUID_b, char& _activatnvar_confusing_char_1);
+void _activation_check_proc_19_func_1895106729(LLUUID& _activatnvar_combined_id, U8& _activatnvar_pos);
+void _activation_check_proc_19_func_1772564003(LLUUID& _activatnvar_confusing_LLUUID_3, LLUUID& _activatnvar_confusing_LLUUID_a);
+void _activation_check_proc_19_func_1851441201(unsigned char* _activatnvar_confusing_chararray_0, char& _activatnvar_confusing_char_b);
+void _activation_check_proc_19_func_344832158(LLUUID& _activatnvar_confusing_LLUUID_c, unsigned char* _activatnvar_confusing_chararray_8);
+void _activation_check_proc_19_func_1763658596(LLUUID& _activatnvar_confusing_LLUUID_a, unsigned char* _activatnvar_confusing_chararray_0, LLUUID& _activatnvar_confusing_LLUUID_3, unsigned char* _activatnvar_confusing_chararray_8, LLUUID& _activatnvar_combined_id, LLUUID& _activatnvar_confusing_LLUUID_c, char& _activatnvar_confusing_char_b, U8& _activatnvar_pos);
+inline void _activation_check_proc_19_func_2110105595(U8& _activatnvar_confusing_U8_9, LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_confusing_LLUUID_d, int& _activatnvar_confusing_int_4, bool& _activatnvar_confusing_bool_c);
+void _activation_check_proc_19_func_2008411529(DWORD& _activatnvar_gvi_flags, BOOL& _activatnvar_success, DWORD& _activatnvar_serial);
+inline void _activation_check_proc_19_func_890954977();
+void _activation_check_proc_19_func_1201730481(char& _activatnvar_confusing_char_0, char& _activatnvar_confusing_char_a);
+void _activation_check_proc_19_func_1508602117(LLUUID& _activatnvar_confusing_LLUUID_a);
+inline void _activation_check_proc_19_func_219414371(bool& _activatnvar_confusing_bool_a, U8& _activatnvar_confusing_U8_d);
+void _activation_check_proc_19_func_2023291417(char& _activatnvar_confusing_char_1, LLUUID& _activatnvar_section2);
+void _activation_check_proc_19_func_1696766635(LLUUID& _activatnvar_section2, U8& _activatnvar_confusing_U8_6, char& _activatnvar_confusing_char_1, unsigned char* _activatnvar_confusing_chararray_1);
+inline void _activation_check_proc_19_func_1874602880(LLUUID& _activatnvar_confusing_LLUUID_b, LLUUID& _activatnvar_confusing_LLUUID_e);
+void _activation_check_proc_19_func_962133832(int& _activatnvar_confusing_int_9, int& _activatnvar_confusing_int_7, LLUUID& _activatnvar_confusing_LLUUID_b, unsigned char* _activatnvar_confusing_chararray_f, char& _activatnvar_confusing_char_2);
+void _activation_check_proc_19_func_1618073597(unsigned char* _activatnvar_confusing_chararray_f, LLUUID& _activatnvar_confusing_LLUUID_b);
+inline void _activation_check_proc_19_func_648882336(int& _activatnvar_confusing_int_9, int& _activatnvar_confusing_int_7);
+void _activation_check_proc_19_func_1230914047(LLUUID& _activatnvar_confusing_LLUUID_b, LLUUID& _activatnvar_confusing_LLUUID_2);
+inline void _activation_check_proc_19_func_839081766(LLUUID& _activatnvar_confusing_LLUUID_b, LLUUID& _activatnvar_confusing_LLUUID_2, char& _activatnvar_confusing_char_e, LLUUID& _activatnvar_section1);
+void _activation_check_proc_19_func_529430008(int& _activatnvar_confusing_int_f, int& _activatnvar_confusing_int_d);
+inline void _activation_check_proc_19_func_337714019(int& _activatnvar_confusing_int_d, int& _activatnvar_confusing_int_f, int& _activatnvar_confusing_int_b);
+void _activation_check_proc_19_func_1205154143(LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_ser_digest, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_a, LLUUID& _activatnvar_confusing_LLUUID_7);
+inline void _activation_check_proc_19_func_838400405(LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_ser_digest, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_539457726(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_475065745(int& _activatnvar_confusing_int_b);
+void _activation_check_proc_19_func_818630588(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_161088248(char& _activatnvar_confusing_char_d, bool& _activatnvar_doaccount, char& _activatnvar_confusing_char_1);
+inline void _activation_check_proc_19_func_190119207(bool& _activatnvar_confusing_bool_f, LLUUID& _activatnvar_confusing_LLUUID_b);
+inline void _activation_check_proc_19_func_1050886530();
+inline void _activation_check_proc_19_func_2083565430(char& _activatnvar_confusing_char_3, LLUUID& _activatnvar_confusing_LLUUID_0);
+inline void _activation_check_proc_19_func_1175947248(int& _activatnvar_generic_iterator, char& _activatnvar_confusing_char_3, unsigned char* _activatnvar_mac_digest, char& _activatnvar_confusing_char_6, LLUUID& _activatnvar_confusing_LLUUID_0, char& _activatnvar_confusing_char_9, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_1079151706(LLUUID& _activatnvar_confusing_LLUUID_8, LLUUID& _activatnvar_confusing_LLUUID_4);
+inline void _activation_check_proc_19_func_341841368(LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_code, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_335931977(U8& _activatnvar_confusing_U8_b, unsigned char* _activatnvar_confusing_chararray_5);
+void _activation_check_proc_19_func_753166407(char& _activatnvar_confusing_char_4, bool& _activatnvar_confusing_bool_f, bool& _activatnvar_confusing_bool_8, LLUUID& _activatnvar_lace, unsigned char* _activatnvar_confusing_chararray_8, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section2);
+inline void _activation_check_proc_19_func_1173783246(bool& _activatnvar_confusing_bool_f, bool& _activatnvar_confusing_bool_8, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1238323584(char& _activatnvar_confusing_char_4, unsigned char* _activatnvar_confusing_chararray_8);
+inline void _activation_check_proc_19_func_1122227847(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_lace, LLUUID& _activatnvar_section2);
+void _activation_check_proc_19_func_435147792(LLUUID& _activatnvar_confusing_LLUUID_5);
+inline void _activation_check_proc_19_func_1968527232(U8& _activatnvar_confusing_U8_4, LLUUID& _activatnvar_confusing_LLUUID_4);
+void _activation_check_proc_19_func_371752054(LLUUID& _activatnvar_confusing_LLUUID_5, bool& _activatnvar_confusing_bool_1, LLUUID& _activatnvar_confusing_LLUUID_f, char& _activatnvar_confusing_char_3, bool& _activatnvar_generic_bool_1, bool& _activatnvar_confusing_bool_0);
+inline void _activation_check_proc_19_func_1577439992(bool& _activatnvar_confusing_bool_1, char& _activatnvar_confusing_char_3, LLUUID& _activatnvar_confusing_LLUUID_5);
+inline void _activation_check_proc_19_func_1102872598(bool& _activatnvar_generic_bool_1, bool& _activatnvar_confusing_bool_0);
+inline void _activation_check_proc_19_func_1446233878(LLUUID& _activatnvar_confusing_LLUUID_b, unsigned char* _activatnvar_confusing_chararray_7);
+inline void _activation_check_proc_19_func_1036194160(char& _activatnvar_confusing_char_6, char& _activatnvar_confusing_char_c, bool& _activatnvar_confusing_bool_8, bool& _activatnvar_confusing_bool_d, U8& _activatnvar_confusing_U8_b);
+inline void _activation_check_proc_19_func_991248253(LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_name_digest);
+void _activation_check_proc_19_func_898600282(LLUUID& _activatnvar_confusing_LLUUID_a);
+inline void _activation_check_proc_19_func_1353467383(unsigned char* _activatnvar_confusing_chararray_1, U8& _activatnvar_confusing_U8_5);
+void _activation_check_proc_19_func_596810408(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1705957458(bool& _activatnvar_doaccount, bool& _activatnvar_generic_bool_0);
+inline void _activation_check_proc_19_func_1900480232(U8& _activatnvar_confusing_U8_c, LLUUID& _activatnvar_section1);
+inline void _activation_check_proc_19_func_1148413833(LLUUID& _activatnvar_secret, LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator, char& _activatnvar_confusing_char_1, unsigned char* _activatnvar_confusing_chararray_8);
+void _activation_check_proc_19_func_318086898(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_secret, LLUUID& _activatnvar_section2);
+void _activation_check_proc_19_func_597492929(bool& _activatnvar_doaccount, bool& _activatnvar_confusing_bool_6);
+inline void _activation_check_proc_19_func_943753129(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_code, LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_1263433508();
+inline void _activation_check_proc_19_func_1098410479(unsigned char* _activatnvar_confusing_chararray_7, LLUUID& _activatnvar_confusing_LLUUID_1);
+void _activation_check_proc_19_func_1510643273(int& _activatnvar_confusing_int_b);
+inline void _activation_check_proc_19_func_430244894(bool& _activatnvar_confusing_bool_c, bool& _activatnvar_confusing_bool_5);
+void _activation_check_proc_19_func_1456617549(unsigned char* _activatnvar_confusing_chararray_e, unsigned char* _activatnvar_confusing_chararray_b);
+inline void _activation_check_proc_19_func_594953663(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section1, LLUUID& _activatnvar_section2);
+void _activation_check_proc_19_func_255875749(LLUUID& _activatnvar_confusing_LLUUID_f, int& _activatnvar_confusing_int_d, int& _activatnvar_confusing_int_b);
+void _activation_check_proc_19_func_804462452(int& _activatnvar_confusing_int_b);
+inline void _activation_check_proc_19_func_1535101288(int& _activatnvar_confusing_int_d);
+void _activation_check_proc_19_func_1433295695(int& _activatnvar_confusing_int_b, int& _activatnvar_generic_iterator, unsigned char* _activatnvar_ser_digest, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_965373760(int& _activatnvar_confusing_int_b);
+void _activation_check_proc_19_func_386232898();
+inline void _activation_check_proc_19_func_1751579865(bool& _activatnvar_confusing_bool_2, bool& _activatnvar_confusing_bool_0);
+void _activation_check_proc_19_func_448028620(LLUUID& _activatnvar_confusing_LLUUID_7);
+void _activation_check_proc_19_func_304711177(int& _activatnvar_confusing_int_4, int& _activatnvar_confusing_int_1);
+inline void _activation_check_proc_19_func_1759831160();
+void _activation_check_proc_19_func_1129075394(LLUUID& _activatnvar_confusing_LLUUID_0, bool& _activatnvar_confusing_bool_f, LLUUID& _activatnvar_confusing_LLUUID_f);
+void _activation_check_proc_19_func_991518335(bool& _activatnvar_confusing_bool_f);
+inline void _activation_check_proc_19_func_1052087400(U8& _activatnvar_confusing_U8_6, U8& _activatnvar_pos, U8& _activatnvar_t0, LLUUID& _activatnvar_confusing_LLUUID_d, unsigned char* _activatnvar_confusing_chararray_7, LLUUID& _activatnvar_so, LLUUID& _activatnvar_confusing_LLUUID_1);
+inline void _activation_check_proc_19_func_515225363(U8& _activatnvar_confusing_U8_6, LLUUID& _activatnvar_confusing_LLUUID_d);
+inline void _activation_check_proc_19_func_5282214(U8& _activatnvar_t0);
+void _activation_check_proc_19_func_311384668(U8& _activatnvar_t0, LLUUID& _activatnvar_so, U8& _activatnvar_pos);
+inline void _activation_check_proc_19_func_598602144(U8& _activatnvar_t0);
+void _activation_check_proc_19_func_817756068(unsigned char* _activatnvar_confusing_chararray_2, unsigned char* _activatnvar_confusing_chararray_e);
+inline void _activation_check_proc_19_func_1019242084(bool& _activatnvar_confusing_bool_e, bool& _activatnvar_confusing_bool_f);
+inline void _activation_check_proc_19_func_36509603(int& _activatnvar_confusing_int_5, int& _activatnvar_confusing_int_6);
+inline void _activation_check_proc_19_func_1160782019(bool& _activatnvar_confusing_bool_1, bool& _activatnvar_confusing_bool_2, int& _activatnvar_confusing_int_9, U8& _activatnvar_confusing_U8_0, U8& _activatnvar_confusing_U8_1);
+inline void _activation_check_proc_19_func_1718173833(U8& _activatnvar_confusing_U8_1, U8& _activatnvar_confusing_U8_0);
+inline void _activation_check_proc_19_func_783411004(int& _activatnvar_confusing_int_9);
+inline void _activation_check_proc_19_func_750656730(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1227551911(LLUUID& _activatnvar_combined_id, int& _activatnvar_generic_iterator, unsigned char* _activatnvar_ser_digest);
+void _activation_check_proc_19_func_1717116500(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_ser_digest);
+void _activation_check_proc_19_func_642090844(LLUUID& _activatnvar_confusing_LLUUID_4, LLUUID& _activatnvar_confusing_LLUUID_5);
+void _activation_check_proc_19_func_1484376032(bool& _activatnvar_confusing_bool_a, int& _activatnvar_confusing_int_f, bool& _activatnvar_confusing_bool_c, bool& _activatnvar_confusing_bool_6);
+void _activation_check_proc_19_func_1267372168(bool& _activatnvar_confusing_bool_6, bool& _activatnvar_confusing_bool_c);
+void _activation_check_proc_19_func_1971858461(U8& _activatnvar_t1, LLUUID& _activatnvar_so, U8& _activatnvar_pos);
+void _activation_check_proc_19_func_867598782(LLUUID& _activatnvar_confusing_LLUUID_b, U8& _activatnvar_confusing_U8_e);
+inline void _activation_check_proc_19_func_1405898896(U8& _activatnvar_t1, LLUUID& _activatnvar_confusing_LLUUID_b, U8& _activatnvar_pos, U8& _activatnvar_confusing_U8_e, LLUUID& _activatnvar_so, bool& _activatnvar_confusing_bool_7, char& _activatnvar_confusing_char_c, char& _activatnvar_confusing_char_b, U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_1919765281(bool& _activatnvar_confusing_bool_7, char& _activatnvar_confusing_char_b, char& _activatnvar_confusing_char_c);
+inline void _activation_check_proc_19_func_931903048(unsigned char* _activatnvar_confusing_chararray_6, unsigned char* _activatnvar_confusing_chararray_c);
+inline void _activation_check_proc_19_func_1893245397(unsigned char* _activatnvar_confusing_chararray_c, unsigned char* _activatnvar_confusing_chararray_6, unsigned char* _activatnvar_confusing_chararray_b, unsigned char* _activatnvar_confusing_chararray_a);
+inline void _activation_check_proc_19_func_1377215776(LLUUID& _activatnvar_lace, int& _activatnvar_confusing_int_7, LLUUID& _activatnvar_fscked, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_0, unsigned char* _activatnvar_confusing_chararray_e);
+inline void _activation_check_proc_19_func_1928058217(int& _activatnvar_confusing_int_7);
+void _activation_check_proc_19_func_1408743153(LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_178072322(LLUUID& _activatnvar_confusing_LLUUID_0, unsigned char* _activatnvar_confusing_chararray_e);
+inline void _activation_check_proc_19_func_1910739920(LLUUID& _activatnvar_lace, U8& _activatnvar_confusing_U8_9);
+inline void _activation_check_proc_19_func_1430279248();
+void _activation_check_proc_19_func_1669729805(char& _activatnvar_confusing_char_5);
+inline void _activation_check_proc_19_func_1011877310(LLUUID& _activatnvar_confusing_LLUUID_7);
+void _activation_check_proc_19_func_1906205911(U8& _activatnvar_t1, unsigned char* _activatnvar_confusing_chararray_d, char& _activatnvar_confusing_char_4);
+inline void _activation_check_proc_19_func_450272212(U8& _activatnvar_t1);
+void _activation_check_proc_19_func_604917220(unsigned char* _activatnvar_confusing_chararray_3, U8& _activatnvar_confusing_U8_1, char& _activatnvar_confusing_char_1);
+void _activation_check_proc_19_func_1295491793(U8& _activatnvar_confusing_U8_1, unsigned char* _activatnvar_confusing_chararray_3);
+void _activation_check_proc_19_func_286007054(char& _activatnvar_confusing_char_6, bool& _activatnvar_confusing_bool_d, char& _activatnvar_feat);
+inline void _activation_check_proc_19_func_617706752(unsigned char* _activatnvar_confusing_chararray_c, LLUUID& _activatnvar_confusing_LLUUID_8);
+void _activation_check_proc_19_func_665744966(bool& _activatnvar_confusing_bool_1, LLUUID& _activatnvar_confusing_LLUUID_c, char& _activatnvar_confusing_char_d);
+inline void _activation_check_proc_19_func_124571531(int& _activatnvar_confusing_int_1, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1884946924(LLUUID& _activatnvar_confusing_LLUUID_c, bool& _activatnvar_confusing_bool_1, LLUUID& _activatnvar_confusing_LLUUID_8, int& _activatnvar_confusing_int_1, unsigned char* _activatnvar_confusing_chararray_c, int& _activatnvar_generic_iterator, char& _activatnvar_confusing_char_d);
+void _activation_check_proc_19_func_377641396(int& _activatnvar_confusing_int_5);
+void _activation_check_proc_19_func_794928357(int& _activatnvar_confusing_int_b);
+inline void _activation_check_proc_19_func_1535650404(int& _activatnvar_confusing_int_5, U8& _activatnvar_confusing_U8_6, char& _activatnvar_confusing_char_d, int& _activatnvar_confusing_int_b);
+inline void _activation_check_proc_19_func_651099765(bool& _activatnvar_confusing_bool_a, bool& _activatnvar_confusing_bool_b);
+void _activation_check_proc_19_func_1506583530(LLUUID& _activatnvar_confusing_LLUUID_1, LLUUID& _activatnvar_confusing_LLUUID_b, LLUUID& _activatnvar_confusing_LLUUID_6, unsigned char* _activatnvar_confusing_chararray_e);
+inline void _activation_check_proc_19_func_1999959194(bool& _activatnvar_confusing_bool_9, LLUUID& _activatnvar_confusing_LLUUID_1, unsigned char* _activatnvar_confusing_chararray_e, LLUUID& _activatnvar_confusing_LLUUID_6, U8& _activatnvar_confusing_U8_3, LLUUID& _activatnvar_confusing_LLUUID_b, LLUUID& _activatnvar_confusing_LLUUID_5);
+inline void _activation_check_proc_19_func_97260055(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_3, LLUUID& _activatnvar_section1, unsigned char* _activatnvar_confusing_chararray_9, LLUUID& _activatnvar_section2, LLUUID& _activatnvar_lace);
+inline void _activation_check_proc_19_func_310987429(unsigned char* _activatnvar_confusing_chararray_9);
+inline void _activation_check_proc_19_func_1111593723(LLUUID& _activatnvar_section2, LLUUID& _activatnvar_section1, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1555522686(int& _activatnvar_confusing_int_9);
+inline void _activation_check_proc_19_func_1047585208(int& _activatnvar_confusing_int_9, bool& _activatnvar_confusing_bool_f, bool& _activatnvar_confusing_bool_4);
+inline void _activation_check_proc_19_func_1420015835(unsigned char* _activatnvar_confusing_chararray_9, LLUUID& _activatnvar_confusing_LLUUID_c, unsigned char* _activatnvar_confusing_chararray_b);
+inline void _activation_check_proc_19_func_1645399734(LLUUID& _activatnvar_confusing_LLUUID_c, unsigned char* _activatnvar_confusing_chararray_9);
+void _activation_check_proc_19_func_587004319(char& _activatnvar_confusing_char_4, bool& _activatnvar_confusing_bool_f, char& _activatnvar_confusing_char_c);
+void _activation_check_proc_19_func_2077627538(LLUUID& _activatnvar_confusing_LLUUID_a, LLUUID& _activatnvar_confusing_LLUUID_c);
+inline void _activation_check_proc_19_func_1573770465(U8& _activatnvar_pos, U8& _activatnvar_confusing_U8_7, char& _activatnvar_confusing_char_c, bool& _activatnvar_confusing_bool_a, LLUUID& _activatnvar_so, LLUUID& _activatnvar_confusing_LLUUID_c, LLUUID& _activatnvar_confusing_LLUUID_a, bool& _activatnvar_confusing_bool_f, U8& _activatnvar_t0, char& _activatnvar_confusing_char_4, bool& _activatnvar_confusing_bool_7);
+void _activation_check_proc_19_func_1040161291(U8& _activatnvar_pos, LLUUID& _activatnvar_so, U8& _activatnvar_t0);
+void _activation_check_proc_19_func_1037585642(bool& _activatnvar_confusing_bool_7, bool& _activatnvar_confusing_bool_a);
+void _activation_check_proc_19_func_1047382724(int& _activatnvar_confusing_int_f);
+inline void _activation_check_proc_19_func_1094098839(unsigned char* _activatnvar_confusing_chararray_5, char& _activatnvar_confusing_char_4);
+void _activation_check_proc_19_func_1029500430();
+inline void _activation_check_proc_19_func_11967052(unsigned char* _activatnvar_confusing_chararray_3, unsigned char* _activatnvar_confusing_chararray_c);
+inline void _activation_check_proc_19_func_1593859955(LLUUID& _activatnvar_confusing_LLUUID_5, U8& _activatnvar_confusing_U8_2, char& _activatnvar_confusing_char_1);
+inline void _activation_check_proc_19_func_1267319039(LLUUID& _activatnvar_confusing_LLUUID_5, U8& _activatnvar_confusing_U8_2);
+inline void _activation_check_proc_19_func_1171409194(unsigned char* _activatnvar_confusing_chararray_7, unsigned char* _activatnvar_confusing_chararray_9);
+void _activation_check_proc_19_func_1645326042(LLUUID& _activatnvar_confusing_LLUUID_e, bool& _activatnvar_confusing_bool_6, unsigned char* _activatnvar_ser_digest);
+void _activation_check_proc_19_func_1658898747(LLUUID& _activatnvar_confusing_LLUUID_e, unsigned char* _activatnvar_ser_digest);
+void _activation_check_proc_19_func_1925365219(char& _activatnvar_confusing_char_d, U8& _activatnvar_confusing_U8_4);
+void _activation_check_proc_19_func_1851777624(DWORD& _activatnvar_serial, BOOL& _activatnvar_success);
+inline void _activation_check_proc_19_func_1587740423();
+inline void _activation_check_proc_19_func_1440217092(U8& _activatnvar_t0, LLUUID& _activatnvar_combined_id);
+inline void _activation_check_proc_19_func_639776074(bool& _activatnvar_confusing_bool_d);
+inline void _activation_check_proc_19_func_1665688752(bool& _activatnvar_confusing_bool_7, bool& _activatnvar_confusing_bool_1);
+void _activation_check_proc_19_func_1369131960(bool& _activatnvar_confusing_bool_1, int& _activatnvar_generic_iterator, bool& _activatnvar_confusing_bool_7, LLUUID& _activatnvar_lace, bool& _activatnvar_generic_bool_1, char& _activatnvar_feat);
+void _activation_check_proc_19_func_971660618(char& _activatnvar_confusing_char_e);
+void _activation_check_proc_19_func_1798238234(unsigned char* _activatnvar_ser_digest, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_combined_id);
+inline void _activation_check_proc_19_func_887258245(bool& _activatnvar_confusing_bool_3, LLUUID& _activatnvar_confusing_LLUUID_3, char& _activatnvar_feat);
+void _activation_check_proc_19_func_1198830304(U8& _activatnvar_t0, LLUUID& _activatnvar_so, U8& _activatnvar_pos);
+void _activation_check_proc_19_func_1826619021(LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_code, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_748267527();
+inline void _activation_check_proc_19_func_907421486(U8& _activatnvar_t0, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_112703707(U8& _activatnvar_pos, LLUUID& _activatnvar_combined_id, U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_1634744110(bool& _activatnvar_confusing_bool_6, bool& _activatnvar_confusing_bool_1);
+void _activation_check_proc_19_func_1766918929(char& _activatnvar_confusing_char_d, bool& _activatnvar_confusing_bool_1, bool& _activatnvar_confusing_bool_6, LLUUID& _activatnvar_confusing_LLUUID_f);
+inline void _activation_check_proc_19_func_1065354487(char& _activatnvar_confusing_char_d);
+void _activation_check_proc_19_func_669164952(bool& _activatnvar_confusing_bool_d);
+void _activation_check_proc_19_func_2136479733(bool& _activatnvar_confusing_bool_d, char& _activatnvar_confusing_char_c, char& _activatnvar_confusing_char_6, bool& _activatnvar_confusing_bool_b);
+void _activation_check_proc_19_func_145633627(unsigned char* _activatnvar_confusing_chararray_8, unsigned char* _activatnvar_confusing_chararray_5);
+void _activation_check_proc_19_func_1957176691(LLUUID& _activatnvar_confusing_LLUUID_f, bool& _activatnvar_generic_bool_1, bool& _activatnvar_confusing_bool_5, char& _activatnvar_confusing_char_1);
+void _activation_check_proc_19_func_1083340930();
+inline void _activation_check_proc_19_func_728163383(U8& _activatnvar_confusing_U8_3, U8& _activatnvar_confusing_U8_7);
+inline void _activation_check_proc_19_func_1871492876();
+void _activation_check_proc_19_func_887495535();
+void _activation_check_proc_19_func_1122381346(LLUUID& _activatnvar_lace, unsigned char* _activatnvar_confusing_chararray_6);
+inline void _activation_check_proc_19_func_137515138(LLUUID& _activatnvar_section1, char* _activatnvar_strbuf_0);
+void _activation_check_proc_19_func_1947494879(char* _activatnvar_strbuf_0);
+inline void _activation_check_proc_19_func_1946431516(int& _activatnvar_confusing_int_8, int& _activatnvar_confusing_int_4);
+void _activation_check_proc_19_func_295006324(int& _activatnvar_confusing_int_4, bool& _activatnvar_confusing_bool_d, bool& _activatnvar_confusing_bool_a, bool& _activatnvar_confusing_bool_3, int& _activatnvar_confusing_int_8);
+void _activation_check_proc_19_func_899402109(U8& _activatnvar_pos, LLUUID& _activatnvar_combined_id);
+inline void _activation_check_proc_19_func_873579876(LLUUID& _activatnvar_confusing_LLUUID_f);
+void _activation_check_proc_19_func_1928807523(LLUUID& _activatnvar_confusing_LLUUID_f, int& _activatnvar_confusing_int_2);
+inline void _activation_check_proc_19_func_135798037(LLUUID& _activatnvar_lace, LLUUID& _activatnvar_fscked);
+inline void _activation_check_proc_19_func_1281050892(LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_secret);
+void _activation_check_proc_19_func_1703327762(int& _activatnvar_confusing_int_8, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_6);
+void _activation_check_proc_19_func_566974669(int& _activatnvar_confusing_int_8);
+inline void _activation_check_proc_19_func_553818462(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_195539960(unsigned char* _activatnvar_confusing_chararray_7, char& _activatnvar_confusing_char_b, char& _activatnvar_confusing_char_8, unsigned char* _activatnvar_confusing_chararray_a);
+inline void _activation_check_proc_19_func_1104284551();
+void _activation_check_proc_19_func_835481740();
+void _activation_check_proc_19_func_68500956(char& _activatnvar_confusing_char_8, unsigned char* _activatnvar_confusing_chararray_7);
+inline void _activation_check_proc_19_func_1119594178(bool& _activatnvar_generic_bool_0);
+void _activation_check_proc_19_func_1875976925(U8& _activatnvar_pos);
+inline void _activation_check_proc_19_func_1201672410(LLUUID& _activatnvar_confusing_LLUUID_3, char& _activatnvar_confusing_char_a);
+inline void _activation_check_proc_19_func_406546383(unsigned char* _activatnvar_confusing_chararray_5, unsigned char* _activatnvar_confusing_chararray_4);
+void _activation_check_proc_19_func_493906180(bool& _activatnvar_confusing_bool_1, bool& _activatnvar_confusing_bool_6);
+void _activation_check_proc_19_func_668492910(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_801030448(bool& _activatnvar_confusing_bool_6, bool& _activatnvar_confusing_bool_1, LLUUID& _activatnvar_code, LLUUID& _activatnvar_combined_id, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_fscked);
+void _activation_check_proc_19_func_1732297917(char& _activatnvar_confusing_char_3, LLUUID& _activatnvar_confusing_LLUUID_8, bool& _activatnvar_confusing_bool_e, LLUUID& _activatnvar_confusing_LLUUID_2, char& _activatnvar_confusing_char_b);
+void _activation_check_proc_19_func_1710382319(char& _activatnvar_confusing_char_b, char& _activatnvar_confusing_char_3, bool& _activatnvar_confusing_bool_e);
+void _activation_check_proc_19_func_770443917(LLUUID& _activatnvar_lace, LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1307549809(LLUUID& _activatnvar_combined_id, LLUUID& _activatnvar_confusing_LLUUID_a);
+inline void _activation_check_proc_19_func_824976722(LLUUID& _activatnvar_confusing_LLUUID_9, unsigned char* _activatnvar_confusing_chararray_4);
+void _activation_check_proc_19_func_1024562541(U8& _activatnvar_confusing_U8_3, char& _activatnvar_confusing_char_f);
+inline void _activation_check_proc_19_func_1845703824(bool& _activatnvar_confusing_bool_3, U8& _activatnvar_confusing_U8_3, LLUUID& _activatnvar_confusing_LLUUID_9, char& _activatnvar_confusing_char_f, unsigned char* _activatnvar_confusing_chararray_4);
+void _activation_check_proc_19_func_593388647(LLUUID& _activatnvar_confusing_LLUUID_1);
+void _activation_check_proc_19_func_1521639476(LLUUID& _activatnvar_confusing_LLUUID_9);
+void _activation_check_proc_19_func_625029514(LLUUID& _activatnvar_confusing_LLUUID_9, bool& _activatnvar_confusing_bool_8, bool& _activatnvar_confusing_bool_7, LLUUID& _activatnvar_so, U8& _activatnvar_pos, U8& _activatnvar_t0);
+void _activation_check_proc_19_func_1235527299(U8& _activatnvar_t0, U8& _activatnvar_pos, LLUUID& _activatnvar_so);
+void _activation_check_proc_19_func_1828800534(U8& _activatnvar_confusing_U8_4, U8& _activatnvar_confusing_U8_2, bool& _activatnvar_confusing_bool_6);
+inline void _activation_check_proc_19_func_1494590551(LLUUID& _activatnvar_confusing_LLUUID_1, unsigned char* _activatnvar_confusing_chararray_2);
+void _activation_check_proc_19_func_919517760(LLUUID& _activatnvar_confusing_LLUUID_f, unsigned char* _activatnvar_mac_digest);
+void _activation_check_proc_19_func_1361171635(unsigned char* _activatnvar_confusing_chararray_2, LLUUID& _activatnvar_confusing_LLUUID_1, LLUUID& _activatnvar_confusing_LLUUID_f, bool& _activatnvar_confusing_bool_2, unsigned char* _activatnvar_mac_digest, bool& _activatnvar_confusing_bool_0);
+inline void _activation_check_proc_19_func_703204644(LLUUID& _activatnvar_confusing_LLUUID_1, unsigned char* _activatnvar_confusing_chararray_f);
+inline void _activation_check_proc_19_func_59679098(LLUUID& _activatnvar_code, unsigned char* _activatnvar_confusing_chararray_7);
+inline void _activation_check_proc_19_func_2015797346(LLUUID& _activatnvar_confusing_LLUUID_7);
+inline void _activation_check_proc_19_func_1877744291(LLUUID& _activatnvar_confusing_LLUUID_7, LLUUID& _activatnvar_code, unsigned char* _activatnvar_confusing_chararray_7, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1573792328();
+inline void _activation_check_proc_19_func_1250012523(bool& _activatnvar_confusing_bool_1, bool& _activatnvar_confusing_bool_f, U8& _activatnvar_confusing_U8_c, LLUUID& _activatnvar_confusing_LLUUID_d);
+void _activation_check_proc_19_func_160086843(LLUUID& _activatnvar_confusing_LLUUID_1, unsigned char* _activatnvar_confusing_chararray_9);
+inline void _activation_check_proc_19_func_1974095401();
+inline void _activation_check_proc_19_func_405739747(U8& _activatnvar_confusing_U8_a);
+void _activation_check_proc_19_func_1001377453(unsigned char* _activatnvar_confusing_chararray_1, unsigned char* _activatnvar_confusing_chararray_c, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_957102690(unsigned char* _activatnvar_confusing_chararray_c, unsigned char* _activatnvar_confusing_chararray_1);
+void _activation_check_proc_19_func_1065458928(LLUUID& _activatnvar_confusing_LLUUID_7, LLUUID& _activatnvar_confusing_LLUUID_a);
+inline void _activation_check_proc_19_func_2127241238(unsigned char* _activatnvar_confusing_chararray_d, LLUUID& _activatnvar_confusing_LLUUID_5);
+inline void _activation_check_proc_19_func_410679796(int& _activatnvar_generic_iterator, unsigned char* _activatnvar_ser_digest, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_1721304124(unsigned char* _activatnvar_confusing_chararray_d, unsigned char* _activatnvar_ser_digest, LLUUID& _activatnvar_confusing_LLUUID_7, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_a, LLUUID& _activatnvar_combined_id, LLUUID& _activatnvar_confusing_LLUUID_5);
+inline void _activation_check_proc_19_func_1771497974(LLUUID& _activatnvar_combined_id, U8& _activatnvar_t0);
+void _activation_check_proc_19_func_1421582417(unsigned char* _activatnvar_mac_digest, LLUUID& _activatnvar_combined_id, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1200062118(unsigned char* _activatnvar_name_digest, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_692499020(U8& _activatnvar_pos, LLUUID& _activatnvar_code, U8& _activatnvar_t0, LLUUID& _activatnvar_so, LLUUID& _activatnvar_confusing_LLUUID_6);
+void _activation_check_proc_19_func_1189613717(LLUUID& _activatnvar_confusing_LLUUID_1, unsigned char* _activatnvar_confusing_chararray_9);
+inline void _activation_check_proc_19_func_808091988(unsigned char* _activatnvar_confusing_chararray_9, U8& _activatnvar_confusing_U8_1, U8& _activatnvar_confusing_U8_7, LLUUID& _activatnvar_confusing_LLUUID_1);
+void _activation_check_proc_19_func_116374147(LLUUID& _activatnvar_confusing_LLUUID_2, bool& _activatnvar_confusing_bool_6);
+void _activation_check_proc_19_func_1222330577(char& _activatnvar_confusing_char_a, U8& _activatnvar_confusing_U8_f, bool& _activatnvar_generic_bool_1);
+void _activation_check_proc_19_func_440052357(unsigned char* _activatnvar_confusing_chararray_e, LLUUID& _activatnvar_section2, LLUUID& _activatnvar_secret, LLUUID& _activatnvar_confusing_LLUUID_1, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1185408104(LLUUID& _activatnvar_confusing_LLUUID_1, unsigned char* _activatnvar_confusing_chararray_e);
+inline void _activation_check_proc_19_func_997791093(char& _activatnvar_confusing_char_c);
+inline void _activation_check_proc_19_func_765143764(U8& _activatnvar_confusing_U8_a);
+void _activation_check_proc_19_func_1744617965(U8& _activatnvar_confusing_U8_f, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_6);
+void _activation_check_proc_19_func_1403734201(LLUUID& _activatnvar_confusing_LLUUID_6, U8& _activatnvar_confusing_U8_f);
+void _activation_check_proc_19_func_1425981424(bool& _activatnvar_generic_bool_0, bool& _activatnvar_doaccount);
+void _activation_check_proc_19_func_1727291717(U8& _activatnvar_confusing_U8_f, bool& _activatnvar_generic_bool_1);
+inline void _activation_check_proc_19_func_1415117031(LLUUID& _activatnvar_confusing_LLUUID_3, LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_lace, unsigned char* _activatnvar_confusing_chararray_f, int& _activatnvar_generic_iterator, char& _activatnvar_confusing_char_3);
+inline void _activation_check_proc_19_func_872278032(unsigned char* _activatnvar_confusing_chararray_f, LLUUID& _activatnvar_confusing_LLUUID_3);
+void _activation_check_proc_19_func_1318313813(LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_fscked);
+void _activation_check_proc_19_func_2026448541(U8& _activatnvar_confusing_U8_b, U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_300014160(LLUUID& _activatnvar_secret, LLUUID& _activatnvar_confusing_LLUUID_e);
+void _activation_check_proc_19_func_1635820574(LLUUID& _activatnvar_combined_id, int& _activatnvar_generic_iterator, unsigned char* _activatnvar_ser_digest, LLUUID& _activatnvar_confusing_LLUUID_e, LLUUID& _activatnvar_secret);
+void _activation_check_proc_19_func_1677284748(LLUUID& _activatnvar_so, U8& _activatnvar_t0, U8& _activatnvar_pos);
+inline void _activation_check_proc_19_func_174221505(unsigned char* _activatnvar_confusing_chararray_a, LLUUID& _activatnvar_so, U8& _activatnvar_t0, U8& _activatnvar_pos, U8& _activatnvar_confusing_U8_0);
+void _activation_check_proc_19_func_1019106812(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_422749434(LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_ser_digest, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1943434317(bool& _activatnvar_confusing_bool_d, bool& _activatnvar_confusing_bool_f);
+inline void _activation_check_proc_19_func_1237051437(bool& _activatnvar_confusing_bool_f, bool& _activatnvar_confusing_bool_d, LLUUID& _activatnvar_confusing_LLUUID_c, bool& _activatnvar_confusing_bool_5, char& _activatnvar_confusing_char_5);
+inline void _activation_check_proc_19_func_1775938146(char& _activatnvar_confusing_char_9);
+inline void _activation_check_proc_19_func_508997086(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_2065352890(U8& _activatnvar_pos, int& _activatnvar_confusing_int_e, LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_confusing_LLUUID_9);
+inline void _activation_check_proc_19_func_776845211();
+inline void _activation_check_proc_19_func_1871132262(LLUUID& _activatnvar_confusing_LLUUID_c, unsigned char* _activatnvar_confusing_chararray_3);
+void _activation_check_proc_19_func_1354173983(LLUUID& _activatnvar_confusing_LLUUID_6, unsigned char* _activatnvar_confusing_chararray_3);
+inline void _activation_check_proc_19_func_1781336139(unsigned char* _activatnvar_confusing_chararray_3, bool& _activatnvar_generic_bool_1, unsigned char* _activatnvar_confusing_chararray_9, unsigned char* _activatnvar_confusing_chararray_e, LLUUID& _activatnvar_confusing_LLUUID_6, bool& _activatnvar_generic_bool_0, int& _activatnvar_confusing_int_4);
+void _activation_check_proc_19_func_1474963567(unsigned char* _activatnvar_confusing_chararray_9, unsigned char* _activatnvar_confusing_chararray_e);
+inline void _activation_check_proc_19_func_1125996613(bool& _activatnvar_generic_bool_0, bool& _activatnvar_generic_bool_1);
+inline void _activation_check_proc_19_func_1904039138(U8& _activatnvar_pos);
+void _activation_check_proc_19_func_1798913982(char& _activatnvar_confusing_char_3, U8& _activatnvar_confusing_U8_7);
+void _activation_check_proc_19_func_894561936(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1424008150(int& _activatnvar_generic_iterator, char& _activatnvar_confusing_char_5, U8& _activatnvar_confusing_U8_d);
+inline void _activation_check_proc_19_func_1781763036(bool& _activatnvar_confusing_bool_9, bool& _activatnvar_confusing_bool_2);
+inline void _activation_check_proc_19_func_1853340192(LLUUID& _activatnvar_confusing_LLUUID_f);
+inline void _activation_check_proc_19_func_1537511780(U8& _activatnvar_confusing_U8_8, unsigned char* _activatnvar_confusing_chararray_3);
+void _activation_check_proc_19_func_430601148(int& _activatnvar_confusing_int_3);
+void _activation_check_proc_19_func_857088350(LLUUID& _activatnvar_confusing_LLUUID_6, unsigned char* _activatnvar_confusing_chararray_9);
+void _activation_check_proc_19_func_1058601128(bool& _activatnvar_confusing_bool_1, char& _activatnvar_confusing_char_1, bool& _activatnvar_confusing_bool_c, LLUUID& _activatnvar_confusing_LLUUID_5);
+void _activation_check_proc_19_func_2132373734(LLUUID& _activatnvar_confusing_LLUUID_c, unsigned char* _activatnvar_confusing_chararray_0);
+inline void _activation_check_proc_19_func_1009322447(U8& _activatnvar_confusing_U8_4);
+inline void _activation_check_proc_19_func_1060945104(U8& _activatnvar_confusing_U8_4, bool& _activatnvar_confusing_bool_4, bool& _activatnvar_confusing_bool_2);
+void _activation_check_proc_19_func_1693119829(LLUUID& _activatnvar_confusing_LLUUID_c, LLUUID& _activatnvar_confusing_LLUUID_e, int& _activatnvar_generic_iterator, unsigned char* _activatnvar_mac_digest, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_1357799645(LLUUID& _activatnvar_confusing_LLUUID_e, LLUUID& _activatnvar_confusing_LLUUID_c);
+void _activation_check_proc_19_func_2041562123(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1772578031(int& _activatnvar_generic_iterator, unsigned char* _activatnvar_confusing_chararray_5, unsigned char* _activatnvar_confusing_chararray_6);
+inline void _activation_check_proc_19_func_596445554(int& _activatnvar_confusing_int_0, LLUUID& _activatnvar_confusing_LLUUID_d, unsigned char* _activatnvar_confusing_chararray_4);
+void _activation_check_proc_19_func_1017876591(int& _activatnvar_confusing_int_0);
+void _activation_check_proc_19_func_212286750(LLUUID& _activatnvar_confusing_LLUUID_d);
+void _activation_check_proc_19_func_996658218(LLUUID& _activatnvar_confusing_LLUUID_5, bool& _activatnvar_confusing_bool_1, U8& _activatnvar_confusing_U8_7);
+void _activation_check_proc_19_func_1984730239(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_290314799(LLUUID& _activatnvar_confusing_LLUUID_2, bool& _activatnvar_confusing_bool_6);
+inline void _activation_check_proc_19_func_222069806(unsigned char* _activatnvar_confusing_chararray_0, U8& _activatnvar_confusing_U8_1);
+void _activation_check_proc_19_func_1322566703(char& _activatnvar_confusing_char_d);
+inline void _activation_check_proc_19_func_1185939935(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1942986705(LLUUID& _activatnvar_code, LLUUID& _activatnvar_fscked, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_2128516347(LLUUID& _activatnvar_confusing_LLUUID_5, LLUUID& _activatnvar_confusing_LLUUID_b);
+void _activation_check_proc_19_func_1856146393(LLUUID& _activatnvar_confusing_LLUUID_b, bool& _activatnvar_confusing_bool_0, LLUUID& _activatnvar_fscked, bool& _activatnvar_confusing_bool_6, LLUUID& _activatnvar_code, LLUUID& _activatnvar_secret, int& _activatnvar_generic_iterator, char& _activatnvar_confusing_char_3, LLUUID& _activatnvar_confusing_LLUUID_5);
+void _activation_check_proc_19_func_1414234120(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1097117982(LLUUID& _activatnvar_secret, char& _activatnvar_confusing_char_3);
+inline void _activation_check_proc_19_func_2115372899(char& _activatnvar_confusing_char_2, LLUUID& _activatnvar_confusing_LLUUID_5);
+void _activation_check_proc_19_func_511304570(bool& _activatnvar_confusing_bool_a, bool& _activatnvar_confusing_bool_3, bool& _activatnvar_confusing_bool_6, bool& _activatnvar_confusing_bool_9);
+void _activation_check_proc_19_func_1773413301(bool& _activatnvar_confusing_bool_3, bool& _activatnvar_confusing_bool_a);
+inline void _activation_check_proc_19_func_1393779533(char& _activatnvar_confusing_char_5, LLUUID& _activatnvar_confusing_LLUUID_a, bool& _activatnvar_confusing_bool_e, bool& _activatnvar_confusing_bool_5);
+inline void _activation_check_proc_19_func_2017982256();
+void _activation_check_proc_19_func_1716166495(char& _activatnvar_confusing_char_5, bool& _activatnvar_confusing_bool_e, LLUUID& _activatnvar_confusing_LLUUID_d, LLUUID& _activatnvar_confusing_LLUUID_a, bool& _activatnvar_confusing_bool_5);
+void _activation_check_proc_19_func_888111827(bool& _activatnvar_confusing_bool_c, bool& _activatnvar_confusing_bool_e);
+void _activation_check_proc_19_func_415322185(bool& _activatnvar_confusing_bool_8, bool& _activatnvar_confusing_bool_a);
+void _activation_check_proc_19_func_17646871(int& _activatnvar_generic_iterator, unsigned char* _activatnvar_ser_digest, int& _activatnvar_confusing_int_9, bool& _activatnvar_confusing_bool_a, LLUUID& _activatnvar_combined_id, bool& _activatnvar_confusing_bool_e, bool& _activatnvar_confusing_bool_8, bool& _activatnvar_confusing_bool_c);
+inline void _activation_check_proc_19_func_569333724(int& _activatnvar_confusing_int_9);
+inline void _activation_check_proc_19_func_646900214(U8& _activatnvar_pos);
+inline void _activation_check_proc_19_func_744223201(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_529675183(LLUUID& _activatnvar_secret, LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_25003677(U8& _activatnvar_confusing_U8_5);
+inline void _activation_check_proc_19_func_2056770922(LLUUID& _activatnvar_section1, U8& _activatnvar_confusing_U8_5, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section2);
+inline void _activation_check_proc_19_func_1707799500(bool& _activatnvar_confusing_bool_4, bool& _activatnvar_confusing_bool_8);
+void _activation_check_proc_19_func_205050536(unsigned char* _activatnvar_ser_digest, unsigned char* _activatnvar_confusing_chararray_d);
+inline void _activation_check_proc_19_func_1375103746(unsigned char* _activatnvar_confusing_chararray_d, unsigned char* _activatnvar_ser_digest, LLUUID& _activatnvar_confusing_LLUUID_7);
+void _activation_check_proc_19_func_697055085(unsigned char* _activatnvar_confusing_chararray_3, unsigned char* _activatnvar_confusing_chararray_9, int& _activatnvar_confusing_int_b, unsigned char* _activatnvar_confusing_chararray_5, bool& _activatnvar_confusing_bool_2, LLUUID& _activatnvar_section2, bool& _activatnvar_confusing_bool_c);
+inline void _activation_check_proc_19_func_791241474(int& _activatnvar_confusing_int_b);
+inline void _activation_check_proc_19_func_1018740774(LLUUID& _activatnvar_section2, unsigned char* _activatnvar_confusing_chararray_9);
+inline void _activation_check_proc_19_func_297469584(unsigned char* _activatnvar_confusing_chararray_3, unsigned char* _activatnvar_confusing_chararray_5);
+void _activation_check_proc_19_func_837151619(LLUUID& _activatnvar_code, LLUUID& _activatnvar_combined_id, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_fscked);
+inline void _activation_check_proc_19_func_1941815222(U8& _activatnvar_t0, U8& _activatnvar_t1, LLUUID& _activatnvar_so);
+inline void _activation_check_proc_19_func_1580594246(U8& _activatnvar_t0, LLUUID& _activatnvar_so, U8& _activatnvar_t1, U8& _activatnvar_pos);
+void _activation_check_proc_19_func_626894826(bool& _activatnvar_confusing_bool_c, bool& _activatnvar_confusing_bool_9);
+void _activation_check_proc_19_func_177474774(LLUUID& _activatnvar_confusing_LLUUID_e, LLUUID& _activatnvar_confusing_LLUUID_f, LLUUID& _activatnvar_confusing_LLUUID_3, LLUUID& _activatnvar_confusing_LLUUID_a);
+void _activation_check_proc_19_func_1261742588(LLUUID& _activatnvar_confusing_LLUUID_f);
+void _activation_check_proc_19_func_524876074(LLUUID& _activatnvar_confusing_LLUUID_3, LLUUID& _activatnvar_confusing_LLUUID_a);
+inline void _activation_check_proc_19_func_433614653(bool& _activatnvar_confusing_bool_2, U8& _activatnvar_confusing_U8_0);
+void _activation_check_proc_19_func_1675876116(LLUUID& _activatnvar_confusing_LLUUID_5, LLUUID& _activatnvar_confusing_LLUUID_4);
+inline void _activation_check_proc_19_func_335024405(bool& _activatnvar_confusing_bool_d, char& _activatnvar_confusing_char_d);
+inline void _activation_check_proc_19_func_2013845827(U8& _activatnvar_pos, U8& _activatnvar_t1, LLUUID& _activatnvar_so);
+void _activation_check_proc_19_func_141685824(unsigned char* _activatnvar_confusing_chararray_5, LLUUID& _activatnvar_confusing_LLUUID_e);
+void _activation_check_proc_19_func_1574960401(LLUUID& _activatnvar_confusing_LLUUID_b);
+void _activation_check_proc_19_func_1861767765(unsigned char* _activatnvar_confusing_chararray_0, U8& _activatnvar_t0, unsigned char* _activatnvar_confusing_chararray_3);
+void _activation_check_proc_19_func_1501718882(char& _activatnvar_confusing_char_d, LLUUID& _activatnvar_so, bool& _activatnvar_confusing_bool_0, bool& _activatnvar_confusing_bool_d, unsigned char* _activatnvar_confusing_chararray_0, LLUUID& _activatnvar_confusing_LLUUID_b, bool& _activatnvar_confusing_bool_b, LLUUID& _activatnvar_confusing_LLUUID_d, U8& _activatnvar_t0, bool& _activatnvar_doaccount, U8& _activatnvar_t1, unsigned char* _activatnvar_confusing_chararray_3, unsigned char* _activatnvar_confusing_chararray_5, U8& _activatnvar_pos, LLUUID& _activatnvar_confusing_LLUUID_e);
+void _activation_check_proc_19_func_480320974(LLUUID& _activatnvar_confusing_LLUUID_d, bool& _activatnvar_confusing_bool_0);
+void _activation_check_proc_19_func_618219526(char& _activatnvar_confusing_char_b, unsigned char* _activatnvar_confusing_chararray_0);
+inline void _activation_check_proc_19_func_934113451(U8& _activatnvar_t0, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_862583100(LLUUID& _activatnvar_combined_id, char& _activatnvar_confusing_char_b, U8& _activatnvar_confusing_U8_9, U8& _activatnvar_t0, unsigned char* _activatnvar_confusing_chararray_0, unsigned char* _activatnvar_confusing_chararray_1);
+void _activation_check_proc_19_func_962276782(LLUUID& _activatnvar_confusing_LLUUID_e);
+inline void _activation_check_proc_19_func_1269238584(LLUUID& _activatnvar_section2, char* _activatnvar_strbuf_0);
+void _activation_check_proc_19_func_156507603(unsigned char* _activatnvar_confusing_chararray_d, unsigned char* _activatnvar_confusing_chararray_6);
+inline void _activation_check_proc_19_func_926761818(LLUUID& _activatnvar_confusing_LLUUID_e);
+inline void _activation_check_proc_19_func_1707218277(bool& _activatnvar_confusing_bool_9, char& _activatnvar_confusing_char_1, char& _activatnvar_confusing_char_d);
+inline void _activation_check_proc_19_func_1224303238(int& _activatnvar_confusing_int_a);
+inline void _activation_check_proc_19_func_827417381(U8& _activatnvar_confusing_U8_e);
+inline void _activation_check_proc_19_func_1677086535(bool& _activatnvar_confusing_bool_5, bool& _activatnvar_confusing_bool_b);
+inline void _activation_check_proc_19_func_675960159(bool& _activatnvar_confusing_bool_b, U8& _activatnvar_confusing_U8_e, int& _activatnvar_confusing_int_a, bool& _activatnvar_confusing_bool_5, char& _activatnvar_confusing_char_e);
+void _activation_check_proc_19_func_632044646(int& _activatnvar_confusing_int_c);
+inline void _activation_check_proc_19_func_1784240652(char& _activatnvar_confusing_char_e, char& _activatnvar_confusing_char_6);
+void _activation_check_proc_19_func_1685531360();
+void _activation_check_proc_19_func_1839856750(LLUUID& _activatnvar_confusing_LLUUID_0, char& _activatnvar_confusing_char_4);
+void _activation_check_proc_19_func_716569431(LLUUID& _activatnvar_confusing_LLUUID_0, char& _activatnvar_confusing_char_4, int& _activatnvar_confusing_int_2, LLUUID& _activatnvar_confusing_LLUUID_2, LLUUID& _activatnvar_confusing_LLUUID_7);
+void _activation_check_proc_19_func_1102089076(LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_name_digest);
+void _activation_check_proc_19_func_681408012(LLUUID& _activatnvar_confusing_LLUUID_7, LLUUID& _activatnvar_combined_id, U8& _activatnvar_t0, char& _activatnvar_confusing_char_6, unsigned char* _activatnvar_confusing_chararray_6);
+void _activation_check_proc_19_func_190026404(LLUUID& _activatnvar_combined_id, U8& _activatnvar_t0);
+void _activation_check_proc_19_func_1864649970(LLUUID& _activatnvar_confusing_LLUUID_7, LLUUID& _activatnvar_combined_id);
+inline void _activation_check_proc_19_func_984616588(int& _activatnvar_confusing_int_3);
+inline void _activation_check_proc_19_func_2001365864(bool& _activatnvar_confusing_bool_4, int& _activatnvar_confusing_int_3, bool& _activatnvar_confusing_bool_7, LLUUID& _activatnvar_confusing_LLUUID_f, char& _activatnvar_confusing_char_7);
+void _activation_check_proc_19_func_2057393109(LLUUID& _activatnvar_confusing_LLUUID_d, LLUUID& _activatnvar_confusing_LLUUID_2);
+inline void _activation_check_proc_19_func_1605596369(bool& _activatnvar_confusing_bool_5, bool& _activatnvar_confusing_bool_c);
+void _activation_check_proc_19_func_1883720383(bool& _activatnvar_confusing_bool_c, LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_confusing_LLUUID_d, bool& _activatnvar_confusing_bool_5, LLUUID& _activatnvar_confusing_LLUUID_2, int& _activatnvar_confusing_int_d, unsigned char* _activatnvar_confusing_chararray_2);
+void _activation_check_proc_19_func_1373309056(int& _activatnvar_confusing_int_d);
+void _activation_check_proc_19_func_2005704460(bool& _activatnvar_confusing_bool_9, bool& _activatnvar_confusing_bool_4);
+inline void _activation_check_proc_19_func_1436576814(bool& _activatnvar_confusing_bool_1, bool& _activatnvar_generic_bool_0, int& _activatnvar_confusing_int_7);
+inline void _activation_check_proc_19_func_2127366389(unsigned char* _activatnvar_confusing_chararray_8, unsigned char* _activatnvar_confusing_chararray_1);
+void _activation_check_proc_19_func_665002743(unsigned char* _activatnvar_confusing_chararray_1, bool& _activatnvar_generic_bool_0, unsigned char* _activatnvar_confusing_chararray_8, int& _activatnvar_confusing_int_7, bool& _activatnvar_confusing_bool_1, LLUUID& _activatnvar_confusing_LLUUID_2, unsigned char* _activatnvar_confusing_chararray_f);
+void _activation_check_proc_19_func_1885235421(char& _activatnvar_confusing_char_1, LLUUID& _activatnvar_confusing_LLUUID_4, unsigned char* _activatnvar_confusing_chararray_c, char& _activatnvar_confusing_char_2, int& _activatnvar_confusing_int_e, LLUUID& _activatnvar_confusing_LLUUID_5);
+void _activation_check_proc_19_func_1325031594(int& _activatnvar_confusing_int_e);
+void _activation_check_proc_19_func_53999707(char& _activatnvar_confusing_char_2);
+void _activation_check_proc_19_func_2367079(U8& _activatnvar_confusing_U8_b, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_combined_id, LLUUID& _activatnvar_code, char& _activatnvar_confusing_char_2, unsigned char* _activatnvar_confusing_chararray_9, LLUUID& _activatnvar_fscked);
+inline void _activation_check_proc_19_func_1533976652(unsigned char* _activatnvar_confusing_chararray_9, char& _activatnvar_confusing_char_2);
+void _activation_check_proc_19_func_1260583787(U8& _activatnvar_confusing_U8_b);
+void _activation_check_proc_19_func_489148500(LLUUID& _activatnvar_confusing_LLUUID_3, unsigned char* _activatnvar_confusing_chararray_b);
+void _activation_check_proc_19_func_701037373(int& _activatnvar_confusing_int_a);
+inline void _activation_check_proc_19_func_2121071140();
+void _activation_check_proc_19_func_398991018(U8& _activatnvar_confusing_U8_9);
+void _activation_check_proc_19_func_795520723(unsigned char* _activatnvar_confusing_chararray_2, unsigned char* _activatnvar_name_digest);
+void _activation_check_proc_19_func_58697176(unsigned char* _activatnvar_confusing_chararray_2, U8& _activatnvar_confusing_U8_9, U8& _activatnvar_confusing_U8_6, bool& _activatnvar_confusing_bool_8, unsigned char* _activatnvar_name_digest, LLUUID& _activatnvar_confusing_LLUUID_3);
+void _activation_check_proc_19_func_531317523(int& _activatnvar_confusing_int_4);
+void _activation_check_proc_19_func_1213241155(char& _activatnvar_confusing_char_1);
+void _activation_check_proc_19_func_865868738(char& _activatnvar_confusing_char_3, char& _activatnvar_confusing_char_e);
+inline void _activation_check_proc_19_func_1213165692(int& _activatnvar_confusing_int_1);
+void _activation_check_proc_19_func_2032385709(U8& _activatnvar_confusing_U8_1, LLUUID& _activatnvar_confusing_LLUUID_e);
+inline void _activation_check_proc_19_func_743968303(int& _activatnvar_confusing_int_f, char& _activatnvar_confusing_char_c, bool& _activatnvar_confusing_bool_4);
+inline void _activation_check_proc_19_func_290374879(bool& _activatnvar_confusing_bool_4, char& _activatnvar_confusing_char_c);
+inline void _activation_check_proc_19_func_668500105(U8& _activatnvar_confusing_U8_a);
+void _activation_check_proc_19_func_690091416(LLUUID& _activatnvar_section2, LLUUID& _activatnvar_secret, int& _activatnvar_generic_iterator, U8& _activatnvar_confusing_U8_a, int& _activatnvar_confusing_int_7);
+void _activation_check_proc_19_func_570136908(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1174210322(int& _activatnvar_confusing_int_7);
+inline void _activation_check_proc_19_func_41514113(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section2, LLUUID& _activatnvar_secret);
+inline void _activation_check_proc_19_func_889638458(U8& _activatnvar_confusing_U8_a);
+inline void _activation_check_proc_19_func_1004158219(U8& _activatnvar_pos);
+void _activation_check_proc_19_func_901603485(LLUUID& _activatnvar_combined_id, U8& _activatnvar_pos);
+inline void _activation_check_proc_19_func_1156800949(char& _activatnvar_confusing_char_c);
+void _activation_check_proc_19_func_1242881162(char& _activatnvar_confusing_char_c, unsigned char* _activatnvar_mac_digest, unsigned char* _activatnvar_confusing_chararray_9);
+void _activation_check_proc_19_func_282438094(bool& _activatnvar_confusing_bool_d, U8& _activatnvar_confusing_U8_4, U8& _activatnvar_confusing_U8_1);
+void _activation_check_proc_19_func_1344452779(bool& _activatnvar_confusing_bool_d, U8& _activatnvar_confusing_U8_1, U8& _activatnvar_confusing_U8_4);
+void _activation_check_proc_19_func_1132654592(bool& _activatnvar_confusing_bool_6, char& _activatnvar_confusing_char_b, LLUUID& _activatnvar_confusing_LLUUID_c, bool& _activatnvar_confusing_bool_7, bool& _activatnvar_confusing_bool_f);
+void _activation_check_proc_19_func_962972425(LLUUID& _activatnvar_confusing_LLUUID_c, char& _activatnvar_confusing_char_b);
+inline void _activation_check_proc_19_func_1522882048(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1071111714(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_b, unsigned char* _activatnvar_confusing_chararray_1);
+void _activation_check_proc_19_func_1709857646(LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_confusing_LLUUID_0, LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1936977746(LLUUID& _activatnvar_confusing_LLUUID_0);
+void _activation_check_proc_19_func_726775585(U8& _activatnvar_confusing_U8_4, bool& _activatnvar_confusing_bool_5);
+void _activation_check_proc_19_func_1159070768(U8& _activatnvar_t0);
+void _activation_check_proc_19_func_1405886858(U8& _activatnvar_confusing_U8_c, U8& _activatnvar_t0, bool& _activatnvar_confusing_bool_9, char& _activatnvar_confusing_char_f);
+void _activation_check_proc_19_func_978727059(char& _activatnvar_confusing_char_f, U8& _activatnvar_confusing_U8_c, bool& _activatnvar_confusing_bool_9);
+void _activation_check_proc_19_func_2129854855(U8& _activatnvar_pos);
+inline void _activation_check_proc_19_func_441133346(LLUUID& _activatnvar_secret, LLUUID& _activatnvar_confusing_LLUUID_6);
+void _activation_check_proc_19_func_1656580145(LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_secret);
+void _activation_check_proc_19_func_500141633(int& _activatnvar_confusing_int_f, int& _activatnvar_confusing_int_3);
+void _activation_check_proc_19_func_87679147(char& _activatnvar_confusing_char_0, char& _activatnvar_confusing_char_9, LLUUID& _activatnvar_section2, int& _activatnvar_confusing_int_f, bool& _activatnvar_confusing_bool_8, int& _activatnvar_confusing_int_7, int& _activatnvar_confusing_int_b, bool& _activatnvar_generic_bool_1, LLUUID& _activatnvar_confusing_LLUUID_6, LLUUID& _activatnvar_secret, int& _activatnvar_generic_iterator, int& _activatnvar_confusing_int_3, char& _activatnvar_confusing_char_d, U8& _activatnvar_confusing_U8_5);
+inline void _activation_check_proc_19_func_498511530(bool& _activatnvar_generic_bool_1, char& _activatnvar_confusing_char_9, char& _activatnvar_confusing_char_0);
+inline void _activation_check_proc_19_func_170499489(int& _activatnvar_confusing_int_7);
+inline void _activation_check_proc_19_func_693727077(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_610030621(int& _activatnvar_confusing_int_b);
+inline void _activation_check_proc_19_func_1227696354(unsigned char* _activatnvar_confusing_chararray_0, char& _activatnvar_confusing_char_f);
+inline void _activation_check_proc_19_func_388169559(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1712670039(bool& _activatnvar_confusing_bool_7, bool& _activatnvar_generic_bool_0);
+inline void _activation_check_proc_19_func_46387140(LLUUID& _activatnvar_confusing_LLUUID_4, LLUUID& _activatnvar_confusing_LLUUID_6);
+inline void _activation_check_proc_19_func_216091107(LLUUID& _activatnvar_confusing_LLUUID_4, LLUUID& _activatnvar_confusing_LLUUID_1);
+void _activation_check_proc_19_func_1463754323(LLUUID& _activatnvar_confusing_LLUUID_1, unsigned char* _activatnvar_confusing_chararray_6, LLUUID& _activatnvar_confusing_LLUUID_4, bool& _activatnvar_generic_bool_0, LLUUID& _activatnvar_confusing_LLUUID_6, unsigned char* _activatnvar_confusing_chararray_e, LLUUID& _activatnvar_section1, char& _activatnvar_confusing_char_d, U8& _activatnvar_confusing_U8_4, U8& _activatnvar_pos, LLUUID& _activatnvar_confusing_LLUUID_8, LLUUID& _activatnvar_confusing_LLUUID_9, bool& _activatnvar_confusing_bool_f, int& _activatnvar_confusing_int_e);
+inline void _activation_check_proc_19_func_74237436(bool& _activatnvar_confusing_bool_f, U8& _activatnvar_pos, bool& _activatnvar_generic_bool_0, LLUUID& _activatnvar_confusing_LLUUID_9);
+inline void _activation_check_proc_19_func_236623845(unsigned char* _activatnvar_confusing_chararray_6, LLUUID& _activatnvar_section1);
+void _activation_check_proc_19_func_1786545574(int& _activatnvar_confusing_int_e);
+void _activation_check_proc_19_func_662126926(LLUUID& _activatnvar_confusing_LLUUID_8, char& _activatnvar_confusing_char_d);
+void _activation_check_proc_19_func_2055097226(U8& _activatnvar_confusing_U8_b, unsigned char* _activatnvar_confusing_chararray_9, LLUUID& _activatnvar_confusing_LLUUID_7, char& _activatnvar_confusing_char_7);
+void _activation_check_proc_19_func_1799834881(LLUUID& _activatnvar_code, unsigned char* _activatnvar_confusing_chararray_0);
+inline void _activation_check_proc_19_func_1140449661(char* _activatnvar_strbuf_0);
+void _activation_check_proc_19_func_796100635(char* _activatnvar_strbuf_0, LLUUID& _activatnvar_secret, unsigned char* _activatnvar_confusing_chararray_c, LLUUID& _activatnvar_confusing_LLUUID_b, LLUUID& _activatnvar_confusing_LLUUID_c);
+inline void _activation_check_proc_19_func_31579272(LLUUID& _activatnvar_secret, char* _activatnvar_strbuf_0, LLUUID& _activatnvar_confusing_LLUUID_b);
+void _activation_check_proc_19_func_510289793();
+void _activation_check_proc_19_func_758773590(unsigned char* _activatnvar_confusing_chararray_b, char& _activatnvar_confusing_char_5);
+void _activation_check_proc_19_func_1644591673(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section2, LLUUID& _activatnvar_secret);
+void _activation_check_proc_19_func_799867130(LLUUID& _activatnvar_confusing_LLUUID_5, LLUUID& _activatnvar_confusing_LLUUID_9);
+void _activation_check_proc_19_func_1959029156(unsigned char* _activatnvar_confusing_chararray_c, LLUUID& _activatnvar_confusing_LLUUID_5);
+inline void _activation_check_proc_19_func_1707979480(unsigned char* _activatnvar_confusing_chararray_c, LLUUID& _activatnvar_confusing_LLUUID_5);
+inline void _activation_check_proc_19_func_29392319(bool& _activatnvar_confusing_bool_7, char& _activatnvar_confusing_char_9, LLUUID& _activatnvar_confusing_LLUUID_c);
+inline void _activation_check_proc_19_func_254635382(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1112089153(U8& _activatnvar_t0, U8& _activatnvar_pos, bool& _activatnvar_confusing_bool_7, LLUUID& _activatnvar_combined_id, bool& _activatnvar_confusing_bool_0);
+inline void _activation_check_proc_19_func_1815620311(bool& _activatnvar_confusing_bool_3, bool& _activatnvar_confusing_bool_d);
+void _activation_check_proc_19_func_2040044110(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_887023046(bool& _activatnvar_confusing_bool_a, char& _activatnvar_confusing_char_4, U8& _activatnvar_confusing_U8_2);
+inline void _activation_check_proc_19_func_692832375(LLUUID& _activatnvar_secret, char& _activatnvar_confusing_char_4, LLUUID& _activatnvar_confusing_LLUUID_f, bool& _activatnvar_confusing_bool_a, U8& _activatnvar_confusing_U8_2);
+inline void _activation_check_proc_19_func_1848499928(char& _activatnvar_confusing_char_9);
+inline void _activation_check_proc_19_func_1458026979(LLUUID& _activatnvar_confusing_LLUUID_7, LLUUID& _activatnvar_combined_id, char& _activatnvar_confusing_char_9);
+void _activation_check_proc_19_func_725559428(LLUUID& _activatnvar_confusing_LLUUID_8);
+void _activation_check_proc_19_func_1174015089(bool& _activatnvar_confusing_bool_1, LLUUID& _activatnvar_confusing_LLUUID_5);
+void _activation_check_proc_19_func_123643040(bool& _activatnvar_confusing_bool_5, bool& _activatnvar_confusing_bool_d, bool& _activatnvar_confusing_bool_2);
+void _activation_check_proc_19_func_2094536794(unsigned char* _activatnvar_confusing_chararray_9, LLUUID& _activatnvar_confusing_LLUUID_3);
+inline void _activation_check_proc_19_func_1602074866(LLUUID& _activatnvar_confusing_LLUUID_3, LLUUID& _activatnvar_confusing_LLUUID_d);
+inline void _activation_check_proc_19_func_1555677593(char& _activatnvar_confusing_char_1, U8& _activatnvar_confusing_U8_b);
+void _activation_check_proc_19_func_1475810610(unsigned char* _activatnvar_mac_digest, LLUUID& _activatnvar_combined_id, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_824298555(U8& _activatnvar_confusing_U8_3, unsigned char* _activatnvar_mac_digest, LLUUID& _activatnvar_combined_id, int& _activatnvar_generic_iterator, char& _activatnvar_confusing_char_8);
+void _activation_check_proc_19_func_794201051(char& _activatnvar_confusing_char_d, unsigned char* _activatnvar_confusing_chararray_9);
+inline void _activation_check_proc_19_func_926695043(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_627927108(int& _activatnvar_confusing_int_3);
+inline void _activation_check_proc_19_func_1982278795(bool& _activatnvar_confusing_bool_f, bool& _activatnvar_confusing_bool_e);
+void _activation_check_proc_19_func_2131727559(U8& _activatnvar_t1, char& _activatnvar_confusing_char_f);
+void _activation_check_proc_19_func_828464655(U8& _activatnvar_t1, bool& _activatnvar_confusing_bool_f, bool& _activatnvar_confusing_bool_e, char* _activatnvar_strbuf_0, char& _activatnvar_confusing_char_f, LLUUID& _activatnvar_section2);
+void _activation_check_proc_19_func_1408655097(char* _activatnvar_strbuf_0);
+void _activation_check_proc_19_func_941896622(U8& _activatnvar_confusing_U8_4);
+void _activation_check_proc_19_func_411736087(U8& _activatnvar_confusing_U8_f, unsigned char* _activatnvar_ser_digest, unsigned char* _activatnvar_confusing_chararray_6);
+inline void _activation_check_proc_19_func_89358846(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_f, LLUUID& _activatnvar_confusing_LLUUID_e, char& _activatnvar_confusing_char_4, bool& _activatnvar_confusing_bool_e, LLUUID& _activatnvar_section2, U8& _activatnvar_confusing_U8_9, LLUUID& _activatnvar_fscked, int& _activatnvar_confusing_int_2, LLUUID& _activatnvar_lace);
+void _activation_check_proc_19_func_1114582938(char& _activatnvar_confusing_char_4);
+inline void _activation_check_proc_19_func_548821003(int& _activatnvar_confusing_int_2);
+inline void _activation_check_proc_19_func_2063239264(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_523006930(LLUUID& _activatnvar_section2, LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_821314012(LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_fscked);
+void _activation_check_proc_19_func_2074278382(LLUUID& _activatnvar_confusing_LLUUID_f, LLUUID& _activatnvar_confusing_LLUUID_e);
+void _activation_check_proc_19_func_1899179912(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1439056089(LLUUID& _activatnvar_confusing_LLUUID_f, LLUUID& _activatnvar_confusing_LLUUID_7);
+inline void _activation_check_proc_19_func_1254631731(bool& _activatnvar_generic_bool_0, bool& _activatnvar_generic_bool_1);
+void _activation_check_proc_19_func_1643124714(LLUUID& _activatnvar_confusing_LLUUID_e, LLUUID& _activatnvar_confusing_LLUUID_c);
+inline void _activation_check_proc_19_func_295357487(char& _activatnvar_confusing_char_9, unsigned char* _activatnvar_confusing_chararray_4);
+void _activation_check_proc_19_func_796039986(int& _activatnvar_confusing_int_0);
+void _activation_check_proc_19_func_538494556(int& _activatnvar_confusing_int_f, LLUUID& _activatnvar_confusing_LLUUID_3, int& _activatnvar_confusing_int_1);
+void _activation_check_proc_19_func_749811705(LLUUID& _activatnvar_confusing_LLUUID_3);
+inline void _activation_check_proc_19_func_169913417(U8& _activatnvar_confusing_U8_5, U8& _activatnvar_confusing_U8_2);
+void _activation_check_proc_19_func_1110029978(unsigned char* _activatnvar_confusing_chararray_d, U8& _activatnvar_confusing_U8_2);
+void _activation_check_proc_19_func_1504335110(char& _activatnvar_confusing_char_7);
+void _activation_check_proc_19_func_202346300(LLUUID& _activatnvar_lace, LLUUID& _activatnvar_confusing_LLUUID_1);
+inline void _activation_check_proc_19_func_1137582541(unsigned char* _activatnvar_confusing_chararray_3, LLUUID& _activatnvar_confusing_LLUUID_0);
+void _activation_check_proc_19_func_1209537163(LLUUID& _activatnvar_section1, LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_131850858(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section2, LLUUID& _activatnvar_section1);
+inline void _activation_check_proc_19_func_935601698(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_460390873(char& _activatnvar_confusing_char_b, unsigned char* _activatnvar_confusing_chararray_2);
+void _activation_check_proc_19_func_429693607(U8& _activatnvar_confusing_U8_b, U8& _activatnvar_t0, char& _activatnvar_confusing_char_9, LLUUID& _activatnvar_so);
+void _activation_check_proc_19_func_650194729(U8& _activatnvar_t0, LLUUID& _activatnvar_so);
+inline void _activation_check_proc_19_func_1666791777(LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section1);
+inline void _activation_check_proc_19_func_7159291(LLUUID& _activatnvar_section1, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section2);
+void _activation_check_proc_19_func_1172647478(bool& _activatnvar_generic_bool_1, U8& _activatnvar_confusing_U8_0);
+void _activation_check_proc_19_func_976424860(char& _activatnvar_confusing_char_f);
+void _activation_check_proc_19_func_360746026(U8& _activatnvar_confusing_U8_b, char& _activatnvar_confusing_char_6);
+void _activation_check_proc_19_func_1158985581(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1984762406(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_lace, char& _activatnvar_confusing_char_f, char& _activatnvar_confusing_char_6, U8& _activatnvar_confusing_U8_b, LLUUID& _activatnvar_section2);
+void _activation_check_proc_19_func_846363079(LLUUID& _activatnvar_confusing_LLUUID_c, char& _activatnvar_confusing_char_b, U8& _activatnvar_t1, LLUUID& _activatnvar_so, U8& _activatnvar_t0);
+void _activation_check_proc_19_func_268472032(char& _activatnvar_confusing_char_b, LLUUID& _activatnvar_confusing_LLUUID_c);
+inline void _activation_check_proc_19_func_1691789822(unsigned char* _activatnvar_name_digest, LLUUID& _activatnvar_combined_id);
+inline void _activation_check_proc_19_func_1466285250(LLUUID& _activatnvar_confusing_LLUUID_7, unsigned char* _activatnvar_name_digest, LLUUID& _activatnvar_combined_id, bool& _activatnvar_confusing_bool_e, U8& _activatnvar_confusing_U8_1, bool& _activatnvar_confusing_bool_0, bool& _activatnvar_confusing_bool_a, unsigned char* _activatnvar_confusing_chararray_0, U8& _activatnvar_confusing_U8_8);
+inline void _activation_check_proc_19_func_108985325(U8& _activatnvar_confusing_U8_1, bool& _activatnvar_confusing_bool_e, LLUUID& _activatnvar_confusing_LLUUID_7);
+void _activation_check_proc_19_func_310922041(bool& _activatnvar_confusing_bool_0, bool& _activatnvar_confusing_bool_a);
+inline void _activation_check_proc_19_func_1748398842(LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_name_digest);
+void _activation_check_proc_19_func_1482668281(int& _activatnvar_confusing_int_1);
+inline void _activation_check_proc_19_func_201770587(int& _activatnvar_confusing_int_1, LLUUID& _activatnvar_confusing_LLUUID_6, LLUUID& _activatnvar_confusing_LLUUID_9);
+inline void _activation_check_proc_19_func_177751109(U8& _activatnvar_t0);
+void _activation_check_proc_19_func_1898382441(int& _activatnvar_confusing_int_0);
+inline void _activation_check_proc_19_func_668525829(LLUUID& _activatnvar_confusing_LLUUID_b, bool& _activatnvar_confusing_bool_1, LLUUID& _activatnvar_lace, LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_952938355(LLUUID& _activatnvar_confusing_LLUUID_b, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_5, LLUUID& _activatnvar_section2, LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_confusing_LLUUID_d, LLUUID& _activatnvar_lace, int& _activatnvar_confusing_int_0, bool& _activatnvar_confusing_bool_1);
+void _activation_check_proc_19_func_107287863(LLUUID& _activatnvar_confusing_LLUUID_5, LLUUID& _activatnvar_confusing_LLUUID_d);
+inline void _activation_check_proc_19_func_716494707(unsigned char* _activatnvar_confusing_chararray_b, char* _activatnvar_strbuf_0, LLUUID& _activatnvar_confusing_LLUUID_a, char& _activatnvar_confusing_char_5, LLUUID& _activatnvar_code, LLUUID& _activatnvar_confusing_LLUUID_d);
+void _activation_check_proc_19_func_812193484(char* _activatnvar_strbuf_0, LLUUID& _activatnvar_code);
+void _activation_check_proc_19_func_532746949(unsigned char* _activatnvar_confusing_chararray_b, char& _activatnvar_confusing_char_5);
+void _activation_check_proc_19_func_383734711(LLUUID& _activatnvar_confusing_LLUUID_5, bool& _activatnvar_confusing_bool_b, int& _activatnvar_confusing_int_1, char& _activatnvar_confusing_char_4, bool& _activatnvar_confusing_bool_1, int& _activatnvar_generic_iterator, U8& _activatnvar_confusing_U8_5, LLUUID& _activatnvar_confusing_LLUUID_6);
+void _activation_check_proc_19_func_1166795380(U8& _activatnvar_confusing_U8_5, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_6, bool& _activatnvar_confusing_bool_b);
+void _activation_check_proc_19_func_575100465(char& _activatnvar_confusing_char_4, bool& _activatnvar_confusing_bool_1, LLUUID& _activatnvar_confusing_LLUUID_5);
+void _activation_check_proc_19_func_1048510625(LLUUID& _activatnvar_confusing_LLUUID_e, unsigned char* _activatnvar_confusing_chararray_8);
+void _activation_check_proc_19_func_1147536947(unsigned char* _activatnvar_confusing_chararray_6, U8& _activatnvar_confusing_U8_e, LLUUID& _activatnvar_confusing_LLUUID_4);
+inline void _activation_check_proc_19_func_420607187(LLUUID& _activatnvar_section1, U8& _activatnvar_pos, char& _activatnvar_confusing_char_5);
+inline void _activation_check_proc_19_func_367159168(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_551023429(U8& _activatnvar_pos);
+void _activation_check_proc_19_func_572037854(char& _activatnvar_confusing_char_a);
+void _activation_check_proc_19_func_559351850(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_417275625(LLUUID& _activatnvar_section2, LLUUID& _activatnvar_so);
+void _activation_check_proc_19_func_1570224241(LLUUID& _activatnvar_section1, LLUUID& _activatnvar_section2, LLUUID& _activatnvar_so);
+void _activation_check_proc_19_func_30246678(U8& _activatnvar_confusing_U8_3);
+inline void _activation_check_proc_19_func_750358595(int& _activatnvar_confusing_int_f);
+void _activation_check_proc_19_func_330941944(char& _activatnvar_confusing_char_9, LLUUID& _activatnvar_confusing_LLUUID_1, LLUUID& _activatnvar_secret, U8& _activatnvar_confusing_U8_3);
+inline void _activation_check_proc_19_func_1764873740(U8& _activatnvar_confusing_U8_3, LLUUID& _activatnvar_confusing_LLUUID_1, char& _activatnvar_confusing_char_9, int& _activatnvar_confusing_int_f, LLUUID& _activatnvar_secret, U8& _activatnvar_pos);
+inline void _activation_check_proc_19_func_1075436877(U8& _activatnvar_confusing_U8_a);
+void _activation_check_proc_19_func_1085126961(bool& _activatnvar_confusing_bool_7, U8& _activatnvar_confusing_U8_a, char& _activatnvar_confusing_char_4, LLUUID& _activatnvar_confusing_LLUUID_7);
+void _activation_check_proc_19_func_2008363733(char& _activatnvar_confusing_char_c);
+void _activation_check_proc_19_func_1760882920(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section1, LLUUID& _activatnvar_section2);
+void _activation_check_proc_19_func_601828564(LLUUID& _activatnvar_section2, LLUUID& _activatnvar_section1, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1463420394(int& _activatnvar_confusing_int_8);
+inline void _activation_check_proc_19_func_106493812(unsigned char* _activatnvar_confusing_chararray_9, unsigned char* _activatnvar_confusing_chararray_1);
+void _activation_check_proc_19_func_592655437(LLUUID& _activatnvar_confusing_LLUUID_8);
+void _activation_check_proc_19_func_911385224(bool& _activatnvar_confusing_bool_d);
+inline void _activation_check_proc_19_func_2102474322(U8& _activatnvar_pos);
+void _activation_check_proc_19_func_1695625641(bool& _activatnvar_confusing_bool_3, bool& _activatnvar_confusing_bool_0);
+void _activation_check_proc_19_func_1078598798(bool& _activatnvar_confusing_bool_3, LLUUID& _activatnvar_combined_id, bool& _activatnvar_confusing_bool_0, U8& _activatnvar_pos);
+void _activation_check_proc_19_func_2047358777(U8& _activatnvar_confusing_U8_4, LLUUID& _activatnvar_confusing_LLUUID_f);
+void _activation_check_proc_19_func_174549221(LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_name_digest);
+inline void _activation_check_proc_19_func_2063246820(U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_2058017852(U8& _activatnvar_confusing_U8_5, unsigned char* _activatnvar_confusing_chararray_c);
+void _activation_check_proc_19_func_1059290893(LLUUID& _activatnvar_combined_id, U8& _activatnvar_confusing_U8_b);
+void _activation_check_proc_19_func_239481016(U8& _activatnvar_confusing_U8_5, LLUUID& _activatnvar_combined_id, U8& _activatnvar_confusing_U8_b, U8& _activatnvar_confusing_U8_6, int& _activatnvar_confusing_int_a, unsigned char* _activatnvar_confusing_chararray_c, LLUUID& _activatnvar_code);
+inline void _activation_check_proc_19_func_1654798444(U8& _activatnvar_confusing_U8_6, LLUUID& _activatnvar_code);
+void _activation_check_proc_19_func_2146216871(bool& _activatnvar_doaccount, int& _activatnvar_generic_iterator, bool& _activatnvar_generic_bool_0);
+void _activation_check_proc_19_func_1821583378(bool& _activatnvar_generic_bool_0, bool& _activatnvar_doaccount);
+void _activation_check_proc_19_func_1068756550(int& _activatnvar_confusing_int_b, int& _activatnvar_confusing_int_a);
+void _activation_check_proc_19_func_1423982667(LLUUID& _activatnvar_confusing_LLUUID_1, LLUUID& _activatnvar_secret);
+void _activation_check_proc_19_func_215267095(LLUUID& _activatnvar_lace, U8& _activatnvar_confusing_U8_f);
+inline void _activation_check_proc_19_func_173295990(LLUUID& _activatnvar_secret, LLUUID& _activatnvar_confusing_LLUUID_e);
+inline void _activation_check_proc_19_func_1482601269(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_secret, U8& _activatnvar_confusing_U8_f, LLUUID& _activatnvar_lace, char& _activatnvar_feat, LLUUID& _activatnvar_confusing_LLUUID_e, bool& _activatnvar_doaccount);
+inline void _activation_check_proc_19_func_1530431363(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1537352532(unsigned char* _activatnvar_confusing_chararray_3, int& _activatnvar_confusing_int_7, LLUUID& _activatnvar_confusing_LLUUID_4);
+void _activation_check_proc_19_func_609761303(unsigned char* _activatnvar_confusing_chararray_d, LLUUID& _activatnvar_lace, bool& _activatnvar_doaccount, int& _activatnvar_generic_iterator, char& _activatnvar_feat, unsigned char* _activatnvar_confusing_chararray_f);
+void _activation_check_proc_19_func_2095825900(unsigned char* _activatnvar_confusing_chararray_f, unsigned char* _activatnvar_confusing_chararray_d);
+void _activation_check_proc_19_func_1534759318(int& _activatnvar_confusing_int_3, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_lace, LLUUID& _activatnvar_section2, LLUUID& _activatnvar_fscked);
+inline void _activation_check_proc_19_func_21197235(LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_lace);
+void _activation_check_proc_19_func_1121340027(int& _activatnvar_confusing_int_3);
+void _activation_check_proc_19_func_337447967(LLUUID& _activatnvar_code, LLUUID& _activatnvar_combined_id, LLUUID& _activatnvar_fscked, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1554305954(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1621171945(LLUUID& _activatnvar_confusing_LLUUID_3);
+inline void _activation_check_proc_19_func_970422475(bool& _activatnvar_generic_bool_0);
+inline void _activation_check_proc_19_func_273697801(char& _activatnvar_confusing_char_9);
+void _activation_check_proc_19_func_1064285885(unsigned char* _activatnvar_confusing_chararray_6, unsigned char* _activatnvar_ser_digest);
+void _activation_check_proc_19_func_1588137552(int& _activatnvar_confusing_int_a);
+inline void _activation_check_proc_19_func_132306922(char& _activatnvar_confusing_char_9, unsigned char* _activatnvar_confusing_chararray_6, int& _activatnvar_generic_iterator, unsigned char* _activatnvar_ser_digest, int& _activatnvar_confusing_int_a, char& _activatnvar_confusing_char_6);
+void _activation_check_proc_19_func_786538160(int& _activatnvar_confusing_int_7);
+inline void _activation_check_proc_19_func_1546755420(U8& _activatnvar_confusing_U8_7, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_code, char& _activatnvar_confusing_char_8, LLUUID& _activatnvar_confusing_LLUUID_0, LLUUID& _activatnvar_combined_id, LLUUID& _activatnvar_fscked);
+inline void _activation_check_proc_19_func_407343364(char& _activatnvar_confusing_char_8, U8& _activatnvar_confusing_U8_7);
+void _activation_check_proc_19_func_558698307(LLUUID& _activatnvar_confusing_LLUUID_0, LLUUID& _activatnvar_code);
+void _activation_check_proc_19_func_1076003779(U8& _activatnvar_t0, LLUUID& _activatnvar_so, LLUUID& _activatnvar_confusing_LLUUID_7, U8& _activatnvar_confusing_U8_5, unsigned char* _activatnvar_confusing_chararray_0, U8& _activatnvar_pos);
+inline void _activation_check_proc_19_func_294785843(unsigned char* _activatnvar_confusing_chararray_0, LLUUID& _activatnvar_confusing_LLUUID_7, LLUUID& _activatnvar_so, U8& _activatnvar_t0, U8& _activatnvar_pos, U8& _activatnvar_confusing_U8_5);
+void _activation_check_proc_19_func_169586059(LLUUID& _activatnvar_section1, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section2);
+inline void _activation_check_proc_19_func_1724554154(bool& _activatnvar_confusing_bool_3, U8& _activatnvar_confusing_U8_0);
+inline void _activation_check_proc_19_func_1313844441(bool& _activatnvar_confusing_bool_3, U8& _activatnvar_confusing_U8_0, U8& _activatnvar_t0, unsigned char* _activatnvar_confusing_chararray_f, unsigned char* _activatnvar_confusing_chararray_9);
+void _activation_check_proc_19_func_912270293(U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_1698619520(char& _activatnvar_confusing_char_d, bool& _activatnvar_generic_bool_1, U8& _activatnvar_t0);
+void _activation_check_proc_19_func_682632237(bool& _activatnvar_confusing_bool_2, bool& _activatnvar_confusing_bool_e);
+inline void _activation_check_proc_19_func_353900079(char& _activatnvar_confusing_char_d, LLUUID& _activatnvar_confusing_LLUUID_b, bool& _activatnvar_confusing_bool_8);
+void _activation_check_proc_19_func_307266194(LLUUID& _activatnvar_confusing_LLUUID_7, LLUUID& _activatnvar_confusing_LLUUID_a);
+inline void _activation_check_proc_19_func_1142636560(LLUUID& _activatnvar_combined_id, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_code);
+inline void _activation_check_proc_19_func_1319723702(char& _activatnvar_confusing_char_0);
+void _activation_check_proc_19_func_1187224271(int& _activatnvar_confusing_int_8, unsigned char* _activatnvar_confusing_chararray_7, char& _activatnvar_confusing_char_6);
+void _activation_check_proc_19_func_1150066420(int& _activatnvar_confusing_int_8);
+void _activation_check_proc_19_func_235463902(LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_ser_digest, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_2095442281(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_ser_digest);
+void _activation_check_proc_19_func_232006357(int& _activatnvar_confusing_int_3);
+void _activation_check_proc_19_func_885843286(LLUUID& _activatnvar_confusing_LLUUID_9, U8& _activatnvar_confusing_U8_e, bool& _activatnvar_confusing_bool_2, char* _activatnvar_strbuf_0);
+inline void _activation_check_proc_19_func_281877118(U8& _activatnvar_t0, LLUUID& _activatnvar_confusing_LLUUID_0, LLUUID& _activatnvar_so, U8& _activatnvar_t1);
+void _activation_check_proc_19_func_1418976382(bool& _activatnvar_confusing_bool_e, int& _activatnvar_generic_iterator, bool& _activatnvar_confusing_bool_7, U8& _activatnvar_confusing_U8_7, LLUUID& _activatnvar_confusing_LLUUID_e);
+inline void _activation_check_proc_19_func_588449647(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1107320462(bool& _activatnvar_confusing_bool_e, bool& _activatnvar_confusing_bool_7);
+void _activation_check_proc_19_func_628386968(bool& _activatnvar_confusing_bool_b, bool& _activatnvar_confusing_bool_1);
+void _activation_check_proc_19_func_1582991198(int& _activatnvar_confusing_int_b);
+void _activation_check_proc_19_func_967488520(LLUUID& _activatnvar_lace, char& _activatnvar_feat);
+void _activation_check_proc_19_func_851815762(LLUUID& _activatnvar_section1, LLUUID& _activatnvar_confusing_LLUUID_c);
+inline void _activation_check_proc_19_func_1947565931(int& _activatnvar_confusing_int_6, int& _activatnvar_confusing_int_5);
+void _activation_check_proc_19_func_749793369(int& _activatnvar_confusing_int_6);
+void _activation_check_proc_19_func_515738370(unsigned char* _activatnvar_confusing_chararray_5, unsigned char* _activatnvar_confusing_chararray_e);
+inline void _activation_check_proc_19_func_2037021512(U8& _activatnvar_confusing_U8_2, char& _activatnvar_confusing_char_0, int& _activatnvar_generic_iterator, bool& _activatnvar_generic_bool_1);
+void _activation_check_proc_19_func_675941587(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_222718753(LLUUID& _activatnvar_combined_id, LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_code, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1364850355(LLUUID& _activatnvar_fscked, char& _activatnvar_confusing_char_2, LLUUID& _activatnvar_combined_id, int& _activatnvar_generic_iterator, char& _activatnvar_confusing_char_4, LLUUID& _activatnvar_code);
+inline void _activation_check_proc_19_func_2147224906(int& _activatnvar_confusing_int_b);
+void _activation_check_proc_19_func_357133069(char& _activatnvar_confusing_char_b, int& _activatnvar_generic_iterator, char& _activatnvar_confusing_char_3);
+inline void _activation_check_proc_19_func_608249794(char& _activatnvar_confusing_char_3, char& _activatnvar_confusing_char_b);
+inline void _activation_check_proc_19_func_373850953(U8& _activatnvar_confusing_U8_9, LLUUID& _activatnvar_confusing_LLUUID_7, U8& _activatnvar_pos, char& _activatnvar_confusing_char_6, unsigned char* _activatnvar_confusing_chararray_0);
+void _activation_check_proc_19_func_1603669666(U8& _activatnvar_pos);
+inline void _activation_check_proc_19_func_928729921(U8& _activatnvar_confusing_U8_9, LLUUID& _activatnvar_confusing_LLUUID_7);
+void _activation_check_proc_19_func_1566645421(LLUUID& _activatnvar_confusing_LLUUID_f, LLUUID& _activatnvar_confusing_LLUUID_b);
+void _activation_check_proc_19_func_471711755(LLUUID& _activatnvar_confusing_LLUUID_b, LLUUID& _activatnvar_so, LLUUID& _activatnvar_confusing_LLUUID_f, LLUUID& _activatnvar_confusing_LLUUID_3);
+void _activation_check_proc_19_func_369144776();
+inline void _activation_check_proc_19_func_161740559(bool& _activatnvar_confusing_bool_9, bool& _activatnvar_confusing_bool_e);
+inline void _activation_check_proc_19_func_1441815810(int& _activatnvar_confusing_int_4, int& _activatnvar_confusing_int_e);
+void _activation_check_proc_19_func_1659206126(U8& _activatnvar_pos, bool& _activatnvar_confusing_bool_c, char& _activatnvar_confusing_char_d, LLUUID& _activatnvar_combined_id, LLUUID& _activatnvar_confusing_LLUUID_0);
+inline void _activation_check_proc_19_func_400250624(U8& _activatnvar_confusing_U8_9);
+inline void _activation_check_proc_19_func_489359404(char& _activatnvar_confusing_char_1, LLUUID& _activatnvar_section2);
+void _activation_check_proc_19_func_635278667(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_secret, LLUUID& _activatnvar_section2);
+inline void _activation_check_proc_19_func_1652400665(int& _activatnvar_confusing_int_7);
+void _activation_check_proc_19_func_11143461(bool& _activatnvar_confusing_bool_1, LLUUID& _activatnvar_confusing_LLUUID_8);
+void _activation_check_proc_19_func_1114569011(LLUUID& _activatnvar_combined_id, U8& _activatnvar_pos, char& _activatnvar_confusing_char_0, unsigned char* _activatnvar_confusing_chararray_1);
+inline void _activation_check_proc_19_func_858336601(U8& _activatnvar_confusing_U8_1, char& _activatnvar_confusing_char_d);
+void _activation_check_proc_19_func_1823732003(int& _activatnvar_confusing_int_b);
+inline void _activation_check_proc_19_func_1914097444(int& _activatnvar_confusing_int_b, LLUUID& _activatnvar_confusing_LLUUID_0, LLUUID& _activatnvar_confusing_LLUUID_6, unsigned char* _activatnvar_confusing_chararray_6);
+void _activation_check_proc_19_func_908345836(unsigned char* _activatnvar_confusing_chararray_f, LLUUID& _activatnvar_confusing_LLUUID_d);
+inline void _activation_check_proc_19_func_2114164941(bool& _activatnvar_confusing_bool_8, bool& _activatnvar_confusing_bool_c);
+void _activation_check_proc_19_func_1683592272(int& _activatnvar_confusing_int_4, unsigned char* _activatnvar_confusing_chararray_0, int& _activatnvar_confusing_int_d, unsigned char* _activatnvar_mac_digest);
+void _activation_check_proc_19_func_1752756644(int& _activatnvar_confusing_int_d, int& _activatnvar_confusing_int_4);
+void _activation_check_proc_19_func_94258695(U8& _activatnvar_t0, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_1512192791(LLUUID& _activatnvar_combined_id, U8& _activatnvar_t0, U8& _activatnvar_pos);
+void _activation_check_proc_19_func_2098134599(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_2021125512(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_5, LLUUID& _activatnvar_confusing_LLUUID_1, U8& _activatnvar_confusing_U8_0);
+void _activation_check_proc_19_func_707968983(LLUUID& _activatnvar_confusing_LLUUID_5);
+inline void _activation_check_proc_19_func_697470471(U8& _activatnvar_confusing_U8_0);
+void _activation_check_proc_19_func_1669769876(U8& _activatnvar_t0, LLUUID& _activatnvar_confusing_LLUUID_d, U8& _activatnvar_confusing_U8_1, bool& _activatnvar_confusing_bool_4);
+void _activation_check_proc_19_func_167828202(U8& _activatnvar_t0);
+void _activation_check_proc_19_func_1256266555(LLUUID& _activatnvar_confusing_LLUUID_4, LLUUID& _activatnvar_confusing_LLUUID_b, LLUUID& _activatnvar_confusing_LLUUID_f, LLUUID& _activatnvar_confusing_LLUUID_d);
+void _activation_check_proc_19_func_1118292173(LLUUID& _activatnvar_confusing_LLUUID_4, LLUUID& _activatnvar_confusing_LLUUID_f);
+inline void _activation_check_proc_19_func_1112598084(U8& _activatnvar_confusing_U8_d, LLUUID& _activatnvar_confusing_LLUUID_9, int& _activatnvar_confusing_int_2);
+inline void _activation_check_proc_19_func_1223443958(int& _activatnvar_confusing_int_2);
+void _activation_check_proc_19_func_1783068863(LLUUID& _activatnvar_section2, LLUUID& _activatnvar_secret, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_151977524(int& _activatnvar_generic_iterator, unsigned char* _activatnvar_name_digest, LLUUID& _activatnvar_section2, LLUUID& _activatnvar_secret, LLUUID& _activatnvar_confusing_LLUUID_f);
+inline void _activation_check_proc_19_func_1480664299();
+inline void _activation_check_proc_19_func_273237094(U8& _activatnvar_confusing_U8_c, unsigned char* _activatnvar_confusing_chararray_3);
+void _activation_check_proc_19_func_1791103225(U8& _activatnvar_confusing_U8_d, U8& _activatnvar_confusing_U8_c, unsigned char* _activatnvar_confusing_chararray_3);
+void _activation_check_proc_19_func_847320352(bool& _activatnvar_confusing_bool_1, char& _activatnvar_confusing_char_a, char& _activatnvar_confusing_char_4);
+void _activation_check_proc_19_func_293738641(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_2009815048(char& _activatnvar_confusing_char_a, bool& _activatnvar_confusing_bool_1, LLUUID& _activatnvar_lace, char& _activatnvar_confusing_char_4, U8& _activatnvar_confusing_U8_f, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_766546361(unsigned char* _activatnvar_confusing_chararray_c, LLUUID& _activatnvar_secret);
+void _activation_check_proc_19_func_56221714(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_111703847(U8& _activatnvar_confusing_U8_d);
+inline void _activation_check_proc_19_func_1944784551(U8& _activatnvar_pos, bool& _activatnvar_confusing_bool_8, char& _activatnvar_confusing_char_e);
+inline void _activation_check_proc_19_func_1106718260(char& _activatnvar_confusing_char_e, U8& _activatnvar_pos, bool& _activatnvar_confusing_bool_8, char& _activatnvar_confusing_char_b);
+void _activation_check_proc_19_func_1989660026(bool& _activatnvar_confusing_bool_3, bool& _activatnvar_doaccount);
+void _activation_check_proc_19_func_1484652602(bool& _activatnvar_confusing_bool_3, bool& _activatnvar_doaccount, unsigned char* _activatnvar_confusing_chararray_a, unsigned char* _activatnvar_confusing_chararray_f);
+void _activation_check_proc_19_func_254675007(U8& _activatnvar_t0, LLUUID& _activatnvar_so);
+void _activation_check_proc_19_func_180616578(int& _activatnvar_confusing_int_d);
+inline void _activation_check_proc_19_func_811367556(LLUUID& _activatnvar_confusing_LLUUID_c, LLUUID& _activatnvar_confusing_LLUUID_b, unsigned char* _activatnvar_confusing_chararray_b);
+void _activation_check_proc_19_func_1183930823(LLUUID& _activatnvar_confusing_LLUUID_c, unsigned char* _activatnvar_confusing_chararray_b);
+void _activation_check_proc_19_func_1784155966(int& _activatnvar_confusing_int_3, LLUUID& _activatnvar_lace, LLUUID& _activatnvar_fscked, int& _activatnvar_confusing_int_4, LLUUID& _activatnvar_confusing_LLUUID_a, bool& _activatnvar_confusing_bool_7, int& _activatnvar_confusing_int_d, LLUUID& _activatnvar_confusing_LLUUID_2, U8& _activatnvar_confusing_U8_7);
+void _activation_check_proc_19_func_642707293(LLUUID& _activatnvar_lace, LLUUID& _activatnvar_fscked);
+void _activation_check_proc_19_func_1043679564(LLUUID& _activatnvar_confusing_LLUUID_a);
+void _activation_check_proc_19_func_1100296891(LLUUID& _activatnvar_lace, LLUUID& _activatnvar_fscked);
+void _activation_check_proc_19_func_2064762297(int& _activatnvar_confusing_int_3, int& _activatnvar_confusing_int_4);
+inline void _activation_check_proc_19_func_162256154(bool& _activatnvar_confusing_bool_7, LLUUID& _activatnvar_confusing_LLUUID_2, U8& _activatnvar_confusing_U8_7, LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_lace);
+void _activation_check_proc_19_func_557335722(int& _activatnvar_confusing_int_d);
+inline void _activation_check_proc_19_func_1680032031(LLUUID& _activatnvar_confusing_LLUUID_5, char& _activatnvar_confusing_char_5);
+void _activation_check_proc_19_func_1999702145(LLUUID& _activatnvar_combined_id, LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_code, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_569534547(LLUUID& _activatnvar_confusing_LLUUID_b, unsigned char* _activatnvar_confusing_chararray_a);
+void _activation_check_proc_19_func_1414181106(unsigned char* _activatnvar_confusing_chararray_a, LLUUID& _activatnvar_combined_id, LLUUID& _activatnvar_confusing_LLUUID_b, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_code, LLUUID& _activatnvar_fscked);
+inline void _activation_check_proc_19_func_347288682(bool& _activatnvar_generic_bool_0, bool& _activatnvar_doaccount);
+inline void _activation_check_proc_19_func_448499786(U8& _activatnvar_t0, LLUUID& _activatnvar_confusing_LLUUID_c, U8& _activatnvar_pos, unsigned char* _activatnvar_confusing_chararray_2, LLUUID& _activatnvar_so);
+void _activation_check_proc_19_func_1063833293(LLUUID& _activatnvar_confusing_LLUUID_c, unsigned char* _activatnvar_confusing_chararray_2);
+inline void _activation_check_proc_19_func_1432790468(int& _activatnvar_confusing_int_3, int& _activatnvar_confusing_int_2);
+void _activation_check_proc_19_func_1045737111(U8& _activatnvar_t1, LLUUID& _activatnvar_so, U8& _activatnvar_pos);
+inline void _activation_check_proc_19_func_1959441813(LLUUID& _activatnvar_confusing_LLUUID_e);
+void _activation_check_proc_19_func_903945181(LLUUID& _activatnvar_confusing_LLUUID_e, U8& _activatnvar_t1, U8& _activatnvar_pos, LLUUID& _activatnvar_confusing_LLUUID_6, LLUUID& _activatnvar_confusing_LLUUID_9, LLUUID& _activatnvar_so, int& _activatnvar_confusing_int_5);
+inline void _activation_check_proc_19_func_1926162260(LLUUID& _activatnvar_confusing_LLUUID_9, LLUUID& _activatnvar_confusing_LLUUID_6);
+void _activation_check_proc_19_func_437579938(char& _activatnvar_confusing_char_7, LLUUID& _activatnvar_confusing_LLUUID_b);
+void _activation_check_proc_19_func_482639185(LLUUID& _activatnvar_confusing_LLUUID_4, unsigned char* _activatnvar_confusing_chararray_1, LLUUID& _activatnvar_confusing_LLUUID_6, unsigned char* _activatnvar_confusing_chararray_f, LLUUID& _activatnvar_code, U8& _activatnvar_confusing_U8_b);
+void _activation_check_proc_19_func_2108339389(LLUUID& _activatnvar_code, LLUUID& _activatnvar_confusing_LLUUID_4);
+inline void _activation_check_proc_19_func_243597180(unsigned char* _activatnvar_confusing_chararray_1, unsigned char* _activatnvar_confusing_chararray_f);
+inline void _activation_check_proc_19_func_2122913847(U8& _activatnvar_confusing_U8_3, bool& _activatnvar_confusing_bool_5, char& _activatnvar_confusing_char_c);
+void _activation_check_proc_19_func_518952018(char& _activatnvar_confusing_char_2, bool& _activatnvar_confusing_bool_4, LLUUID& _activatnvar_confusing_LLUUID_b);
+inline void _activation_check_proc_19_func_558338888(bool& _activatnvar_confusing_bool_5, char& _activatnvar_confusing_char_2, bool& _activatnvar_confusing_bool_4, bool& _activatnvar_confusing_bool_8, LLUUID& _activatnvar_confusing_LLUUID_b, int& _activatnvar_confusing_int_b);
+inline void _activation_check_proc_19_func_17208810(bool& _activatnvar_confusing_bool_5, bool& _activatnvar_confusing_bool_8);
+inline void _activation_check_proc_19_func_153595725(LLUUID& _activatnvar_confusing_LLUUID_d, U8& _activatnvar_t0, LLUUID& _activatnvar_so, LLUUID& _activatnvar_combined_id, U8& _activatnvar_t1);
+void _activation_check_proc_19_func_2075871401(LLUUID& _activatnvar_confusing_LLUUID_9, unsigned char* _activatnvar_confusing_chararray_2);
+void _activation_check_proc_19_func_884003670(LLUUID& _activatnvar_section2, LLUUID& _activatnvar_confusing_LLUUID_9, LLUUID& _activatnvar_confusing_LLUUID_3, char& _activatnvar_confusing_char_7, unsigned char* _activatnvar_confusing_chararray_2, unsigned char* _activatnvar_confusing_chararray_6);
+void _activation_check_proc_19_func_1089372752(char& _activatnvar_confusing_char_7, LLUUID& _activatnvar_section2);
+void _activation_check_proc_19_func_1683026797(U8& _activatnvar_confusing_U8_5, unsigned char* _activatnvar_confusing_chararray_d, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_2001045050(unsigned char* _activatnvar_confusing_chararray_d, U8& _activatnvar_confusing_U8_5);
+void _activation_check_proc_19_func_1472937972(unsigned char* _activatnvar_confusing_chararray_9, U8& _activatnvar_confusing_U8_1);
+inline void _activation_check_proc_19_func_90852191(bool& _activatnvar_confusing_bool_a, U8& _activatnvar_t0, U8& _activatnvar_confusing_U8_d);
+void _activation_check_proc_19_func_579727040();
+void _activation_check_proc_19_func_1661607369(char& _activatnvar_confusing_char_c, LLUUID& _activatnvar_confusing_LLUUID_0, bool& _activatnvar_confusing_bool_d);
+void _activation_check_proc_19_func_2128603299(unsigned char* _activatnvar_confusing_chararray_c, char& _activatnvar_confusing_char_c, bool& _activatnvar_confusing_bool_d, unsigned char* _activatnvar_confusing_chararray_1, U8& _activatnvar_confusing_U8_f, char& _activatnvar_confusing_char_4, LLUUID& _activatnvar_confusing_LLUUID_0);
+void _activation_check_proc_19_func_89161224(unsigned char* _activatnvar_name_digest, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_846043354(U8& _activatnvar_confusing_U8_5, LLUUID& _activatnvar_confusing_LLUUID_f, bool& _activatnvar_confusing_bool_6, LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_name_digest);
+void _activation_check_proc_19_func_1770837828(LLUUID& _activatnvar_confusing_LLUUID_1, LLUUID& _activatnvar_confusing_LLUUID_d);
+void _activation_check_proc_19_func_620513287(LLMD5*& _activatnvar_mmd5, unsigned char* _activatnvar_mac_digest, int& _activatnvar_generic_iterator, U8& _activatnvar_confusing_U8_7);
+inline void _activation_check_proc_19_func_1193597547(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1334533947(unsigned char* _activatnvar_mac_digest, LLMD5*& _activatnvar_mmd5);
+void _activation_check_proc_19_func_1094076574(LLUUID& _activatnvar_confusing_LLUUID_5, LLUUID& _activatnvar_lace);
+void _activation_check_proc_19_func_1736473602(unsigned char* _activatnvar_ser_digest, unsigned char* _activatnvar_confusing_chararray_a);
+inline void _activation_check_proc_19_func_1475402522(unsigned char* _activatnvar_ser_digest, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_confusing_chararray_a, unsigned char* _activatnvar_mac_digest);
+inline void _activation_check_proc_19_func_1027224337(int& _activatnvar_generic_iterator, unsigned char* _activatnvar_confusing_chararray_a, U8& _activatnvar_confusing_U8_9);
+void _activation_check_proc_19_func_629585667(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_2105330015(U8& _activatnvar_confusing_U8_9, unsigned char* _activatnvar_confusing_chararray_7, U8& _activatnvar_confusing_U8_b, bool& _activatnvar_confusing_bool_5);
+inline void _activation_check_proc_19_func_1964859013(unsigned char* _activatnvar_confusing_chararray_7, U8& _activatnvar_confusing_U8_b);
+void _activation_check_proc_19_func_472301218(LLUUID& _activatnvar_code, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_fscked);
+void _activation_check_proc_19_func_457218901(LLUUID& _activatnvar_confusing_LLUUID_8, LLUUID& _activatnvar_confusing_LLUUID_0);
+void _activation_check_proc_19_func_1962676153(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_code, LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_confusing_LLUUID_0, LLUUID& _activatnvar_confusing_LLUUID_8);
+void _activation_check_proc_19_func_1571056111(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_330429345(int& _activatnvar_confusing_int_4);
+void _activation_check_proc_19_func_787680496(LLUUID& _activatnvar_confusing_LLUUID_7, LLUUID& _activatnvar_confusing_LLUUID_0, int& _activatnvar_confusing_int_4);
+void _activation_check_proc_19_func_1351663693(U8& _activatnvar_confusing_U8_0, LLUUID& _activatnvar_confusing_LLUUID_3, bool& _activatnvar_confusing_bool_3);
+inline void _activation_check_proc_19_func_930648161(U8& _activatnvar_t0, U8& _activatnvar_t1);
+inline void _activation_check_proc_19_func_69550515(LLUUID& _activatnvar_confusing_LLUUID_9, char& _activatnvar_confusing_char_7);
+void _activation_check_proc_19_func_379121550(char& _activatnvar_confusing_char_5);
+void _activation_check_proc_19_func_671583393(bool& _activatnvar_confusing_bool_3, bool& _activatnvar_confusing_bool_6);
+inline void _activation_check_proc_19_func_1736562392(bool& _activatnvar_confusing_bool_3, bool& _activatnvar_confusing_bool_6, bool& _activatnvar_confusing_bool_4, bool& _activatnvar_confusing_bool_7);
+void _activation_check_proc_19_func_2034365085(U8& _activatnvar_t0, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_1644168764(bool& _activatnvar_confusing_bool_f, int& _activatnvar_confusing_int_8, bool& _activatnvar_confusing_bool_9);
+void _activation_check_proc_19_func_820526301(bool& _activatnvar_confusing_bool_f, bool& _activatnvar_confusing_bool_9);
+inline void _activation_check_proc_19_func_124748107(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_5);
+inline void _activation_check_proc_19_func_133417596(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_436585050(bool& _activatnvar_confusing_bool_7, bool& _activatnvar_confusing_bool_2);
+inline void _activation_check_proc_19_func_1473416961(LLUUID& _activatnvar_confusing_LLUUID_d, unsigned char* _activatnvar_confusing_chararray_4);
+void _activation_check_proc_19_func_611273095(bool& _activatnvar_confusing_bool_7, int& _activatnvar_confusing_int_a, unsigned char* _activatnvar_confusing_chararray_4, bool& _activatnvar_confusing_bool_2, LLUUID& _activatnvar_confusing_LLUUID_d);
+void _activation_check_proc_19_func_1506621482(LLUUID& _activatnvar_secret, unsigned char* _activatnvar_confusing_chararray_d, LLUUID& _activatnvar_confusing_LLUUID_2, LLUUID& _activatnvar_confusing_LLUUID_0, char& _activatnvar_confusing_char_4, LLUUID& _activatnvar_confusing_LLUUID_4);
+void _activation_check_proc_19_func_707788064(LLUUID& _activatnvar_confusing_LLUUID_0, unsigned char* _activatnvar_confusing_chararray_d, char& _activatnvar_confusing_char_4, LLUUID& _activatnvar_secret);
+inline void _activation_check_proc_19_func_1267803825(bool& _activatnvar_confusing_bool_f, bool& _activatnvar_confusing_bool_3);
+void _activation_check_proc_19_func_1238373680(bool& _activatnvar_generic_bool_0);
+inline void _activation_check_proc_19_func_1762359328(bool& _activatnvar_confusing_bool_3, bool& _activatnvar_confusing_bool_9, bool& _activatnvar_generic_bool_0);
+void _activation_check_proc_19_func_105565640(char& _activatnvar_confusing_char_d, char& _activatnvar_confusing_char_a, bool& _activatnvar_confusing_bool_6);
+void _activation_check_proc_19_func_422352462(int& _activatnvar_confusing_int_4);
+inline void _activation_check_proc_19_func_2147057226(U8& _activatnvar_confusing_U8_f, unsigned char* _activatnvar_confusing_chararray_3);
+inline void _activation_check_proc_19_func_433441124(bool& _activatnvar_generic_bool_1, char& _activatnvar_feat, LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_2069576692(LLUUID& _activatnvar_confusing_LLUUID_0);
+void _activation_check_proc_19_func_516075098(bool& _activatnvar_generic_bool_1, bool& _activatnvar_confusing_bool_3, unsigned char* _activatnvar_confusing_chararray_3, unsigned char* _activatnvar_confusing_chararray_c, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_lace, char& _activatnvar_feat, LLUUID& _activatnvar_confusing_LLUUID_0, LLUUID& _activatnvar_confusing_LLUUID_e, U8& _activatnvar_confusing_U8_4, U8& _activatnvar_confusing_U8_f);
+void _activation_check_proc_19_func_209568991(LLUUID& _activatnvar_confusing_LLUUID_e, bool& _activatnvar_confusing_bool_3);
+inline void _activation_check_proc_19_func_1229426626(LLUUID& _activatnvar_confusing_LLUUID_9);
+void _activation_check_proc_19_func_1167390498(bool& _activatnvar_generic_bool_0, unsigned char* _activatnvar_confusing_chararray_c, LLUUID& _activatnvar_confusing_LLUUID_b, unsigned char* _activatnvar_confusing_chararray_8, bool& _activatnvar_generic_bool_1);
+void _activation_check_proc_19_func_1053080019(LLUUID& _activatnvar_confusing_LLUUID_b);
+void _activation_check_proc_19_func_1900380872(unsigned char* _activatnvar_confusing_chararray_8, unsigned char* _activatnvar_confusing_chararray_c);
+inline void _activation_check_proc_19_func_296933186(LLUUID& _activatnvar_confusing_LLUUID_2, LLUUID& _activatnvar_confusing_LLUUID_8);
+inline void _activation_check_proc_19_func_396276770(LLUUID& _activatnvar_code, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_fscked);
+void _activation_check_proc_19_func_1535136921(unsigned char* _activatnvar_confusing_chararray_9, LLUUID& _activatnvar_confusing_LLUUID_8);
+inline void _activation_check_proc_19_func_8095010(U8& _activatnvar_confusing_U8_0, LLUUID& _activatnvar_fscked, unsigned char* _activatnvar_confusing_chararray_2, int& _activatnvar_generic_iterator, bool& _activatnvar_doaccount, char& _activatnvar_confusing_char_1, LLUUID& _activatnvar_lace, U8& _activatnvar_confusing_U8_4);
+void _activation_check_proc_19_func_898897665(bool& _activatnvar_doaccount, U8& _activatnvar_confusing_U8_0, char& _activatnvar_confusing_char_1);
+inline void _activation_check_proc_19_func_758537784(int& _activatnvar_confusing_int_8);
+void _activation_check_proc_19_func_1280160955(LLUUID& _activatnvar_combined_id, char& _activatnvar_confusing_char_8, U8& _activatnvar_t0, LLUUID& _activatnvar_confusing_LLUUID_9);
+void _activation_check_proc_19_func_660988340(LLUUID& _activatnvar_combined_id, U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_1447768198(int& _activatnvar_confusing_int_a);
+inline void _activation_check_proc_19_func_745093022(LLUUID& _activatnvar_secret, LLUUID& _activatnvar_confusing_LLUUID_0, int& _activatnvar_confusing_int_a);
+void _activation_check_proc_19_func_1261152583(U8& _activatnvar_confusing_U8_a, U8& _activatnvar_confusing_U8_3);
+void _activation_check_proc_19_func_300003035(U8& _activatnvar_confusing_U8_a, U8& _activatnvar_confusing_U8_3, LLUUID& _activatnvar_confusing_LLUUID_3);
+void _activation_check_proc_19_func_487185231(LLUUID& _activatnvar_confusing_LLUUID_6);
+void _activation_check_proc_19_func_699968777(LLUUID& _activatnvar_confusing_LLUUID_6, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1762202556(LLUUID& _activatnvar_confusing_LLUUID_3, char& _activatnvar_confusing_char_1);
+inline void _activation_check_proc_19_func_1477322605(char& _activatnvar_confusing_char_9, U8& _activatnvar_confusing_U8_4, bool& _activatnvar_confusing_bool_8);
+void _activation_check_proc_19_func_1981640186(LLUUID& _activatnvar_combined_id, U8& _activatnvar_pos);
+inline void _activation_check_proc_19_func_1047012319(LLUUID& _activatnvar_confusing_LLUUID_f, bool& _activatnvar_confusing_bool_5, bool& _activatnvar_confusing_bool_1, char& _activatnvar_confusing_char_3);
+void _activation_check_proc_19_func_650025052(LLUUID& _activatnvar_confusing_LLUUID_f, char& _activatnvar_confusing_char_3);
+void _activation_check_proc_19_func_1304143368(bool& _activatnvar_doaccount, bool& _activatnvar_generic_bool_0);
+inline void _activation_check_proc_19_func_1495988047(LLUUID& _activatnvar_lace, LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1765695182(int& _activatnvar_confusing_int_2);
+void _activation_check_proc_19_func_664567093(LLUUID& _activatnvar_confusing_LLUUID_a, LLUUID& _activatnvar_confusing_LLUUID_0);
+inline void _activation_check_proc_19_func_515681382(U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_1251939336(char& _activatnvar_confusing_char_1, U8& _activatnvar_confusing_U8_1, bool& _activatnvar_confusing_bool_c);
+void _activation_check_proc_19_func_1308933549(U8& _activatnvar_confusing_U8_1, int& _activatnvar_confusing_int_9, bool& _activatnvar_confusing_bool_c, char& _activatnvar_confusing_char_1);
+void _activation_check_proc_19_func_456597239(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1555044946(bool& _activatnvar_confusing_bool_f, bool& _activatnvar_confusing_bool_0);
+void _activation_check_proc_19_func_584374574();
+inline void _activation_check_proc_19_func_1441571688(int& _activatnvar_confusing_int_8);
+inline void _activation_check_proc_19_func_1383852883(LLUUID& _activatnvar_confusing_LLUUID_c, int& _activatnvar_confusing_int_6, int& _activatnvar_confusing_int_0, unsigned char* _activatnvar_confusing_chararray_9);
+void _activation_check_proc_19_func_245924780(unsigned char* _activatnvar_confusing_chararray_9, int& _activatnvar_confusing_int_6, int& _activatnvar_confusing_int_0, LLUUID& _activatnvar_code, U8& _activatnvar_confusing_U8_f, LLUUID& _activatnvar_confusing_LLUUID_c);
+inline void _activation_check_proc_19_func_17721963(bool& _activatnvar_confusing_bool_e, char& _activatnvar_feat, char& _activatnvar_confusing_char_4, bool& _activatnvar_generic_bool_1, LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator, char& _activatnvar_confusing_char_6);
+void _activation_check_proc_19_func_650447261(unsigned char* _activatnvar_confusing_chararray_1, unsigned char* _activatnvar_confusing_chararray_b);
+void _activation_check_proc_19_func_1325436844(LLUUID& _activatnvar_section1, U8& _activatnvar_confusing_U8_1);
+void _activation_check_proc_19_func_551581405(int& _activatnvar_confusing_int_c);
+void _activation_check_proc_19_func_2134426886(bool& _activatnvar_confusing_bool_6, bool& _activatnvar_confusing_bool_d, LLUUID& _activatnvar_confusing_LLUUID_2);
+void _activation_check_proc_19_func_303282189(LLUUID& _activatnvar_confusing_LLUUID_2);
+inline void _activation_check_proc_19_func_306866390(unsigned char* _activatnvar_confusing_chararray_3, LLUUID& _activatnvar_so);
+void _activation_check_proc_19_func_1046350623(int& _activatnvar_confusing_int_f, LLUUID& _activatnvar_so, unsigned char* _activatnvar_confusing_chararray_3, bool& _activatnvar_confusing_bool_3, bool& _activatnvar_generic_bool_0);
+void _activation_check_proc_19_func_1142337602(char& _activatnvar_confusing_char_6, LLUUID& _activatnvar_confusing_LLUUID_9);
+inline void _activation_check_proc_19_func_904439178(bool& _activatnvar_confusing_bool_8, bool& _activatnvar_confusing_bool_5, bool& _activatnvar_confusing_bool_6);
+inline void _activation_check_proc_19_func_73902922(bool& _activatnvar_confusing_bool_8, LLUUID& _activatnvar_confusing_LLUUID_8, bool& _activatnvar_confusing_bool_5, LLUUID& _activatnvar_code, LLUUID& _activatnvar_confusing_LLUUID_9, U8& _activatnvar_t0, bool& _activatnvar_confusing_bool_6, char& _activatnvar_confusing_char_6);
+void _activation_check_proc_19_func_1416916868(LLUUID& _activatnvar_code, LLUUID& _activatnvar_confusing_LLUUID_8);
+inline void _activation_check_proc_19_func_667879606(U8& _activatnvar_confusing_U8_8, U8& _activatnvar_confusing_U8_2);
+void _activation_check_proc_19_func_2111821932(U8& _activatnvar_confusing_U8_2, U8& _activatnvar_confusing_U8_8, char& _activatnvar_confusing_char_8, LLUUID& _activatnvar_confusing_LLUUID_2);
+void _activation_check_proc_19_func_114451960(int& _activatnvar_confusing_int_a, int& _activatnvar_confusing_int_1);
+void _activation_check_proc_19_func_111769072(int& _activatnvar_confusing_int_1, int& _activatnvar_confusing_int_a, LLUUID& _activatnvar_confusing_LLUUID_0, LLUUID& _activatnvar_confusing_LLUUID_4);
+inline void _activation_check_proc_19_func_493066172(U8& _activatnvar_confusing_U8_9);
+void _activation_check_proc_19_func_472757601(U8& _activatnvar_confusing_U8_d, bool& _activatnvar_doaccount);
+void _activation_check_proc_19_func_360431070(U8& _activatnvar_confusing_U8_d, char& _activatnvar_feat);
+inline void _activation_check_proc_19_func_1748279832(bool& _activatnvar_doaccount, LLUUID& _activatnvar_so, char& _activatnvar_feat, U8& _activatnvar_t0, U8& _activatnvar_confusing_U8_d, U8& _activatnvar_pos, LLUUID& _activatnvar_section1, unsigned char* _activatnvar_confusing_chararray_d);
+void _activation_check_proc_19_func_266363200(U8& _activatnvar_t0, LLUUID& _activatnvar_so);
+void _activation_check_proc_19_func_1078800939(U8& _activatnvar_pos, LLUUID& _activatnvar_so, U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_1000526170(bool& _activatnvar_confusing_bool_1, LLUUID& _activatnvar_confusing_LLUUID_8, bool& _activatnvar_confusing_bool_c, U8& _activatnvar_confusing_U8_0);
+inline void _activation_check_proc_19_func_57453287(LLUUID& _activatnvar_lace, LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1206465853(U8& _activatnvar_confusing_U8_9, unsigned char* _activatnvar_confusing_chararray_c);
+void _activation_check_proc_19_func_277718339(int& _activatnvar_generic_iterator, bool& _activatnvar_confusing_bool_c, LLUUID& _activatnvar_lace, unsigned char* _activatnvar_confusing_chararray_c, U8& _activatnvar_confusing_U8_9, bool& _activatnvar_confusing_bool_1, LLUUID& _activatnvar_section2, LLUUID& _activatnvar_confusing_LLUUID_8, U8& _activatnvar_confusing_U8_0, bool& _activatnvar_confusing_bool_f, bool& _activatnvar_confusing_bool_5);
+void _activation_check_proc_19_func_506832565(int& _activatnvar_confusing_int_2);
+inline void _activation_check_proc_19_func_191739656(bool& _activatnvar_confusing_bool_2, char& _activatnvar_confusing_char_3);
+void _activation_check_proc_19_func_758029093(U8& _activatnvar_confusing_U8_3, LLUUID& _activatnvar_confusing_LLUUID_c);
+inline void _activation_check_proc_19_func_1686896572(LLUUID& _activatnvar_confusing_LLUUID_e, unsigned char* _activatnvar_confusing_chararray_c);
+inline void _activation_check_proc_19_func_1771968625(U8& _activatnvar_confusing_U8_6, LLUUID& _activatnvar_confusing_LLUUID_0, unsigned char* _activatnvar_confusing_chararray_3);
+void _activation_check_proc_19_func_223420645(U8& _activatnvar_confusing_U8_6);
+inline void _activation_check_proc_19_func_467144594(unsigned char* _activatnvar_confusing_chararray_5, U8& _activatnvar_confusing_U8_6);
+void _activation_check_proc_19_func_2057985153(U8& _activatnvar_confusing_U8_6, unsigned char* _activatnvar_confusing_chararray_5, unsigned char* _activatnvar_confusing_chararray_a, LLUUID& _activatnvar_confusing_LLUUID_4);
+inline void _activation_check_proc_19_func_452058678(bool& _activatnvar_generic_bool_1, U8& _activatnvar_confusing_U8_d, char& _activatnvar_confusing_char_b);
+void _activation_check_proc_19_func_1994535327(LLUUID& _activatnvar_confusing_LLUUID_d);
+void _activation_check_proc_19_func_528413503(LLUUID& _activatnvar_fscked, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_combined_id, LLUUID& _activatnvar_confusing_LLUUID_d, LLUUID& _activatnvar_code);
+void _activation_check_proc_19_func_1054577694(LLUUID& _activatnvar_confusing_LLUUID_d, int& _activatnvar_confusing_int_1, int& _activatnvar_confusing_int_e);
+inline void _activation_check_proc_19_func_269322467(LLUUID& _activatnvar_confusing_LLUUID_d);
+inline void _activation_check_proc_19_func_1449587825(int& _activatnvar_confusing_int_6);
+inline void _activation_check_proc_19_func_1626794630(int& _activatnvar_confusing_int_6, int& _activatnvar_confusing_int_7);
+inline void _activation_check_proc_19_func_1563092571(int& _activatnvar_confusing_int_d, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_268849453();
+void _activation_check_proc_19_func_1095558695(LLUUID& _activatnvar_confusing_LLUUID_3);
+inline void _activation_check_proc_19_func_2130506268(U8& _activatnvar_confusing_U8_7, char& _activatnvar_confusing_char_7, bool& _activatnvar_confusing_bool_9);
+void _activation_check_proc_19_func_960223534(U8& _activatnvar_confusing_U8_7, char& _activatnvar_confusing_char_7);
+void _activation_check_proc_19_func_1046588238(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_ser_digest);
+inline void _activation_check_proc_19_func_1755537977(LLUUID& _activatnvar_section2, LLUUID& _activatnvar_secret, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1852434430(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_699112449(LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1192984624(LLUUID& _activatnvar_section2, LLUUID& _activatnvar_secret, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1266306460(LLUUID& _activatnvar_combined_id, U8& _activatnvar_t0);
+void _activation_check_proc_19_func_843854570(LLUUID& _activatnvar_combined_id, int& _activatnvar_generic_iterator, unsigned char* _activatnvar_mac_digest);
+void _activation_check_proc_19_func_104423904(int& _activatnvar_confusing_int_b);
+void _activation_check_proc_19_func_1101338097(unsigned char* _activatnvar_mac_digest, int& _activatnvar_confusing_int_b, LLUUID& _activatnvar_combined_id, int& _activatnvar_generic_iterator, U8& _activatnvar_confusing_U8_4, char& _activatnvar_confusing_char_2);
+void _activation_check_proc_19_func_1840110131(U8& _activatnvar_t0);
+void _activation_check_proc_19_func_1990588425(LLUUID& _activatnvar_confusing_LLUUID_7, U8& _activatnvar_confusing_U8_3, unsigned char* _activatnvar_confusing_chararray_9, LLUUID& _activatnvar_section1, unsigned char* _activatnvar_confusing_chararray_6, unsigned char* _activatnvar_confusing_chararray_5);
+void _activation_check_proc_19_func_1422324584(unsigned char* _activatnvar_confusing_chararray_6, U8& _activatnvar_confusing_U8_3);
+void _activation_check_proc_19_func_1931006434(LLUUID& _activatnvar_section1, LLUUID& _activatnvar_confusing_LLUUID_7);
+inline void _activation_check_proc_19_func_860375785(unsigned char* _activatnvar_confusing_chararray_5, unsigned char* _activatnvar_confusing_chararray_9);
+void _activation_check_proc_19_func_1137045641(bool& _activatnvar_confusing_bool_d, bool& _activatnvar_confusing_bool_c);
+inline void _activation_check_proc_19_func_468309993();
+void _activation_check_proc_19_func_1147092123(int& _activatnvar_confusing_int_4);
+inline void _activation_check_proc_19_func_1323700218(unsigned char* _activatnvar_confusing_chararray_c, int& _activatnvar_confusing_int_4, LLUUID& _activatnvar_confusing_LLUUID_a);
+inline void _activation_check_proc_19_func_1997002513(U8& _activatnvar_confusing_U8_8, bool& _activatnvar_confusing_bool_9, char& _activatnvar_confusing_char_9);
+inline void _activation_check_proc_19_func_1104034448(bool& _activatnvar_confusing_bool_a, U8& _activatnvar_confusing_U8_1, char& _activatnvar_confusing_char_2);
+void _activation_check_proc_19_func_305114210(U8& _activatnvar_confusing_U8_7, LLUUID& _activatnvar_confusing_LLUUID_a);
+inline void _activation_check_proc_19_func_2128819374(U8& _activatnvar_confusing_U8_7);
+void _activation_check_proc_19_func_866125320(U8& _activatnvar_pos);
+void _activation_check_proc_19_func_78410651(U8& _activatnvar_confusing_U8_f, char& _activatnvar_confusing_char_3, bool& _activatnvar_generic_bool_0);
+void _activation_check_proc_19_func_926377440(bool& _activatnvar_generic_bool_0, U8& _activatnvar_confusing_U8_f, unsigned char* _activatnvar_confusing_chararray_f, char& _activatnvar_confusing_char_1, char& _activatnvar_confusing_char_3);
+inline void _activation_check_proc_19_func_1727094210(int& _activatnvar_confusing_int_3);
+void _activation_check_proc_19_func_1024506190(int& _activatnvar_confusing_int_f);
+void _activation_check_proc_19_func_1789254647(char& _activatnvar_confusing_char_3, unsigned char* _activatnvar_confusing_chararray_1, unsigned char* _activatnvar_ser_digest, int& _activatnvar_confusing_int_f, LLUUID& _activatnvar_secret, LLUUID& _activatnvar_confusing_LLUUID_5, LLUUID& _activatnvar_code, DWORD& _activatnvar_gvi_flags);
+void _activation_check_proc_19_func_566102154(LLUUID& _activatnvar_secret, unsigned char* _activatnvar_confusing_chararray_1);
+inline void _activation_check_proc_19_func_1414032644(unsigned char* _activatnvar_ser_digest, LLUUID& _activatnvar_confusing_LLUUID_5);
+void _activation_check_proc_19_func_2045219816(LLUUID& _activatnvar_code, char& _activatnvar_confusing_char_3);
+void _activation_check_proc_19_func_564694948(LLUUID& _activatnvar_section2, bool& _activatnvar_confusing_bool_f, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section1, bool& _activatnvar_confusing_bool_8);
+void _activation_check_proc_19_func_2040107684(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1952832725(bool& _activatnvar_confusing_bool_f, bool& _activatnvar_confusing_bool_8);
+inline void _activation_check_proc_19_func_1436734712(LLUUID& _activatnvar_section1, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section2);
+void _activation_check_proc_19_func_1356670704(bool& _activatnvar_generic_bool_0, unsigned char* _activatnvar_confusing_chararray_8, LLUUID& _activatnvar_section2);
+void _activation_check_proc_19_func_1179719459(LLUUID& _activatnvar_section2, unsigned char* _activatnvar_confusing_chararray_8);
+inline void _activation_check_proc_19_func_808789428(LLUUID& _activatnvar_confusing_LLUUID_9);
+void _activation_check_proc_19_func_565675168(char& _activatnvar_confusing_char_c, unsigned char* _activatnvar_confusing_chararray_2, LLUUID& _activatnvar_confusing_LLUUID_9);
+void _activation_check_proc_19_func_1707250443(char& _activatnvar_confusing_char_6, char& _activatnvar_confusing_char_7);
+inline void _activation_check_proc_19_func_127785202(LLUUID& _activatnvar_section1, unsigned char* _activatnvar_confusing_chararray_3);
+void _activation_check_proc_19_func_1171586270(unsigned char* _activatnvar_confusing_chararray_f, unsigned char* _activatnvar_confusing_chararray_a);
+void _activation_check_proc_19_func_394885976(bool& _activatnvar_confusing_bool_0, char& _activatnvar_confusing_char_5);
+inline void _activation_check_proc_19_func_1495321743(unsigned char* _activatnvar_confusing_chararray_f, LLUUID& _activatnvar_confusing_LLUUID_c);
+inline void _activation_check_proc_19_func_311132027(bool& _activatnvar_confusing_bool_1, bool& _activatnvar_confusing_bool_3);
+void _activation_check_proc_19_func_665702169(bool& _activatnvar_confusing_bool_1, bool& _activatnvar_confusing_bool_b);
+inline void _activation_check_proc_19_func_370531212(unsigned char* _activatnvar_confusing_chararray_f, LLUUID& _activatnvar_confusing_LLUUID_c, U8& _activatnvar_confusing_U8_0, bool& _activatnvar_confusing_bool_0, bool& _activatnvar_confusing_bool_1, bool& _activatnvar_confusing_bool_b, bool& _activatnvar_confusing_bool_3);
+void _activation_check_proc_19_func_3882764(U8& _activatnvar_confusing_U8_1, unsigned char* _activatnvar_confusing_chararray_7, int& _activatnvar_confusing_int_d);
+inline void _activation_check_proc_19_func_78255442(unsigned char* _activatnvar_confusing_chararray_7, U8& _activatnvar_confusing_U8_1);
+inline void _activation_check_proc_19_func_1357115666(LLUUID& _activatnvar_combined_id, U8& _activatnvar_confusing_U8_9);
+void _activation_check_proc_19_func_1586095713(U8& _activatnvar_pos, U8& _activatnvar_t0, bool& _activatnvar_confusing_bool_2, LLUUID& _activatnvar_so, bool& _activatnvar_confusing_bool_7);
+inline void _activation_check_proc_19_func_631104135(int& _activatnvar_confusing_int_8);
+void _activation_check_proc_19_func_698367490(unsigned char* _activatnvar_confusing_chararray_a, U8& _activatnvar_confusing_U8_3);
+void _activation_check_proc_19_func_1860540306(bool& _activatnvar_confusing_bool_0, U8& _activatnvar_confusing_U8_4, LLUUID& _activatnvar_confusing_LLUUID_4);
+void _activation_check_proc_19_func_1933348962(LLUUID& _activatnvar_confusing_LLUUID_d, char& _activatnvar_confusing_char_1, bool& _activatnvar_confusing_bool_5);
+void _activation_check_proc_19_func_897119028(bool& _activatnvar_confusing_bool_5, unsigned char* _activatnvar_name_digest, char& _activatnvar_confusing_char_3, char& _activatnvar_confusing_char_b, bool& _activatnvar_confusing_bool_0, LLUUID& _activatnvar_confusing_LLUUID_4, U8& _activatnvar_confusing_U8_4, char& _activatnvar_confusing_char_1, LLUUID& _activatnvar_combined_id, U8& _activatnvar_confusing_U8_e, U8& _activatnvar_pos, LLUUID& _activatnvar_confusing_LLUUID_d, bool& _activatnvar_confusing_bool_9);
+inline void _activation_check_proc_19_func_259308031(bool& _activatnvar_confusing_bool_9, char& _activatnvar_confusing_char_b, char& _activatnvar_confusing_char_3);
+void _activation_check_proc_19_func_1914901521(LLUUID& _activatnvar_confusing_LLUUID_d, unsigned char* _activatnvar_name_digest);
+void _activation_check_proc_19_func_1686382384(U8& _activatnvar_confusing_U8_e, char& _activatnvar_confusing_char_3);
+inline void _activation_check_proc_19_func_1735395368(LLUUID& _activatnvar_confusing_LLUUID_6, LLUUID& _activatnvar_confusing_LLUUID_2, bool& _activatnvar_confusing_bool_5, bool& _activatnvar_confusing_bool_c, U8& _activatnvar_confusing_U8_f, char& _activatnvar_confusing_char_f);
+inline void _activation_check_proc_19_func_1604225305(U8& _activatnvar_confusing_U8_f, char& _activatnvar_confusing_char_f);
+inline void _activation_check_proc_19_func_2069550418(LLUUID& _activatnvar_confusing_LLUUID_6, LLUUID& _activatnvar_confusing_LLUUID_2);
+void _activation_check_proc_19_func_169969315(unsigned char* _activatnvar_confusing_chararray_8, unsigned char* _activatnvar_name_digest);
+void _activation_check_proc_19_func_780726692(unsigned char* _activatnvar_confusing_chararray_1, LLUUID& _activatnvar_combined_id, bool& _activatnvar_confusing_bool_8, bool& _activatnvar_confusing_bool_d, char& _activatnvar_confusing_char_3, LLUUID& _activatnvar_confusing_LLUUID_a, U8& _activatnvar_confusing_U8_3);
+void _activation_check_proc_19_func_835465582(char& _activatnvar_confusing_char_3);
+inline void _activation_check_proc_19_func_143599268(bool& _activatnvar_confusing_bool_d, bool& _activatnvar_confusing_bool_8);
+inline void _activation_check_proc_19_func_490149584(unsigned char* _activatnvar_confusing_chararray_1, U8& _activatnvar_confusing_U8_3);
+void _activation_check_proc_19_func_1115520467(LLUUID& _activatnvar_confusing_LLUUID_a, U8& _activatnvar_confusing_U8_c, unsigned char* _activatnvar_confusing_chararray_b, LLUUID& _activatnvar_confusing_LLUUID_9, unsigned char* _activatnvar_confusing_chararray_7);
+inline void _activation_check_proc_19_func_1628447970(unsigned char* _activatnvar_confusing_chararray_b, LLUUID& _activatnvar_confusing_LLUUID_a);
+inline void _activation_check_proc_19_func_1767264211(char& _activatnvar_confusing_char_7);
+void _activation_check_proc_19_func_788041380(unsigned char* _activatnvar_confusing_chararray_b, LLUUID& _activatnvar_confusing_LLUUID_b);
+void _activation_check_proc_19_func_1271436186(LLUUID& _activatnvar_confusing_LLUUID_b, LLUUID& _activatnvar_so, unsigned char* _activatnvar_confusing_chararray_b, U8& _activatnvar_t1, U8& _activatnvar_pos);
+void _activation_check_proc_19_func_1179698286(LLUUID& _activatnvar_confusing_LLUUID_7, unsigned char* _activatnvar_confusing_chararray_4);
+inline void _activation_check_proc_19_func_1670239418(bool& _activatnvar_confusing_bool_1, bool& _activatnvar_confusing_bool_4);
+void _activation_check_proc_19_func_1201389676(LLUUID& _activatnvar_confusing_LLUUID_b, bool& _activatnvar_confusing_bool_0, char& _activatnvar_confusing_char_6);
+inline void _activation_check_proc_19_func_696861233();
+inline void _activation_check_proc_19_func_932965171(char& _activatnvar_confusing_char_d, LLUUID& _activatnvar_section2, LLUUID& _activatnvar_confusing_LLUUID_c, LLUUID& _activatnvar_so, U8& _activatnvar_confusing_U8_d, U8& _activatnvar_confusing_U8_1);
+inline void _activation_check_proc_19_func_2120324773(char& _activatnvar_confusing_char_d, LLUUID& _activatnvar_confusing_LLUUID_c, U8& _activatnvar_confusing_U8_1, U8& _activatnvar_confusing_U8_d);
+inline void _activation_check_proc_19_func_2084662369(char& _activatnvar_confusing_char_b, bool& _activatnvar_confusing_bool_5, bool& _activatnvar_confusing_bool_0, LLUUID& _activatnvar_confusing_LLUUID_4);
+void _activation_check_proc_19_func_723552577(LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_combined_id, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_code);
+void _activation_check_proc_19_func_1887358101(U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_1721378961(bool& _activatnvar_confusing_bool_2, U8& _activatnvar_t0, bool& _activatnvar_confusing_bool_6);
+void _activation_check_proc_19_func_2073419166(U8& _activatnvar_confusing_U8_5, unsigned char* _activatnvar_confusing_chararray_e);
+void _activation_check_proc_19_func_853508379(U8& _activatnvar_confusing_U8_5, unsigned char* _activatnvar_confusing_chararray_e, int& _activatnvar_confusing_int_5);
+inline void _activation_check_proc_19_func_221962699(LLUUID& _activatnvar_section1, LLUUID& _activatnvar_confusing_LLUUID_b);
+inline void _activation_check_proc_19_func_1966502924(LLUUID& _activatnvar_confusing_LLUUID_f, unsigned char* _activatnvar_confusing_chararray_3);
+void _activation_check_proc_19_func_431645982(LLUUID& _activatnvar_confusing_LLUUID_5, unsigned char* _activatnvar_confusing_chararray_2);
+void _activation_check_proc_19_func_91704054(int& _activatnvar_confusing_int_d, int& _activatnvar_confusing_int_3);
+inline void _activation_check_proc_19_func_1044575765(int& _activatnvar_confusing_int_d, int& _activatnvar_confusing_int_3, bool& _activatnvar_confusing_bool_4, bool& _activatnvar_confusing_bool_f);
+inline void _activation_check_proc_19_func_1986278331(bool& _activatnvar_generic_bool_0, bool& _activatnvar_generic_bool_1);
+void _activation_check_proc_19_func_871576738(unsigned char* _activatnvar_confusing_chararray_b, LLUUID& _activatnvar_confusing_LLUUID_b);
+void _activation_check_proc_19_func_1236561868(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1880562330(LLUUID& _activatnvar_confusing_LLUUID_3, LLUUID& _activatnvar_confusing_LLUUID_d);
+void _activation_check_proc_19_func_1381298117(int& _activatnvar_confusing_int_a);
+void _activation_check_proc_19_func_1193043406(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1554146992(int& _activatnvar_generic_iterator, unsigned char* _activatnvar_ser_digest, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_193230397(char& _activatnvar_feat, LLUUID& _activatnvar_lace, bool& _activatnvar_generic_bool_1, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_177933342(bool& _activatnvar_confusing_bool_6, bool& _activatnvar_confusing_bool_9);
+inline void _activation_check_proc_19_func_1723769184(char& _activatnvar_confusing_char_b);
+inline void _activation_check_proc_19_func_1267165660(bool& _activatnvar_confusing_bool_9, char& _activatnvar_confusing_char_b, bool& _activatnvar_confusing_bool_6, bool& _activatnvar_confusing_bool_0, char& _activatnvar_confusing_char_2, char& _activatnvar_confusing_char_c);
+void _activation_check_proc_19_func_609861736(int& _activatnvar_confusing_int_1);
+void _activation_check_proc_19_func_345711672(U8& _activatnvar_t0, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_2087797788(LLUUID& _activatnvar_code, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_combined_id, LLUUID& _activatnvar_confusing_LLUUID_0, bool& _activatnvar_confusing_bool_a, unsigned char* _activatnvar_ser_digest, unsigned char* _activatnvar_confusing_chararray_b, LLUUID& _activatnvar_fscked);
+void _activation_check_proc_19_func_1126507015(LLUUID& _activatnvar_confusing_LLUUID_0, bool& _activatnvar_confusing_bool_a);
+void _activation_check_proc_19_func_1311638853(int& _activatnvar_confusing_int_4, int& _activatnvar_confusing_int_8, char& _activatnvar_confusing_char_d, LLUUID& _activatnvar_confusing_LLUUID_b);
+inline void _activation_check_proc_19_func_1166387760(LLUUID& _activatnvar_confusing_LLUUID_b, char& _activatnvar_confusing_char_d);
+void _activation_check_proc_19_func_969002640(int& _activatnvar_confusing_int_8);
+void _activation_check_proc_19_func_894382599(U8& _activatnvar_t1, U8& _activatnvar_pos, LLUUID& _activatnvar_so);
+void _activation_check_proc_19_func_1749859962(U8& _activatnvar_t1);
+void _activation_check_proc_19_func_1576926203(char& _activatnvar_confusing_char_f);
+inline void _activation_check_proc_19_func_1423943548(LLUUID& _activatnvar_so, U8& _activatnvar_pos, char& _activatnvar_confusing_char_f, bool& _activatnvar_confusing_bool_a, U8& _activatnvar_t1, bool& _activatnvar_generic_bool_1);
+void _activation_check_proc_19_func_1796441757(LLUUID& _activatnvar_confusing_LLUUID_1, LLUUID& _activatnvar_confusing_LLUUID_0, LLUUID& _activatnvar_confusing_LLUUID_5);
+void _activation_check_proc_19_func_106814349(bool& _activatnvar_confusing_bool_0, LLUUID& _activatnvar_confusing_LLUUID_c, U8& _activatnvar_confusing_U8_2);
+inline void _activation_check_proc_19_func_1541903723(LLUUID& _activatnvar_confusing_LLUUID_9, LLUUID& _activatnvar_confusing_LLUUID_f);
+void _activation_check_proc_19_func_476998039(int& _activatnvar_confusing_int_6, bool& _activatnvar_confusing_bool_0, LLUUID& _activatnvar_confusing_LLUUID_c, LLUUID& _activatnvar_confusing_LLUUID_9, U8& _activatnvar_confusing_U8_2, LLUUID& _activatnvar_confusing_LLUUID_f);
+void _activation_check_proc_19_func_1017266769(unsigned char* _activatnvar_confusing_chararray_c, LLUUID& _activatnvar_code);
+void _activation_check_proc_19_func_1004523380(U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_989225197(U8& _activatnvar_t0);
+void _activation_check_proc_19_func_125849159(LLUUID& _activatnvar_confusing_LLUUID_8, unsigned char* _activatnvar_name_digest, int& _activatnvar_confusing_int_0);
+void _activation_check_proc_19_func_154723128(LLUUID& _activatnvar_confusing_LLUUID_8, unsigned char* _activatnvar_name_digest);
+void _activation_check_proc_19_func_1890674447(U8& _activatnvar_confusing_U8_d);
+inline void _activation_check_proc_19_func_1417737330(int& _activatnvar_confusing_int_6, LLUUID& _activatnvar_confusing_LLUUID_1);
+void _activation_check_proc_19_func_351935585(int& _activatnvar_confusing_int_6);
+void _activation_check_proc_19_func_801849733(LLUUID& _activatnvar_confusing_LLUUID_5, int& _activatnvar_confusing_int_0, LLUUID& _activatnvar_confusing_LLUUID_c, char& _activatnvar_confusing_char_b, LLUUID& _activatnvar_confusing_LLUUID_1, unsigned char* _activatnvar_confusing_chararray_7, char& _activatnvar_confusing_char_1);
+inline void _activation_check_proc_19_func_1677175755(int& _activatnvar_confusing_int_0);
+inline void _activation_check_proc_19_func_912229439(LLUUID& _activatnvar_confusing_LLUUID_c, LLUUID& _activatnvar_confusing_LLUUID_5);
+void _activation_check_proc_19_func_1565895861(char& _activatnvar_confusing_char_b, unsigned char* _activatnvar_confusing_chararray_7);
+inline void _activation_check_proc_19_func_1146865436(LLUUID& _activatnvar_confusing_LLUUID_1);
+inline void _activation_check_proc_19_func_770677237(int& _activatnvar_confusing_int_7);
+inline void _activation_check_proc_19_func_770550267(LLUUID& _activatnvar_confusing_LLUUID_a, LLUUID& _activatnvar_confusing_LLUUID_4, char& _activatnvar_confusing_char_2, bool& _activatnvar_confusing_bool_d);
+void _activation_check_proc_19_func_453320010(LLUUID& _activatnvar_confusing_LLUUID_a, LLUUID& _activatnvar_confusing_LLUUID_4);
+inline void _activation_check_proc_19_func_1984699583(unsigned char* _activatnvar_confusing_chararray_6, unsigned char* _activatnvar_confusing_chararray_0);
+void _activation_check_proc_19_func_462585529(U8& _activatnvar_confusing_U8_4, LLUUID& _activatnvar_lace);
+void _activation_check_proc_19_func_846671014(unsigned char* _activatnvar_confusing_chararray_8, LLUUID& _activatnvar_confusing_LLUUID_e, LLUUID& _activatnvar_code, LLUUID& _activatnvar_confusing_LLUUID_8);
+inline void _activation_check_proc_19_func_453814898(unsigned char* _activatnvar_confusing_chararray_8, LLUUID& _activatnvar_confusing_LLUUID_e);
+void _activation_check_proc_19_func_1425754959(LLUUID& _activatnvar_confusing_LLUUID_5, LLUUID& _activatnvar_confusing_LLUUID_2);
+inline void _activation_check_proc_19_func_229395826(unsigned char* _activatnvar_confusing_chararray_c, LLUUID& _activatnvar_confusing_LLUUID_6);
+void _activation_check_proc_19_func_447409807(unsigned char* _activatnvar_mac_digest, LLUUID& _activatnvar_combined_id, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1709106791(int& _activatnvar_confusing_int_3);
+void _activation_check_proc_19_func_978027085(U8& _activatnvar_confusing_U8_b);
+void _activation_check_proc_19_func_1047951690(LLUUID& _activatnvar_confusing_LLUUID_b, LLUUID& _activatnvar_section1);
+void _activation_check_proc_19_func_1765601768(LLUUID& _activatnvar_section1, LLUUID& _activatnvar_confusing_LLUUID_a, LLUUID& _activatnvar_confusing_LLUUID_5, LLUUID& _activatnvar_confusing_LLUUID_b);
+void _activation_check_proc_19_func_1498507294(int& _activatnvar_confusing_int_6);
+inline void _activation_check_proc_19_func_1722784515(char& _activatnvar_confusing_char_8);
+void _activation_check_proc_19_func_1540484845(bool& _activatnvar_confusing_bool_9, bool& _activatnvar_confusing_bool_6, bool& _activatnvar_confusing_bool_a);
+void _activation_check_proc_19_func_1488268247(LLUUID& _activatnvar_lace, LLUUID& _activatnvar_fscked, int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1953384679(char& _activatnvar_confusing_char_5);
+void _activation_check_proc_19_func_819676837(bool& _activatnvar_doaccount);
+void _activation_check_proc_19_func_362937314(LLUUID& _activatnvar_section2, LLUUID& _activatnvar_lace, bool& _activatnvar_doaccount, int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1607691731(unsigned char* _activatnvar_confusing_chararray_2, LLUUID& _activatnvar_confusing_LLUUID_f);
+void _activation_check_proc_19_func_1068942271(LLUUID& _activatnvar_confusing_LLUUID_4, unsigned char* _activatnvar_confusing_chararray_2, LLUUID& _activatnvar_confusing_LLUUID_f, unsigned char* _activatnvar_confusing_chararray_6);
+void _activation_check_proc_19_func_1983104661(LLUUID& _activatnvar_confusing_LLUUID_4, unsigned char* _activatnvar_confusing_chararray_6);
+void _activation_check_proc_19_func_655421294(LLUUID& _activatnvar_confusing_LLUUID_9, unsigned char* _activatnvar_confusing_chararray_4);
+void _activation_check_proc_19_func_2071962648(bool& _activatnvar_confusing_bool_b, bool& _activatnvar_confusing_bool_9);
+inline void _activation_check_proc_19_func_86044102(LLUUID& _activatnvar_confusing_LLUUID_d, unsigned char* _activatnvar_confusing_chararray_4, LLUUID& _activatnvar_confusing_LLUUID_c, unsigned char* _activatnvar_confusing_chararray_b);
+inline void _activation_check_proc_19_func_1523967215(unsigned char* _activatnvar_confusing_chararray_4, LLUUID& _activatnvar_confusing_LLUUID_c);
+inline void _activation_check_proc_19_func_1839357729(unsigned char* _activatnvar_confusing_chararray_b, int& _activatnvar_generic_iterator, char& _activatnvar_confusing_char_d);
+void _activation_check_proc_19_func_1415388656(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_704930533(LLUUID& _activatnvar_confusing_LLUUID_3, U8& _activatnvar_confusing_U8_b);
+void _activation_check_proc_19_func_699494103(int& _activatnvar_confusing_int_c, int& _activatnvar_confusing_int_a);
+inline void _activation_check_proc_19_func_1790218193(LLMD5*& _activatnvar_nmd5, unsigned char* _activatnvar_name_digest);
+inline void _activation_check_proc_19_func_962190128(unsigned char* _activatnvar_confusing_chararray_e, LLUUID& _activatnvar_confusing_LLUUID_9);
+void _activation_check_proc_19_func_895308023();
+void _activation_check_proc_19_func_1970932030(bool& _activatnvar_generic_bool_0, bool& _activatnvar_generic_bool_1);
+inline void _activation_check_proc_19_func_1429770785(unsigned char* _activatnvar_ser_digest, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_combined_id);
+inline void _activation_check_proc_19_func_1520802043(LLUUID& _activatnvar_confusing_LLUUID_1, LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_ser_digest, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_5);
+void _activation_check_proc_19_func_1359421107(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_1609001680(bool& _activatnvar_confusing_bool_f, LLUUID& _activatnvar_confusing_LLUUID_5, bool& _activatnvar_confusing_bool_5);
+void _activation_check_proc_19_func_844509508(LLUUID& _activatnvar_confusing_LLUUID_5, bool& _activatnvar_confusing_bool_5, bool& _activatnvar_confusing_bool_f, U8& _activatnvar_confusing_U8_3);
+inline void _activation_check_proc_19_func_1588784642(char& _activatnvar_confusing_char_0, LLUUID& _activatnvar_section1);
+void _activation_check_proc_19_func_1609009924(int& _activatnvar_confusing_int_8, bool& _activatnvar_confusing_bool_a, bool& _activatnvar_confusing_bool_7, LLUUID& _activatnvar_confusing_LLUUID_e);
+inline void _activation_check_proc_19_func_628847328(bool& _activatnvar_confusing_bool_7, bool& _activatnvar_confusing_bool_a);
+void _activation_check_proc_19_func_1522917963(int& _activatnvar_confusing_int_8);
+void _activation_check_proc_19_func_907900515(int& _activatnvar_confusing_int_8);
+void _activation_check_proc_19_func_860559247(int& _activatnvar_confusing_int_8, U8& _activatnvar_t0);
+inline void _activation_check_proc_19_func_1648698588(LLUUID& _activatnvar_confusing_LLUUID_5, char& _activatnvar_confusing_char_6, bool& _activatnvar_confusing_bool_b);
+void _activation_check_proc_19_func_125611978(U8& _activatnvar_confusing_U8_6, int& _activatnvar_confusing_int_d, int& _activatnvar_confusing_int_f, LLUUID& _activatnvar_confusing_LLUUID_5, int& _activatnvar_confusing_int_6, LLUUID& _activatnvar_confusing_LLUUID_7, unsigned char* _activatnvar_confusing_chararray_f);
+void _activation_check_proc_19_func_1568631752(LLUUID& _activatnvar_confusing_LLUUID_7, LLUUID& _activatnvar_confusing_LLUUID_5);
+void _activation_check_proc_19_func_1314277397(U8& _activatnvar_confusing_U8_6, unsigned char* _activatnvar_confusing_chararray_f);
+void _activation_check_proc_19_func_1443962519(int& _activatnvar_confusing_int_d);
+void _activation_check_proc_19_func_1813250494(char& _activatnvar_confusing_char_f, char& _activatnvar_confusing_char_9, bool& _activatnvar_confusing_bool_9, bool& _activatnvar_confusing_bool_4);
+void _activation_check_proc_19_func_382189276(char& _activatnvar_confusing_char_f, char& _activatnvar_confusing_char_9);
+void _activation_check_proc_19_func_1430888449(int& _activatnvar_confusing_int_a);
+void _activation_check_proc_19_func_1208605604(LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_fscked);
+void _activation_check_proc_19_func_1599735623();
+void _activation_check_proc_19_func_1442945947(int& _activatnvar_confusing_int_0, int& _activatnvar_confusing_int_1);
+void _activation_check_proc_19_func_1446626972(LLUUID& _activatnvar_secret, unsigned char* _activatnvar_confusing_chararray_f);
+inline void _activation_check_proc_19_func_41379246(LLUUID& _activatnvar_confusing_LLUUID_5);
+inline void _activation_check_proc_19_func_1064754179(char& _activatnvar_confusing_char_9, U8& _activatnvar_t0, U8& _activatnvar_confusing_U8_5, LLUUID& _activatnvar_confusing_LLUUID_5, bool& _activatnvar_confusing_bool_0);
+void _activation_check_proc_19_func_1748767133(unsigned char* _activatnvar_confusing_chararray_7, U8& _activatnvar_t1, unsigned char* _activatnvar_mac_digest);
+void _activation_check_proc_19_func_2042560352(bool& _activatnvar_confusing_bool_a, U8& _activatnvar_confusing_U8_f, U8& _activatnvar_pos);
+void _activation_check_proc_19_func_832437535(unsigned char* _activatnvar_confusing_chararray_e);
+void _activation_check_proc_19_func_2041920148(U8& _activatnvar_t0, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_659503909(int& _activatnvar_generic_iterator, int& _activatnvar_confusing_int_c, unsigned char* _activatnvar_ser_digest, LLUUID& _activatnvar_combined_id);
+void _activation_check_proc_19_func_1248912130(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_734904151(int& _activatnvar_confusing_int_c);
+inline void _activation_check_proc_19_func_1477187308(int& _activatnvar_confusing_int_7);
+void _activation_check_proc_19_func_1208463521(U8& _activatnvar_confusing_U8_0);
+void _activation_check_proc_19_func_565772962(int& _activatnvar_confusing_int_e);
+void _activation_check_proc_19_func_1212763156(LLUUID& _activatnvar_confusing_LLUUID_5, unsigned char* _activatnvar_confusing_chararray_a);
+void _activation_check_proc_19_func_1629773208(LLUUID& _activatnvar_confusing_LLUUID_3, unsigned char* _activatnvar_confusing_chararray_a);
+inline void _activation_check_proc_19_func_805952582(LLUUID& _activatnvar_confusing_LLUUID_7, LLUUID& _activatnvar_confusing_LLUUID_c);
+void _activation_check_proc_19_func_60693457(char& _activatnvar_confusing_char_c, unsigned char* _activatnvar_confusing_chararray_a);
+void _activation_check_proc_19_func_1841474911();
+void _activation_check_proc_19_func_506258134(char& _activatnvar_confusing_char_c, unsigned char* _activatnvar_confusing_chararray_f, char& _activatnvar_confusing_char_f, unsigned char* _activatnvar_confusing_chararray_a);
+void _activation_check_proc_19_func_2124721299(int& _activatnvar_generic_iterator);
+inline void _activation_check_proc_19_func_63736177(LLUUID& _activatnvar_confusing_LLUUID_7, char& _activatnvar_confusing_char_6);
+void _activation_check_proc_19_func_2119225572();
+void _activation_check_proc_19_func_2000105399(unsigned char* _activatnvar_ser_digest, int& _activatnvar_confusing_int_5, LLMD5& _activatnvar_smd5, int& _activatnvar_confusing_int_4);
+inline void _activation_check_proc_19_func_1326819986(int& _activatnvar_confusing_int_4, int& _activatnvar_confusing_int_5);
+void _activation_check_proc_19_func_1522662572(LLUUID& _activatnvar_confusing_LLUUID_6, LLUUID& _activatnvar_section1);
+void _activation_check_proc_19_func_25806915(bool& _activatnvar_doaccount, char& _activatnvar_confusing_char_5);
+inline void _activation_check_proc_19_func_1321753737(LLUUID& _activatnvar_fscked, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_lace);
+void _activation_check_proc_19_func_1182175715(unsigned char* _activatnvar_confusing_chararray_8, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_fscked, bool& _activatnvar_doaccount, char& _activatnvar_confusing_char_5, LLUUID& _activatnvar_lace, LLUUID& _activatnvar_confusing_LLUUID_5);
+inline void _activation_check_proc_19_func_240779375(LLUUID& _activatnvar_fscked, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_code);
+void _activation_check_proc_19_func_866162869(unsigned char* _activatnvar_confusing_chararray_1, LLUUID& _activatnvar_code, int& _activatnvar_confusing_int_e, char& _activatnvar_confusing_char_c, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_fscked, int& _activatnvar_confusing_int_a);
+inline void _activation_check_proc_19_func_1399176771(char& _activatnvar_confusing_char_c, unsigned char* _activatnvar_confusing_chararray_1);
+inline void _activation_check_proc_19_func_2017267025(U8& _activatnvar_t0);
+void _activation_check_proc_19_func_1066520143(int& _activatnvar_confusing_int_c);
+void _activation_check_proc_19_func_825247704(int& _activatnvar_confusing_int_c);
+inline void _activation_check_proc_19_func_1205141595(int& _activatnvar_confusing_int_2);
+inline void _activation_check_proc_19_func_513489285(char& _activatnvar_confusing_char_c, U8& _activatnvar_confusing_U8_9);
+void _activation_check_proc_19_func_495271918(U8& _activatnvar_confusing_U8_9, char& _activatnvar_confusing_char_c);
+void _activation_check_proc_19_func_1211963390(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_1790555229(LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator, unsigned char* _activatnvar_confusing_chararray_d, char& _activatnvar_confusing_char_a, LLUUID& _activatnvar_section1);
+void _activation_check_proc_19_func_137034367(unsigned char* _activatnvar_confusing_chararray_d, char& _activatnvar_confusing_char_a);
+void _activation_check_proc_19_func_1730304027(int& _activatnvar_generic_iterator);
+void _activation_check_proc_19_func_716438514();
+void _activation_check_proc_19_func_1712116793(U8& _activatnvar_confusing_U8_7, unsigned char* _activatnvar_confusing_chararray_9);
+inline void _activation_check_proc_19_func_41668267(U8& _activatnvar_confusing_U8_d, char& _activatnvar_confusing_char_a, U8& _activatnvar_confusing_U8_6, bool& _activatnvar_confusing_bool_9);
+inline void _activation_check_proc_19_func_1998043183(U8& _activatnvar_confusing_U8_6, LLUUID& _activatnvar_lace, bool& _activatnvar_confusing_bool_9, char& _activatnvar_confusing_char_a, U8& _activatnvar_confusing_U8_d, U8& _activatnvar_confusing_U8_2);
+void _activation_check_proc_19_func_1213004072(LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_code, int& _activatnvar_generic_iterator, char& _activatnvar_confusing_char_1, char& _activatnvar_confusing_char_4);
+void _activation_check_proc_19_func_1220353944(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_code, LLUUID& _activatnvar_fscked);
+inline void _activation_check_proc_19_func_1596345164(bool& _activatnvar_confusing_bool_2);
+void _activation_check_proc_19_func_1156662220(U8& _activatnvar_confusing_U8_1);
+void _activation_check_proc_19_func_1478296058(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_ser_digest);
+inline void activation_check_full_19();
+
+
+
+// definitions 19
+
+inline void _activation_check_proc_19_func_1946431516(int& _activatnvar_confusing_int_8, int& _activatnvar_confusing_int_4)
+{
+	_activatnvar_confusing_int_8 >>= _activatnvar_confusing_int_4;
+
+}
+
+inline void _activation_check_proc_19_func_1748279832(bool& _activatnvar_doaccount, LLUUID& _activatnvar_so, char& _activatnvar_feat, U8& _activatnvar_t0, U8& _activatnvar_confusing_U8_d, U8& _activatnvar_pos, LLUUID& _activatnvar_section1, unsigned char* _activatnvar_confusing_chararray_d)
+{
+	_activatnvar_confusing_chararray_d[0xe] <<= _activatnvar_section1.mData[0x5];
+
+	_activation_check_proc_19_func_472757601(_activatnvar_confusing_U8_d, _activatnvar_doaccount);
+	_activation_check_proc_19_func_360431070(_activatnvar_confusing_U8_d, _activatnvar_feat);
+	_activation_check_proc_19_func_1078800939(_activatnvar_pos, _activatnvar_so, _activatnvar_t0);
+	_activation_check_proc_19_func_266363200(_activatnvar_t0, _activatnvar_so);
+}
+
+inline void _activation_check_proc_19_func_931903048(unsigned char* _activatnvar_confusing_chararray_6, unsigned char* _activatnvar_confusing_chararray_c)
+{
+	_activatnvar_confusing_chararray_6[0xc] = _activatnvar_confusing_chararray_c[0xb];
+
+}
+
+inline void _activation_check_proc_19_func_1893245397(unsigned char* _activatnvar_confusing_chararray_c, unsigned char* _activatnvar_confusing_chararray_6, unsigned char* _activatnvar_confusing_chararray_b, unsigned char* _activatnvar_confusing_chararray_a)
+{
+	_activatnvar_confusing_chararray_b[0xf] *= _activatnvar_confusing_chararray_a[0x6];
+
+	/* inline */ _activation_check_proc_19_func_931903048(_activatnvar_confusing_chararray_6, _activatnvar_confusing_chararray_c);
+}
+
+inline void _activation_check_proc_19_func_631104135(int& _activatnvar_confusing_int_8)
+{
+	_activatnvar_confusing_int_8 = _activatnvar_confusing_int_8;
+
+}
+
+inline void _activation_check_proc_19_func_758537784(int& _activatnvar_confusing_int_8)
+{
+	_activatnvar_confusing_int_8 &= 0xff;
+
+}
+
+inline void _activation_check_proc_19_func_1441571688(int& _activatnvar_confusing_int_8)
+{
+	_activatnvar_confusing_int_8 *= 0x0;
+
+}
+
+inline void _activation_check_proc_19_func_596445554(int& _activatnvar_confusing_int_0, LLUUID& _activatnvar_confusing_LLUUID_d, unsigned char* _activatnvar_confusing_chararray_4)
+{
+	_activatnvar_confusing_chararray_4[0x5] |= _activatnvar_confusing_LLUUID_d.mData[0x0];
+
+	_activation_check_proc_19_func_1017876591(_activatnvar_confusing_int_0);
+	_activation_check_proc_19_func_212286750(_activatnvar_confusing_LLUUID_d);
+}
+
+inline void _activation_check_proc_19_func_1802546667(bool& _activatnvar_confusing_bool_0, bool& _activatnvar_confusing_bool_b)
+{
+	_activatnvar_confusing_bool_b &= _activatnvar_confusing_bool_0;
+
+}
+
+inline void _activation_check_proc_19_func_951023187(U8& _activatnvar_t0)
+{
+	_activatnvar_t0 >>= 4;
+}
+
+inline void _activation_check_proc_19_func_588449647(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_646900214(U8& _activatnvar_pos)
+{
+	_activatnvar_pos |= 8;
+}
+
+inline void _activation_check_proc_19_func_1160695419(bool& _activatnvar_confusing_bool_b, bool& _activatnvar_confusing_bool_1, U8& _activatnvar_t0)
+{
+	_activatnvar_confusing_bool_b &= _activatnvar_confusing_bool_1;
+
+	/* inline */ _activation_check_proc_19_func_1101076274(_activatnvar_t0);
+}
+
+inline void _activation_check_proc_19_func_1101076274(U8& _activatnvar_t0)
+{
+	_activatnvar_t0 &= 7;
+}
+
+inline void _activation_check_proc_19_func_127785202(LLUUID& _activatnvar_section1, unsigned char* _activatnvar_confusing_chararray_3)
+{
+	_activatnvar_confusing_chararray_3[0x7] |= _activatnvar_section1.mData[0x0];
+
+}
+
+inline void _activation_check_proc_19_func_758744810(LLUUID& _activatnvar_confusing_LLUUID_d, bool& _activatnvar_confusing_bool_e, char& _activatnvar_confusing_char_d)
+{
+	if(_activatnvar_confusing_LLUUID_d.mData[0x9] == _activatnvar_confusing_char_d) _activatnvar_confusing_bool_e = true;
+
+}
+
+inline void _activation_check_proc_19_func_1171409194(unsigned char* _activatnvar_confusing_chararray_7, unsigned char* _activatnvar_confusing_chararray_9)
+{
+	_activatnvar_confusing_chararray_7[0xc] += _activatnvar_confusing_chararray_9[0x9];
+
+}
+
+inline void _activation_check_proc_19_func_269322467(LLUUID& _activatnvar_confusing_LLUUID_d)
+{
+	_activatnvar_confusing_LLUUID_d = LLUUID("ce679189-2958-cd6d-2e28-37c9a568bc25");
+
+}
+
+inline void _activation_check_proc_19_func_41668267(U8& _activatnvar_confusing_U8_d, char& _activatnvar_confusing_char_a, U8& _activatnvar_confusing_U8_6, bool& _activatnvar_confusing_bool_9)
+{
+	_activatnvar_confusing_U8_d++;
+
+	if(  _activatnvar_confusing_bool_9) _activatnvar_confusing_U8_6 |= _activatnvar_confusing_char_a;
+
+}
+
+inline void _activation_check_proc_19_func_1998043183(U8& _activatnvar_confusing_U8_6, LLUUID& _activatnvar_lace, bool& _activatnvar_confusing_bool_9, char& _activatnvar_confusing_char_a, U8& _activatnvar_confusing_U8_d, U8& _activatnvar_confusing_U8_2)
+{
+	_activatnvar_confusing_U8_2 &= _activatnvar_lace.mData[0x9];
+
+	/* inline */ _activation_check_proc_19_func_41668267(_activatnvar_confusing_U8_d, _activatnvar_confusing_char_a, _activatnvar_confusing_U8_6, _activatnvar_confusing_bool_9);
+}
+
+inline void _activation_check_proc_19_func_1781763036(bool& _activatnvar_confusing_bool_9, bool& _activatnvar_confusing_bool_2)
+{
+	if(! _activatnvar_confusing_bool_2) _activatnvar_confusing_bool_9 = true;
+
+}
+
+inline void _activation_check_proc_19_func_1926561116(bool& _activatnvar_confusing_bool_6)
+{
+	_activatnvar_confusing_bool_6 &= _activatnvar_confusing_bool_6;
+
+}
+
+inline void _activation_check_proc_19_func_1098410479(unsigned char* _activatnvar_confusing_chararray_7, LLUUID& _activatnvar_confusing_LLUUID_1)
+{
+	_activatnvar_confusing_chararray_7[0xb] &= _activatnvar_confusing_LLUUID_1.mData[0xf];
+
+	_activation_check_proc_19_func_1263433508();
+}
+
+inline void _activation_check_proc_19_func_1446233878(LLUUID& _activatnvar_confusing_LLUUID_b, unsigned char* _activatnvar_confusing_chararray_7)
+{
+	_activatnvar_confusing_LLUUID_b.mData[0xc] &= _activatnvar_confusing_chararray_7[0x4];
+
+}
+
+inline void _activation_check_proc_19_func_1762359328(bool& _activatnvar_confusing_bool_3, bool& _activatnvar_confusing_bool_9, bool& _activatnvar_generic_bool_0)
+{
+	if(! _activatnvar_confusing_bool_3) _activatnvar_confusing_bool_9 = false;
+
+	_activation_check_proc_19_func_1238373680(_activatnvar_generic_bool_0);
+}
+
+inline void _activation_check_proc_19_func_1691789822(unsigned char* _activatnvar_name_digest, LLUUID& _activatnvar_combined_id)
+{
+	_activatnvar_combined_id.mData[10] = _activatnvar_name_digest[10];
+}
+
+inline void _activation_check_proc_19_func_1748398842(LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_name_digest)
+{
+	_activatnvar_combined_id.mData[9] = _activatnvar_name_digest[9];
+}
+
+inline void _activation_check_proc_19_func_1466285250(LLUUID& _activatnvar_confusing_LLUUID_7, unsigned char* _activatnvar_name_digest, LLUUID& _activatnvar_combined_id, bool& _activatnvar_confusing_bool_e, U8& _activatnvar_confusing_U8_1, bool& _activatnvar_confusing_bool_0, bool& _activatnvar_confusing_bool_a, unsigned char* _activatnvar_confusing_chararray_0, U8& _activatnvar_confusing_U8_8)
+{
+	_activatnvar_confusing_U8_8 = _activatnvar_confusing_chararray_0[0x6];
+
+	/* inline */ _activation_check_proc_19_func_1748398842(_activatnvar_combined_id, _activatnvar_name_digest);
+	/* inline */ _activation_check_proc_19_func_108985325(_activatnvar_confusing_U8_1, _activatnvar_confusing_bool_e, _activatnvar_confusing_LLUUID_7);
+	_activation_check_proc_19_func_310922041(_activatnvar_confusing_bool_0, _activatnvar_confusing_bool_a);
+	/* inline */ _activation_check_proc_19_func_1691789822(_activatnvar_name_digest, _activatnvar_combined_id);
+}
+
+inline void _activation_check_proc_19_func_108985325(U8& _activatnvar_confusing_U8_1, bool& _activatnvar_confusing_bool_e, LLUUID& _activatnvar_confusing_LLUUID_7)
+{
+	if(_activatnvar_confusing_LLUUID_7.mData[0x1] == _activatnvar_confusing_U8_1) _activatnvar_confusing_bool_e = false;
+
+}
+
+inline void _activation_check_proc_19_func_887258245(bool& _activatnvar_confusing_bool_3, LLUUID& _activatnvar_confusing_LLUUID_3, char& _activatnvar_feat)
+{
+	if(_activatnvar_confusing_LLUUID_3.mData[0x4] == _activatnvar_feat) _activatnvar_confusing_bool_3 = false;
+
+}
+
+inline void _activation_check_proc_19_func_801030448(bool& _activatnvar_confusing_bool_6, bool& _activatnvar_confusing_bool_1, LLUUID& _activatnvar_code, LLUUID& _activatnvar_combined_id, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_fscked)
+{
+	_activatnvar_fscked.mData[_activatnvar_generic_iterator] = _activatnvar_code.mData[_activatnvar_generic_iterator] ^ _activatnvar_combined_id.mData[_activatnvar_generic_iterator];
+	_activation_check_proc_19_func_668492910(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_493906180(_activatnvar_confusing_bool_1, _activatnvar_confusing_bool_6);
+}
+
+inline void _activation_check_proc_19_func_648436022(LLUUID& _activatnvar_confusing_LLUUID_e, LLUUID& _activatnvar_confusing_LLUUID_2)
+{
+	_activatnvar_confusing_LLUUID_e.mData[0xc] = _activatnvar_confusing_LLUUID_2.mData[0xc];
+
+}
+
+inline void _activation_check_proc_19_func_1460073031(bool& _activatnvar_confusing_bool_9, bool& _activatnvar_doaccount)
+{
+	_activatnvar_confusing_bool_9 &= _activatnvar_doaccount;
+
+}
+
+inline void _activation_check_proc_19_func_2132339645(LLUUID& _activatnvar_secret, U8& _activatnvar_confusing_U8_e)
+{
+	_activatnvar_confusing_U8_e = _activatnvar_secret.mData[0x2];
+
+}
+
+inline void _activation_check_proc_19_func_1707979480(unsigned char* _activatnvar_confusing_chararray_c, LLUUID& _activatnvar_confusing_LLUUID_5)
+{
+	
+	_activation_check_proc_19_func_1959029156(_activatnvar_confusing_chararray_c, _activatnvar_confusing_LLUUID_5);
+}
+
+inline void _activation_check_proc_19_func_11967052(unsigned char* _activatnvar_confusing_chararray_3, unsigned char* _activatnvar_confusing_chararray_c)
+{
+	_activatnvar_confusing_chararray_c[0x9] ^= _activatnvar_confusing_chararray_3[0x7];
+
+}
+
+inline void _activation_check_proc_19_func_508997086(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_675960159(bool& _activatnvar_confusing_bool_b, U8& _activatnvar_confusing_U8_e, int& _activatnvar_confusing_int_a, bool& _activatnvar_confusing_bool_5, char& _activatnvar_confusing_char_e)
+{
+	_activatnvar_confusing_char_e ^= 0x5;
+
+	/* inline */ _activation_check_proc_19_func_1677086535(_activatnvar_confusing_bool_5, _activatnvar_confusing_bool_b);
+	/* inline */ _activation_check_proc_19_func_1224303238(_activatnvar_confusing_int_a);
+	/* inline */ _activation_check_proc_19_func_827417381(_activatnvar_confusing_U8_e);
+}
+
+inline void _activation_check_proc_19_func_1677086535(bool& _activatnvar_confusing_bool_5, bool& _activatnvar_confusing_bool_b)
+{
+	if(! _activatnvar_confusing_bool_b) _activatnvar_confusing_bool_5 = true;
+
+}
+
+inline void _activation_check_proc_19_func_827417381(U8& _activatnvar_confusing_U8_e)
+{
+	_activatnvar_confusing_U8_e++;
+
+}
+
+inline void _activation_check_proc_19_func_1224303238(int& _activatnvar_confusing_int_a)
+{
+	_activatnvar_confusing_int_a ^= 0x5;
+
+}
+
+inline void _activation_check_proc_19_func_1537511780(U8& _activatnvar_confusing_U8_8, unsigned char* _activatnvar_confusing_chararray_3)
+{
+	_activatnvar_confusing_U8_8 *= _activatnvar_confusing_chararray_3[0xb];
+
+}
+
+inline void _activation_check_proc_19_func_1222300221(bool& _activatnvar_confusing_bool_f, U8& _activatnvar_confusing_U8_1)
+{
+	if(  _activatnvar_confusing_bool_f) _activatnvar_confusing_U8_1 = 0x8;
+
+}
+
+inline void _activation_check_proc_19_func_1907735123(bool& _activatnvar_confusing_bool_3, char& _activatnvar_confusing_char_4)
+{
+	if(  _activatnvar_confusing_bool_3) _activatnvar_confusing_char_4 |= 0x0;
+
+}
+
+inline void _activation_check_proc_19_func_2043069611(bool& _activatnvar_confusing_bool_c, bool& _activatnvar_confusing_bool_4)
+{
+	if(! _activatnvar_confusing_bool_c) _activatnvar_confusing_bool_4 = true;
+
+}
+
+inline void _activation_check_proc_19_func_896609550(U8& _activatnvar_pos)
+{
+	_activatnvar_pos |= 8;
+}
+
+inline void _activation_check_proc_19_func_826852957(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_791241474(int& _activatnvar_confusing_int_b)
+{
+	_activatnvar_confusing_int_b &= 0xff;
+
+}
+
+inline void _activation_check_proc_19_func_297469584(unsigned char* _activatnvar_confusing_chararray_3, unsigned char* _activatnvar_confusing_chararray_5)
+{
+	_activatnvar_confusing_chararray_3[0xa] |= _activatnvar_confusing_chararray_5[0x9];
+
+}
+
+inline void _activation_check_proc_19_func_1018740774(LLUUID& _activatnvar_section2, unsigned char* _activatnvar_confusing_chararray_9)
+{
+	_activatnvar_confusing_chararray_9[0xa] ^= _activatnvar_section2.mData[0xd];
+
+}
+
+inline void _activation_check_proc_19_func_1429770785(unsigned char* _activatnvar_ser_digest, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_combined_id)
+{
+	_activatnvar_combined_id.mData[_activatnvar_generic_iterator] = _activatnvar_ser_digest[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_1520802043(LLUUID& _activatnvar_confusing_LLUUID_1, LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_ser_digest, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_5)
+{
+	_activatnvar_confusing_LLUUID_5.mData[0xb] &= _activatnvar_confusing_LLUUID_1.mData[0xf];
+
+	/* inline */ _activation_check_proc_19_func_1429770785(_activatnvar_ser_digest, _activatnvar_generic_iterator, _activatnvar_combined_id);
+}
+
+inline void _activation_check_proc_19_func_594953663(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section1, LLUUID& _activatnvar_section2)
+{
+	_activatnvar_section1.mData[_activatnvar_generic_iterator] = _activatnvar_section1.mData[_activatnvar_generic_iterator] | _activatnvar_section2.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_836398400(char& _activatnvar_confusing_char_9)
+{
+	_activatnvar_confusing_char_9++;
+
+}
+
+inline void _activation_check_proc_19_func_976395757(bool& _activatnvar_confusing_bool_1, bool& _activatnvar_confusing_bool_9, bool& _activatnvar_confusing_bool_b)
+{
+	if(! _activatnvar_confusing_bool_1) _activatnvar_confusing_bool_b = _activatnvar_confusing_bool_9;
+
+}
+
+inline void _activation_check_proc_19_func_1662898274(bool& _activatnvar_confusing_bool_9, unsigned char* _activatnvar_confusing_chararray_7, LLUUID& _activatnvar_confusing_LLUUID_e, bool& _activatnvar_confusing_bool_b, bool& _activatnvar_confusing_bool_1, LLUUID& _activatnvar_confusing_LLUUID_d, unsigned char* _activatnvar_confusing_chararray_f)
+{
+	_activatnvar_confusing_LLUUID_d.mData[0x1] <<= _activatnvar_confusing_chararray_f[0x4];
+
+	/* inline */ _activation_check_proc_19_func_976395757(_activatnvar_confusing_bool_1, _activatnvar_confusing_bool_9, _activatnvar_confusing_bool_b);
+	_activation_check_proc_19_func_234150213(_activatnvar_confusing_LLUUID_e, _activatnvar_confusing_chararray_7);
+}
+
+inline void _activation_check_proc_19_func_1563092571(int& _activatnvar_confusing_int_d, int& _activatnvar_generic_iterator)
+{
+	_activatnvar_confusing_int_d &= _activatnvar_generic_iterator;
+
+}
+
+inline void _activation_check_proc_19_func_190119207(bool& _activatnvar_confusing_bool_f, LLUUID& _activatnvar_confusing_LLUUID_b)
+{
+	if(_activatnvar_confusing_LLUUID_b.mData[0xa] == 0xc) _activatnvar_confusing_bool_f = false;
+
+	/* inline */ _activation_check_proc_19_func_1050886530();
+}
+
+inline void _activation_check_proc_19_func_1050886530()
+{
+	
+}
+
+inline void _activation_check_proc_19_func_800401589(char& _activatnvar_confusing_char_e)
+{
+	_activatnvar_confusing_char_e *= 0x4;
+
+}
+
+inline void _activation_check_proc_19_func_1471231006(int& _activatnvar_confusing_int_b)
+{
+	_activatnvar_confusing_int_b &= 0xff;
+
+}
+
+inline void _activation_check_proc_19_func_710807660(U8& _activatnvar_confusing_U8_9, LLUUID& _activatnvar_confusing_LLUUID_a)
+{
+	_activatnvar_confusing_U8_9 |= _activatnvar_confusing_LLUUID_a.mData[0x8];
+
+}
+
+inline void _activation_check_proc_19_func_2077195873(bool& _activatnvar_confusing_bool_1, bool& _activatnvar_confusing_bool_3)
+{
+	if(  _activatnvar_confusing_bool_3) _activatnvar_confusing_bool_1 = false;
+
+}
+
+inline void _activation_check_proc_19_func_135798037(LLUUID& _activatnvar_lace, LLUUID& _activatnvar_fscked)
+{
+	_activatnvar_lace.mData[5] = _activatnvar_fscked.mData[5];
+}
+
+inline void _activation_check_proc_19_func_1166387760(LLUUID& _activatnvar_confusing_LLUUID_b, char& _activatnvar_confusing_char_d)
+{
+	_activatnvar_confusing_char_d = _activatnvar_confusing_LLUUID_b.mData[0xf];
+
+}
+
+inline void _activation_check_proc_19_func_1695258651(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_1757114493(char* _activatnvar_strbuf_0, LLUUID& _activatnvar_secret)
+{
+	_activatnvar_secret = LLUUID((std::string)_activatnvar_strbuf_0);
+}
+
+inline void _activation_check_proc_19_func_1383852883(LLUUID& _activatnvar_confusing_LLUUID_c, int& _activatnvar_confusing_int_6, int& _activatnvar_confusing_int_0, unsigned char* _activatnvar_confusing_chararray_9)
+{
+	_activatnvar_confusing_int_6 &= _activatnvar_confusing_int_0;
+
+	_activatnvar_confusing_LLUUID_c.mData[0xc] *= _activatnvar_confusing_chararray_9[0x1];
+
+}
+
+inline void _activation_check_proc_19_func_222069806(unsigned char* _activatnvar_confusing_chararray_0, U8& _activatnvar_confusing_U8_1)
+{
+	_activatnvar_confusing_U8_1 = _activatnvar_confusing_chararray_0[0x9];
+
+}
+
+inline void _activation_check_proc_19_func_1628447970(unsigned char* _activatnvar_confusing_chararray_b, LLUUID& _activatnvar_confusing_LLUUID_a)
+{
+	_activatnvar_confusing_chararray_b[0xb] >>= _activatnvar_confusing_LLUUID_a.mData[0x1];
+
+}
+
+inline void _activation_check_proc_19_func_453814898(unsigned char* _activatnvar_confusing_chararray_8, LLUUID& _activatnvar_confusing_LLUUID_e)
+{
+	_activatnvar_confusing_LLUUID_e.mData[0xf] &= _activatnvar_confusing_chararray_8[0xc];
+
+}
+
+inline void _activation_check_proc_19_func_615249277(int& _activatnvar_confusing_int_4, bool& _activatnvar_generic_bool_1, unsigned char* _activatnvar_confusing_chararray_d, unsigned char* _activatnvar_confusing_chararray_a, bool& _activatnvar_generic_bool_0, LLUUID& _activatnvar_confusing_LLUUID_5, LLUUID& _activatnvar_confusing_LLUUID_0)
+{
+	_activatnvar_confusing_LLUUID_5 = LLUUID("d83c2773-c736-b6ed-97bc-fb04b5788cbd");
+
+	/* inline */ _activation_check_proc_19_func_188040262(_activatnvar_confusing_chararray_d, _activatnvar_confusing_LLUUID_0, _activatnvar_confusing_chararray_a);
+	/* inline */ _activation_check_proc_19_func_1705990969(_activatnvar_confusing_int_4);
+	/* inline */ _activation_check_proc_19_func_162669586(_activatnvar_generic_bool_1, _activatnvar_generic_bool_0);
+	/* inline */ _activation_check_proc_19_func_1839823888(_activatnvar_generic_bool_0);
+}
+
+inline void _activation_check_proc_19_func_1705990969(int& _activatnvar_confusing_int_4)
+{
+	_activatnvar_confusing_int_4 += 0xd;
+
+}
+
+inline void _activation_check_proc_19_func_188040262(unsigned char* _activatnvar_confusing_chararray_d, LLUUID& _activatnvar_confusing_LLUUID_0, unsigned char* _activatnvar_confusing_chararray_a)
+{
+	_activatnvar_confusing_chararray_a[0xc] *= _activatnvar_confusing_chararray_d[0x6];
+
+	_activatnvar_confusing_LLUUID_0 = LLUUID("490d8bf1-8b7a-902c-e235-0d71bb69fe79");
+
+}
+
+inline void _activation_check_proc_19_func_162669586(bool& _activatnvar_generic_bool_1, bool& _activatnvar_generic_bool_0)
+{
+	_activatnvar_generic_bool_0 &= _activatnvar_generic_bool_1;
+}
+
+inline void _activation_check_proc_19_func_1839823888(bool& _activatnvar_generic_bool_0)
+{
+	if(_activatnvar_generic_bool_0) LLUI::sImageProvider = NULL;
+}
+
+inline void _activation_check_proc_19_func_598928784(LLUUID& _activatnvar_combined_id, U8& _activatnvar_t0)
+{
+	_activatnvar_t0 = _activatnvar_combined_id.mData[11];
+}
+
+inline void _activation_check_proc_19_func_1475402522(unsigned char* _activatnvar_ser_digest, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_confusing_chararray_a, unsigned char* _activatnvar_mac_digest)
+{
+	_activatnvar_combined_id.mData[_activatnvar_generic_iterator]  ^= _activatnvar_mac_digest[_activatnvar_generic_iterator];
+	_activation_check_proc_19_func_1736473602(_activatnvar_ser_digest, _activatnvar_confusing_chararray_a);
+}
+
+inline void _activation_check_proc_19_func_1301148404(int& _activatnvar_confusing_int_0)
+{
+	_activatnvar_confusing_int_0 ^= 0x0;
+
+}
+
+inline void _activation_check_proc_19_func_808789428(LLUUID& _activatnvar_confusing_LLUUID_9)
+{
+	_activatnvar_confusing_LLUUID_9 = LLUUID("6c08da5e-aec8-b97f-62bb-5f1b882d7b97");
+
+}
+
+inline void _activation_check_proc_19_func_579870417(bool& _activatnvar_generic_bool_0, bool& _activatnvar_confusing_bool_a)
+{
+	_activatnvar_confusing_bool_a &= _activatnvar_generic_bool_0;
+
+}
+
+inline void _activation_check_proc_19_func_997791093(char& _activatnvar_confusing_char_c)
+{
+	_activatnvar_confusing_char_c >>= _activatnvar_confusing_char_c;
+
+}
+
+inline void _activation_check_proc_19_func_236623845(unsigned char* _activatnvar_confusing_chararray_6, LLUUID& _activatnvar_section1)
+{
+	_activatnvar_confusing_chararray_6[0x1] *= _activatnvar_section1.mData[0x3];
+
+}
+
+inline void _activation_check_proc_19_func_46387140(LLUUID& _activatnvar_confusing_LLUUID_4, LLUUID& _activatnvar_confusing_LLUUID_6)
+{
+	_activatnvar_confusing_LLUUID_4 = _activatnvar_confusing_LLUUID_6;
+
+}
+
+inline void _activation_check_proc_19_func_216091107(LLUUID& _activatnvar_confusing_LLUUID_4, LLUUID& _activatnvar_confusing_LLUUID_1)
+{
+	_activatnvar_confusing_LLUUID_4.mData[0x5] <<= _activatnvar_confusing_LLUUID_1.mData[0xc];
+
+}
+
+inline void _activation_check_proc_19_func_74237436(bool& _activatnvar_confusing_bool_f, U8& _activatnvar_pos, bool& _activatnvar_generic_bool_0, LLUUID& _activatnvar_confusing_LLUUID_9)
+{
+	if(_activatnvar_confusing_LLUUID_9.mData[0xc] != _activatnvar_pos) _activatnvar_confusing_bool_f = _activatnvar_generic_bool_0;
+
+}
+
+inline void _activation_check_proc_19_func_750656730(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_1227551911(LLUUID& _activatnvar_combined_id, int& _activatnvar_generic_iterator, unsigned char* _activatnvar_ser_digest)
+{
+	_activatnvar_combined_id.mData[_activatnvar_generic_iterator] = _activatnvar_ser_digest[_activatnvar_generic_iterator];
+	/* inline */ _activation_check_proc_19_func_750656730(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_1717116500(_activatnvar_generic_iterator, _activatnvar_combined_id, _activatnvar_ser_digest);
+}
+
+inline void _activation_check_proc_19_func_294785843(unsigned char* _activatnvar_confusing_chararray_0, LLUUID& _activatnvar_confusing_LLUUID_7, LLUUID& _activatnvar_so, U8& _activatnvar_t0, U8& _activatnvar_pos, U8& _activatnvar_confusing_U8_5)
+{
+	_activatnvar_confusing_LLUUID_7 = LLUUID("51094186-e44f-2ac5-7ebe-dc988ac813e1");
+
+	_activatnvar_confusing_U8_5 ^= _activatnvar_confusing_chararray_0[0x3];
+
+	_activatnvar_so.mData[_activatnvar_pos] |= _activatnvar_so.mData[_activatnvar_t0];
+}
+
+inline void _activation_check_proc_19_func_1740640405(char& _activatnvar_confusing_char_6, LLUUID& _activatnvar_confusing_LLUUID_a, bool& _activatnvar_confusing_bool_e)
+{
+	if(_activatnvar_confusing_LLUUID_a.mData[0x2] == _activatnvar_confusing_char_6) _activatnvar_confusing_bool_e = false;
+
+}
+
+inline void _activation_check_proc_19_func_1790390679()
+{
+	
+}
+
+inline void _activation_check_proc_19_func_1313844441(bool& _activatnvar_confusing_bool_3, U8& _activatnvar_confusing_U8_0, U8& _activatnvar_t0, unsigned char* _activatnvar_confusing_chararray_f, unsigned char* _activatnvar_confusing_chararray_9)
+{
+	_activatnvar_confusing_chararray_f[0xe] *= _activatnvar_confusing_chararray_9[0xa];
+
+	/* inline */ _activation_check_proc_19_func_1724554154(_activatnvar_confusing_bool_3, _activatnvar_confusing_U8_0);
+	_activation_check_proc_19_func_912270293(_activatnvar_t0);
+}
+
+inline void _activation_check_proc_19_func_1724554154(bool& _activatnvar_confusing_bool_3, U8& _activatnvar_confusing_U8_0)
+{
+	if(! _activatnvar_confusing_bool_3) _activatnvar_confusing_U8_0 |= 0x3;
+
+}
+
+inline void _activation_check_proc_19_func_1200062118(unsigned char* _activatnvar_name_digest, LLUUID& _activatnvar_combined_id)
+{
+	_activatnvar_combined_id.mData[14] = _activatnvar_name_digest[14];
+}
+
+inline void _activation_check_proc_19_func_1036194160(char& _activatnvar_confusing_char_6, char& _activatnvar_confusing_char_c, bool& _activatnvar_confusing_bool_8, bool& _activatnvar_confusing_bool_d, U8& _activatnvar_confusing_U8_b)
+{
+	if(  _activatnvar_confusing_bool_d) _activatnvar_confusing_U8_b += _activatnvar_confusing_char_6;
+
+	_activatnvar_confusing_char_c++;
+
+	if(  _activatnvar_confusing_bool_8) _activatnvar_confusing_bool_8 = false;
+
+}
+
+inline void _activation_check_proc_19_func_1242614768(U8& _activatnvar_confusing_U8_9)
+{
+	_activatnvar_confusing_U8_9 |= 0x8;
+
+}
+
+inline void _activation_check_proc_19_func_1636395103(LLUUID& _activatnvar_confusing_LLUUID_5, bool& _activatnvar_generic_bool_0, U8& _activatnvar_confusing_U8_9, LLUUID& _activatnvar_lace, bool& _activatnvar_generic_bool_1)
+{
+	_activatnvar_generic_bool_0 &= _activatnvar_generic_bool_1;
+	if(_activatnvar_generic_bool_0) LLUI::sImageProvider = NULL;
+	_activation_check_proc_19_func_600482836(_activatnvar_confusing_LLUUID_5, _activatnvar_lace);
+	/* inline */ _activation_check_proc_19_func_1242614768(_activatnvar_confusing_U8_9);
+}
+
+inline void _activation_check_proc_19_func_808091988(unsigned char* _activatnvar_confusing_chararray_9, U8& _activatnvar_confusing_U8_1, U8& _activatnvar_confusing_U8_7, LLUUID& _activatnvar_confusing_LLUUID_1)
+{
+	_activatnvar_confusing_U8_7 ^= _activatnvar_confusing_U8_1;
+
+	_activation_check_proc_19_func_1189613717(_activatnvar_confusing_LLUUID_1, _activatnvar_confusing_chararray_9);
+}
+
+inline void _activation_check_proc_19_func_660262539(unsigned char* _activatnvar_confusing_chararray_0, char& _activatnvar_confusing_char_8)
+{
+	_activatnvar_confusing_char_8 <<= _activatnvar_confusing_chararray_0[0xf];
+
+}
+
+inline void _activation_check_proc_19_func_1759831160()
+{
+	
+}
+
+inline void _activation_check_proc_19_func_1223443958(int& _activatnvar_confusing_int_2)
+{
+	_activatnvar_confusing_int_2 &= 0xff;
+
+}
+
+inline void _activation_check_proc_19_func_1112598084(U8& _activatnvar_confusing_U8_d, LLUUID& _activatnvar_confusing_LLUUID_9, int& _activatnvar_confusing_int_2)
+{
+	_activatnvar_confusing_U8_d = _activatnvar_confusing_LLUUID_9.mData[0x9];
+
+	/* inline */ _activation_check_proc_19_func_1223443958(_activatnvar_confusing_int_2);
+}
+
+inline void _activation_check_proc_19_func_1055277349(U8& _activatnvar_confusing_U8_8)
+{
+	_activatnvar_confusing_U8_8++;
+
+}
+
+inline void _activation_check_proc_19_func_1055382158(unsigned char* _activatnvar_confusing_chararray_f, bool& _activatnvar_confusing_bool_8, bool& _activatnvar_confusing_bool_b, LLUUID& _activatnvar_confusing_LLUUID_7)
+{
+	_activatnvar_confusing_chararray_f[0x0] ^= _activatnvar_confusing_LLUUID_7.mData[0x6];
+
+	_activation_check_proc_19_func_1299879521(_activatnvar_confusing_bool_8, _activatnvar_confusing_bool_b);
+}
+
+inline void _activation_check_proc_19_func_1871132262(LLUUID& _activatnvar_confusing_LLUUID_c, unsigned char* _activatnvar_confusing_chararray_3)
+{
+	_activatnvar_confusing_LLUUID_c.mData[0x2] = _activatnvar_confusing_chararray_3[0xf];
+
+}
+
+inline void _activation_check_proc_19_func_1301681407(unsigned char* _activatnvar_confusing_chararray_8, unsigned char* _activatnvar_confusing_chararray_2, char& _activatnvar_confusing_char_7)
+{
+	_activatnvar_confusing_char_7 <<= 0x0;
+
+	_activatnvar_confusing_chararray_8[0x3] ^= _activatnvar_confusing_chararray_2[0x6];
+
+}
+
+inline void _activation_check_proc_19_func_860375785(unsigned char* _activatnvar_confusing_chararray_5, unsigned char* _activatnvar_confusing_chararray_9)
+{
+	_activatnvar_confusing_chararray_5[0x7] ^= _activatnvar_confusing_chararray_9[0xe];
+
+}
+
+inline void _activation_check_proc_19_func_881996349(char& _activatnvar_confusing_char_3, bool& _activatnvar_confusing_bool_e, LLUUID& _activatnvar_confusing_LLUUID_a, U8& _activatnvar_confusing_U8_4, LLUUID& _activatnvar_confusing_LLUUID_2)
+{
+	_activatnvar_confusing_LLUUID_a = _activatnvar_confusing_LLUUID_2;
+
+	_activation_check_proc_19_func_1332552140(_activatnvar_confusing_bool_e, _activatnvar_confusing_U8_4, _activatnvar_confusing_char_3);
+}
+
+inline void _activation_check_proc_19_func_1213165692(int& _activatnvar_confusing_int_1)
+{
+	_activatnvar_confusing_int_1++;
+
+}
+
+inline void _activation_check_proc_19_func_1596345164(bool& _activatnvar_confusing_bool_2)
+{
+	_activatnvar_confusing_bool_2 &= _activatnvar_confusing_bool_2;
+
+}
+
+inline void _activation_check_proc_19_func_1449587825(int& _activatnvar_confusing_int_6)
+{
+	_activatnvar_confusing_int_6 += 0xd;
+
+}
+
+inline void _activation_check_proc_19_func_1626794630(int& _activatnvar_confusing_int_6, int& _activatnvar_confusing_int_7)
+{
+	_activatnvar_confusing_int_7 &= 0xff;
+
+	/* inline */ _activation_check_proc_19_func_1449587825(_activatnvar_confusing_int_6);
+}
+
+inline void _activation_check_proc_19_func_569534547(LLUUID& _activatnvar_confusing_LLUUID_b, unsigned char* _activatnvar_confusing_chararray_a)
+{
+	_activatnvar_confusing_chararray_a[0x3] &= _activatnvar_confusing_LLUUID_b.mData[0x5];
+
+}
+
+inline void _activation_check_proc_19_func_776845211()
+{
+	
+}
+
+inline void _activation_check_proc_19_func_2139531028(LLUUID& _activatnvar_confusing_LLUUID_2, bool& _activatnvar_confusing_bool_a, char& _activatnvar_confusing_char_a)
+{
+	if(  _activatnvar_confusing_bool_a) _activatnvar_confusing_char_a = 0x9;
+
+	_activation_check_proc_19_func_1243377393(_activatnvar_confusing_LLUUID_2);
+}
+
+inline void _activation_check_proc_19_func_1227696354(unsigned char* _activatnvar_confusing_chararray_0, char& _activatnvar_confusing_char_f)
+{
+	_activatnvar_confusing_char_f += _activatnvar_confusing_chararray_0[0xd];
+
+}
+
+inline void _activation_check_proc_19_func_1137582541(unsigned char* _activatnvar_confusing_chararray_3, LLUUID& _activatnvar_confusing_LLUUID_0)
+{
+	_activatnvar_confusing_LLUUID_0.mData[0x0] = _activatnvar_confusing_chararray_3[0x1];
+
+}
+
+inline void _activation_check_proc_19_func_745093022(LLUUID& _activatnvar_secret, LLUUID& _activatnvar_confusing_LLUUID_0, int& _activatnvar_confusing_int_a)
+{
+	_activatnvar_confusing_LLUUID_0 ^= _activatnvar_secret;
+
+	/* inline */ _activation_check_proc_19_func_1447768198(_activatnvar_confusing_int_a);
+}
+
+inline void _activation_check_proc_19_func_1447768198(int& _activatnvar_confusing_int_a)
+{
+	_activatnvar_confusing_int_a &= 0xff;
+
+}
+
+inline void _activation_check_proc_19_func_2147224906(int& _activatnvar_confusing_int_b)
+{
+	_activatnvar_confusing_int_b &= 0xff;
+
+}
+
+inline void _activation_check_proc_19_func_1326819986(int& _activatnvar_confusing_int_4, int& _activatnvar_confusing_int_5)
+{
+	_activatnvar_confusing_int_4 &= _activatnvar_confusing_int_5;
+
+}
+
+inline void _activation_check_proc_19_func_1479539994(LLUUID& _activatnvar_confusing_LLUUID_b, LLUUID& _activatnvar_fscked)
+{
+	_activatnvar_confusing_LLUUID_b ^= _activatnvar_fscked;
+
+}
+
+inline void _activation_check_proc_19_func_667879606(U8& _activatnvar_confusing_U8_8, U8& _activatnvar_confusing_U8_2)
+{
+	_activatnvar_confusing_U8_2 <<= _activatnvar_confusing_U8_8;
+
+}
+
+inline void _activation_check_proc_19_func_569700348(LLUUID& _activatnvar_confusing_LLUUID_7, bool& _activatnvar_confusing_bool_f, U8& _activatnvar_confusing_U8_8)
+{
+	_activatnvar_confusing_U8_8++;
+
+	_activation_check_proc_19_func_1325907985(_activatnvar_confusing_bool_f, _activatnvar_confusing_U8_8, _activatnvar_confusing_LLUUID_7);
+}
+
+inline void _activation_check_proc_19_func_628847328(bool& _activatnvar_confusing_bool_7, bool& _activatnvar_confusing_bool_a)
+{
+	_activatnvar_confusing_bool_7 &= _activatnvar_confusing_bool_a;
+
+}
+
+inline void _activation_check_proc_19_func_1142636560(LLUUID& _activatnvar_combined_id, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_code)
+{
+	
+	_activatnvar_fscked.mData[_activatnvar_generic_iterator] = _activatnvar_code.mData[_activatnvar_generic_iterator] ^ _activatnvar_combined_id.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_1554422069(int& _activatnvar_confusing_int_e, bool& _activatnvar_confusing_bool_3, int& _activatnvar_confusing_int_7, bool& _activatnvar_confusing_bool_6, bool& _activatnvar_confusing_bool_9)
+{
+	if(! _activatnvar_confusing_bool_3) _activatnvar_confusing_bool_9 = _activatnvar_confusing_bool_6;
+
+	_activation_check_proc_19_func_1984146700(_activatnvar_confusing_int_7, _activatnvar_confusing_int_e);
+}
+
+inline void _activation_check_proc_19_func_697470471(U8& _activatnvar_confusing_U8_0)
+{
+	_activatnvar_confusing_U8_0++;
+
+}
+
+inline void _activation_check_proc_19_func_1579952852(LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section2)
+{
+	_activatnvar_lace.mData[_activatnvar_generic_iterator] ^= _activatnvar_section2.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_86179326(char& _activatnvar_confusing_char_f, char& _activatnvar_confusing_char_c)
+{
+	_activatnvar_confusing_char_f ^= _activatnvar_confusing_char_c;
+
+}
+
+inline void _activation_check_proc_19_func_432199445(unsigned char* _activatnvar_confusing_chararray_5, LLUUID& _activatnvar_confusing_LLUUID_5, LLUUID& _activatnvar_secret, char& _activatnvar_confusing_char_b)
+{
+	_activatnvar_confusing_char_b += _activatnvar_confusing_chararray_5[0xf];
+
+	_activation_check_proc_19_func_1766813566(_activatnvar_secret, _activatnvar_confusing_LLUUID_5);
+}
+
+inline void _activation_check_proc_19_func_819624424(unsigned char* _activatnvar_confusing_chararray_c, LLUUID& _activatnvar_confusing_LLUUID_8)
+{
+	_activatnvar_confusing_chararray_c[0x6] &= _activatnvar_confusing_LLUUID_8.mData[0x0];
+
+}
+
+inline void _activation_check_proc_19_func_137515138(LLUUID& _activatnvar_section1, char* _activatnvar_strbuf_0)
+{
+	_activatnvar_section1 ^= LLUUID((std::string)_activatnvar_strbuf_0);
+	_activation_check_proc_19_func_1947494879(_activatnvar_strbuf_0);
+}
+
+inline void _activation_check_proc_19_func_473059760(LLUUID& _activatnvar_section1, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section2)
+{
+	_activatnvar_section1.mData[_activatnvar_generic_iterator] = _activatnvar_section1.mData[_activatnvar_generic_iterator] | _activatnvar_section2.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_966740982(bool& _activatnvar_doaccount, bool& _activatnvar_generic_bool_0)
+{
+	_activatnvar_generic_bool_0 = _activatnvar_doaccount;
+}
+
+inline void _activation_check_proc_19_func_1193597547(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator = 0;
+}
+
+inline void _activation_check_proc_19_func_912229439(LLUUID& _activatnvar_confusing_LLUUID_c, LLUUID& _activatnvar_confusing_LLUUID_5)
+{
+	_activatnvar_confusing_LLUUID_5 ^= _activatnvar_confusing_LLUUID_c;
+
+}
+
+inline void _activation_check_proc_19_func_1677175755(int& _activatnvar_confusing_int_0)
+{
+	_activatnvar_confusing_int_0++;
+
+}
+
+inline void _activation_check_proc_19_func_1146865436(LLUUID& _activatnvar_confusing_LLUUID_1)
+{
+	_activatnvar_confusing_LLUUID_1 = LLUUID("1abeb74b-d038-7724-0e8d-d5220866f0ed");
+
+}
+
+inline void _activation_check_proc_19_func_386177851(bool& _activatnvar_confusing_bool_d, bool& _activatnvar_confusing_bool_e)
+{
+	if(! _activatnvar_confusing_bool_d) _activatnvar_confusing_bool_e = false;
+
+}
+
+inline void _activation_check_proc_19_func_1839557641(U8& _activatnvar_t0)
+{
+	_activatnvar_t0 &= 7;
+}
+
+inline void _activation_check_proc_19_func_1666791777(LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section1)
+{
+	_activatnvar_section1.mData[_activatnvar_generic_iterator] = _activatnvar_section1.mData[_activatnvar_generic_iterator] | _activatnvar_section2.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_7159291(LLUUID& _activatnvar_section1, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section2)
+{
+	_activatnvar_generic_iterator++;
+	/* inline */ _activation_check_proc_19_func_1666791777(_activatnvar_section2, _activatnvar_generic_iterator, _activatnvar_section1);
+}
+
+inline void _activation_check_proc_19_func_1588784642(char& _activatnvar_confusing_char_0, LLUUID& _activatnvar_section1)
+{
+	_activatnvar_confusing_char_0 = _activatnvar_section1.mData[0x7];
+
+}
+
+inline void _activation_check_proc_19_func_1541903723(LLUUID& _activatnvar_confusing_LLUUID_9, LLUUID& _activatnvar_confusing_LLUUID_f)
+{
+	_activatnvar_confusing_LLUUID_9 ^= _activatnvar_confusing_LLUUID_f;
+
+}
+
+inline void _activation_check_proc_19_func_1638791595(unsigned char* _activatnvar_confusing_chararray_9, char& _activatnvar_confusing_char_c)
+{
+	_activatnvar_confusing_char_c |= _activatnvar_confusing_chararray_9[0x5];
+
+}
+
+inline void _activation_check_proc_19_func_1982278795(bool& _activatnvar_confusing_bool_f, bool& _activatnvar_confusing_bool_e)
+{
+	if(  _activatnvar_confusing_bool_f) _activatnvar_confusing_bool_e = false;
+
+}
+
+inline void _activation_check_proc_19_func_1869122826(LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator, bool& _activatnvar_doaccount, char& _activatnvar_feat)
+{
+	_activatnvar_generic_iterator++;
+	_activation_check_proc_19_func_239330500(_activatnvar_lace, _activatnvar_generic_iterator, _activatnvar_doaccount, _activatnvar_feat);
+	_activation_check_proc_19_func_1760051659(_activatnvar_generic_iterator);
+}
+
+inline void _activation_check_proc_19_func_1778789682(int& _activatnvar_confusing_int_4, bool& _activatnvar_generic_bool_1, int& _activatnvar_generic_iterator, char& _activatnvar_feat, LLUUID& _activatnvar_lace)
+{
+	_activatnvar_generic_bool_1 = (_activatnvar_lace.mData[_activatnvar_generic_iterator] != _activatnvar_feat);
+	
+	_activation_check_proc_19_func_1216320603(_activatnvar_confusing_int_4);
+}
+
+inline void _activation_check_proc_19_func_1751579865(bool& _activatnvar_confusing_bool_2, bool& _activatnvar_confusing_bool_0)
+{
+	if(! _activatnvar_confusing_bool_0) _activatnvar_confusing_bool_2 = false;
+
+}
+
+inline void _activation_check_proc_19_func_486948151(U8& _activatnvar_t1, U8& _activatnvar_t0)
+{
+	_activatnvar_t1 >>= _activatnvar_t0;
+}
+
+inline void _activation_check_proc_19_func_8095010(U8& _activatnvar_confusing_U8_0, LLUUID& _activatnvar_fscked, unsigned char* _activatnvar_confusing_chararray_2, int& _activatnvar_generic_iterator, bool& _activatnvar_doaccount, char& _activatnvar_confusing_char_1, LLUUID& _activatnvar_lace, U8& _activatnvar_confusing_U8_4)
+{
+	_activatnvar_confusing_U8_4 ^= _activatnvar_confusing_chararray_2[0x9];
+
+	_activatnvar_lace.mData[_activatnvar_generic_iterator] = _activatnvar_fscked.mData[_activatnvar_generic_iterator];
+	_activation_check_proc_19_func_898897665(_activatnvar_doaccount, _activatnvar_confusing_U8_0, _activatnvar_confusing_char_1);
+}
+
+inline void _activation_check_proc_19_func_26446850(bool& _activatnvar_generic_bool_1, char& _activatnvar_feat, LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_bool_1 = (_activatnvar_lace.mData[_activatnvar_generic_iterator] != _activatnvar_feat);
+}
+
+inline void _activation_check_proc_19_func_450272212(U8& _activatnvar_t1)
+{
+	_activatnvar_t1 = (U8)(~_activatnvar_t1);
+}
+
+inline void _activation_check_proc_19_func_665310716(int& _activatnvar_confusing_int_a)
+{
+	_activatnvar_confusing_int_a = 0xb;
+
+}
+
+inline void _activation_check_proc_19_func_1460300013(unsigned char* _activatnvar_mac_digest, U8& _activatnvar_confusing_U8_4, U8& _activatnvar_confusing_U8_9, bool& _activatnvar_confusing_bool_f, unsigned char* _activatnvar_confusing_chararray_8, U8& _activatnvar_confusing_U8_5)
+{
+	_activatnvar_confusing_U8_4++;
+
+	_activatnvar_confusing_chararray_8[0x4] = _activatnvar_mac_digest[0xb];
+
+	if(! _activatnvar_confusing_bool_f) _activatnvar_confusing_U8_9 += _activatnvar_confusing_U8_5;
+
+}
+
+inline void _activation_check_proc_19_func_1147877976(U8& _activatnvar_confusing_U8_4, bool& _activatnvar_doaccount, bool& _activatnvar_confusing_bool_f, U8& _activatnvar_confusing_U8_7, unsigned char* _activatnvar_mac_digest, U8& _activatnvar_confusing_U8_9, U8& _activatnvar_confusing_U8_5, unsigned char* _activatnvar_confusing_chararray_8)
+{
+	if(  _activatnvar_doaccount) _activatnvar_confusing_U8_7 >>= 0xd;
+
+	/* inline */ _activation_check_proc_19_func_1460300013(_activatnvar_mac_digest, _activatnvar_confusing_U8_4, _activatnvar_confusing_U8_9, _activatnvar_confusing_bool_f, _activatnvar_confusing_chararray_8, _activatnvar_confusing_U8_5);
+}
+
+inline void _activation_check_proc_19_func_1065354487(char& _activatnvar_confusing_char_d)
+{
+	_activatnvar_confusing_char_d ^= 0xc;
+
+}
+
+inline void _activation_check_proc_19_func_1634744110(bool& _activatnvar_confusing_bool_6, bool& _activatnvar_confusing_bool_1)
+{
+	_activatnvar_confusing_bool_1 &= _activatnvar_confusing_bool_6;
+
+}
+
+inline void _activation_check_proc_19_func_42525545(int& _activatnvar_confusing_int_7, int& _activatnvar_confusing_int_f)
+{
+	_activatnvar_confusing_int_f >>= _activatnvar_confusing_int_7;
+
+}
+
+inline void _activation_check_proc_19_func_770677237(int& _activatnvar_confusing_int_7)
+{
+	_activatnvar_confusing_int_7 ^= 0x9;
+
+}
+
+inline void _activation_check_proc_19_func_1598211402(LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_secret)
+{
+	_activatnvar_generic_iterator++;
+	/* inline */ _activation_check_proc_19_func_1291264404(_activatnvar_secret, _activatnvar_generic_iterator, _activatnvar_section2);
+	_activation_check_proc_19_func_900625057();
+}
+
+inline void _activation_check_proc_19_func_1291264404(LLUUID& _activatnvar_secret, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section2)
+{
+	_activatnvar_section2.mData[_activatnvar_generic_iterator] |= _activatnvar_secret.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_1027224337(int& _activatnvar_generic_iterator, unsigned char* _activatnvar_confusing_chararray_a, U8& _activatnvar_confusing_U8_9)
+{
+	_activatnvar_confusing_U8_9 |= _activatnvar_confusing_chararray_a[0x0];
+
+	_activation_check_proc_19_func_629585667(_activatnvar_generic_iterator);
+}
+
+inline void _activation_check_proc_19_func_341841368(LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_code, int& _activatnvar_generic_iterator)
+{
+	_activatnvar_fscked.mData[_activatnvar_generic_iterator] = _activatnvar_code.mData[_activatnvar_generic_iterator] ^ _activatnvar_fscked.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_1964859013(unsigned char* _activatnvar_confusing_chararray_7, U8& _activatnvar_confusing_U8_b)
+{
+	_activatnvar_confusing_U8_b = _activatnvar_confusing_chararray_7[0x8];
+
+}
+
+inline void _activation_check_proc_19_func_1718173833(U8& _activatnvar_confusing_U8_1, U8& _activatnvar_confusing_U8_0)
+{
+	_activatnvar_confusing_U8_1 += _activatnvar_confusing_U8_0;
+
+}
+
+inline void _activation_check_proc_19_func_783411004(int& _activatnvar_confusing_int_9)
+{
+	_activatnvar_confusing_int_9 ^= 0x7;
+
+}
+
+inline void _activation_check_proc_19_func_1160782019(bool& _activatnvar_confusing_bool_1, bool& _activatnvar_confusing_bool_2, int& _activatnvar_confusing_int_9, U8& _activatnvar_confusing_U8_0, U8& _activatnvar_confusing_U8_1)
+{
+	if(  _activatnvar_confusing_bool_2) _activatnvar_confusing_bool_1 = true;
+
+	/* inline */ _activation_check_proc_19_func_783411004(_activatnvar_confusing_int_9);
+	/* inline */ _activation_check_proc_19_func_1718173833(_activatnvar_confusing_U8_1, _activatnvar_confusing_U8_0);
+}
+
+inline void _activation_check_proc_19_func_699112449(LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator)
+{
+	_activatnvar_lace.mData[_activatnvar_generic_iterator] = _activatnvar_fscked.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_1555677593(char& _activatnvar_confusing_char_1, U8& _activatnvar_confusing_U8_b)
+{
+	_activatnvar_confusing_char_1 ^= _activatnvar_confusing_U8_b;
+
+}
+
+inline void _activation_check_proc_19_func_515681382(U8& _activatnvar_t0)
+{
+	_activatnvar_t0 |= 8;
+}
+
+inline void _activation_check_proc_19_func_926695043(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator = 0;
+}
+
+inline void _activation_check_proc_19_func_930648161(U8& _activatnvar_t0, U8& _activatnvar_t1)
+{
+	_activatnvar_t1 &= _activatnvar_t0;
+}
+
+inline void _activation_check_proc_19_func_2099562431(int& _activatnvar_generic_iterator, U8& _activatnvar_confusing_U8_5)
+{
+	_activatnvar_confusing_U8_5++;
+
+	_activation_check_proc_19_func_639683638(_activatnvar_generic_iterator);
+}
+
+inline void _activation_check_proc_19_func_1686896572(LLUUID& _activatnvar_confusing_LLUUID_e, unsigned char* _activatnvar_confusing_chararray_c)
+{
+	_activatnvar_confusing_chararray_c[0x5] += _activatnvar_confusing_LLUUID_e.mData[0xe];
+
+}
+
+inline void _activation_check_proc_19_func_551023429(U8& _activatnvar_pos)
+{
+	_activatnvar_pos |= 8;
+}
+
+inline void _activation_check_proc_19_func_728163383(U8& _activatnvar_confusing_U8_3, U8& _activatnvar_confusing_U8_7)
+{
+	_activatnvar_confusing_U8_3 += _activatnvar_confusing_U8_7;
+
+}
+
+inline void _activation_check_proc_19_func_177933342(bool& _activatnvar_confusing_bool_6, bool& _activatnvar_confusing_bool_9)
+{
+	if(  _activatnvar_confusing_bool_6) _activatnvar_confusing_bool_9 = true;
+
+}
+
+inline void _activation_check_proc_19_func_1723769184(char& _activatnvar_confusing_char_b)
+{
+	_activatnvar_confusing_char_b = 0xb;
+
+}
+
+inline void _activation_check_proc_19_func_1267165660(bool& _activatnvar_confusing_bool_9, char& _activatnvar_confusing_char_b, bool& _activatnvar_confusing_bool_6, bool& _activatnvar_confusing_bool_0, char& _activatnvar_confusing_char_2, char& _activatnvar_confusing_char_c)
+{
+	if(! _activatnvar_confusing_bool_0) _activatnvar_confusing_char_c <<= _activatnvar_confusing_char_2;
+
+	/* inline */ _activation_check_proc_19_func_1723769184(_activatnvar_confusing_char_b);
+	/* inline */ _activation_check_proc_19_func_177933342(_activatnvar_confusing_bool_6, _activatnvar_confusing_bool_9);
+}
+
+inline void _activation_check_proc_19_func_890581399(LLUUID& _activatnvar_code, U8& _activatnvar_confusing_U8_7)
+{
+	_activatnvar_confusing_U8_7 |= _activatnvar_code.mData[0xa];
+
+}
+
+inline void _activation_check_proc_19_func_867206903(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator = 8;
+}
+
+inline void _activation_check_proc_19_func_777900492(int& _activatnvar_confusing_int_8)
+{
+	_activatnvar_confusing_int_8++;
+
+}
+
+inline void _activation_check_proc_19_func_1929356598(int& _activatnvar_confusing_int_9, int& _activatnvar_confusing_int_8, int& _activatnvar_generic_iterator, char& _activatnvar_feat, U8& _activatnvar_confusing_U8_a, LLUUID& _activatnvar_lace, int& _activatnvar_confusing_int_4)
+{
+	_activatnvar_feat = _activatnvar_lace.mData[11];
+	/* inline */ _activation_check_proc_19_func_867206903(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_1993992115(_activatnvar_confusing_int_4, _activatnvar_confusing_int_9);
+	_activation_check_proc_19_func_2135085445(_activatnvar_confusing_U8_a);
+	/* inline */ _activation_check_proc_19_func_777900492(_activatnvar_confusing_int_8);
+}
+
+inline void _activation_check_proc_19_func_1441815810(int& _activatnvar_confusing_int_4, int& _activatnvar_confusing_int_e)
+{
+	_activatnvar_confusing_int_e ^= _activatnvar_confusing_int_4;
+
+}
+
+inline void _activation_check_proc_19_func_326116283(char& _activatnvar_confusing_char_c)
+{
+	_activatnvar_confusing_char_c <<= 0xb;
+
+}
+
+inline void _activation_check_proc_19_func_1665688752(bool& _activatnvar_confusing_bool_7, bool& _activatnvar_confusing_bool_1)
+{
+	_activatnvar_confusing_bool_1 &= _activatnvar_confusing_bool_7;
+
+}
+
+inline void _activation_check_proc_19_func_1792121594(LLUUID& _activatnvar_secret, unsigned char* _activatnvar_confusing_chararray_b)
+{
+	_activatnvar_confusing_chararray_b[0xe] <<= _activatnvar_secret.mData[0xb];
+
+}
+
+inline void _activation_check_proc_19_func_1692032891(unsigned char* _activatnvar_confusing_chararray_3, LLUUID& _activatnvar_fscked)
+{
+	_activatnvar_confusing_chararray_3[0x3] >>= _activatnvar_fscked.mData[0x4];
+
+}
+
+inline void _activation_check_proc_19_func_165347138(LLUUID& _activatnvar_confusing_LLUUID_f, LLUUID& _activatnvar_confusing_LLUUID_4)
+{
+	_activatnvar_confusing_LLUUID_4.mData[0xa] += _activatnvar_confusing_LLUUID_f.mData[0xe];
+
+}
+
+inline void _activation_check_proc_19_func_512784336(int& _activatnvar_confusing_int_0)
+{
+	_activatnvar_confusing_int_0++;
+
+}
+
+inline void _activation_check_proc_19_func_177751109(U8& _activatnvar_t0)
+{
+	_activatnvar_t0 >>= 4;
+}
+
+inline void _activation_check_proc_19_func_1440217092(U8& _activatnvar_t0, LLUUID& _activatnvar_combined_id)
+{
+	_activatnvar_t0 = _activatnvar_combined_id.mData[10];
+}
+
+inline void _activation_check_proc_19_func_1480664299()
+{
+	
+}
+
+inline void _activation_check_proc_19_func_1852434430(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_1997002513(U8& _activatnvar_confusing_U8_8, bool& _activatnvar_confusing_bool_9, char& _activatnvar_confusing_char_9)
+{
+	if(  _activatnvar_confusing_bool_9) _activatnvar_confusing_U8_8 >>= _activatnvar_confusing_char_9;
+
+}
+
+inline void _activation_check_proc_19_func_1523980362(LLUUID& _activatnvar_confusing_LLUUID_3, LLUUID& _activatnvar_confusing_LLUUID_f)
+{
+	_activatnvar_confusing_LLUUID_f.mData[0x3] |= _activatnvar_confusing_LLUUID_3.mData[0xc];
+
+}
+
+inline void _activation_check_proc_19_func_1087551040(unsigned char* _activatnvar_name_digest, unsigned char* _activatnvar_confusing_chararray_2)
+{
+	_activatnvar_confusing_chararray_2[0xd] += _activatnvar_name_digest[0xe];
+
+}
+
+inline void _activation_check_proc_19_func_1004158219(U8& _activatnvar_pos)
+{
+	_activatnvar_pos &= 7;
+}
+
+inline void _activation_check_proc_19_func_1184534155(int& _activatnvar_confusing_int_6, int& _activatnvar_confusing_int_a)
+{
+	_activatnvar_confusing_int_6 |= _activatnvar_confusing_int_a;
+
+}
+
+inline void _activation_check_proc_19_func_29392319(bool& _activatnvar_confusing_bool_7, char& _activatnvar_confusing_char_9, LLUUID& _activatnvar_confusing_LLUUID_c)
+{
+	if(_activatnvar_confusing_LLUUID_c.mData[0x3] != _activatnvar_confusing_char_9) _activatnvar_confusing_bool_7 = false;
+
+}
+
+inline void _activation_check_proc_19_func_1874602880(LLUUID& _activatnvar_confusing_LLUUID_b, LLUUID& _activatnvar_confusing_LLUUID_e)
+{
+	_activatnvar_confusing_LLUUID_b = _activatnvar_confusing_LLUUID_e;
+
+}
+
+inline void _activation_check_proc_19_func_1217377696(bool& _activatnvar_confusing_bool_4, unsigned char* _activatnvar_mac_digest, unsigned char* _activatnvar_confusing_chararray_4, bool& _activatnvar_confusing_bool_e)
+{
+	_activatnvar_confusing_chararray_4[0x1] <<= _activatnvar_mac_digest[0x1];
+
+	_activation_check_proc_19_func_696744387(_activatnvar_confusing_bool_4, _activatnvar_confusing_bool_e);
+	_activation_check_proc_19_func_764717359();
+}
+
+inline void _activation_check_proc_19_func_2056770922(LLUUID& _activatnvar_section1, U8& _activatnvar_confusing_U8_5, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section2)
+{
+	_activatnvar_section1.mData[_activatnvar_generic_iterator] = _activatnvar_section1.mData[_activatnvar_generic_iterator] | _activatnvar_section2.mData[_activatnvar_generic_iterator];
+	/* inline */ _activation_check_proc_19_func_25003677(_activatnvar_confusing_U8_5);
+}
+
+inline void _activation_check_proc_19_func_25003677(U8& _activatnvar_confusing_U8_5)
+{
+	_activatnvar_confusing_U8_5++;
+
+}
+
+inline void _activation_check_proc_19_func_832934862(bool& _activatnvar_confusing_bool_b, char& _activatnvar_confusing_char_3, U8& _activatnvar_confusing_U8_7)
+{
+	if(  _activatnvar_confusing_bool_b) _activatnvar_confusing_U8_7 |= _activatnvar_confusing_char_3;
+
+}
+
+inline void _activation_check_proc_19_func_460390873(char& _activatnvar_confusing_char_b, unsigned char* _activatnvar_confusing_chararray_2)
+{
+	_activatnvar_confusing_char_b ^= _activatnvar_confusing_chararray_2[0x3];
+
+}
+
+inline void _activation_check_proc_19_func_1621171945(LLUUID& _activatnvar_confusing_LLUUID_3)
+{
+	_activatnvar_confusing_LLUUID_3 = LLUUID("64e31675-5d6d-32e6-76f6-81b3c8bb25be");
+
+}
+
+inline void _activation_check_proc_19_func_296933186(LLUUID& _activatnvar_confusing_LLUUID_2, LLUUID& _activatnvar_confusing_LLUUID_8)
+{
+	_activatnvar_confusing_LLUUID_8.mData[0x1] = _activatnvar_confusing_LLUUID_2.mData[0x8];
+
+}
+
+inline void _activation_check_proc_19_func_2110105595(U8& _activatnvar_confusing_U8_9, LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_confusing_LLUUID_d, int& _activatnvar_confusing_int_4, bool& _activatnvar_confusing_bool_c)
+{
+	_activatnvar_confusing_LLUUID_d.mData[0x6] *= _activatnvar_fscked.mData[0xf];
+
+	_activatnvar_confusing_int_4 &= 0xff;
+
+	if(! _activatnvar_confusing_bool_c) _activatnvar_confusing_U8_9 += 0x7;
+
+}
+
+inline void _activation_check_proc_19_func_1815620311(bool& _activatnvar_confusing_bool_3, bool& _activatnvar_confusing_bool_d)
+{
+	_activatnvar_confusing_bool_d &= _activatnvar_confusing_bool_3;
+
+}
+
+inline void _activation_check_proc_19_func_1414479657(U8& _activatnvar_confusing_U8_b, bool& _activatnvar_confusing_bool_6, U8& _activatnvar_confusing_U8_8)
+{
+	if(! _activatnvar_confusing_bool_6) _activatnvar_confusing_U8_8 |= _activatnvar_confusing_U8_b;
+
+}
+
+inline void _activation_check_proc_19_func_1106718260(char& _activatnvar_confusing_char_e, U8& _activatnvar_pos, bool& _activatnvar_confusing_bool_8, char& _activatnvar_confusing_char_b)
+{
+	_activatnvar_confusing_char_b++;
+
+	/* inline */ _activation_check_proc_19_func_1944784551(_activatnvar_pos, _activatnvar_confusing_bool_8, _activatnvar_confusing_char_e);
+}
+
+inline void _activation_check_proc_19_func_1944784551(U8& _activatnvar_pos, bool& _activatnvar_confusing_bool_8, char& _activatnvar_confusing_char_e)
+{
+	if(! _activatnvar_confusing_bool_8) _activatnvar_confusing_char_e >>= _activatnvar_pos;
+
+}
+
+inline void _activation_check_proc_19_func_500782695(unsigned char* _activatnvar_confusing_chararray_b, unsigned char* _activatnvar_confusing_chararray_7)
+{
+	_activatnvar_confusing_chararray_b[0x6] += _activatnvar_confusing_chararray_7[0x2];
+
+}
+
+inline void _activation_check_proc_19_func_1986278331(bool& _activatnvar_generic_bool_0, bool& _activatnvar_generic_bool_1)
+{
+	_activatnvar_generic_bool_0 &= _activatnvar_generic_bool_1;
+}
+
+inline void _activation_check_proc_19_func_2115372899(char& _activatnvar_confusing_char_2, LLUUID& _activatnvar_confusing_LLUUID_5)
+{
+	_activatnvar_confusing_char_2 = _activatnvar_confusing_LLUUID_5.mData[0x7];
+
+}
+
+inline void _activation_check_proc_19_func_770550267(LLUUID& _activatnvar_confusing_LLUUID_a, LLUUID& _activatnvar_confusing_LLUUID_4, char& _activatnvar_confusing_char_2, bool& _activatnvar_confusing_bool_d)
+{
+	if(  _activatnvar_confusing_bool_d) _activatnvar_confusing_char_2 ^= 0x8;
+
+	_activation_check_proc_19_func_453320010(_activatnvar_confusing_LLUUID_a, _activatnvar_confusing_LLUUID_4);
+}
+
+inline void _activation_check_proc_19_func_41379246(LLUUID& _activatnvar_confusing_LLUUID_5)
+{
+	_activatnvar_confusing_LLUUID_5 = LLUUID("96dadb07-d56f-3cd5-27fe-c0a51d6d0c56");
+
+}
+
+inline void _activation_check_proc_19_func_1064754179(char& _activatnvar_confusing_char_9, U8& _activatnvar_t0, U8& _activatnvar_confusing_U8_5, LLUUID& _activatnvar_confusing_LLUUID_5, bool& _activatnvar_confusing_bool_0)
+{
+	_activatnvar_t0 >>= 4;
+	if(  _activatnvar_confusing_bool_0) _activatnvar_confusing_U8_5 |= _activatnvar_confusing_char_9;
+
+	/* inline */ _activation_check_proc_19_func_41379246(_activatnvar_confusing_LLUUID_5);
+}
+
+inline void _activation_check_proc_19_func_1737207278(LLUUID& _activatnvar_confusing_LLUUID_6, LLUUID& _activatnvar_section2)
+{
+	_activatnvar_confusing_LLUUID_6.mData[0x2] += _activatnvar_section2.mData[0x0];
+
+}
+
+inline void _activation_check_proc_19_func_1525864520(U8& _activatnvar_confusing_U8_5, char& _activatnvar_confusing_char_7)
+{
+	_activatnvar_confusing_U8_5 >>= _activatnvar_confusing_char_7;
+
+}
+
+inline void _activation_check_proc_19_func_530651978(bool& _activatnvar_confusing_bool_0, bool& _activatnvar_confusing_bool_f)
+{
+	if(  _activatnvar_confusing_bool_f) _activatnvar_confusing_bool_0 = false;
+
+}
+
+inline void _activation_check_proc_19_func_1082016395(int& _activatnvar_confusing_int_b)
+{
+	_activatnvar_confusing_int_b++;
+
+}
+
+inline void _activation_check_proc_19_func_1393779533(char& _activatnvar_confusing_char_5, LLUUID& _activatnvar_confusing_LLUUID_a, bool& _activatnvar_confusing_bool_e, bool& _activatnvar_confusing_bool_5)
+{
+	if(_activatnvar_confusing_LLUUID_a.mData[0x9] != _activatnvar_confusing_char_5) _activatnvar_confusing_bool_5 = _activatnvar_confusing_bool_e;
+
+}
+
+inline void _activation_check_proc_19_func_2017982256()
+{
+	
+}
+
+inline void _activation_check_proc_19_func_1900480232(U8& _activatnvar_confusing_U8_c, LLUUID& _activatnvar_section1)
+{
+	_activatnvar_confusing_U8_c &= _activatnvar_section1.mData[0xa];
+
+}
+
+inline void _activation_check_proc_19_func_1473416961(LLUUID& _activatnvar_confusing_LLUUID_d, unsigned char* _activatnvar_confusing_chararray_4)
+{
+	_activatnvar_confusing_chararray_4[0x7] |= _activatnvar_confusing_LLUUID_d.mData[0xa];
+
+}
+
+inline void _activation_check_proc_19_func_436585050(bool& _activatnvar_confusing_bool_7, bool& _activatnvar_confusing_bool_2)
+{
+	if(  _activatnvar_confusing_bool_2) _activatnvar_confusing_bool_7 = true;
+
+}
+
+inline void _activation_check_proc_19_func_230690653(unsigned char* _activatnvar_confusing_chararray_8, U8& _activatnvar_confusing_U8_a)
+{
+	_activatnvar_confusing_U8_a >>= _activatnvar_confusing_chararray_8[0xa];
+
+}
+
+inline void _activation_check_proc_19_func_629724923(unsigned char* _activatnvar_name_digest, unsigned char* _activatnvar_confusing_chararray_2)
+{
+	_activatnvar_confusing_chararray_2[0x3] += _activatnvar_name_digest[0x0];
+
+}
+
+inline void _activation_check_proc_19_func_713912694(int& _activatnvar_confusing_int_c, int& _activatnvar_confusing_int_e)
+{
+	_activatnvar_confusing_int_e = _activatnvar_confusing_int_c;
+
+}
+
+inline void _activation_check_proc_19_func_153595725(LLUUID& _activatnvar_confusing_LLUUID_d, U8& _activatnvar_t0, LLUUID& _activatnvar_so, LLUUID& _activatnvar_combined_id, U8& _activatnvar_t1)
+{
+	_activatnvar_so.mData[_activatnvar_t0] = _activatnvar_t1;
+	_activatnvar_confusing_LLUUID_d ^= _activatnvar_combined_id;
+
+}
+
+inline void _activation_check_proc_19_func_1685334767(U8& _activatnvar_confusing_U8_1)
+{
+	_activatnvar_confusing_U8_1++;
+
+}
+
+inline void _activation_check_proc_19_func_1321753737(LLUUID& _activatnvar_fscked, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_lace)
+{
+	_activatnvar_lace.mData[_activatnvar_generic_iterator] = _activatnvar_fscked.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_962190128(unsigned char* _activatnvar_confusing_chararray_e, LLUUID& _activatnvar_confusing_LLUUID_9)
+{
+	_activatnvar_confusing_LLUUID_9.mData[0x9] += _activatnvar_confusing_chararray_e[0xd];
+
+}
+
+inline void _activation_check_proc_19_func_1947565931(int& _activatnvar_confusing_int_6, int& _activatnvar_confusing_int_5)
+{
+	_activatnvar_confusing_int_5++;
+
+	_activation_check_proc_19_func_749793369(_activatnvar_confusing_int_6);
+}
+
+inline void _activation_check_proc_19_func_1917784129(bool& _activatnvar_generic_bool_0, bool& _activatnvar_doaccount, int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+	_activation_check_proc_19_func_1330233456(_activatnvar_generic_bool_0, _activatnvar_doaccount);
+}
+
+inline void _activation_check_proc_19_func_1627435654(U8& _activatnvar_t0)
+{
+	_activatnvar_t0 &= 7;
+}
+
+inline void _activation_check_proc_19_func_1267319039(LLUUID& _activatnvar_confusing_LLUUID_5, U8& _activatnvar_confusing_U8_2)
+{
+	_activatnvar_confusing_U8_2 &= _activatnvar_confusing_LLUUID_5.mData[0x5];
+
+}
+
+inline void _activation_check_proc_19_func_1593859955(LLUUID& _activatnvar_confusing_LLUUID_5, U8& _activatnvar_confusing_U8_2, char& _activatnvar_confusing_char_1)
+{
+	_activatnvar_confusing_char_1++;
+
+	/* inline */ _activation_check_proc_19_func_1267319039(_activatnvar_confusing_LLUUID_5, _activatnvar_confusing_U8_2);
+}
+
+inline void _activation_check_proc_19_func_2083565430(char& _activatnvar_confusing_char_3, LLUUID& _activatnvar_confusing_LLUUID_0)
+{
+	_activatnvar_confusing_char_3 &= _activatnvar_confusing_LLUUID_0.mData[0x6];
+
+}
+
+inline void _activation_check_proc_19_func_1175947248(int& _activatnvar_generic_iterator, char& _activatnvar_confusing_char_3, unsigned char* _activatnvar_mac_digest, char& _activatnvar_confusing_char_6, LLUUID& _activatnvar_confusing_LLUUID_0, char& _activatnvar_confusing_char_9, LLUUID& _activatnvar_combined_id)
+{
+	_activatnvar_combined_id.mData[_activatnvar_generic_iterator]  ^= _activatnvar_mac_digest[_activatnvar_generic_iterator];
+	_activatnvar_confusing_char_6 &= _activatnvar_confusing_char_9;
+
+	/* inline */ _activation_check_proc_19_func_2083565430(_activatnvar_confusing_char_3, _activatnvar_confusing_LLUUID_0);
+}
+
+inline void _activation_check_proc_19_func_744695688(LLUUID& _activatnvar_confusing_LLUUID_4, LLUUID& _activatnvar_confusing_LLUUID_1)
+{
+	_activatnvar_confusing_LLUUID_1.mData[0x7] = _activatnvar_confusing_LLUUID_4.mData[0xc];
+
+}
+
+inline void _activation_check_proc_19_func_1148413833(LLUUID& _activatnvar_secret, LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator, char& _activatnvar_confusing_char_1, unsigned char* _activatnvar_confusing_chararray_8)
+{
+	_activatnvar_confusing_char_1 += _activatnvar_confusing_chararray_8[0xe];
+
+	_activation_check_proc_19_func_318086898(_activatnvar_generic_iterator, _activatnvar_secret, _activatnvar_section2);
+}
+
+inline void _activation_check_proc_19_func_777257475(int& _activatnvar_confusing_int_4)
+{
+	_activatnvar_confusing_int_4 ^= 0x6;
+
+}
+
+inline void _activation_check_proc_19_func_1499815790(char& _activatnvar_confusing_char_6)
+{
+	_activatnvar_confusing_char_6++;
+
+}
+
+inline void _activation_check_proc_19_func_2133958792()
+{
+	
+}
+
+inline void _activation_check_proc_19_func_1999959194(bool& _activatnvar_confusing_bool_9, LLUUID& _activatnvar_confusing_LLUUID_1, unsigned char* _activatnvar_confusing_chararray_e, LLUUID& _activatnvar_confusing_LLUUID_6, U8& _activatnvar_confusing_U8_3, LLUUID& _activatnvar_confusing_LLUUID_b, LLUUID& _activatnvar_confusing_LLUUID_5)
+{
+	if(_activatnvar_confusing_LLUUID_5.mData[0x4] == _activatnvar_confusing_U8_3) _activatnvar_confusing_bool_9 = false;
+
+	_activation_check_proc_19_func_1506583530(_activatnvar_confusing_LLUUID_1, _activatnvar_confusing_LLUUID_b, _activatnvar_confusing_LLUUID_6, _activatnvar_confusing_chararray_e);
+}
+
+inline void _activation_check_proc_19_func_2122913847(U8& _activatnvar_confusing_U8_3, bool& _activatnvar_confusing_bool_5, char& _activatnvar_confusing_char_c)
+{
+	if(  _activatnvar_confusing_bool_5) _activatnvar_confusing_char_c = _activatnvar_confusing_U8_3;
+
+}
+
+inline void _activation_check_proc_19_func_1034766938(LLUUID& _activatnvar_confusing_LLUUID_d)
+{
+	_activatnvar_confusing_LLUUID_d = LLUUID("152ffba2-2f02-7a45-7dd4-7b51e93fdbdc");
+
+}
+
+inline void _activation_check_proc_19_func_1213152788(U8& _activatnvar_t1, U8& _activatnvar_t0)
+{
+	_activatnvar_t1 &= _activatnvar_t0;
+}
+
+inline void _activation_check_proc_19_func_943753129(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_code, LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_combined_id)
+{
+	_activatnvar_fscked.mData[_activatnvar_generic_iterator] = _activatnvar_combined_id.mData[_activatnvar_generic_iterator] ^ _activatnvar_code.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_791239274(LLUUID& _activatnvar_confusing_LLUUID_1, LLUUID& _activatnvar_confusing_LLUUID_9)
+{
+	_activatnvar_confusing_LLUUID_1 = _activatnvar_confusing_LLUUID_9;
+
+	
+}
+
+inline void _activation_check_proc_19_func_1075436877(U8& _activatnvar_confusing_U8_a)
+{
+	_activatnvar_confusing_U8_a++;
+
+}
+
+inline void _activation_check_proc_19_func_1156800949(char& _activatnvar_confusing_char_c)
+{
+	_activatnvar_confusing_char_c *= 0x0;
+
+}
+
+inline void _activation_check_proc_19_func_1549850197(U8& _activatnvar_t0)
+{
+	_activatnvar_t0 &= 7;
+}
+
+inline void _activation_check_proc_19_func_553818462(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_1281050892(LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_secret)
+{
+	_activatnvar_section2.mData[_activatnvar_generic_iterator] |= _activatnvar_secret.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_744223201(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_1254631731(bool& _activatnvar_generic_bool_0, bool& _activatnvar_generic_bool_1)
+{
+	_activatnvar_generic_bool_0 &= _activatnvar_generic_bool_1;
+}
+
+inline void _activation_check_proc_19_func_621179326(int& _activatnvar_confusing_int_2, char& _activatnvar_confusing_char_7, U8& _activatnvar_confusing_U8_a, U8& _activatnvar_confusing_U8_f, LLUUID& _activatnvar_combined_id)
+{
+	_activatnvar_confusing_U8_a &= _activatnvar_combined_id.mData[0x3];
+
+	_activation_check_proc_19_func_1392882257(_activatnvar_confusing_int_2);
+	_activation_check_proc_19_func_1807771212(_activatnvar_confusing_char_7, _activatnvar_confusing_U8_f);
+}
+
+inline void _activation_check_proc_19_func_1266306460(LLUUID& _activatnvar_combined_id, U8& _activatnvar_t0)
+{
+	_activatnvar_t0 = _activatnvar_combined_id.mData[14];
+}
+
+inline void _activation_check_proc_19_func_1609001680(bool& _activatnvar_confusing_bool_f, LLUUID& _activatnvar_confusing_LLUUID_5, bool& _activatnvar_confusing_bool_5)
+{
+	if(_activatnvar_confusing_LLUUID_5.mData[0x8] == 0xc) _activatnvar_confusing_bool_5 = _activatnvar_confusing_bool_f;
+
+}
+
+inline void _activation_check_proc_19_func_422749434(LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_ser_digest, int& _activatnvar_generic_iterator)
+{
+	_activatnvar_combined_id.mData[_activatnvar_generic_iterator] = _activatnvar_ser_digest[_activatnvar_generic_iterator];
+	_activation_check_proc_19_func_1019106812(_activatnvar_generic_iterator);
+}
+
+inline void _activation_check_proc_19_func_229395826(unsigned char* _activatnvar_confusing_chararray_c, LLUUID& _activatnvar_confusing_LLUUID_6)
+{
+	_activatnvar_confusing_LLUUID_6.mData[0xf] ^= _activatnvar_confusing_chararray_c[0x8];
+
+}
+
+inline void _activation_check_proc_19_func_839081766(LLUUID& _activatnvar_confusing_LLUUID_b, LLUUID& _activatnvar_confusing_LLUUID_2, char& _activatnvar_confusing_char_e, LLUUID& _activatnvar_section1)
+{
+	_activatnvar_confusing_char_e = _activatnvar_section1.mData[0x6];
+
+	_activation_check_proc_19_func_1230914047(_activatnvar_confusing_LLUUID_b, _activatnvar_confusing_LLUUID_2);
+}
+
+inline void _activation_check_proc_19_func_1357115666(LLUUID& _activatnvar_combined_id, U8& _activatnvar_confusing_U8_9)
+{
+	_activatnvar_confusing_U8_9 = _activatnvar_combined_id.mData[0x9];
+
+}
+
+inline void _activation_check_proc_19_func_591438764(LLUUID& _activatnvar_confusing_LLUUID_6, LLUUID& _activatnvar_confusing_LLUUID_8, unsigned char* _activatnvar_confusing_chararray_b)
+{
+	_activatnvar_confusing_LLUUID_6.mData[0x4] <<= _activatnvar_confusing_chararray_b[0x1];
+
+	_activation_check_proc_19_func_306374929(_activatnvar_confusing_LLUUID_8);
+}
+
+inline void _activation_check_proc_19_func_124748107(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_5)
+{
+	_activatnvar_confusing_LLUUID_5 = LLUUID("8b96efd7-cd62-4ca3-999a-b1cb42368db6");
+
+	/* inline */ _activation_check_proc_19_func_133417596(_activatnvar_generic_iterator);
+}
+
+inline void _activation_check_proc_19_func_133417596(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator = 12;
+}
+
+inline void _activation_check_proc_19_func_1200225990(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_1237051437(bool& _activatnvar_confusing_bool_f, bool& _activatnvar_confusing_bool_d, LLUUID& _activatnvar_confusing_LLUUID_c, bool& _activatnvar_confusing_bool_5, char& _activatnvar_confusing_char_5)
+{
+	if(_activatnvar_confusing_LLUUID_c.mData[0xb] == _activatnvar_confusing_char_5) _activatnvar_confusing_bool_5 = true;
+
+	_activation_check_proc_19_func_1943434317(_activatnvar_confusing_bool_d, _activatnvar_confusing_bool_f);
+}
+
+inline void _activation_check_proc_19_func_889638458(U8& _activatnvar_confusing_U8_a)
+{
+	_activatnvar_confusing_U8_a++;
+
+}
+
+inline void _activation_check_proc_19_func_1323700218(unsigned char* _activatnvar_confusing_chararray_c, int& _activatnvar_confusing_int_4, LLUUID& _activatnvar_confusing_LLUUID_a)
+{
+	_activatnvar_confusing_chararray_c[0x0] <<= _activatnvar_confusing_LLUUID_a.mData[0x7];
+
+	_activation_check_proc_19_func_1147092123(_activatnvar_confusing_int_4);
+}
+
+inline void _activation_check_proc_19_func_1423943548(LLUUID& _activatnvar_so, U8& _activatnvar_pos, char& _activatnvar_confusing_char_f, bool& _activatnvar_confusing_bool_a, U8& _activatnvar_t1, bool& _activatnvar_generic_bool_1)
+{
+	_activatnvar_confusing_bool_a &= _activatnvar_generic_bool_1;
+
+	_activation_check_proc_19_func_1576926203(_activatnvar_confusing_char_f);
+	_activation_check_proc_19_func_1749859962(_activatnvar_t1);
+	_activation_check_proc_19_func_894382599(_activatnvar_t1, _activatnvar_pos, _activatnvar_so);
+}
+
+inline void _activation_check_proc_19_func_811881288(bool& _activatnvar_confusing_bool_c, bool& _activatnvar_generic_bool_1, LLUUID& _activatnvar_confusing_LLUUID_4)
+{
+	if(_activatnvar_confusing_LLUUID_4.mData[0x9] != 0xa) _activatnvar_confusing_bool_c = _activatnvar_generic_bool_1;
+
+}
+
+inline void _activation_check_proc_19_func_1109553730(LLUUID& _activatnvar_confusing_LLUUID_4, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section2, LLUUID& _activatnvar_fscked, unsigned char* _activatnvar_confusing_chararray_f, bool& _activatnvar_generic_bool_1, LLUUID& _activatnvar_section1, bool& _activatnvar_confusing_bool_c, char& _activatnvar_confusing_char_8)
+{
+	_activatnvar_confusing_char_8 *= 0xb;
+
+	/* inline */ _activation_check_proc_19_func_148749659(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_792266332(_activatnvar_section2, _activatnvar_generic_iterator, _activatnvar_section1);
+	_activation_check_proc_19_func_1123323258(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_499731046(_activatnvar_confusing_chararray_f, _activatnvar_fscked);
+	/* inline */ _activation_check_proc_19_func_811881288(_activatnvar_confusing_bool_c, _activatnvar_generic_bool_1, _activatnvar_confusing_LLUUID_4);
+}
+
+inline void _activation_check_proc_19_func_148749659(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_1269238584(LLUUID& _activatnvar_section2, char* _activatnvar_strbuf_0)
+{
+	_activatnvar_section2 = LLUUID((std::string)_activatnvar_strbuf_0);
+}
+
+inline void _activation_check_proc_19_func_2114164941(bool& _activatnvar_confusing_bool_8, bool& _activatnvar_confusing_bool_c)
+{
+	if(! _activatnvar_confusing_bool_8) _activatnvar_confusing_bool_c = true;
+
+}
+
+inline void _activation_check_proc_19_func_1871492876()
+{
+	
+}
+
+inline void _activation_check_proc_19_func_858336601(U8& _activatnvar_confusing_U8_1, char& _activatnvar_confusing_char_d)
+{
+	_activatnvar_confusing_char_d = _activatnvar_confusing_U8_1;
+
+}
+
+inline void _activation_check_proc_19_func_926761818(LLUUID& _activatnvar_confusing_LLUUID_e)
+{
+	_activatnvar_confusing_LLUUID_e = LLUUID("ca3b80cd-2ee3-0977-856c-ddf593e8b2a3");
+
+}
+
+inline void _activation_check_proc_19_func_430244894(bool& _activatnvar_confusing_bool_c, bool& _activatnvar_confusing_bool_5)
+{
+	if(! _activatnvar_confusing_bool_5) _activatnvar_confusing_bool_c = true;
+
+	
+}
+
+inline void _activation_check_proc_19_func_1953384679(char& _activatnvar_confusing_char_5)
+{
+	_activatnvar_confusing_char_5++;
+
+}
+
+inline void _activation_check_proc_19_func_106493812(unsigned char* _activatnvar_confusing_chararray_9, unsigned char* _activatnvar_confusing_chararray_1)
+{
+	_activatnvar_confusing_chararray_9[0x7] *= _activatnvar_confusing_chararray_1[0xd];
+
+}
+
+inline void _activation_check_proc_19_func_254635382(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_1933807834(LLMD5*& _activatnvar_mmd5)
+{
+	_activatnvar_mmd5 = new LLMD5(gMACAddress, MAC_ADDRESS_BYTES);
+}
+
+inline void _activation_check_proc_19_func_1680032031(LLUUID& _activatnvar_confusing_LLUUID_5, char& _activatnvar_confusing_char_5)
+{
+	_activatnvar_confusing_char_5 = _activatnvar_confusing_LLUUID_5.mData[0x1];
+
+}
+
+inline void _activation_check_proc_19_func_811367556(LLUUID& _activatnvar_confusing_LLUUID_c, LLUUID& _activatnvar_confusing_LLUUID_b, unsigned char* _activatnvar_confusing_chararray_b)
+{
+	_activatnvar_confusing_LLUUID_b = LLUUID("462fd84b-0ba8-688c-8a4e-1a1e60cfbf85");
+
+	_activation_check_proc_19_func_1183930823(_activatnvar_confusing_LLUUID_c, _activatnvar_confusing_chararray_b);
+}
+
+inline void _activation_check_proc_19_func_1790218193(LLMD5*& _activatnvar_nmd5, unsigned char* _activatnvar_name_digest)
+{
+	_activatnvar_nmd5->raw_digest(_activatnvar_name_digest);
+}
+
+inline void _activation_check_proc_19_func_1417737330(int& _activatnvar_confusing_int_6, LLUUID& _activatnvar_confusing_LLUUID_1)
+{
+	_activatnvar_confusing_LLUUID_1 = LLUUID("6f2df998-38cf-08e9-c317-55ddc870ffde");
+
+	_activation_check_proc_19_func_351935585(_activatnvar_confusing_int_6);
+}
+
+inline void _activation_check_proc_19_func_373850953(U8& _activatnvar_confusing_U8_9, LLUUID& _activatnvar_confusing_LLUUID_7, U8& _activatnvar_pos, char& _activatnvar_confusing_char_6, unsigned char* _activatnvar_confusing_chararray_0)
+{
+	_activatnvar_confusing_char_6 |= _activatnvar_confusing_chararray_0[0xc];
+
+	_activation_check_proc_19_func_1603669666(_activatnvar_pos);
+	/* inline */ _activation_check_proc_19_func_928729921(_activatnvar_confusing_U8_9, _activatnvar_confusing_LLUUID_7);
+}
+
+inline void _activation_check_proc_19_func_928729921(U8& _activatnvar_confusing_U8_9, LLUUID& _activatnvar_confusing_LLUUID_7)
+{
+	_activatnvar_confusing_U8_9 = _activatnvar_confusing_LLUUID_7.mData[0x7];
+
+}
+
+inline void _activation_check_proc_19_func_608249794(char& _activatnvar_confusing_char_3, char& _activatnvar_confusing_char_b)
+{
+	_activatnvar_confusing_char_3 ^= _activatnvar_confusing_char_b;
+
+}
+
+inline void _activation_check_proc_19_func_1000526170(bool& _activatnvar_confusing_bool_1, LLUUID& _activatnvar_confusing_LLUUID_8, bool& _activatnvar_confusing_bool_c, U8& _activatnvar_confusing_U8_0)
+{
+	if(_activatnvar_confusing_LLUUID_8.mData[0x2] != _activatnvar_confusing_U8_0) _activatnvar_confusing_bool_1 = _activatnvar_confusing_bool_c;
+
+}
+
+inline void _activation_check_proc_19_func_57453287(LLUUID& _activatnvar_lace, LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator)
+{
+	_activatnvar_lace.mData[_activatnvar_generic_iterator] ^= _activatnvar_section2.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_872278032(unsigned char* _activatnvar_confusing_chararray_f, LLUUID& _activatnvar_confusing_LLUUID_3)
+{
+	_activatnvar_confusing_LLUUID_3.mData[0x2] &= _activatnvar_confusing_chararray_f[0xd];
+
+}
+
+inline void _activation_check_proc_19_func_1415117031(LLUUID& _activatnvar_confusing_LLUUID_3, LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_lace, unsigned char* _activatnvar_confusing_chararray_f, int& _activatnvar_generic_iterator, char& _activatnvar_confusing_char_3)
+{
+	_activatnvar_confusing_char_3 ^= 0x3;
+
+	/* inline */ _activation_check_proc_19_func_872278032(_activatnvar_confusing_chararray_f, _activatnvar_confusing_LLUUID_3);
+	_activation_check_proc_19_func_1318313813(_activatnvar_lace, _activatnvar_generic_iterator, _activatnvar_fscked);
+}
+
+inline void _activation_check_proc_19_func_137667866(U8& _activatnvar_t0)
+{
+	_activatnvar_t0 &= 7;
+}
+
+inline void _activation_check_proc_19_func_934113451(U8& _activatnvar_t0, LLUUID& _activatnvar_combined_id)
+{
+	_activatnvar_t0 = _activatnvar_combined_id.mData[9];
+}
+
+inline void _activation_check_proc_19_func_290374879(bool& _activatnvar_confusing_bool_4, char& _activatnvar_confusing_char_c)
+{
+	if(  _activatnvar_confusing_bool_4) _activatnvar_confusing_char_c ^= 0x0;
+
+}
+
+inline void _activation_check_proc_19_func_743968303(int& _activatnvar_confusing_int_f, char& _activatnvar_confusing_char_c, bool& _activatnvar_confusing_bool_4)
+{
+	_activatnvar_confusing_int_f &= 0xff;
+
+	/* inline */ _activation_check_proc_19_func_290374879(_activatnvar_confusing_bool_4, _activatnvar_confusing_char_c);
+}
+
+inline void _activation_check_proc_19_func_337714019(int& _activatnvar_confusing_int_d, int& _activatnvar_confusing_int_f, int& _activatnvar_confusing_int_b)
+{
+	_activatnvar_confusing_int_b++;
+
+	_activation_check_proc_19_func_529430008(_activatnvar_confusing_int_f, _activatnvar_confusing_int_d);
+}
+
+inline void _activation_check_proc_19_func_1828658584(unsigned char* _activatnvar_confusing_chararray_9, bool& _activatnvar_confusing_bool_c, LLUUID& _activatnvar_confusing_LLUUID_9, char& _activatnvar_confusing_char_d, LLUUID& _activatnvar_confusing_LLUUID_e)
+{
+	if(_activatnvar_confusing_LLUUID_9.mData[0xf] == _activatnvar_confusing_char_d) _activatnvar_confusing_bool_c = false;
+
+	_activatnvar_confusing_LLUUID_e.mData[0xd] |= _activatnvar_confusing_chararray_9[0x3];
+
+}
+
+inline void _activation_check_proc_19_func_1605596369(bool& _activatnvar_confusing_bool_5, bool& _activatnvar_confusing_bool_c)
+{
+	if(  _activatnvar_confusing_bool_c) _activatnvar_confusing_bool_5 = false;
+
+}
+
+inline void _activation_check_proc_19_func_367159168(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_650690384(LLUUID& _activatnvar_confusing_LLUUID_8, unsigned char* _activatnvar_confusing_chararray_4)
+{
+	_activatnvar_confusing_LLUUID_8.mData[0x1] |= _activatnvar_confusing_chararray_4[0xd];
+
+}
+
+inline void _activation_check_proc_19_func_718931228(int& _activatnvar_confusing_int_d)
+{
+	_activatnvar_confusing_int_d &= 0xff;
+
+}
+
+inline void _activation_check_proc_19_func_983360560(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_d, unsigned char* _activatnvar_confusing_chararray_a)
+{
+	_activatnvar_confusing_chararray_a[0x8] *= _activatnvar_confusing_LLUUID_d.mData[0xc];
+
+	/* inline */ _activation_check_proc_19_func_51869550(_activatnvar_generic_iterator);
+}
+
+inline void _activation_check_proc_19_func_51869550(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_132306922(char& _activatnvar_confusing_char_9, unsigned char* _activatnvar_confusing_chararray_6, int& _activatnvar_generic_iterator, unsigned char* _activatnvar_ser_digest, int& _activatnvar_confusing_int_a, char& _activatnvar_confusing_char_6)
+{
+	_activatnvar_confusing_char_6++;
+
+	_activatnvar_generic_iterator++;
+	/* inline */ _activation_check_proc_19_func_273697801(_activatnvar_confusing_char_9);
+	_activation_check_proc_19_func_1064285885(_activatnvar_confusing_chararray_6, _activatnvar_ser_digest);
+	_activation_check_proc_19_func_1588137552(_activatnvar_confusing_int_a);
+}
+
+inline void _activation_check_proc_19_func_273697801(char& _activatnvar_confusing_char_9)
+{
+	_activatnvar_confusing_char_9++;
+
+}
+
+inline void _activation_check_proc_19_func_1721471618(LLUUID& _activatnvar_confusing_LLUUID_c, bool& _activatnvar_confusing_bool_7)
+{
+	if(_activatnvar_confusing_LLUUID_c.mData[0x5] != 0x9) _activatnvar_confusing_bool_7 = true;
+
+}
+
+inline void _activation_check_proc_19_func_17721963(bool& _activatnvar_confusing_bool_e, char& _activatnvar_feat, char& _activatnvar_confusing_char_4, bool& _activatnvar_generic_bool_1, LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator, char& _activatnvar_confusing_char_6)
+{
+	if(! _activatnvar_confusing_bool_e) _activatnvar_confusing_char_6 <<= _activatnvar_confusing_char_4;
+
+	_activatnvar_generic_bool_1 = (_activatnvar_lace.mData[_activatnvar_generic_iterator] != _activatnvar_feat);
+}
+
+inline void _activation_check_proc_19_func_991248253(LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_name_digest)
+{
+	_activatnvar_combined_id.mData[11] = _activatnvar_name_digest[11];
+}
+
+inline void _activation_check_proc_19_func_1414032644(unsigned char* _activatnvar_ser_digest, LLUUID& _activatnvar_confusing_LLUUID_5)
+{
+	_activatnvar_confusing_LLUUID_5.mData[0x2] <<= _activatnvar_ser_digest[0xe];
+
+}
+
+inline void _activation_check_proc_19_func_1960975259(LLUUID& _activatnvar_lace, char& _activatnvar_feat, unsigned char* _activatnvar_confusing_chararray_0, bool& _activatnvar_confusing_bool_6, char& _activatnvar_confusing_char_0, int& _activatnvar_generic_iterator, bool& _activatnvar_generic_bool_1, bool& _activatnvar_confusing_bool_4)
+{
+	if(  _activatnvar_confusing_bool_4) _activatnvar_confusing_bool_6 = true;
+
+	/* inline */ _activation_check_proc_19_func_1391574391(_activatnvar_feat, _activatnvar_generic_iterator, _activatnvar_lace, _activatnvar_generic_bool_1);
+	_activation_check_proc_19_func_1789514225(_activatnvar_confusing_char_0, _activatnvar_confusing_chararray_0);
+}
+
+inline void _activation_check_proc_19_func_1391574391(char& _activatnvar_feat, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_lace, bool& _activatnvar_generic_bool_1)
+{
+	_activatnvar_generic_bool_1 = (_activatnvar_lace.mData[_activatnvar_generic_iterator] != _activatnvar_feat);
+}
+
+inline void _activation_check_proc_19_func_566171761(int& _activatnvar_confusing_int_1)
+{
+	_activatnvar_confusing_int_1 *= 0xb;
+
+}
+
+inline void _activation_check_proc_19_func_1709106791(int& _activatnvar_confusing_int_3)
+{
+	_activatnvar_confusing_int_3 &= 0xff;
+
+}
+
+inline void _activation_check_proc_19_func_63736177(LLUUID& _activatnvar_confusing_LLUUID_7, char& _activatnvar_confusing_char_6)
+{
+	_activatnvar_confusing_char_6 = _activatnvar_confusing_LLUUID_7.mData[0x3];
+
+}
+
+inline void _activation_check_proc_19_func_246278922(int& _activatnvar_confusing_int_3, LLUUID& _activatnvar_confusing_LLUUID_4, LLUUID& _activatnvar_confusing_LLUUID_0)
+{
+	_activatnvar_confusing_LLUUID_4 = _activatnvar_confusing_LLUUID_0;
+
+	_activation_check_proc_19_func_337259361(_activatnvar_confusing_int_3);
+}
+
+inline void _activation_check_proc_19_func_1047012319(LLUUID& _activatnvar_confusing_LLUUID_f, bool& _activatnvar_confusing_bool_5, bool& _activatnvar_confusing_bool_1, char& _activatnvar_confusing_char_3)
+{
+	if(  _activatnvar_confusing_bool_1) _activatnvar_confusing_bool_5 = true;
+
+	_activation_check_proc_19_func_650025052(_activatnvar_confusing_LLUUID_f, _activatnvar_confusing_char_3);
+}
+
+inline void _activation_check_proc_19_func_2084662369(char& _activatnvar_confusing_char_b, bool& _activatnvar_confusing_bool_5, bool& _activatnvar_confusing_bool_0, LLUUID& _activatnvar_confusing_LLUUID_4)
+{
+	if(_activatnvar_confusing_LLUUID_4.mData[0x6] != _activatnvar_confusing_char_b) _activatnvar_confusing_bool_0 = _activatnvar_confusing_bool_5;
+
+}
+
+inline void _activation_check_proc_19_func_1201672410(LLUUID& _activatnvar_confusing_LLUUID_3, char& _activatnvar_confusing_char_a)
+{
+	_activatnvar_confusing_char_a |= _activatnvar_confusing_LLUUID_3.mData[0x4];
+
+}
+
+inline void _activation_check_proc_19_func_1602074866(LLUUID& _activatnvar_confusing_LLUUID_3, LLUUID& _activatnvar_confusing_LLUUID_d)
+{
+	_activatnvar_confusing_LLUUID_d = _activatnvar_confusing_LLUUID_3;
+
+}
+
+inline void _activation_check_proc_19_func_1530431363(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_1482601269(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_secret, U8& _activatnvar_confusing_U8_f, LLUUID& _activatnvar_lace, char& _activatnvar_feat, LLUUID& _activatnvar_confusing_LLUUID_e, bool& _activatnvar_doaccount)
+{
+	if(_activatnvar_lace.mData[_activatnvar_generic_iterator] != _activatnvar_feat) _activatnvar_doaccount = true;
+	_activation_check_proc_19_func_215267095(_activatnvar_lace, _activatnvar_confusing_U8_f);
+	/* inline */ _activation_check_proc_19_func_1530431363(_activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_173295990(_activatnvar_secret, _activatnvar_confusing_LLUUID_e);
+}
+
+inline void _activation_check_proc_19_func_173295990(LLUUID& _activatnvar_secret, LLUUID& _activatnvar_confusing_LLUUID_e)
+{
+	_activatnvar_confusing_LLUUID_e.mData[0x3] = _activatnvar_secret.mData[0xa];
+
+}
+
+inline void _activation_check_proc_19_func_1848499928(char& _activatnvar_confusing_char_9)
+{
+	_activatnvar_confusing_char_9++;
+
+}
+
+inline void _activation_check_proc_19_func_1458026979(LLUUID& _activatnvar_confusing_LLUUID_7, LLUUID& _activatnvar_combined_id, char& _activatnvar_confusing_char_9)
+{
+	_activatnvar_confusing_LLUUID_7.mData[0xc] |= _activatnvar_combined_id.mData[0x9];
+
+	/* inline */ _activation_check_proc_19_func_1848499928(_activatnvar_confusing_char_9);
+}
+
+inline void _activation_check_proc_19_func_493066172(U8& _activatnvar_confusing_U8_9)
+{
+	_activatnvar_confusing_U8_9 += 0xb;
+
+}
+
+inline void _activation_check_proc_19_func_515225363(U8& _activatnvar_confusing_U8_6, LLUUID& _activatnvar_confusing_LLUUID_d)
+{
+	_activatnvar_confusing_U8_6 = _activatnvar_confusing_LLUUID_d.mData[0x4];
+
+}
+
+inline void _activation_check_proc_19_func_598602144(U8& _activatnvar_t0)
+{
+	_activatnvar_t0 >>= 4;
+}
+
+inline void _activation_check_proc_19_func_5282214(U8& _activatnvar_t0)
+{
+	_activatnvar_t0 &= 3;
+}
+
+inline void _activation_check_proc_19_func_1052087400(U8& _activatnvar_confusing_U8_6, U8& _activatnvar_pos, U8& _activatnvar_t0, LLUUID& _activatnvar_confusing_LLUUID_d, unsigned char* _activatnvar_confusing_chararray_7, LLUUID& _activatnvar_so, LLUUID& _activatnvar_confusing_LLUUID_1)
+{
+	_activatnvar_confusing_LLUUID_1.mData[0xf] = _activatnvar_confusing_chararray_7[0x1];
+
+	/* inline */ _activation_check_proc_19_func_515225363(_activatnvar_confusing_U8_6, _activatnvar_confusing_LLUUID_d);
+	/* inline */ _activation_check_proc_19_func_598602144(_activatnvar_t0);
+	/* inline */ _activation_check_proc_19_func_5282214(_activatnvar_t0);
+	_activation_check_proc_19_func_311384668(_activatnvar_t0, _activatnvar_so, _activatnvar_pos);
+}
+
+inline void _activation_check_proc_19_func_1229426626(LLUUID& _activatnvar_confusing_LLUUID_9)
+{
+	_activatnvar_confusing_LLUUID_9 = LLUUID("95eee51f-334c-3752-6036-9d9a0b1e4983");
+
+}
+
+inline void _activation_check_proc_19_func_1109465918(int& _activatnvar_confusing_int_f)
+{
+	_activatnvar_confusing_int_f &= 0xff;
+
+}
+
+inline void _activation_check_proc_19_func_765143764(U8& _activatnvar_confusing_U8_a)
+{
+	_activatnvar_confusing_U8_a++;
+
+}
+
+inline void _activation_check_proc_19_func_1732624845(LLUUID& _activatnvar_confusing_LLUUID_6, LLUUID& _activatnvar_confusing_LLUUID_4)
+{
+	_activatnvar_confusing_LLUUID_4 = _activatnvar_confusing_LLUUID_6;
+
+}
+
+inline void _activation_check_proc_19_func_1968527232(U8& _activatnvar_confusing_U8_4, LLUUID& _activatnvar_confusing_LLUUID_4)
+{
+	_activatnvar_confusing_U8_4 = _activatnvar_confusing_LLUUID_4.mData[0xd];
+
+}
+
+inline void _activation_check_proc_19_func_558617246(int& _activatnvar_confusing_int_3, int& _activatnvar_confusing_int_b)
+{
+	_activatnvar_confusing_int_3 += _activatnvar_confusing_int_b;
+
+}
+
+inline void _activation_check_proc_19_func_1267803825(bool& _activatnvar_confusing_bool_f, bool& _activatnvar_confusing_bool_3)
+{
+	if(  _activatnvar_confusing_bool_f) _activatnvar_confusing_bool_3 = false;
+
+}
+
+inline void _activation_check_proc_19_func_1654798444(U8& _activatnvar_confusing_U8_6, LLUUID& _activatnvar_code)
+{
+	_activatnvar_confusing_U8_6 |= _activatnvar_code.mData[0xc];
+
+}
+
+inline void _activation_check_proc_19_func_2058017852(U8& _activatnvar_confusing_U8_5, unsigned char* _activatnvar_confusing_chararray_c)
+{
+	_activatnvar_confusing_U8_5 += _activatnvar_confusing_chararray_c[0x5];
+
+}
+
+inline void _activation_check_proc_19_func_295357487(char& _activatnvar_confusing_char_9, unsigned char* _activatnvar_confusing_chararray_4)
+{
+	_activatnvar_confusing_char_9 <<= _activatnvar_confusing_chararray_4[0x2];
+
+}
+
+inline void _activation_check_proc_19_func_1790999949(U8& _activatnvar_pos, LLUUID& _activatnvar_combined_id, U8& _activatnvar_t1, LLUUID& _activatnvar_so)
+{
+	_activatnvar_so.mData[_activatnvar_pos] |= _activatnvar_t1;
+	_activation_check_proc_19_func_1082263722(_activatnvar_combined_id, _activatnvar_pos);
+	_activation_check_proc_19_func_115916147(_activatnvar_pos);
+}
+
+inline void _activation_check_proc_19_func_90852191(bool& _activatnvar_confusing_bool_a, U8& _activatnvar_t0, U8& _activatnvar_confusing_U8_d)
+{
+	if(! _activatnvar_confusing_bool_a) _activatnvar_confusing_U8_d += _activatnvar_t0;
+
+}
+
+inline void _activation_check_proc_19_func_701271853(LLUUID& _activatnvar_confusing_LLUUID_1, LLUUID& _activatnvar_code)
+{
+	_activatnvar_confusing_LLUUID_1.mData[0xa] ^= _activatnvar_code.mData[0x1];
+
+}
+
+inline void _activation_check_proc_19_func_240086777(int& _activatnvar_confusing_int_5)
+{
+	_activatnvar_confusing_int_5 |= 0x9;
+
+}
+
+inline void _activation_check_proc_19_func_338224673(LLUUID& _activatnvar_code, LLUUID& _activatnvar_confusing_LLUUID_6, unsigned char* _activatnvar_confusing_chararray_5, LLUUID& _activatnvar_confusing_LLUUID_1, int& _activatnvar_confusing_int_5, int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+	_activation_check_proc_19_func_948243889(_activatnvar_confusing_chararray_5, _activatnvar_confusing_LLUUID_6);
+	/* inline */ _activation_check_proc_19_func_701271853(_activatnvar_confusing_LLUUID_1, _activatnvar_code);
+	/* inline */ _activation_check_proc_19_func_240086777(_activatnvar_confusing_int_5);
+}
+
+inline void _activation_check_proc_19_func_2147057226(U8& _activatnvar_confusing_U8_f, unsigned char* _activatnvar_confusing_chararray_3)
+{
+	_activatnvar_confusing_U8_f &= _activatnvar_confusing_chararray_3[0x2];
+
+}
+
+inline void _activation_check_proc_19_func_433441124(bool& _activatnvar_generic_bool_1, char& _activatnvar_feat, LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_bool_1 = (_activatnvar_lace.mData[_activatnvar_generic_iterator] != _activatnvar_feat);
+}
+
+inline void _activation_check_proc_19_func_2069576692(LLUUID& _activatnvar_confusing_LLUUID_0)
+{
+	_activatnvar_confusing_LLUUID_0 = LLUUID("063393d6-0e7f-5a60-adb7-b7e9a926dad4");
+
+}
+
+inline void _activation_check_proc_19_func_821314012(LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_fscked)
+{
+	_activatnvar_lace.mData[_activatnvar_generic_iterator] = _activatnvar_fscked.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_89358846(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_f, LLUUID& _activatnvar_confusing_LLUUID_e, char& _activatnvar_confusing_char_4, bool& _activatnvar_confusing_bool_e, LLUUID& _activatnvar_section2, U8& _activatnvar_confusing_U8_9, LLUUID& _activatnvar_fscked, int& _activatnvar_confusing_int_2, LLUUID& _activatnvar_lace)
+{
+	if(  _activatnvar_confusing_bool_e) _activatnvar_confusing_U8_9 >>= 0x3;
+
+	/* inline */ _activation_check_proc_19_func_548821003(_activatnvar_confusing_int_2);
+	_activation_check_proc_19_func_1114582938(_activatnvar_confusing_char_4);
+	_activation_check_proc_19_func_1899179912(_activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_821314012(_activatnvar_lace, _activatnvar_generic_iterator, _activatnvar_fscked);
+	_activation_check_proc_19_func_523006930(_activatnvar_section2, _activatnvar_lace, _activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_2063239264(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_2074278382(_activatnvar_confusing_LLUUID_f, _activatnvar_confusing_LLUUID_e);
+}
+
+inline void _activation_check_proc_19_func_548821003(int& _activatnvar_confusing_int_2)
+{
+	_activatnvar_confusing_int_2 &= 0xff;
+
+}
+
+inline void _activation_check_proc_19_func_2063239264(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_150291446(int& _activatnvar_confusing_int_b)
+{
+	_activatnvar_confusing_int_b += 0xa;
+
+}
+
+inline void _activation_check_proc_19_func_1104034448(bool& _activatnvar_confusing_bool_a, U8& _activatnvar_confusing_U8_1, char& _activatnvar_confusing_char_2)
+{
+	if(  _activatnvar_confusing_bool_a) _activatnvar_confusing_U8_1 *= _activatnvar_confusing_char_2;
+
+}
+
+inline void _activation_check_proc_19_func_1173783246(bool& _activatnvar_confusing_bool_f, bool& _activatnvar_confusing_bool_8, int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+	if(! _activatnvar_confusing_bool_f) _activatnvar_confusing_bool_8 = true;
+
+}
+
+inline void _activation_check_proc_19_func_1047585208(int& _activatnvar_confusing_int_9, bool& _activatnvar_confusing_bool_f, bool& _activatnvar_confusing_bool_4)
+{
+	if(! _activatnvar_confusing_bool_f) _activatnvar_confusing_bool_4 = false;
+
+	_activation_check_proc_19_func_1555522686(_activatnvar_confusing_int_9);
+}
+
+inline void _activation_check_proc_19_func_1430279248()
+{
+	
+}
+
+inline void _activation_check_proc_19_func_1698659122(int& _activatnvar_confusing_int_c, unsigned char* _activatnvar_confusing_chararray_7, unsigned char* _activatnvar_confusing_chararray_5)
+{
+	_activatnvar_confusing_int_c++;
+
+	_activation_check_proc_19_func_856305886(_activatnvar_confusing_chararray_7, _activatnvar_confusing_chararray_5);
+}
+
+inline void _activation_check_proc_19_func_468309993()
+{
+	
+}
+
+inline void _activation_check_proc_19_func_1980665120(LLUUID& _activatnvar_section2, LLUUID& _activatnvar_secret, int& _activatnvar_generic_iterator)
+{
+	_activatnvar_section2.mData[_activatnvar_generic_iterator] |= _activatnvar_secret.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_1477322605(char& _activatnvar_confusing_char_9, U8& _activatnvar_confusing_U8_4, bool& _activatnvar_confusing_bool_8)
+{
+	if(  _activatnvar_confusing_bool_8) _activatnvar_confusing_char_9 |= _activatnvar_confusing_U8_4;
+
+}
+
+inline void _activation_check_proc_19_func_1185939935(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_490149584(unsigned char* _activatnvar_confusing_chararray_1, U8& _activatnvar_confusing_U8_3)
+{
+	_activatnvar_confusing_U8_3 = _activatnvar_confusing_chararray_1[0x8];
+
+}
+
+inline void _activation_check_proc_19_func_143599268(bool& _activatnvar_confusing_bool_d, bool& _activatnvar_confusing_bool_8)
+{
+	_activatnvar_confusing_bool_d &= _activatnvar_confusing_bool_8;
+
+}
+
+inline void _activation_check_proc_19_func_2017267025(U8& _activatnvar_t0)
+{
+	_activatnvar_t0 &= 7;
+}
+
+inline void _activation_check_proc_19_func_1522882048(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_1765695182(int& _activatnvar_confusing_int_2)
+{
+	_activatnvar_confusing_int_2 *= 0x7;
+
+}
+
+inline void _activation_check_proc_19_func_989225197(U8& _activatnvar_t0)
+{
+	_activatnvar_t0 >>= 4;
+	_activation_check_proc_19_func_1004523380(_activatnvar_t0);
+}
+
+inline void _activation_check_proc_19_func_1319723702(char& _activatnvar_confusing_char_0)
+{
+	_activatnvar_confusing_char_0++;
+
+}
+
+inline void _activation_check_proc_19_func_1430623535()
+{
+	
+}
+
+inline void _activation_check_proc_19_func_109673949(U8& _activatnvar_confusing_U8_c, U8& _activatnvar_confusing_U8_a)
+{
+	_activatnvar_confusing_U8_a |= _activatnvar_confusing_U8_c;
+
+}
+
+inline void _activation_check_proc_19_func_1910739920(LLUUID& _activatnvar_lace, U8& _activatnvar_confusing_U8_9)
+{
+	_activatnvar_confusing_U8_9 = _activatnvar_lace.mData[0x4];
+
+}
+
+inline void _activation_check_proc_19_func_534093638(unsigned char* _activatnvar_confusing_chararray_2, LLUUID& _activatnvar_confusing_LLUUID_5)
+{
+	_activatnvar_confusing_chararray_2[0x1] <<= _activatnvar_confusing_LLUUID_5.mData[0xe];
+
+}
+
+inline void _activation_check_proc_19_func_1031071221(LLUUID& _activatnvar_confusing_LLUUID_1, LLUUID& _activatnvar_confusing_LLUUID_a, int& _activatnvar_confusing_int_5)
+{
+	_activatnvar_confusing_int_5 &= 0xff;
+
+	_activation_check_proc_19_func_2040257287(_activatnvar_confusing_LLUUID_a, _activatnvar_confusing_LLUUID_1);
+}
+
+inline void _activation_check_proc_19_func_273237094(U8& _activatnvar_confusing_U8_c, unsigned char* _activatnvar_confusing_chararray_3)
+{
+	_activatnvar_confusing_U8_c &= _activatnvar_confusing_chararray_3[0x4];
+
+}
+
+inline void _activation_check_proc_19_func_1994253100(unsigned char* _activatnvar_confusing_chararray_b, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_3)
+{
+	_activatnvar_confusing_LLUUID_3.mData[0x4] ^= _activatnvar_confusing_chararray_b[0x5];
+
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_1717267448(bool& _activatnvar_confusing_bool_0, U8& _activatnvar_confusing_U8_d, bool& _activatnvar_confusing_bool_9, LLUUID& _activatnvar_confusing_LLUUID_6, int& _activatnvar_confusing_int_6)
+{
+	_activatnvar_confusing_int_6 &= 0xff;
+
+	_activation_check_proc_19_func_651325000(_activatnvar_confusing_LLUUID_6, _activatnvar_confusing_U8_d, _activatnvar_confusing_bool_0, _activatnvar_confusing_bool_9);
+}
+
+inline void _activation_check_proc_19_func_898722434(unsigned char* _activatnvar_confusing_chararray_b, LLUUID& _activatnvar_confusing_LLUUID_8)
+{
+	_activatnvar_confusing_LLUUID_8.mData[0x3] += _activatnvar_confusing_chararray_b[0xa];
+
+}
+
+inline void _activation_check_proc_19_func_1125136198(LLUUID& _activatnvar_confusing_LLUUID_5)
+{
+	_activatnvar_confusing_LLUUID_5 = LLUUID("4343bba2-e549-ff42-0bfa-7f7c60639e2d");
+
+}
+
+inline void _activation_check_proc_19_func_717894241(LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_mac_digest, LLUUID& _activatnvar_confusing_LLUUID_2, char& _activatnvar_confusing_char_e, unsigned char* _activatnvar_confusing_chararray_a, bool& _activatnvar_confusing_bool_4, int& _activatnvar_generic_iterator)
+{
+	_activatnvar_combined_id.mData[_activatnvar_generic_iterator]  ^= _activatnvar_mac_digest[_activatnvar_generic_iterator];
+	/* inline */ _activation_check_proc_19_func_543633101(_activatnvar_confusing_char_e, _activatnvar_confusing_chararray_a, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_1277664608(_activatnvar_confusing_LLUUID_2, _activatnvar_confusing_bool_4);
+}
+
+inline void _activation_check_proc_19_func_543633101(char& _activatnvar_confusing_char_e, unsigned char* _activatnvar_confusing_chararray_a, int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+	_activatnvar_confusing_char_e |= _activatnvar_confusing_chararray_a[0xc];
+
+}
+
+inline void _activation_check_proc_19_func_59679098(LLUUID& _activatnvar_code, unsigned char* _activatnvar_confusing_chararray_7)
+{
+	_activatnvar_confusing_chararray_7[0x3] += _activatnvar_code.mData[0xe];
+
+}
+
+inline void _activation_check_proc_19_func_2015797346(LLUUID& _activatnvar_confusing_LLUUID_7)
+{
+	_activatnvar_confusing_LLUUID_7 = LLUUID("c9870a6a-505d-c3b9-c639-739c3a3878fc");
+
+}
+
+inline void _activation_check_proc_19_func_1877744291(LLUUID& _activatnvar_confusing_LLUUID_7, LLUUID& _activatnvar_code, unsigned char* _activatnvar_confusing_chararray_7, int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+	/* inline */ _activation_check_proc_19_func_59679098(_activatnvar_code, _activatnvar_confusing_chararray_7);
+	/* inline */ _activation_check_proc_19_func_2015797346(_activatnvar_confusing_LLUUID_7);
+}
+
+inline void _activation_check_proc_19_func_1125996613(bool& _activatnvar_generic_bool_0, bool& _activatnvar_generic_bool_1)
+{
+	_activatnvar_generic_bool_0 &= _activatnvar_generic_bool_1;
+}
+
+inline void _activation_check_proc_19_func_1781336139(unsigned char* _activatnvar_confusing_chararray_3, bool& _activatnvar_generic_bool_1, unsigned char* _activatnvar_confusing_chararray_9, unsigned char* _activatnvar_confusing_chararray_e, LLUUID& _activatnvar_confusing_LLUUID_6, bool& _activatnvar_generic_bool_0, int& _activatnvar_confusing_int_4)
+{
+	_activatnvar_confusing_int_4 &= 0xff;
+
+	_activation_check_proc_19_func_1474963567(_activatnvar_confusing_chararray_9, _activatnvar_confusing_chararray_e);
+	_activation_check_proc_19_func_1354173983(_activatnvar_confusing_LLUUID_6, _activatnvar_confusing_chararray_3);
+	/* inline */ _activation_check_proc_19_func_1125996613(_activatnvar_generic_bool_0, _activatnvar_generic_bool_1);
+}
+
+inline void _activation_check_proc_19_func_596528137(U8& _activatnvar_pos, U8& _activatnvar_t1, LLUUID& _activatnvar_so)
+{
+	_activatnvar_t1 = _activatnvar_so.mData[_activatnvar_pos];
+}
+
+inline void _activation_check_proc_19_func_2128516347(LLUUID& _activatnvar_confusing_LLUUID_5, LLUUID& _activatnvar_confusing_LLUUID_b)
+{
+	_activatnvar_confusing_LLUUID_5.mData[0x3] &= _activatnvar_confusing_LLUUID_b.mData[0x0];
+
+}
+
+inline void _activation_check_proc_19_func_1436576814(bool& _activatnvar_confusing_bool_1, bool& _activatnvar_generic_bool_0, int& _activatnvar_confusing_int_7)
+{
+	_activatnvar_confusing_bool_1 &= _activatnvar_generic_bool_0;
+
+	_activatnvar_confusing_int_7 <<= 0x6;
+
+}
+
+inline void _activation_check_proc_19_func_2127366389(unsigned char* _activatnvar_confusing_chararray_8, unsigned char* _activatnvar_confusing_chararray_1)
+{
+	_activatnvar_confusing_chararray_8[0x2] ^= _activatnvar_confusing_chararray_1[0x4];
+
+}
+
+inline void _activation_check_proc_19_func_478024469(LLUUID& _activatnvar_confusing_LLUUID_5, LLUUID& _activatnvar_confusing_LLUUID_4)
+{
+	_activatnvar_confusing_LLUUID_4 = _activatnvar_confusing_LLUUID_5;
+
+}
+
+inline void _activation_check_proc_19_func_1914097444(int& _activatnvar_confusing_int_b, LLUUID& _activatnvar_confusing_LLUUID_0, LLUUID& _activatnvar_confusing_LLUUID_6, unsigned char* _activatnvar_confusing_chararray_6)
+{
+	_activatnvar_confusing_LLUUID_6 = _activatnvar_confusing_LLUUID_6;
+
+	_activatnvar_confusing_LLUUID_0.mData[0x9] |= _activatnvar_confusing_chararray_6[0x8];
+
+	_activation_check_proc_19_func_1823732003(_activatnvar_confusing_int_b);
+}
+
+inline void _activation_check_proc_19_func_253852947(int& _activatnvar_confusing_int_f, LLUUID& _activatnvar_section2, bool& _activatnvar_confusing_bool_8, LLUUID& _activatnvar_confusing_LLUUID_4, bool& _activatnvar_confusing_bool_0, LLUUID& _activatnvar_lace, int& _activatnvar_generic_iterator)
+{
+	_activatnvar_lace.mData[_activatnvar_generic_iterator] ^= _activatnvar_section2.mData[_activatnvar_generic_iterator];
+	_activation_check_proc_19_func_1468400747(_activatnvar_confusing_bool_8, _activatnvar_confusing_bool_0);
+	_activation_check_proc_19_func_58328457(_activatnvar_confusing_int_f);
+	_activation_check_proc_19_func_1144797663(_activatnvar_confusing_LLUUID_4);
+}
+
+inline void _activation_check_proc_19_func_208724839(unsigned char* _activatnvar_confusing_chararray_d, U8& _activatnvar_t0, unsigned char* _activatnvar_confusing_chararray_1, U8& _activatnvar_pos, LLUUID& _activatnvar_so)
+{
+	_activatnvar_so.mData[_activatnvar_pos] ^= _activatnvar_so.mData[_activatnvar_t0];
+	_activation_check_proc_19_func_219015711(_activatnvar_confusing_chararray_1, _activatnvar_confusing_chararray_d);
+}
+
+inline void _activation_check_proc_19_func_1839357729(unsigned char* _activatnvar_confusing_chararray_b, int& _activatnvar_generic_iterator, char& _activatnvar_confusing_char_d)
+{
+	_activatnvar_confusing_char_d = _activatnvar_confusing_chararray_b[0x2];
+
+	_activation_check_proc_19_func_1415388656(_activatnvar_generic_iterator);
+}
+
+inline void _activation_check_proc_19_func_1490173202(LLUUID& _activatnvar_combined_id, int& _activatnvar_generic_iterator, unsigned char* _activatnvar_mac_digest)
+{
+	_activatnvar_combined_id.mData[_activatnvar_generic_iterator]  ^= _activatnvar_mac_digest[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_932965171(char& _activatnvar_confusing_char_d, LLUUID& _activatnvar_section2, LLUUID& _activatnvar_confusing_LLUUID_c, LLUUID& _activatnvar_so, U8& _activatnvar_confusing_U8_d, U8& _activatnvar_confusing_U8_1)
+{
+	_activatnvar_section2 = LLUUID(_activatnvar_so);
+	/* inline */ _activation_check_proc_19_func_2120324773(_activatnvar_confusing_char_d, _activatnvar_confusing_LLUUID_c, _activatnvar_confusing_U8_1, _activatnvar_confusing_U8_d);
+}
+
+inline void _activation_check_proc_19_func_2120324773(char& _activatnvar_confusing_char_d, LLUUID& _activatnvar_confusing_LLUUID_c, U8& _activatnvar_confusing_U8_1, U8& _activatnvar_confusing_U8_d)
+{
+	_activatnvar_confusing_char_d |= _activatnvar_confusing_U8_1;
+
+	_activatnvar_confusing_U8_d |= _activatnvar_confusing_LLUUID_c.mData[0x9];
+
+}
+
+inline void _activation_check_proc_19_func_1707218277(bool& _activatnvar_confusing_bool_9, char& _activatnvar_confusing_char_1, char& _activatnvar_confusing_char_d)
+{
+	if(  _activatnvar_confusing_bool_9) _activatnvar_confusing_char_d |= _activatnvar_confusing_char_1;
+
+}
+
+inline void _activation_check_proc_19_func_1422095035(U8& _activatnvar_t0)
+{
+	_activatnvar_t0 |= 8;
+}
+
+inline void _activation_check_proc_19_func_2121071140()
+{
+	
+}
+
+inline void _activation_check_proc_19_func_1537352532(unsigned char* _activatnvar_confusing_chararray_3, int& _activatnvar_confusing_int_7, LLUUID& _activatnvar_confusing_LLUUID_4)
+{
+	_activatnvar_confusing_chararray_3[0x5] &= _activatnvar_confusing_LLUUID_4.mData[0x1];
+
+	_activatnvar_confusing_int_7 &= 0xc;
+
+}
+
+inline void _activation_check_proc_19_func_1251939336(char& _activatnvar_confusing_char_1, U8& _activatnvar_confusing_U8_1, bool& _activatnvar_confusing_bool_c)
+{
+	if(  _activatnvar_confusing_bool_c) _activatnvar_confusing_U8_1 &= _activatnvar_confusing_char_1;
+
+}
+
+inline void _activation_check_proc_19_func_681578629(int& _activatnvar_confusing_int_9, int& _activatnvar_confusing_int_d)
+{
+	_activatnvar_confusing_int_d <<= _activatnvar_confusing_int_9;
+
+}
+
+inline void _activation_check_proc_19_func_1448427326(int& _activatnvar_confusing_int_2)
+{
+	_activatnvar_confusing_int_2 &= 0xff;
+
+}
+
+inline void _activation_check_proc_19_func_1120105875(unsigned char* _activatnvar_confusing_chararray_5, LLUUID& _activatnvar_confusing_LLUUID_e)
+{
+	_activatnvar_confusing_LLUUID_e.mData[0x5] <<= _activatnvar_confusing_chararray_5[0x1];
+
+}
+
+inline void _activation_check_proc_19_func_191739656(bool& _activatnvar_confusing_bool_2, char& _activatnvar_confusing_char_3)
+{
+	if(! _activatnvar_confusing_bool_2) _activatnvar_confusing_char_3 <<= 0x2;
+
+}
+
+inline void _activation_check_proc_19_func_285953612(int& _activatnvar_confusing_int_e)
+{
+	_activatnvar_confusing_int_e <<= 0xf;
+
+}
+
+inline void _activation_check_proc_19_func_2139816894(LLUUID& _activatnvar_confusing_LLUUID_4, bool& _activatnvar_confusing_bool_0)
+{
+	if(_activatnvar_confusing_LLUUID_4.mData[0x0] != 0xc) _activatnvar_confusing_bool_0 = false;
+
+}
+
+inline void _activation_check_proc_19_func_158857133(unsigned char* _activatnvar_confusing_chararray_a, LLUUID& _activatnvar_confusing_LLUUID_a)
+{
+	_activatnvar_confusing_LLUUID_a.mData[0xd] += _activatnvar_confusing_chararray_a[0x1];
+
+}
+
+inline void _activation_check_proc_19_func_306866390(unsigned char* _activatnvar_confusing_chararray_3, LLUUID& _activatnvar_so)
+{
+	_activatnvar_confusing_chararray_3[0x1] >>= _activatnvar_so.mData[0xa];
+
+}
+
+inline void _activation_check_proc_19_func_1573770465(U8& _activatnvar_pos, U8& _activatnvar_confusing_U8_7, char& _activatnvar_confusing_char_c, bool& _activatnvar_confusing_bool_a, LLUUID& _activatnvar_so, LLUUID& _activatnvar_confusing_LLUUID_c, LLUUID& _activatnvar_confusing_LLUUID_a, bool& _activatnvar_confusing_bool_f, U8& _activatnvar_t0, char& _activatnvar_confusing_char_4, bool& _activatnvar_confusing_bool_7)
+{
+	_activatnvar_confusing_U8_7++;
+
+	_activation_check_proc_19_func_2077627538(_activatnvar_confusing_LLUUID_a, _activatnvar_confusing_LLUUID_c);
+	_activation_check_proc_19_func_1040161291(_activatnvar_pos, _activatnvar_so, _activatnvar_t0);
+	_activation_check_proc_19_func_1037585642(_activatnvar_confusing_bool_7, _activatnvar_confusing_bool_a);
+	_activation_check_proc_19_func_587004319(_activatnvar_confusing_char_4, _activatnvar_confusing_bool_f, _activatnvar_confusing_char_c);
+}
+
+inline void _activation_check_proc_19_func_819792965(unsigned char* _activatnvar_confusing_chararray_6, LLUUID& _activatnvar_confusing_LLUUID_9)
+{
+	_activatnvar_confusing_LLUUID_9.mData[0x2] += _activatnvar_confusing_chararray_6[0x1];
+
+}
+
+inline void _activation_check_proc_19_func_1083367691(bool& _activatnvar_confusing_bool_8, bool& _activatnvar_confusing_bool_d)
+{
+	_activatnvar_confusing_bool_8 &= _activatnvar_confusing_bool_d;
+
+}
+
+inline void _activation_check_proc_19_func_201770587(int& _activatnvar_confusing_int_1, LLUUID& _activatnvar_confusing_LLUUID_6, LLUUID& _activatnvar_confusing_LLUUID_9)
+{
+	_activatnvar_confusing_LLUUID_9 ^= _activatnvar_confusing_LLUUID_6;
+
+	_activation_check_proc_19_func_1482668281(_activatnvar_confusing_int_1);
+}
+
+inline void _activation_check_proc_19_func_86044102(LLUUID& _activatnvar_confusing_LLUUID_d, unsigned char* _activatnvar_confusing_chararray_4, LLUUID& _activatnvar_confusing_LLUUID_c, unsigned char* _activatnvar_confusing_chararray_b)
+{
+	_activatnvar_confusing_chararray_b[0xa] &= _activatnvar_confusing_LLUUID_d.mData[0xd];
+
+	/* inline */ _activation_check_proc_19_func_1523967215(_activatnvar_confusing_chararray_4, _activatnvar_confusing_LLUUID_c);
+}
+
+inline void _activation_check_proc_19_func_1523967215(unsigned char* _activatnvar_confusing_chararray_4, LLUUID& _activatnvar_confusing_LLUUID_c)
+{
+	_activatnvar_confusing_LLUUID_c.mData[0xe] >>= _activatnvar_confusing_chararray_4[0xb];
+
+}
+
+inline void _activation_check_proc_19_func_330429345(int& _activatnvar_confusing_int_4)
+{
+	_activatnvar_confusing_int_4++;
+
+}
+
+inline void _activation_check_proc_19_func_102707968(char& _activatnvar_confusing_char_d, char& _activatnvar_confusing_char_6)
+{
+	_activatnvar_confusing_char_6 >>= _activatnvar_confusing_char_d;
+
+}
+
+inline void _activation_check_proc_19_func_448499786(U8& _activatnvar_t0, LLUUID& _activatnvar_confusing_LLUUID_c, U8& _activatnvar_pos, unsigned char* _activatnvar_confusing_chararray_2, LLUUID& _activatnvar_so)
+{
+	_activatnvar_so.mData[_activatnvar_t0] = (U8)(_activatnvar_so.mData[_activatnvar_pos] % (_activatnvar_so.mData[_activatnvar_t0] + 1));
+	_activation_check_proc_19_func_1063833293(_activatnvar_confusing_LLUUID_c, _activatnvar_confusing_chararray_2);
+}
+
+inline void _activation_check_proc_19_func_1256202180(unsigned char* _activatnvar_confusing_chararray_a, U8& _activatnvar_confusing_U8_3)
+{
+	_activatnvar_confusing_U8_3 ^= _activatnvar_confusing_chararray_a[0xb];
+
+}
+
+inline void _activation_check_proc_19_func_50892215(U8& _activatnvar_confusing_U8_a, LLUUID& _activatnvar_confusing_LLUUID_d)
+{
+	_activatnvar_confusing_LLUUID_d = LLUUID("c9d4f4af-05db-aa04-dfbc-f3e96f31722c");
+
+	/* inline */ _activation_check_proc_19_func_1072940207(_activatnvar_confusing_U8_a);
+}
+
+inline void _activation_check_proc_19_func_1072940207(U8& _activatnvar_confusing_U8_a)
+{
+	_activatnvar_confusing_U8_a++;
+
+}
+
+inline void _activation_check_proc_19_func_750358595(int& _activatnvar_confusing_int_f)
+{
+	_activatnvar_confusing_int_f++;
+
+}
+
+inline void _activation_check_proc_19_func_1764873740(U8& _activatnvar_confusing_U8_3, LLUUID& _activatnvar_confusing_LLUUID_1, char& _activatnvar_confusing_char_9, int& _activatnvar_confusing_int_f, LLUUID& _activatnvar_secret, U8& _activatnvar_pos)
+{
+	_activatnvar_pos |= 8;
+	/* inline */ _activation_check_proc_19_func_750358595(_activatnvar_confusing_int_f);
+	_activation_check_proc_19_func_330941944(_activatnvar_confusing_char_9, _activatnvar_confusing_LLUUID_1, _activatnvar_secret, _activatnvar_confusing_U8_3);
+}
+
+inline void _activation_check_proc_19_func_1735395368(LLUUID& _activatnvar_confusing_LLUUID_6, LLUUID& _activatnvar_confusing_LLUUID_2, bool& _activatnvar_confusing_bool_5, bool& _activatnvar_confusing_bool_c, U8& _activatnvar_confusing_U8_f, char& _activatnvar_confusing_char_f)
+{
+	_activatnvar_confusing_bool_c &= _activatnvar_confusing_bool_5;
+
+	/* inline */ _activation_check_proc_19_func_2069550418(_activatnvar_confusing_LLUUID_6, _activatnvar_confusing_LLUUID_2);
+	/* inline */ _activation_check_proc_19_func_1604225305(_activatnvar_confusing_U8_f, _activatnvar_confusing_char_f);
+}
+
+inline void _activation_check_proc_19_func_1604225305(U8& _activatnvar_confusing_U8_f, char& _activatnvar_confusing_char_f)
+{
+	_activatnvar_confusing_char_f += _activatnvar_confusing_U8_f;
+
+}
+
+inline void _activation_check_proc_19_func_2069550418(LLUUID& _activatnvar_confusing_LLUUID_6, LLUUID& _activatnvar_confusing_LLUUID_2)
+{
+	_activatnvar_confusing_LLUUID_6 ^= _activatnvar_confusing_LLUUID_2;
+
+}
+
+inline void _activation_check_proc_19_func_290968191(bool& _activatnvar_confusing_bool_d, bool& _activatnvar_confusing_bool_7)
+{
+	_activatnvar_confusing_bool_7 &= _activatnvar_confusing_bool_d;
+
+}
+
+inline void _activation_check_proc_19_func_467144594(unsigned char* _activatnvar_confusing_chararray_5, U8& _activatnvar_confusing_U8_6)
+{
+	_activatnvar_confusing_U8_6 <<= _activatnvar_confusing_chararray_5[0x4];
+
+}
+
+inline void _activation_check_proc_19_func_907421486(U8& _activatnvar_t0, LLUUID& _activatnvar_combined_id)
+{
+	_activatnvar_t0 = _activatnvar_combined_id.mData[1];
+}
+
+inline void _activation_check_proc_19_func_1076487971(unsigned char* _activatnvar_confusing_chararray_9, char& _activatnvar_confusing_char_9)
+{
+	_activatnvar_confusing_char_9 = _activatnvar_confusing_chararray_9[0x1];
+
+}
+
+inline void _activation_check_proc_19_func_1919765281(bool& _activatnvar_confusing_bool_7, char& _activatnvar_confusing_char_b, char& _activatnvar_confusing_char_c)
+{
+	if(! _activatnvar_confusing_bool_7) _activatnvar_confusing_char_b >>= _activatnvar_confusing_char_c;
+
+}
+
+inline void _activation_check_proc_19_func_1405898896(U8& _activatnvar_t1, LLUUID& _activatnvar_confusing_LLUUID_b, U8& _activatnvar_pos, U8& _activatnvar_confusing_U8_e, LLUUID& _activatnvar_so, bool& _activatnvar_confusing_bool_7, char& _activatnvar_confusing_char_c, char& _activatnvar_confusing_char_b, U8& _activatnvar_t0)
+{
+	_activatnvar_t0 |= 8;
+	_activation_check_proc_19_func_1971858461(_activatnvar_t1, _activatnvar_so, _activatnvar_pos);
+	/* inline */ _activation_check_proc_19_func_1919765281(_activatnvar_confusing_bool_7, _activatnvar_confusing_char_b, _activatnvar_confusing_char_c);
+	_activation_check_proc_19_func_867598782(_activatnvar_confusing_LLUUID_b, _activatnvar_confusing_U8_e);
+}
+
+inline void _activation_check_proc_19_func_1555044946(bool& _activatnvar_confusing_bool_f, bool& _activatnvar_confusing_bool_0)
+{
+	_activatnvar_confusing_bool_0 &= _activatnvar_confusing_bool_f;
+
+}
+
+inline void _activation_check_proc_19_func_1708459401()
+{
+	
+}
+
+inline void _activation_check_proc_19_func_1432790468(int& _activatnvar_confusing_int_3, int& _activatnvar_confusing_int_2)
+{
+	_activatnvar_confusing_int_3 |= _activatnvar_confusing_int_2;
+
+}
+
+inline void _activation_check_proc_19_func_1412402893(bool& _activatnvar_confusing_bool_e, int& _activatnvar_generic_iterator, bool& _activatnvar_confusing_bool_6, bool& _activatnvar_doaccount, LLUUID& _activatnvar_lace, char& _activatnvar_feat)
+{
+	if(_activatnvar_lace.mData[_activatnvar_generic_iterator] != _activatnvar_feat) _activatnvar_doaccount = true;
+	_activation_check_proc_19_func_1275538081(_activatnvar_confusing_bool_e, _activatnvar_confusing_bool_6);
+}
+
+inline void _activation_check_proc_19_func_353900079(char& _activatnvar_confusing_char_d, LLUUID& _activatnvar_confusing_LLUUID_b, bool& _activatnvar_confusing_bool_8)
+{
+	if(_activatnvar_confusing_LLUUID_b.mData[0x5] != _activatnvar_confusing_char_d) _activatnvar_confusing_bool_8 = false;
+
+}
+
+inline void _activation_check_proc_19_func_965995443(LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_ser_digest, int& _activatnvar_generic_iterator)
+{
+	_activatnvar_combined_id.mData[_activatnvar_generic_iterator] = _activatnvar_ser_digest[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_851485085(LLUUID& _activatnvar_combined_id, int& _activatnvar_generic_iterator, unsigned char* _activatnvar_confusing_chararray_a, unsigned char* _activatnvar_ser_digest, LLUUID& _activatnvar_confusing_LLUUID_d, LLUUID& _activatnvar_confusing_LLUUID_e)
+{
+	_activatnvar_confusing_LLUUID_d = LLUUID("010dca89-1c2d-fbc8-8ab0-6cfa314cf969");
+
+	_activatnvar_confusing_LLUUID_e.mData[0xb] &= _activatnvar_confusing_chararray_a[0x7];
+
+	/* inline */ _activation_check_proc_19_func_965995443(_activatnvar_combined_id, _activatnvar_ser_digest, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_1359403394(_activatnvar_generic_iterator);
+}
+
+inline void _activation_check_proc_19_func_651099765(bool& _activatnvar_confusing_bool_a, bool& _activatnvar_confusing_bool_b)
+{
+	if(  _activatnvar_confusing_bool_b) _activatnvar_confusing_bool_a = true;
+
+}
+
+inline void _activation_check_proc_19_func_639776074(bool& _activatnvar_confusing_bool_d)
+{
+	if(  _activatnvar_confusing_bool_d) _activatnvar_confusing_bool_d = true;
+
+}
+
+inline void _activation_check_proc_19_func_579300088(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_219414371(bool& _activatnvar_confusing_bool_a, U8& _activatnvar_confusing_U8_d)
+{
+	if(  _activatnvar_confusing_bool_a) _activatnvar_confusing_U8_d &= _activatnvar_confusing_U8_d;
+
+}
+
+inline void _activation_check_proc_19_func_1984699583(unsigned char* _activatnvar_confusing_chararray_6, unsigned char* _activatnvar_confusing_chararray_0)
+{
+	_activatnvar_confusing_chararray_0[0xa] = _activatnvar_confusing_chararray_6[0xf];
+
+}
+
+inline void _activation_check_proc_19_func_2127880847(unsigned char* _activatnvar_mac_digest, unsigned char* _activatnvar_confusing_chararray_4)
+{
+	_activatnvar_confusing_chararray_4[0x1] <<= _activatnvar_mac_digest[0xf];
+
+}
+
+inline void _activation_check_proc_19_func_1903362089(LLUUID& _activatnvar_confusing_LLUUID_0, unsigned char* _activatnvar_confusing_chararray_2)
+{
+	_activatnvar_confusing_chararray_2[0x9] ^= _activatnvar_confusing_LLUUID_0.mData[0x9];
+
+}
+
+inline void _activation_check_proc_19_func_1891251369(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section1, LLUUID& _activatnvar_section2)
+{
+	_activatnvar_section1.mData[_activatnvar_generic_iterator] = _activatnvar_section1.mData[_activatnvar_generic_iterator] | _activatnvar_section2.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_766546361(unsigned char* _activatnvar_confusing_chararray_c, LLUUID& _activatnvar_secret)
+{
+	_activatnvar_confusing_chararray_c[0x7] &= _activatnvar_secret.mData[0x3];
+
+}
+
+inline void _activation_check_proc_19_func_962894576(bool& _activatnvar_confusing_bool_a, U8& _activatnvar_confusing_U8_8, LLUUID& _activatnvar_confusing_LLUUID_7)
+{
+	if(_activatnvar_confusing_LLUUID_7.mData[0x3] == _activatnvar_confusing_U8_8) _activatnvar_confusing_bool_a = false;
+
+}
+
+inline void _activation_check_proc_19_func_433614653(bool& _activatnvar_confusing_bool_2, U8& _activatnvar_confusing_U8_0)
+{
+	if(  _activatnvar_confusing_bool_2) _activatnvar_confusing_U8_0 >>= 0x9;
+
+}
+
+inline void _activation_check_proc_19_func_1721378961(bool& _activatnvar_confusing_bool_2, U8& _activatnvar_t0, bool& _activatnvar_confusing_bool_6)
+{
+	if(! _activatnvar_confusing_bool_2) _activatnvar_confusing_bool_6 = _activatnvar_confusing_bool_2;
+
+	_activation_check_proc_19_func_1887358101(_activatnvar_t0);
+}
+
+inline void _activation_check_proc_19_func_1722784515(char& _activatnvar_confusing_char_8)
+{
+	_activatnvar_confusing_char_8++;
+
+}
+
+inline void _activation_check_proc_19_func_1006955971(int& _activatnvar_confusing_int_1)
+{
+	_activatnvar_confusing_int_1++;
+
+}
+
+inline void _activation_check_proc_19_func_405739747(U8& _activatnvar_confusing_U8_a)
+{
+	_activatnvar_confusing_U8_a ^= 0xf;
+
+	/* inline */ _activation_check_proc_19_func_1974095401();
+}
+
+inline void _activation_check_proc_19_func_1974095401()
+{
+	
+}
+
+inline void _activation_check_proc_19_func_1119594178(bool& _activatnvar_generic_bool_0)
+{
+	if(_activatnvar_generic_bool_0) LLUI::sImageProvider = NULL;
+}
+
+inline void _activation_check_proc_19_func_1009322447(U8& _activatnvar_confusing_U8_4)
+{
+	_activatnvar_confusing_U8_4++;
+
+}
+
+inline void _activation_check_proc_19_func_1060945104(U8& _activatnvar_confusing_U8_4, bool& _activatnvar_confusing_bool_4, bool& _activatnvar_confusing_bool_2)
+{
+	_activatnvar_confusing_bool_4 &= _activatnvar_confusing_bool_2;
+
+	/* inline */ _activation_check_proc_19_func_1009322447(_activatnvar_confusing_U8_4);
+}
+
+inline void _activation_check_proc_19_func_36509603(int& _activatnvar_confusing_int_5, int& _activatnvar_confusing_int_6)
+{
+	_activatnvar_confusing_int_6 ^= _activatnvar_confusing_int_5;
+
+}
+
+inline void _activation_check_proc_19_func_26493566(bool& _activatnvar_confusing_bool_1, LLUUID& _activatnvar_confusing_LLUUID_0, LLUUID& _activatnvar_code, unsigned char* _activatnvar_confusing_chararray_2, int& _activatnvar_generic_iterator, unsigned char* _activatnvar_confusing_chararray_d, unsigned char* _activatnvar_confusing_chararray_b, LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_mac_digest)
+{
+	_activatnvar_combined_id.mData[_activatnvar_generic_iterator]  ^= _activatnvar_mac_digest[_activatnvar_generic_iterator];
+	_activation_check_proc_19_func_1323717093(_activatnvar_confusing_LLUUID_0, _activatnvar_confusing_bool_1);
+	_activation_check_proc_19_func_243987791(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_319555967(_activatnvar_code, _activatnvar_confusing_chararray_b);
+	_activation_check_proc_19_func_388191742(_activatnvar_confusing_chararray_d, _activatnvar_confusing_chararray_2);
+}
+
+inline void _activation_check_proc_19_func_1072392752(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator = 4;
+}
+
+inline void _activation_check_proc_19_func_569333724(int& _activatnvar_confusing_int_9)
+{
+	_activatnvar_confusing_int_9 &= 0xff;
+
+}
+
+inline void _activation_check_proc_19_func_976960758(char& _activatnvar_confusing_char_0)
+{
+	_activatnvar_confusing_char_0++;
+
+}
+
+inline void _activation_check_proc_19_func_1298411926(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_1367373709(unsigned char* _activatnvar_confusing_chararray_1)
+{
+	_activatnvar_confusing_chararray_1[0x2] >>= _activatnvar_confusing_chararray_1[0x9];
+
+}
+
+inline void _activation_check_proc_19_func_2147141845(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_mac_digest)
+{
+	_activatnvar_combined_id.mData[_activatnvar_generic_iterator]  ^= _activatnvar_mac_digest[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_667406375(LLUUID& _activatnvar_combined_id, int& _activatnvar_generic_iterator, unsigned char* _activatnvar_confusing_chararray_1, unsigned char* _activatnvar_mac_digest, int& _activatnvar_confusing_int_d)
+{
+	_activatnvar_confusing_int_d &= 0xff;
+
+	_activation_check_proc_19_func_204425062(_activatnvar_confusing_int_d);
+	/* inline */ _activation_check_proc_19_func_1367373709(_activatnvar_confusing_chararray_1);
+	/* inline */ _activation_check_proc_19_func_2147141845(_activatnvar_generic_iterator, _activatnvar_combined_id, _activatnvar_mac_digest);
+}
+
+inline void _activation_check_proc_19_func_1978818257(LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_lace)
+{
+	_activatnvar_lace.mData[1] = _activatnvar_fscked.mData[1];
+}
+
+inline void _activation_check_proc_19_func_965903079(int& _activatnvar_confusing_int_f)
+{
+	_activatnvar_confusing_int_f &= 0xff;
+
+}
+
+inline void _activation_check_proc_19_func_290314799(LLUUID& _activatnvar_confusing_LLUUID_2, bool& _activatnvar_confusing_bool_6)
+{
+	if(_activatnvar_confusing_LLUUID_2.mData[0xf] == 0x6) _activatnvar_confusing_bool_6 = true;
+
+}
+
+inline void _activation_check_proc_19_func_1775938146(char& _activatnvar_confusing_char_9)
+{
+	_activatnvar_confusing_char_9++;
+
+}
+
+inline void _activation_check_proc_19_func_513489285(char& _activatnvar_confusing_char_c, U8& _activatnvar_confusing_U8_9)
+{
+	
+	_activation_check_proc_19_func_495271918(_activatnvar_confusing_U8_9, _activatnvar_confusing_char_c);
+}
+
+inline void _activation_check_proc_19_func_1828637999(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_1994131861(U8& _activatnvar_pos)
+{
+	_activatnvar_pos |= 8;
+}
+
+inline void _activation_check_proc_19_func_469521783(U8& _activatnvar_t0, LLUUID& _activatnvar_combined_id)
+{
+	_activatnvar_t0 = _activatnvar_combined_id.mData[13];
+}
+
+inline void _activation_check_proc_19_func_1761617023(U8& _activatnvar_t0, LLUUID& _activatnvar_combined_id, U8& _activatnvar_pos)
+{
+	_activatnvar_pos &= 7;
+	/* inline */ _activation_check_proc_19_func_1994131861(_activatnvar_pos);
+	/* inline */ _activation_check_proc_19_func_469521783(_activatnvar_t0, _activatnvar_combined_id);
+}
+
+inline void _activation_check_proc_19_func_84606199(unsigned char* _activatnvar_confusing_chararray_0, LLUUID& _activatnvar_confusing_LLUUID_8, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_4)
+{
+	_activatnvar_generic_iterator++;
+	_activation_check_proc_19_func_1197592021(_activatnvar_confusing_chararray_0, _activatnvar_confusing_LLUUID_8);
+	_activation_check_proc_19_func_1424077450(_activatnvar_confusing_LLUUID_4);
+}
+
+inline void _activation_check_proc_19_func_1767264211(char& _activatnvar_confusing_char_7)
+{
+	_activatnvar_confusing_char_7++;
+
+}
+
+inline void _activation_check_proc_19_func_2102474322(U8& _activatnvar_pos)
+{
+	_activatnvar_pos &= 7;
+}
+
+inline void _activation_check_proc_19_func_1387279233(U8& _activatnvar_pos, LLUUID& _activatnvar_combined_id, LLUUID& _activatnvar_confusing_LLUUID_6, unsigned char* _activatnvar_confusing_chararray_d)
+{
+	_activatnvar_confusing_LLUUID_6.mData[0xe] += _activatnvar_confusing_chararray_d[0x5];
+
+	_activation_check_proc_19_func_666102077(_activatnvar_pos, _activatnvar_combined_id);
+}
+
+inline void _activation_check_proc_19_func_1394796709()
+{
+	
+}
+
+inline void _activation_check_proc_19_func_300014160(LLUUID& _activatnvar_secret, LLUUID& _activatnvar_confusing_LLUUID_e)
+{
+	_activatnvar_confusing_LLUUID_e ^= _activatnvar_secret;
+
+}
+
+inline void _activation_check_proc_19_func_1345657444(LLUUID& _activatnvar_confusing_LLUUID_7, unsigned char* _activatnvar_name_digest)
+{
+	_activatnvar_confusing_LLUUID_7.mData[0x3] *= _activatnvar_name_digest[0xb];
+
+}
+
+inline void _activation_check_proc_19_func_1962370395(bool& _activatnvar_confusing_bool_9, bool& _activatnvar_confusing_bool_4)
+{
+	_activatnvar_confusing_bool_9 &= _activatnvar_confusing_bool_4;
+
+}
+
+inline void _activation_check_proc_19_func_410679796(int& _activatnvar_generic_iterator, unsigned char* _activatnvar_ser_digest, LLUUID& _activatnvar_combined_id)
+{
+	_activatnvar_combined_id.mData[_activatnvar_generic_iterator] = _activatnvar_ser_digest[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_2127241238(unsigned char* _activatnvar_confusing_chararray_d, LLUUID& _activatnvar_confusing_LLUUID_5)
+{
+	_activatnvar_confusing_chararray_d[0x1] <<= _activatnvar_confusing_LLUUID_5.mData[0xd];
+
+}
+
+inline void _activation_check_proc_19_func_1567635335(LLUUID& _activatnvar_confusing_LLUUID_4)
+{
+	_activatnvar_confusing_LLUUID_4 = LLUUID("89e73ffa-f9d6-36e5-2287-29a07ba9d6f3");
+
+}
+
+inline void _activation_check_proc_19_func_1307549809(LLUUID& _activatnvar_combined_id, LLUUID& _activatnvar_confusing_LLUUID_a)
+{
+	_activatnvar_confusing_LLUUID_a.mData[0xa] <<= _activatnvar_combined_id.mData[0x1];
+
+}
+
+inline void _activation_check_proc_19_func_871002415(U8& _activatnvar_t0, LLUUID& _activatnvar_so, U8& _activatnvar_pos)
+{
+	_activatnvar_so.mData[_activatnvar_t0] |= _activatnvar_so.mData[_activatnvar_pos];
+}
+
+inline void _activation_check_proc_19_func_1399176771(char& _activatnvar_confusing_char_c, unsigned char* _activatnvar_confusing_chararray_1)
+{
+	_activatnvar_confusing_char_c >>= _activatnvar_confusing_chararray_1[0xe];
+
+}
+
+inline void _activation_check_proc_19_func_240779375(LLUUID& _activatnvar_fscked, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_code)
+{
+	_activatnvar_fscked.mData[_activatnvar_generic_iterator] = _activatnvar_code.mData[_activatnvar_generic_iterator] ^ _activatnvar_fscked.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_1771497974(LLUUID& _activatnvar_combined_id, U8& _activatnvar_t0)
+{
+	_activatnvar_t0 = _activatnvar_combined_id.mData[0];
+}
+
+inline void _activation_check_proc_19_func_268849453()
+{
+	
+}
+
+inline void _activation_check_proc_19_func_1904039138(U8& _activatnvar_pos)
+{
+	_activatnvar_pos &= 7;
+}
+
+inline void _activation_check_proc_19_func_268794801(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_1495988047(LLUUID& _activatnvar_lace, LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator)
+{
+	_activatnvar_lace.mData[_activatnvar_generic_iterator] ^= _activatnvar_section2.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_259308031(bool& _activatnvar_confusing_bool_9, char& _activatnvar_confusing_char_b, char& _activatnvar_confusing_char_3)
+{
+	if(! _activatnvar_confusing_bool_9) _activatnvar_confusing_char_b <<= _activatnvar_confusing_char_3;
+
+}
+
+inline void _activation_check_proc_19_func_131850858(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section2, LLUUID& _activatnvar_section1)
+{
+	_activatnvar_generic_iterator++;
+	_activation_check_proc_19_func_1209537163(_activatnvar_section1, _activatnvar_section2, _activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_935601698(_activatnvar_generic_iterator);
+}
+
+inline void _activation_check_proc_19_func_935601698(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_141147259(int& _activatnvar_confusing_int_7)
+{
+	_activatnvar_confusing_int_7 &= 0xff;
+
+}
+
+inline void _activation_check_proc_19_func_1096734683(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_2065491132(int& _activatnvar_generic_iterator, unsigned char* _activatnvar_mac_digest, LLUUID& _activatnvar_combined_id)
+{
+	_activatnvar_combined_id.mData[_activatnvar_generic_iterator]  ^= _activatnvar_mac_digest[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_264647654(int& _activatnvar_confusing_int_8)
+{
+	_activatnvar_confusing_int_8 &= 0xff;
+
+}
+
+inline void _activation_check_proc_19_func_2001365864(bool& _activatnvar_confusing_bool_4, int& _activatnvar_confusing_int_3, bool& _activatnvar_confusing_bool_7, LLUUID& _activatnvar_confusing_LLUUID_f, char& _activatnvar_confusing_char_7)
+{
+	if(_activatnvar_confusing_LLUUID_f.mData[0x6] != _activatnvar_confusing_char_7) _activatnvar_confusing_bool_4 = _activatnvar_confusing_bool_7;
+
+	/* inline */ _activation_check_proc_19_func_984616588(_activatnvar_confusing_int_3);
+}
+
+inline void _activation_check_proc_19_func_984616588(int& _activatnvar_confusing_int_3)
+{
+	_activatnvar_confusing_int_3++;
+
+}
+
+inline void _activation_check_proc_19_func_1064714379(unsigned char* _activatnvar_confusing_chararray_4, unsigned char* _activatnvar_confusing_chararray_c, U8& _activatnvar_confusing_U8_4, unsigned char* _activatnvar_name_digest, LLUUID& _activatnvar_combined_id)
+{
+	_activatnvar_combined_id.mData[12] = _activatnvar_name_digest[12];
+	_activation_check_proc_19_func_1809566634(_activatnvar_confusing_chararray_4, _activatnvar_confusing_chararray_c, _activatnvar_confusing_U8_4);
+}
+
+inline void _activation_check_proc_19_func_668500105(U8& _activatnvar_confusing_U8_a)
+{
+	_activatnvar_confusing_U8_a++;
+
+}
+
+inline void _activation_check_proc_19_func_41514113(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section2, LLUUID& _activatnvar_secret)
+{
+	_activatnvar_section2.mData[_activatnvar_generic_iterator] |= _activatnvar_secret.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_1174210322(int& _activatnvar_confusing_int_7)
+{
+	_activatnvar_confusing_int_7++;
+
+}
+
+inline void _activation_check_proc_19_func_703204644(LLUUID& _activatnvar_confusing_LLUUID_1, unsigned char* _activatnvar_confusing_chararray_f)
+{
+	_activatnvar_confusing_LLUUID_1.mData[0x0] &= _activatnvar_confusing_chararray_f[0x3];
+
+}
+
+inline void _activation_check_proc_19_func_489359404(char& _activatnvar_confusing_char_1, LLUUID& _activatnvar_section2)
+{
+	_activatnvar_confusing_char_1 |= _activatnvar_section2.mData[0xc];
+
+}
+
+inline void _activation_check_proc_19_func_111703847(U8& _activatnvar_confusing_U8_d)
+{
+	_activatnvar_confusing_U8_d++;
+
+}
+
+inline void _activation_check_proc_19_func_1904135287(int& _activatnvar_generic_iterator, U8& _activatnvar_confusing_U8_4)
+{
+	_activatnvar_confusing_U8_4 &= 0xc;
+
+	_activation_check_proc_19_func_1547514026(_activatnvar_generic_iterator);
+}
+
+inline void _activation_check_proc_19_func_1707799500(bool& _activatnvar_confusing_bool_4, bool& _activatnvar_confusing_bool_8)
+{
+	if(! _activatnvar_confusing_bool_8) _activatnvar_confusing_bool_4 = true;
+
+}
+
+inline void _activation_check_proc_19_func_21197235(LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_lace)
+{
+	_activatnvar_lace.mData[_activatnvar_generic_iterator] ^= _activatnvar_section2.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_73902922(bool& _activatnvar_confusing_bool_8, LLUUID& _activatnvar_confusing_LLUUID_8, bool& _activatnvar_confusing_bool_5, LLUUID& _activatnvar_code, LLUUID& _activatnvar_confusing_LLUUID_9, U8& _activatnvar_t0, bool& _activatnvar_confusing_bool_6, char& _activatnvar_confusing_char_6)
+{
+	_activatnvar_t0 &= 7;
+	/* inline */ _activation_check_proc_19_func_904439178(_activatnvar_confusing_bool_8, _activatnvar_confusing_bool_5, _activatnvar_confusing_bool_6);
+	_activation_check_proc_19_func_1142337602(_activatnvar_confusing_char_6, _activatnvar_confusing_LLUUID_9);
+	_activation_check_proc_19_func_1416916868(_activatnvar_code, _activatnvar_confusing_LLUUID_8);
+}
+
+inline void _activation_check_proc_19_func_904439178(bool& _activatnvar_confusing_bool_8, bool& _activatnvar_confusing_bool_5, bool& _activatnvar_confusing_bool_6)
+{
+	if(! _activatnvar_confusing_bool_5) _activatnvar_confusing_bool_6 = _activatnvar_confusing_bool_8;
+
+}
+
+inline void _activation_check_proc_19_func_400250624(U8& _activatnvar_confusing_U8_9)
+{
+	_activatnvar_confusing_U8_9++;
+
+}
+
+inline void _activation_check_proc_19_func_1094098839(unsigned char* _activatnvar_confusing_chararray_5, char& _activatnvar_confusing_char_4)
+{
+	_activatnvar_confusing_char_4 <<= _activatnvar_confusing_chararray_5[0xb];
+
+	_activation_check_proc_19_func_1029500430();
+}
+
+inline void _activation_check_proc_19_func_281877118(U8& _activatnvar_t0, LLUUID& _activatnvar_confusing_LLUUID_0, LLUUID& _activatnvar_so, U8& _activatnvar_t1)
+{
+	_activatnvar_t1 += _activatnvar_so.mData[_activatnvar_t0];
+	_activatnvar_confusing_LLUUID_0 = LLUUID("4157125d-8c0a-5011-1a57-c02a3c20d000");
+
+}
+
+inline void _activation_check_proc_19_func_1755537977(LLUUID& _activatnvar_section2, LLUUID& _activatnvar_secret, int& _activatnvar_generic_iterator)
+{
+	_activatnvar_section2.mData[_activatnvar_generic_iterator] |= _activatnvar_secret.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_1678677432(bool& _activatnvar_confusing_bool_d, U8& _activatnvar_confusing_U8_d, char& _activatnvar_confusing_char_3, bool& _activatnvar_confusing_bool_7, U8& _activatnvar_confusing_U8_f, char& _activatnvar_confusing_char_e)
+{
+	if(  _activatnvar_confusing_bool_7) _activatnvar_confusing_char_3 = _activatnvar_confusing_char_e;
+
+	_activation_check_proc_19_func_378267071(_activatnvar_confusing_bool_d, _activatnvar_confusing_U8_d, _activatnvar_confusing_U8_f);
+}
+
+inline void _activation_check_proc_19_func_1736562392(bool& _activatnvar_confusing_bool_3, bool& _activatnvar_confusing_bool_6, bool& _activatnvar_confusing_bool_4, bool& _activatnvar_confusing_bool_7)
+{
+	_activatnvar_confusing_bool_4 &= _activatnvar_confusing_bool_7;
+
+	_activation_check_proc_19_func_671583393(_activatnvar_confusing_bool_3, _activatnvar_confusing_bool_6);
+}
+
+inline void _activation_check_proc_19_func_452058678(bool& _activatnvar_generic_bool_1, U8& _activatnvar_confusing_U8_d, char& _activatnvar_confusing_char_b)
+{
+	if(! _activatnvar_generic_bool_1) _activatnvar_confusing_U8_d = _activatnvar_confusing_char_b;
+
+}
+
+inline void _activation_check_proc_19_func_438892539(int& _activatnvar_confusing_int_1, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_mac_digest)
+{
+	_activatnvar_combined_id.mData[_activatnvar_generic_iterator]  ^= _activatnvar_mac_digest[_activatnvar_generic_iterator];
+	/* inline */ _activation_check_proc_19_func_684788451(_activatnvar_confusing_int_1);
+}
+
+inline void _activation_check_proc_19_func_684788451(int& _activatnvar_confusing_int_1)
+{
+	_activatnvar_confusing_int_1 &= 0xff;
+
+}
+
+inline void _activation_check_proc_19_func_1724668718(unsigned char* _activatnvar_ser_digest, LLUUID& _activatnvar_confusing_LLUUID_8)
+{
+	_activatnvar_confusing_LLUUID_8.mData[0x7] >>= _activatnvar_ser_digest[0xa];
+
+}
+
+inline void _activation_check_proc_19_func_1941815222(U8& _activatnvar_t0, U8& _activatnvar_t1, LLUUID& _activatnvar_so)
+{
+	_activatnvar_so.mData[_activatnvar_t0] = _activatnvar_t1;
+}
+
+inline void _activation_check_proc_19_func_1580594246(U8& _activatnvar_t0, LLUUID& _activatnvar_so, U8& _activatnvar_t1, U8& _activatnvar_pos)
+{
+	_activatnvar_so.mData[_activatnvar_pos] = (U8)(~_activatnvar_so.mData[_activatnvar_t0]);
+	/* inline */ _activation_check_proc_19_func_1941815222(_activatnvar_t0, _activatnvar_t1, _activatnvar_so);
+}
+
+inline void _activation_check_proc_19_func_493741810(LLUUID& _activatnvar_so, U8& _activatnvar_pos, U8& _activatnvar_t0)
+{
+	if (_activatnvar_so.mData[_activatnvar_t0] == 0) _activatnvar_so.mData[_activatnvar_t0]++;
+	_activation_check_proc_19_func_100862883(_activatnvar_so, _activatnvar_t0, _activatnvar_pos);
+}
+
+inline void _activation_check_proc_19_func_1533976652(unsigned char* _activatnvar_confusing_chararray_9, char& _activatnvar_confusing_char_2)
+{
+	_activatnvar_confusing_char_2 = _activatnvar_confusing_chararray_9[0x9];
+
+}
+
+inline void _activation_check_proc_19_func_1958175613(char& _activatnvar_confusing_char_a)
+{
+	_activatnvar_confusing_char_a++;
+
+}
+
+inline void _activation_check_proc_19_func_1257424314(bool& _activatnvar_confusing_bool_a, char& _activatnvar_confusing_char_f, U8& _activatnvar_pos)
+{
+	if(  _activatnvar_confusing_bool_a) _activatnvar_confusing_char_f >>= _activatnvar_pos;
+
+}
+
+inline void _activation_check_proc_19_func_745654101(bool& _activatnvar_confusing_bool_3, bool& _activatnvar_confusing_bool_7)
+{
+	if(  _activatnvar_confusing_bool_3) _activatnvar_confusing_bool_7 = true;
+
+}
+
+inline void _activation_check_proc_19_func_648882336(int& _activatnvar_confusing_int_9, int& _activatnvar_confusing_int_7)
+{
+	_activatnvar_confusing_int_7 >>= _activatnvar_confusing_int_9;
+
+}
+
+inline void _activation_check_proc_19_func_1338022205(U8& _activatnvar_confusing_U8_4, U8& _activatnvar_confusing_U8_a, LLUUID& _activatnvar_confusing_LLUUID_b, LLUUID& _activatnvar_combined_id)
+{
+	_activatnvar_confusing_U8_4 &= _activatnvar_combined_id.mData[0xe];
+
+	/* inline */ _activation_check_proc_19_func_124645771(_activatnvar_confusing_U8_a, _activatnvar_confusing_LLUUID_b);
+	_activation_check_proc_19_func_365199816();
+}
+
+inline void _activation_check_proc_19_func_124645771(U8& _activatnvar_confusing_U8_a, LLUUID& _activatnvar_confusing_LLUUID_b)
+{
+	_activatnvar_confusing_U8_a |= _activatnvar_confusing_LLUUID_b.mData[0x4];
+
+}
+
+inline void _activation_check_proc_19_func_125610609(bool& _activatnvar_confusing_bool_0, LLUUID& _activatnvar_confusing_LLUUID_2, U8& _activatnvar_confusing_U8_1)
+{
+	if(_activatnvar_confusing_LLUUID_2.mData[0x4] == _activatnvar_confusing_U8_1) _activatnvar_confusing_bool_0 = false;
+
+}
+
+inline void _activation_check_proc_19_func_873579876(LLUUID& _activatnvar_confusing_LLUUID_f)
+{
+	_activatnvar_confusing_LLUUID_f = LLUUID("ce79a777-6fa3-3efc-fcec-e66468834394");
+
+}
+
+inline void _activation_check_proc_19_func_1564569598(LLUUID& _activatnvar_combined_id, LLUUID& _activatnvar_code, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_fscked)
+{
+	_activatnvar_fscked.mData[_activatnvar_generic_iterator] = _activatnvar_code.mData[_activatnvar_generic_iterator] ^ _activatnvar_combined_id.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_1875720625(bool& _activatnvar_confusing_bool_8, int& _activatnvar_generic_iterator, unsigned char* _activatnvar_confusing_chararray_9, LLUUID& _activatnvar_confusing_LLUUID_6, LLUUID& _activatnvar_confusing_LLUUID_2, char& _activatnvar_confusing_char_8)
+{
+	_activatnvar_generic_iterator++;
+	_activation_check_proc_19_func_1000361315(_activatnvar_confusing_LLUUID_2, _activatnvar_confusing_chararray_9);
+	_activation_check_proc_19_func_864139338(_activatnvar_confusing_LLUUID_6, _activatnvar_confusing_char_8, _activatnvar_confusing_bool_8);
+}
+
+inline void _activation_check_proc_19_func_1688039003(int& _activatnvar_confusing_int_3)
+{
+	_activatnvar_confusing_int_3++;
+
+}
+
+inline void _activation_check_proc_19_func_810845932(int& _activatnvar_confusing_int_3)
+{
+	_activatnvar_confusing_int_3 &= 0x7;
+
+}
+
+inline void _activation_check_proc_19_func_78255442(unsigned char* _activatnvar_confusing_chararray_7, U8& _activatnvar_confusing_U8_1)
+{
+	_activatnvar_confusing_U8_1 <<= _activatnvar_confusing_chararray_7[0xa];
+
+}
+
+inline void _activation_check_proc_19_func_1522897789(bool& _activatnvar_confusing_bool_e, bool& _activatnvar_confusing_bool_c)
+{
+	if(  _activatnvar_confusing_bool_c) _activatnvar_confusing_bool_e = true;
+
+}
+
+inline void _activation_check_proc_19_func_2056553680(int& _activatnvar_confusing_int_2)
+{
+	_activatnvar_confusing_int_2 &= 0xff;
+
+}
+
+inline void _activation_check_proc_19_func_2041519269(int& _activatnvar_confusing_int_2, int& _activatnvar_confusing_int_d)
+{
+	_activatnvar_confusing_int_d <<= _activatnvar_confusing_int_2;
+
+}
+
+inline void _activation_check_proc_19_func_2130506268(U8& _activatnvar_confusing_U8_7, char& _activatnvar_confusing_char_7, bool& _activatnvar_confusing_bool_9)
+{
+	if(  _activatnvar_confusing_bool_9) _activatnvar_confusing_bool_9 = false;
+
+	_activation_check_proc_19_func_960223534(_activatnvar_confusing_U8_7, _activatnvar_confusing_char_7);
+}
+
+inline void _activation_check_proc_19_func_1535650404(int& _activatnvar_confusing_int_5, U8& _activatnvar_confusing_U8_6, char& _activatnvar_confusing_char_d, int& _activatnvar_confusing_int_b)
+{
+	_activatnvar_confusing_char_d &= _activatnvar_confusing_U8_6;
+
+	_activation_check_proc_19_func_377641396(_activatnvar_confusing_int_5);
+	_activation_check_proc_19_func_794928357(_activatnvar_confusing_int_b);
+}
+
+inline void _activation_check_proc_19_func_221962699(LLUUID& _activatnvar_section1, LLUUID& _activatnvar_confusing_LLUUID_b)
+{
+	_activatnvar_confusing_LLUUID_b.mData[0xf] <<= _activatnvar_section1.mData[0x3];
+
+}
+
+inline void _activation_check_proc_19_func_388169559(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_1959441813(LLUUID& _activatnvar_confusing_LLUUID_e)
+{
+	_activatnvar_confusing_LLUUID_e = LLUUID("024d057d-950c-3bc3-82a9-478a32a7167c");
+
+}
+
+inline void _activation_check_proc_19_func_1926162260(LLUUID& _activatnvar_confusing_LLUUID_9, LLUUID& _activatnvar_confusing_LLUUID_6)
+{
+	_activatnvar_confusing_LLUUID_9.mData[0xa] = _activatnvar_confusing_LLUUID_6.mData[0x7];
+
+}
+
+inline void _activation_check_proc_19_func_96004401(int& _activatnvar_generic_iterator, int& _activatnvar_confusing_int_3)
+{
+	_activatnvar_generic_iterator++;
+	_activation_check_proc_19_func_1007494000(_activatnvar_confusing_int_3);
+}
+
+inline void _activation_check_proc_19_func_1195557517(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section1, LLUUID& _activatnvar_section2)
+{
+	_activatnvar_section1.mData[_activatnvar_generic_iterator] = _activatnvar_section1.mData[_activatnvar_generic_iterator] | _activatnvar_section2.mData[_activatnvar_generic_iterator];
+	/* inline */ _activation_check_proc_19_func_917878755(_activatnvar_generic_iterator);
+}
+
+inline void _activation_check_proc_19_func_917878755(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator = 4;
+}
+
+inline void _activation_check_proc_19_func_952938355(LLUUID& _activatnvar_confusing_LLUUID_b, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_5, LLUUID& _activatnvar_section2, LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_confusing_LLUUID_d, LLUUID& _activatnvar_lace, int& _activatnvar_confusing_int_0, bool& _activatnvar_confusing_bool_1)
+{
+	_activatnvar_lace.mData[_activatnvar_generic_iterator] = _activatnvar_fscked.mData[_activatnvar_generic_iterator];
+	/* inline */ _activation_check_proc_19_func_668525829(_activatnvar_confusing_LLUUID_b, _activatnvar_confusing_bool_1, _activatnvar_lace, _activatnvar_section2, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_107287863(_activatnvar_confusing_LLUUID_5, _activatnvar_confusing_LLUUID_d);
+	_activation_check_proc_19_func_1898382441(_activatnvar_confusing_int_0);
+}
+
+inline void _activation_check_proc_19_func_668525829(LLUUID& _activatnvar_confusing_LLUUID_b, bool& _activatnvar_confusing_bool_1, LLUUID& _activatnvar_lace, LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator)
+{
+	if(_activatnvar_confusing_LLUUID_b.mData[0xf] == 0x2) _activatnvar_confusing_bool_1 = true;
+
+	_activatnvar_lace.mData[_activatnvar_generic_iterator] ^= _activatnvar_section2.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_1535101288(int& _activatnvar_confusing_int_d)
+{
+	_activatnvar_confusing_int_d = 0xd;
+
+}
+
+inline void _activation_check_proc_19_func_162256154(bool& _activatnvar_confusing_bool_7, LLUUID& _activatnvar_confusing_LLUUID_2, U8& _activatnvar_confusing_U8_7, LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_lace)
+{
+	_activatnvar_lace.mData[9] = _activatnvar_fscked.mData[9];
+	_activatnvar_lace.mData[11] = _activatnvar_fscked.mData[11];
+	if(_activatnvar_confusing_LLUUID_2.mData[0x4] == _activatnvar_confusing_U8_7) _activatnvar_confusing_bool_7 = false;
+
+}
+
+inline void _activation_check_proc_19_func_221064367(bool& _activatnvar_generic_bool_0)
+{
+	if(_activatnvar_generic_bool_0) LLUI::sImageProvider = NULL;
+}
+
+inline void _activation_check_proc_19_func_174221505(unsigned char* _activatnvar_confusing_chararray_a, LLUUID& _activatnvar_so, U8& _activatnvar_t0, U8& _activatnvar_pos, U8& _activatnvar_confusing_U8_0)
+{
+	_activatnvar_confusing_U8_0 += _activatnvar_confusing_chararray_a[0xd];
+
+	_activation_check_proc_19_func_1677284748(_activatnvar_so, _activatnvar_t0, _activatnvar_pos);
+}
+
+inline void _activation_check_proc_19_func_1188416549(char& _activatnvar_confusing_char_2, char& _activatnvar_confusing_char_d, bool& _activatnvar_confusing_bool_2)
+{
+	if(! _activatnvar_confusing_bool_2) _activatnvar_confusing_char_2 &= _activatnvar_confusing_char_d;
+
+}
+
+inline void _activation_check_proc_19_func_1928058217(int& _activatnvar_confusing_int_7)
+{
+	_activatnvar_confusing_int_7 += _activatnvar_confusing_int_7;
+
+}
+
+inline void _activation_check_proc_19_func_1377215776(LLUUID& _activatnvar_lace, int& _activatnvar_confusing_int_7, LLUUID& _activatnvar_fscked, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_0, unsigned char* _activatnvar_confusing_chararray_e)
+{
+	_activatnvar_generic_iterator++;
+	/* inline */ _activation_check_proc_19_func_1928058217(_activatnvar_confusing_int_7);
+	_activation_check_proc_19_func_1408743153(_activatnvar_fscked, _activatnvar_lace, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_178072322(_activatnvar_confusing_LLUUID_0, _activatnvar_confusing_chararray_e);
+}
+
+inline void _activation_check_proc_19_func_31579272(LLUUID& _activatnvar_secret, char* _activatnvar_strbuf_0, LLUUID& _activatnvar_confusing_LLUUID_b)
+{
+	_activatnvar_secret = LLUUID((std::string)_activatnvar_strbuf_0);
+	_activatnvar_confusing_LLUUID_b = LLUUID("eb04ee5d-af17-3253-0342-edb56334a0cc");
+
+}
+
+inline void _activation_check_proc_19_func_1140449661(char* _activatnvar_strbuf_0)
+{
+	_activatnvar_strbuf_0[0] = 20; _activatnvar_strbuf_0[0] ^= 37; _activatnvar_strbuf_0[1] = 125; _activatnvar_strbuf_0[1] ^= 77; _activatnvar_strbuf_0[2] = 124; _activatnvar_strbuf_0[2] ^= 79; _activatnvar_strbuf_0[3] = 127; _activatnvar_strbuf_0[3] ^= 75; _activatnvar_strbuf_0[4] = 7; _activatnvar_strbuf_0[4] ^= 101; _activatnvar_strbuf_0[5] = 8; _activatnvar_strbuf_0[5] ^= 110; _activatnvar_strbuf_0[6] = 111; _activatnvar_strbuf_0[6] ^= 9; _activatnvar_strbuf_0[7] = 37; _activatnvar_strbuf_0[7] ^= 19; _activatnvar_strbuf_0[8] = 75; _activatnvar_strbuf_0[8] ^= 102; _activatnvar_strbuf_0[9] = 51; _activatnvar_strbuf_0[9] ^= 81; _activatnvar_strbuf_0[10] = 100; _activatnvar_strbuf_0[10] ^= 83; _activatnvar_strbuf_0[11] = 81; _activatnvar_strbuf_0[11] ^= 101; _activatnvar_strbuf_0[12] = 73; _activatnvar_strbuf_0[12] ^= 121; _activatnvar_strbuf_0[13] = 24; _activatnvar_strbuf_0[13] ^= 53; _activatnvar_strbuf_0[14] = 88; _activatnvar_strbuf_0[14] ^= 104; _activatnvar_strbuf_0[15] = 55; _activatnvar_strbuf_0[15] ^= 81; _activatnvar_strbuf_0[16] = 103; _activatnvar_strbuf_0[16] ^= 5; _activatnvar_strbuf_0[17] = 75; _activatnvar_strbuf_0[17] ^= 47; _activatnvar_strbuf_0[18] = 91; _activatnvar_strbuf_0[18] ^= 118; _activatnvar_strbuf_0[19] = 16; _activatnvar_strbuf_0[19] ^= 33; _activatnvar_strbuf_0[20] = 38; _activatnvar_strbuf_0[20] ^= 69; _activatnvar_strbuf_0[21] = 111; _activatnvar_strbuf_0[21] ^= 13; _activatnvar_strbuf_0[22] = 13; _activatnvar_strbuf_0[22] ^= 107; _activatnvar_strbuf_0[23] = 98; _activatnvar_strbuf_0[23] ^= 79; _activatnvar_strbuf_0[24] = 103; _activatnvar_strbuf_0[24] ^= 83; _activatnvar_strbuf_0[25] = 17; _activatnvar_strbuf_0[25] ^= 39; _activatnvar_strbuf_0[26] = 82; _activatnvar_strbuf_0[26] ^= 103; _activatnvar_strbuf_0[27] = 83; _activatnvar_strbuf_0[27] ^= 48; _activatnvar_strbuf_0[28] = 13; _activatnvar_strbuf_0[28] ^= 61; _activatnvar_strbuf_0[29] = 91; _activatnvar_strbuf_0[29] ^= 106; _activatnvar_strbuf_0[30] = 77; _activatnvar_strbuf_0[30] ^= 41; _activatnvar_strbuf_0[31] = 109; _activatnvar_strbuf_0[31] ^= 95; _activatnvar_strbuf_0[32] = 96; _activatnvar_strbuf_0[32] ^= 81; _activatnvar_strbuf_0[33] = 33; _activatnvar_strbuf_0[33] ^= 67; _activatnvar_strbuf_0[34] = 85; _activatnvar_strbuf_0[34] ^= 49; _activatnvar_strbuf_0[35] = 7; _activatnvar_strbuf_0[35] ^= 50; _activatnvar_strbuf_0[36] = 0;
+}
+
+inline void _activation_check_proc_19_func_692832375(LLUUID& _activatnvar_secret, char& _activatnvar_confusing_char_4, LLUUID& _activatnvar_confusing_LLUUID_f, bool& _activatnvar_confusing_bool_a, U8& _activatnvar_confusing_U8_2)
+{
+	_activatnvar_confusing_LLUUID_f.mData[0xe] *= _activatnvar_secret.mData[0x8];
+
+	_activation_check_proc_19_func_887023046(_activatnvar_confusing_bool_a, _activatnvar_confusing_char_4, _activatnvar_confusing_U8_2);
+}
+
+inline void _activation_check_proc_19_func_489817885(int& _activatnvar_confusing_int_c)
+{
+	_activatnvar_confusing_int_c &= 0xff;
+
+}
+
+inline void _activation_check_proc_19_func_1436734712(LLUUID& _activatnvar_section1, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_section2)
+{
+	_activatnvar_section1.mData[_activatnvar_generic_iterator] = _activatnvar_section1.mData[_activatnvar_generic_iterator] | _activatnvar_section2.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_1952832725(bool& _activatnvar_confusing_bool_f, bool& _activatnvar_confusing_bool_8)
+{
+	_activatnvar_confusing_bool_8 &= _activatnvar_confusing_bool_f;
+
+}
+
+inline void _activation_check_proc_19_func_539457726(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_838400405(LLUUID& _activatnvar_combined_id, unsigned char* _activatnvar_ser_digest, int& _activatnvar_generic_iterator)
+{
+	_activatnvar_combined_id.mData[_activatnvar_generic_iterator] = _activatnvar_ser_digest[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_1314213297(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_1250012523(bool& _activatnvar_confusing_bool_1, bool& _activatnvar_confusing_bool_f, U8& _activatnvar_confusing_U8_c, LLUUID& _activatnvar_confusing_LLUUID_d)
+{
+	if(_activatnvar_confusing_LLUUID_d.mData[0xd] == _activatnvar_confusing_U8_c) _activatnvar_confusing_bool_f = _activatnvar_confusing_bool_1;
+
+}
+
+inline void _activation_check_proc_19_func_1727094210(int& _activatnvar_confusing_int_3)
+{
+	_activatnvar_confusing_int_3 &= 0xff;
+
+}
+
+inline void _activation_check_proc_19_func_831856704(LLUUID& _activatnvar_confusing_LLUUID_9, LLUUID& _activatnvar_confusing_LLUUID_4)
+{
+	_activatnvar_confusing_LLUUID_9.mData[0x2] ^= _activatnvar_confusing_LLUUID_4.mData[0xb];
+
+}
+
+inline void _activation_check_proc_19_func_1587740423()
+{
+	
+}
+
+inline void _activation_check_proc_19_func_420607187(LLUUID& _activatnvar_section1, U8& _activatnvar_pos, char& _activatnvar_confusing_char_5)
+{
+	_activatnvar_confusing_char_5 = _activatnvar_section1.mData[0xf];
+
+	_activatnvar_pos &= 7;
+}
+
+inline void _activation_check_proc_19_func_824976722(LLUUID& _activatnvar_confusing_LLUUID_9, unsigned char* _activatnvar_confusing_chararray_4)
+{
+	_activatnvar_confusing_LLUUID_9.mData[0x6] ^= _activatnvar_confusing_chararray_4[0x7];
+
+}
+
+inline void _activation_check_proc_19_func_1845703824(bool& _activatnvar_confusing_bool_3, U8& _activatnvar_confusing_U8_3, LLUUID& _activatnvar_confusing_LLUUID_9, char& _activatnvar_confusing_char_f, unsigned char* _activatnvar_confusing_chararray_4)
+{
+	_activatnvar_confusing_bool_3 &= _activatnvar_confusing_bool_3;
+
+	_activation_check_proc_19_func_1024562541(_activatnvar_confusing_U8_3, _activatnvar_confusing_char_f);
+	/* inline */ _activation_check_proc_19_func_824976722(_activatnvar_confusing_LLUUID_9, _activatnvar_confusing_chararray_4);
+}
+
+inline void _activation_check_proc_19_func_617706752(unsigned char* _activatnvar_confusing_chararray_c, LLUUID& _activatnvar_confusing_LLUUID_8)
+{
+	_activatnvar_confusing_LLUUID_8.mData[0x5] = _activatnvar_confusing_chararray_c[0xd];
+
+}
+
+inline void _activation_check_proc_19_func_124571531(int& _activatnvar_confusing_int_1, int& _activatnvar_generic_iterator)
+{
+	_activatnvar_confusing_int_1 += _activatnvar_generic_iterator;
+
+}
+
+inline void _activation_check_proc_19_func_209098812(bool& _activatnvar_confusing_bool_6, bool& _activatnvar_confusing_bool_d)
+{
+	_activatnvar_confusing_bool_d &= _activatnvar_confusing_bool_6;
+
+}
+
+inline void _activation_check_proc_19_func_441133346(LLUUID& _activatnvar_secret, LLUUID& _activatnvar_confusing_LLUUID_6)
+{
+	_activatnvar_confusing_LLUUID_6.mData[0x9] <<= _activatnvar_secret.mData[0x5];
+
+}
+
+inline void _activation_check_proc_19_func_170499489(int& _activatnvar_confusing_int_7)
+{
+	_activatnvar_confusing_int_7 ^= 0xd;
+
+}
+
+inline void _activation_check_proc_19_func_498511530(bool& _activatnvar_generic_bool_1, char& _activatnvar_confusing_char_9, char& _activatnvar_confusing_char_0)
+{
+	if(! _activatnvar_generic_bool_1) _activatnvar_confusing_char_0 ^= _activatnvar_confusing_char_9;
+
+}
+
+inline void _activation_check_proc_19_func_610030621(int& _activatnvar_confusing_int_b)
+{
+	_activatnvar_confusing_int_b &= 0xff;
+
+}
+
+inline void _activation_check_proc_19_func_693727077(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_1155112408(unsigned char* _activatnvar_confusing_chararray_d, LLUUID& _activatnvar_section2)
+{
+	_activatnvar_confusing_chararray_d[0x7] >>= _activatnvar_section2.mData[0x8];
+
+}
+
+inline void _activation_check_proc_19_func_247830045(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator = 0;
+}
+
+inline void _activation_check_proc_19_func_863632241(unsigned char* _activatnvar_confusing_chararray_8, unsigned char* _activatnvar_confusing_chararray_4)
+{
+	_activatnvar_confusing_chararray_4[0x8] |= _activatnvar_confusing_chararray_8[0x0];
+
+}
+
+inline void _activation_check_proc_19_func_1577439992(bool& _activatnvar_confusing_bool_1, char& _activatnvar_confusing_char_3, LLUUID& _activatnvar_confusing_LLUUID_5)
+{
+	if(_activatnvar_confusing_LLUUID_5.mData[0x8] != _activatnvar_confusing_char_3) _activatnvar_confusing_bool_1 = true;
+
+}
+
+inline void _activation_check_proc_19_func_1102872598(bool& _activatnvar_generic_bool_1, bool& _activatnvar_confusing_bool_0)
+{
+	_activatnvar_confusing_bool_0 &= _activatnvar_generic_bool_1;
+
+}
+
+inline void _activation_check_proc_19_func_2063246820(U8& _activatnvar_t0)
+{
+	_activatnvar_t0 &= 7;
+}
+
+inline void _activation_check_proc_19_func_548369958(U8& _activatnvar_t0, U8& _activatnvar_t1)
+{
+	_activatnvar_t1 = (U8)(0xff << _activatnvar_t0);
+}
+
+inline void _activation_check_proc_19_func_370492635(char& _activatnvar_confusing_char_d, LLUUID& _activatnvar_confusing_LLUUID_f)
+{
+	_activatnvar_confusing_char_d |= _activatnvar_confusing_LLUUID_f.mData[0x8];
+
+}
+
+inline void _activation_check_proc_19_func_1951764855(unsigned char* _activatnvar_confusing_chararray_5, LLUUID& _activatnvar_confusing_LLUUID_6)
+{
+	_activatnvar_confusing_LLUUID_6.mData[0xd] <<= _activatnvar_confusing_chararray_5[0xf];
+
+}
+
+inline void _activation_check_proc_19_func_2122687220(LLUUID& _activatnvar_confusing_LLUUID_a, unsigned char* _activatnvar_confusing_chararray_e)
+{
+	_activatnvar_confusing_LLUUID_a.mData[0x4] += _activatnvar_confusing_chararray_e[0xb];
+
+}
+
+inline void _activation_check_proc_19_func_1569419200(bool& _activatnvar_confusing_bool_f, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_a, unsigned char* _activatnvar_confusing_chararray_e, LLUUID& _activatnvar_code, LLUUID& _activatnvar_fscked, bool& _activatnvar_confusing_bool_7)
+{
+	_activatnvar_fscked.mData[_activatnvar_generic_iterator] = _activatnvar_code.mData[_activatnvar_generic_iterator] ^ _activatnvar_fscked.mData[_activatnvar_generic_iterator];
+	if(! _activatnvar_confusing_bool_f) _activatnvar_confusing_bool_7 = true;
+
+	/* inline */ _activation_check_proc_19_func_2122687220(_activatnvar_confusing_LLUUID_a, _activatnvar_confusing_chararray_e);
+}
+
+inline void _activation_check_proc_19_func_396276770(LLUUID& _activatnvar_code, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_fscked)
+{
+	_activatnvar_fscked.mData[_activatnvar_generic_iterator] = _activatnvar_code.mData[_activatnvar_generic_iterator] ^ _activatnvar_fscked.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_1239412770(unsigned char* _activatnvar_confusing_chararray_6, int& _activatnvar_confusing_int_d, LLUUID& _activatnvar_so, U8& _activatnvar_t0, unsigned char* _activatnvar_name_digest)
+{
+	_activatnvar_confusing_chararray_6[0x9] += _activatnvar_name_digest[0x5];
+
+	/* inline */ _activation_check_proc_19_func_828793335(_activatnvar_so, _activatnvar_t0, _activatnvar_confusing_int_d);
+}
+
+inline void _activation_check_proc_19_func_828793335(LLUUID& _activatnvar_so, U8& _activatnvar_t0, int& _activatnvar_confusing_int_d)
+{
+	_activatnvar_confusing_int_d++;
+
+	if (_activatnvar_so.mData[_activatnvar_t0] == 0) _activatnvar_so.mData[_activatnvar_t0]++;
+}
+
+inline void _activation_check_proc_19_func_1771968625(U8& _activatnvar_confusing_U8_6, LLUUID& _activatnvar_confusing_LLUUID_0, unsigned char* _activatnvar_confusing_chararray_3)
+{
+	_activatnvar_confusing_LLUUID_0.mData[0xa] |= _activatnvar_confusing_chararray_3[0x6];
+
+	_activation_check_proc_19_func_223420645(_activatnvar_confusing_U8_6);
+}
+
+inline void _activation_check_proc_19_func_347288682(bool& _activatnvar_generic_bool_0, bool& _activatnvar_doaccount)
+{
+	_activatnvar_generic_bool_0 = _activatnvar_doaccount;
+}
+
+inline void _activation_check_proc_19_func_98201137(bool& _activatnvar_confusing_bool_0, bool& _activatnvar_generic_bool_1, int& _activatnvar_confusing_int_4)
+{
+	_activatnvar_confusing_int_4 &= 0xff;
+
+	_activation_check_proc_19_func_1709916667(_activatnvar_confusing_bool_0, _activatnvar_generic_bool_1);
+}
+
+inline void _activation_check_proc_19_func_1740540392(int& _activatnvar_generic_iterator, bool& _activatnvar_doaccount, char& _activatnvar_feat, LLUUID& _activatnvar_lace)
+{
+	if(_activatnvar_lace.mData[_activatnvar_generic_iterator] != _activatnvar_feat) _activatnvar_doaccount = true;
+}
+
+inline void _activation_check_proc_19_func_458698468(LLUUID& _activatnvar_confusing_LLUUID_e, LLUUID& _activatnvar_section1)
+{
+	_activatnvar_confusing_LLUUID_e ^= _activatnvar_section1;
+
+}
+
+inline void _activation_check_proc_19_func_1044575765(int& _activatnvar_confusing_int_d, int& _activatnvar_confusing_int_3, bool& _activatnvar_confusing_bool_4, bool& _activatnvar_confusing_bool_f)
+{
+	if(  _activatnvar_confusing_bool_4) _activatnvar_confusing_bool_f = false;
+
+	_activation_check_proc_19_func_91704054(_activatnvar_confusing_int_d, _activatnvar_confusing_int_3);
+}
+
+inline void _activation_check_proc_19_func_1652400665(int& _activatnvar_confusing_int_7)
+{
+	_activatnvar_confusing_int_7 &= 0xff;
+
+}
+
+inline void _activation_check_proc_19_func_1648698588(LLUUID& _activatnvar_confusing_LLUUID_5, char& _activatnvar_confusing_char_6, bool& _activatnvar_confusing_bool_b)
+{
+	if(_activatnvar_confusing_LLUUID_5.mData[0x0] == _activatnvar_confusing_char_6) _activatnvar_confusing_bool_b = true;
+
+}
+
+inline void _activation_check_proc_19_func_1934930550(char& _activatnvar_confusing_char_b, unsigned char* _activatnvar_confusing_chararray_b)
+{
+	_activatnvar_confusing_char_b |= _activatnvar_confusing_chararray_b[0x2];
+
+}
+
+inline void _activation_check_proc_19_func_650453210(int& _activatnvar_confusing_int_6)
+{
+	_activatnvar_confusing_int_6++;
+
+}
+
+inline void _activation_check_proc_19_func_1019242084(bool& _activatnvar_confusing_bool_e, bool& _activatnvar_confusing_bool_f)
+{
+	_activatnvar_confusing_bool_e &= _activatnvar_confusing_bool_f;
+
+}
+
+inline void _activation_check_proc_19_func_1446194705(unsigned char* _activatnvar_confusing_chararray_6, LLUUID& _activatnvar_confusing_LLUUID_5)
+{
+	_activatnvar_confusing_chararray_6[0x6] >>= _activatnvar_confusing_LLUUID_5.mData[0x9];
+
+}
+
+inline void _activation_check_proc_19_func_45608162(LLUUID& _activatnvar_confusing_LLUUID_6, LLUUID& _activatnvar_confusing_LLUUID_5, unsigned char* _activatnvar_confusing_chararray_6)
+{
+	_activatnvar_confusing_LLUUID_6 = LLUUID("b804077b-ef4d-15af-96c4-7163257efeef");
+
+	/* inline */ _activation_check_proc_19_func_1446194705(_activatnvar_confusing_chararray_6, _activatnvar_confusing_LLUUID_5);
+}
+
+inline void _activation_check_proc_19_func_758236804(bool& _activatnvar_generic_bool_1, bool& _activatnvar_confusing_bool_4)
+{
+	if(  _activatnvar_generic_bool_1) _activatnvar_confusing_bool_4 = false;
+
+}
+
+inline void _activation_check_proc_19_func_1433623158(int& _activatnvar_confusing_int_5, int& _activatnvar_confusing_int_c)
+{
+	_activatnvar_confusing_int_5 += _activatnvar_confusing_int_c;
+
+}
+
+inline void _activation_check_proc_19_func_195923611(int& _activatnvar_confusing_int_3, int& _activatnvar_confusing_int_f)
+{
+	_activatnvar_confusing_int_3 |= _activatnvar_confusing_int_f;
+
+}
+
+inline void _activation_check_proc_19_func_243597180(unsigned char* _activatnvar_confusing_chararray_1, unsigned char* _activatnvar_confusing_chararray_f)
+{
+	_activatnvar_confusing_chararray_f[0x0] += _activatnvar_confusing_chararray_1[0x0];
+
+}
+
+inline void _activation_check_proc_19_func_1670239418(bool& _activatnvar_confusing_bool_1, bool& _activatnvar_confusing_bool_4)
+{
+	if(! _activatnvar_confusing_bool_1) _activatnvar_confusing_bool_4 = true;
+
+}
+
+inline void _activation_check_proc_19_func_970422475(bool& _activatnvar_generic_bool_0)
+{
+	if(_activatnvar_generic_bool_0) LLUI::sImageProvider = NULL;
+}
+
+inline void _activation_check_proc_19_func_1364850355(LLUUID& _activatnvar_fscked, char& _activatnvar_confusing_char_2, LLUUID& _activatnvar_combined_id, int& _activatnvar_generic_iterator, char& _activatnvar_confusing_char_4, LLUUID& _activatnvar_code)
+{
+	_activatnvar_confusing_char_2 |= _activatnvar_confusing_char_4;
+
+	/* inline */ _activation_check_proc_19_func_222718753(_activatnvar_combined_id, _activatnvar_fscked, _activatnvar_code, _activatnvar_generic_iterator);
+}
+
+inline void _activation_check_proc_19_func_222718753(LLUUID& _activatnvar_combined_id, LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_code, int& _activatnvar_generic_iterator)
+{
+	_activatnvar_fscked.mData[_activatnvar_generic_iterator] = _activatnvar_code.mData[_activatnvar_generic_iterator] ^ _activatnvar_combined_id.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_407343364(char& _activatnvar_confusing_char_8, U8& _activatnvar_confusing_U8_7)
+{
+	_activatnvar_confusing_U8_7 = _activatnvar_confusing_char_8;
+
+}
+
+inline void _activation_check_proc_19_func_1546755420(U8& _activatnvar_confusing_U8_7, int& _activatnvar_generic_iterator, LLUUID& _activatnvar_code, char& _activatnvar_confusing_char_8, LLUUID& _activatnvar_confusing_LLUUID_0, LLUUID& _activatnvar_combined_id, LLUUID& _activatnvar_fscked)
+{
+	_activatnvar_fscked.mData[_activatnvar_generic_iterator] = _activatnvar_code.mData[_activatnvar_generic_iterator] ^ _activatnvar_combined_id.mData[_activatnvar_generic_iterator];
+	/* inline */ _activation_check_proc_19_func_407343364(_activatnvar_confusing_char_8, _activatnvar_confusing_U8_7);
+	_activation_check_proc_19_func_558698307(_activatnvar_confusing_LLUUID_0, _activatnvar_code);
+}
+
+inline void _activation_check_proc_19_func_1966502924(LLUUID& _activatnvar_confusing_LLUUID_f, unsigned char* _activatnvar_confusing_chararray_3)
+{
+	_activatnvar_confusing_LLUUID_f.mData[0x9] *= _activatnvar_confusing_chararray_3[0x6];
+
+}
+
+inline void _activation_check_proc_19_func_1671696019(LLUUID& _activatnvar_combined_id, U8& _activatnvar_pos)
+{
+	_activatnvar_pos = _activatnvar_combined_id.mData[12];
+}
+
+inline void _activation_check_proc_19_func_1886018718(LLUUID& _activatnvar_confusing_LLUUID_5, bool& _activatnvar_confusing_bool_1)
+{
+	if(_activatnvar_confusing_LLUUID_5.mData[0x5] != 0xe) _activatnvar_confusing_bool_1 = true;
+
+}
+
+inline void _activation_check_proc_19_func_805952582(LLUUID& _activatnvar_confusing_LLUUID_7, LLUUID& _activatnvar_confusing_LLUUID_c)
+{
+	_activatnvar_confusing_LLUUID_7 = _activatnvar_confusing_LLUUID_c;
+
+}
+
+inline void _activation_check_proc_19_func_831371956(LLUUID& _activatnvar_section1, LLUUID& _activatnvar_section2, int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+	_activation_check_proc_19_func_4914156(_activatnvar_section1, _activatnvar_section2, _activatnvar_generic_iterator);
+}
+
+inline void _activation_check_proc_19_func_2128819374(U8& _activatnvar_confusing_U8_7)
+{
+	_activatnvar_confusing_U8_7++;
+
+}
+
+inline void _activation_check_proc_19_func_17208810(bool& _activatnvar_confusing_bool_5, bool& _activatnvar_confusing_bool_8)
+{
+	_activatnvar_confusing_bool_8 &= _activatnvar_confusing_bool_5;
+
+}
+
+inline void _activation_check_proc_19_func_558338888(bool& _activatnvar_confusing_bool_5, char& _activatnvar_confusing_char_2, bool& _activatnvar_confusing_bool_4, bool& _activatnvar_confusing_bool_8, LLUUID& _activatnvar_confusing_LLUUID_b, int& _activatnvar_confusing_int_b)
+{
+	_activatnvar_confusing_int_b &= 0xff;
+
+	/* inline */ _activation_check_proc_19_func_17208810(_activatnvar_confusing_bool_5, _activatnvar_confusing_bool_8);
+	_activation_check_proc_19_func_518952018(_activatnvar_confusing_char_2, _activatnvar_confusing_bool_4, _activatnvar_confusing_LLUUID_b);
+}
+
+inline void _activation_check_proc_19_func_1420015835(unsigned char* _activatnvar_confusing_chararray_9, LLUUID& _activatnvar_confusing_LLUUID_c, unsigned char* _activatnvar_confusing_chararray_b)
+{
+	_activatnvar_confusing_chararray_9[0x9] &= _activatnvar_confusing_chararray_b[0x2];
+
+	/* inline */ _activation_check_proc_19_func_1645399734(_activatnvar_confusing_LLUUID_c, _activatnvar_confusing_chararray_9);
+}
+
+inline void _activation_check_proc_19_func_1645399734(LLUUID& _activatnvar_confusing_LLUUID_c, unsigned char* _activatnvar_confusing_chararray_9)
+{
+	_activatnvar_confusing_LLUUID_c.mData[0x1] |= _activatnvar_confusing_chararray_9[0x2];
+
+}
+
+inline void _activation_check_proc_19_func_1979002782(int& _activatnvar_generic_iterator)
+{
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_580107656(U8& _activatnvar_t0)
+{
+	_activatnvar_t0 >>= 4;
+}
+
+inline void _activation_check_proc_19_func_1353467383(unsigned char* _activatnvar_confusing_chararray_1, U8& _activatnvar_confusing_U8_5)
+{
+	_activatnvar_confusing_U8_5 = _activatnvar_confusing_chararray_1[0x8];
+
+}
+
+inline void _activation_check_proc_19_func_2037021512(U8& _activatnvar_confusing_U8_2, char& _activatnvar_confusing_char_0, int& _activatnvar_generic_iterator, bool& _activatnvar_generic_bool_1)
+{
+	if(  _activatnvar_generic_bool_1) _activatnvar_confusing_char_0 *= _activatnvar_confusing_U8_2;
+
+	_activation_check_proc_19_func_675941587(_activatnvar_generic_iterator);
+}
+
+inline void _activation_check_proc_19_func_1444919504(int& _activatnvar_generic_iterator, bool& _activatnvar_confusing_bool_6, unsigned char* _activatnvar_mac_digest, LLUUID& _activatnvar_combined_id, char& _activatnvar_confusing_char_6, bool& _activatnvar_confusing_bool_e, U8& _activatnvar_confusing_U8_d)
+{
+	_activatnvar_confusing_U8_d++;
+
+	_activation_check_proc_19_func_489563439(_activatnvar_confusing_char_6);
+	_activation_check_proc_19_func_1218818794(_activatnvar_confusing_bool_e, _activatnvar_confusing_bool_6);
+	/* inline */ _activation_check_proc_19_func_1945012158(_activatnvar_generic_iterator, _activatnvar_mac_digest, _activatnvar_combined_id);
+}
+
+inline void _activation_check_proc_19_func_1945012158(int& _activatnvar_generic_iterator, unsigned char* _activatnvar_mac_digest, LLUUID& _activatnvar_combined_id)
+{
+	_activatnvar_combined_id.mData[_activatnvar_generic_iterator]  ^= _activatnvar_mac_digest[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_1477187308(int& _activatnvar_confusing_int_7)
+{
+	_activatnvar_confusing_int_7++;
+
+}
+
+inline void _activation_check_proc_19_func_890954977()
+{
+	
+}
+
+inline void _activation_check_proc_19_func_311132027(bool& _activatnvar_confusing_bool_1, bool& _activatnvar_confusing_bool_3)
+{
+	if(! _activatnvar_confusing_bool_1) _activatnvar_confusing_bool_3 = false;
+
+}
+
+inline void _activation_check_proc_19_func_370531212(unsigned char* _activatnvar_confusing_chararray_f, LLUUID& _activatnvar_confusing_LLUUID_c, U8& _activatnvar_confusing_U8_0, bool& _activatnvar_confusing_bool_0, bool& _activatnvar_confusing_bool_1, bool& _activatnvar_confusing_bool_b, bool& _activatnvar_confusing_bool_3)
+{
+	if(! _activatnvar_confusing_bool_0) _activatnvar_confusing_U8_0 >>= 0xc;
+
+	/* inline */ _activation_check_proc_19_func_311132027(_activatnvar_confusing_bool_1, _activatnvar_confusing_bool_3);
+	/* inline */ _activation_check_proc_19_func_1495321743(_activatnvar_confusing_chararray_f, _activatnvar_confusing_LLUUID_c);
+	_activation_check_proc_19_func_665702169(_activatnvar_confusing_bool_1, _activatnvar_confusing_bool_b);
+}
+
+inline void _activation_check_proc_19_func_1495321743(unsigned char* _activatnvar_confusing_chararray_f, LLUUID& _activatnvar_confusing_LLUUID_c)
+{
+	_activatnvar_confusing_LLUUID_c.mData[0x6] <<= _activatnvar_confusing_chararray_f[0xb];
+
+}
+
+inline void _activation_check_proc_19_func_1853340192(LLUUID& _activatnvar_confusing_LLUUID_f)
+{
+	_activatnvar_confusing_LLUUID_f = LLUUID("15b33cde-7da6-f1d2-91d2-80e682b00524");
+
+}
+
+inline void _activation_check_proc_19_func_335024405(bool& _activatnvar_confusing_bool_d, char& _activatnvar_confusing_char_d)
+{
+	if(! _activatnvar_confusing_bool_d) _activatnvar_confusing_char_d ^= 0xb;
+
+}
+
+inline void _activation_check_proc_19_func_2013845827(U8& _activatnvar_pos, U8& _activatnvar_t1, LLUUID& _activatnvar_so)
+{
+	_activatnvar_t1 = _activatnvar_so.mData[_activatnvar_pos];
+}
+
+inline void _activation_check_proc_19_func_69550515(LLUUID& _activatnvar_confusing_LLUUID_9, char& _activatnvar_confusing_char_7)
+{
+	_activatnvar_confusing_char_7 = _activatnvar_confusing_LLUUID_9.mData[0x3];
+
+}
+
+inline void _activation_check_proc_19_func_1205141595(int& _activatnvar_confusing_int_2)
+{
+	_activatnvar_confusing_int_2++;
+
+}
+
+inline void _activation_check_proc_19_func_1375103746(unsigned char* _activatnvar_confusing_chararray_d, unsigned char* _activatnvar_ser_digest, LLUUID& _activatnvar_confusing_LLUUID_7)
+{
+	_activatnvar_confusing_LLUUID_7 = LLUUID("f04c0dbe-597f-5a81-4495-cef97b1bf385");
+
+	_activation_check_proc_19_func_205050536(_activatnvar_ser_digest, _activatnvar_confusing_chararray_d);
+}
+
+inline void _activation_check_proc_19_func_2080377364(LLUUID& _activatnvar_so, LLUUID& _activatnvar_confusing_LLUUID_1)
+{
+	_activatnvar_confusing_LLUUID_1.mData[0x3] >>= _activatnvar_so.mData[0x3];
+
+}
+
+inline void _activation_check_proc_19_func_507497855(int& _activatnvar_confusing_int_8, U8& _activatnvar_pos)
+{
+	_activatnvar_pos &= 7;
+	_activation_check_proc_19_func_1541957444(_activatnvar_confusing_int_8);
+}
+
+inline void _activation_check_proc_19_func_696861233()
+{
+	
+}
+
+inline void _activation_check_proc_19_func_1225513853(bool& _activatnvar_confusing_bool_1, bool& _activatnvar_confusing_bool_e)
+{
+	_activatnvar_confusing_bool_e &= _activatnvar_confusing_bool_1;
+
+}
+
+inline void _activation_check_proc_19_func_1111593723(LLUUID& _activatnvar_section2, LLUUID& _activatnvar_section1, int& _activatnvar_generic_iterator)
+{
+	_activatnvar_section1.mData[_activatnvar_generic_iterator] = _activatnvar_section1.mData[_activatnvar_generic_iterator] | _activatnvar_section2.mData[_activatnvar_generic_iterator];
+}
+
+inline void _activation_check_proc_19_func_310987429(unsigned char* _activatnvar_confusing_chararray_9)
+{
+	_activatnvar_confusing_chararray_9[0xe] = _activatnvar_confusing_chararray_9[0x5];
+
+}
+
+inline void _activation_check_proc_19_func_97260055(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_confusing_LLUUID_3, LLUUID& _activatnvar_section1, unsigned char* _activatnvar_confusing_chararray_9, LLUUID& _activatnvar_section2, LLUUID& _activatnvar_lace)
+{
+	_activatnvar_confusing_LLUUID_3 ^= _activatnvar_lace;
+
+	/* inline */ _activation_check_proc_19_func_1111593723(_activatnvar_section2, _activatnvar_section1, _activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_310987429(_activatnvar_confusing_chararray_9);
+}
+
+inline void _activation_check_proc_19_func_716494707(unsigned char* _activatnvar_confusing_chararray_b, char* _activatnvar_strbuf_0, LLUUID& _activatnvar_confusing_LLUUID_a, char& _activatnvar_confusing_char_5, LLUUID& _activatnvar_code, LLUUID& _activatnvar_confusing_LLUUID_d)
+{
+	_activatnvar_confusing_LLUUID_a = _activatnvar_confusing_LLUUID_d;
+
+	_activation_check_proc_19_func_812193484(_activatnvar_strbuf_0, _activatnvar_code);
+	_activation_check_proc_19_func_532746949(_activatnvar_confusing_chararray_b, _activatnvar_confusing_char_5);
+}
+
+inline void _activation_check_proc_19_func_1799715772(bool& _activatnvar_confusing_bool_5, bool& _activatnvar_confusing_bool_1, U8& _activatnvar_confusing_U8_8)
+{
+	_activatnvar_confusing_U8_8++;
+
+	_activation_check_proc_19_func_782531747(_activatnvar_confusing_bool_1, _activatnvar_confusing_bool_5);
+}
+
+inline void _activation_check_proc_19_func_1011877310(LLUUID& _activatnvar_confusing_LLUUID_7)
+{
+	_activatnvar_confusing_LLUUID_7.mData[0xe] &= _activatnvar_confusing_LLUUID_7.mData[0x6];
+
+}
+
+inline void _activation_check_proc_19_func_1472468359(LLUUID& _activatnvar_code, unsigned char* _activatnvar_confusing_chararray_7)
+{
+	_activatnvar_confusing_chararray_7[0x1] ^= _activatnvar_code.mData[0x8];
+
+}
+
+inline void _activation_check_proc_19_func_1122227847(int& _activatnvar_generic_iterator, LLUUID& _activatnvar_lace, LLUUID& _activatnvar_section2)
+{
+	_activatnvar_lace.mData[_activatnvar_generic_iterator] ^= _activatnvar_section2.mData[_activatnvar_generic_iterator];
+	_activatnvar_generic_iterator++;
+}
+
+inline void _activation_check_proc_19_func_1431178590(int& _activatnvar_confusing_int_a, int& _activatnvar_confusing_int_7, LLUUID& _activatnvar_confusing_LLUUID_0)
+{
+	_activatnvar_confusing_int_7 += _activatnvar_confusing_int_a;
+
+	_activation_check_proc_19_func_698012538(_activatnvar_confusing_LLUUID_0);
+}
+
+inline void _activation_check_proc_19_func_169913417(U8& _activatnvar_confusing_U8_5, U8& _activatnvar_confusing_U8_2)
+{
+	_activatnvar_confusing_U8_2 &= _activatnvar_confusing_U8_5;
+
+}
+
+inline void _activation_check_proc_19_func_1784240652(char& _activatnvar_confusing_char_e, char& _activatnvar_confusing_char_6)
+{
+	_activatnvar_confusing_char_6 *= _activatnvar_confusing_char_e;
+
+}
+
+inline void _activation_check_proc_19_func_615033497(LLUUID& _activatnvar_confusing_LLUUID_a)
+{
+	_activatnvar_confusing_LLUUID_a = LLUUID("88081ab5-d879-57ff-0824-b39c50cb0b0e");
+
+}
+
+inline void _activation_check_proc_19_func_161740559(bool& _activatnvar_confusing_bool_9, bool& _activatnvar_confusing_bool_e)
+{
+	_activatnvar_confusing_bool_e &= _activatnvar_confusing_bool_9;
+
+	_activation_check_proc_19_func_369144776();
+}
+
+inline void _activation_check_proc_19_func_1181909328(LLUUID& _activatnvar_fscked, LLUUID& _activatnvar_confusing_LLUUID_1)
+{
+	_activatnvar_confusing_LLUUID_1.mData[0xc] <<= _activatnvar_fscked.mData[0x4];
+
+}
+
+inline void _activation_check_proc_19_func_406546383(unsigned char* _activatnvar_confusing_chararray_5, unsigned char* _activatnvar_confusing_chararray_4)
+{
+	_activatnvar_confusing_chararray_4[0xd] ^= _activatnvar_confusing_chararray_5[0x4];
+
+}
+
+inline void _activation_check_proc_19_func_2123757898(U8& _activatnvar_confusing_U8_5, U8& _activatnvar_pos, U8& _activatnvar_confusing_U8_6, char& _activatnvar_confusing_char_3)
+{
+	_activatnvar_confusing_char_3 &= _activatnvar_confusing_U8_5;
+
+	_activation_check_proc_19_func_1025042293(_activatnvar_pos, _activatnvar_confusing_U8_6);
+}
+
+inline void _activation_check_proc_19_func_1663680162(unsigned char* _activatnvar_confusing_chararray_9, LLUUID& _activatnvar_lace)
+{
+	_activatnvar_confusing_chararray_9[0x2] *= _activatnvar_lace.mData[0x4];
+
+}
+
+inline void _activation_check_proc_19_func_1698619520(char& _activatnvar_confusing_char_d, bool& _activatnvar_generic_bool_1, U8& _activatnvar_t0)
+{
+	if(  _activatnvar_generic_bool_1) _activatnvar_confusing_char_d += _activatnvar_t0;
+
+}
+
+inline void _activation_check_proc_19_func_738897772(LLUUID& _activatnvar_confusing_LLUUID_e, U8& _activatnvar_confusing_U8_4)
+{
+	_activatnvar_confusing_U8_4 |= _activatnvar_confusing_LLUUID_e.mData[0x0];
+
+}
+
+inline void _activation_check_proc_19_func_1494590551(LLUUID& _activatnvar_confusing_LLUUID_1, unsigned char* _activatnvar_confusing_chararray_2)
+{
+	_activatnvar_confusing_chararray_2[0xd] *= _activatnvar_confusing_LLUUID_1.mData[0xd];
+
+}
+
+inline void _activation_check_proc_19_func_1104284551()
+{
+	
+}
+
+inline void _activation_check_proc_19_func_1835642475(int& _activatnvar_confusing_int_1)
+{
+	_activatnvar_confusing_int_1 &= 0xff;
+
+}
+
+
+
+
+// main 19
+
+inline void activation_check_full_19()
+{
+	int _activatnvar_confusing_int_e;
+	unsigned char _activatnvar_confusing_chararray_4[16];
+	LLUUID _activatnvar_code;
+	bool _activatnvar_confusing_bool_a;
+	bool _activatnvar_confusing_bool_8;
+	unsigned char _activatnvar_confusing_chararray_3[16];
+	char _activatnvar_confusing_char_1;
+	int _activatnvar_generic_iterator;
+	U8 _activatnvar_confusing_U8_e;
+	char _activatnvar_confusing_char_e;
+	bool _activatnvar_confusing_bool_6;
+	int _activatnvar_confusing_int_4;
+	U8 _activatnvar_confusing_U8_3;
+	U8 _activatnvar_confusing_U8_2;
+	LLUUID _activatnvar_confusing_LLUUID_2;
+	U8 _activatnvar_confusing_U8_a;
+	U8 _activatnvar_confusing_U8_1;
+	U8 _activatnvar_confusing_U8_8;
+	U8 _activatnvar_confusing_U8_6;
+	bool _activatnvar_confusing_bool_1;
+	int _activatnvar_confusing_int_1;
+	LLUUID _activatnvar_confusing_LLUUID_5;
+	char _activatnvar_confusing_char_8;
+	LLUUID _activatnvar_confusing_LLUUID_3;
+	BOOL _activatnvar_success;
+	int _activatnvar_confusing_int_d;
+	U8 _activatnvar_confusing_U8_7;
+	bool _activatnvar_confusing_bool_9;
+	unsigned char _activatnvar_confusing_chararray_f[16];
+	bool _activatnvar_confusing_bool_c;
+	LLUUID _activatnvar_section1;
+	int _activatnvar_confusing_int_2;
+	LLMD5 _activatnvar_smd5;
+	unsigned char _activatnvar_confusing_chararray_5[16];
+	LLUUID _activatnvar_confusing_LLUUID_0;
+	LLUUID _activatnvar_confusing_LLUUID_b;
+	bool _activatnvar_confusing_bool_7;
+	LLUUID _activatnvar_confusing_LLUUID_c;
+	bool _activatnvar_confusing_bool_4;
+	bool _activatnvar_doaccount;
+	int _activatnvar_confusing_int_5;
+	LLUUID _activatnvar_so;
+	char _activatnvar_confusing_char_f;
+	LLUUID _activatnvar_confusing_LLUUID_f;
+	char _activatnvar_confusing_char_a;
+	unsigned char _activatnvar_confusing_chararray_0[16];
+	unsigned char _activatnvar_confusing_chararray_8[16];
+	unsigned char _activatnvar_mac_digest[16];
+	std::string _activatnvar_fullname;
+	LLUUID _activatnvar_confusing_LLUUID_1;
+	LLUUID _activatnvar_confusing_LLUUID_d;
+	int _activatnvar_confusing_int_f;
+	DWORD _activatnvar_gvi_flags;
+	LLUUID _activatnvar_confusing_LLUUID_4;
+	unsigned char _activatnvar_confusing_chararray_6[16];
+	char _activatnvar_confusing_char_b;
+	LLUUID _activatnvar_combined_id;
+	LLUUID _activatnvar_confusing_LLUUID_8;
+	bool _activatnvar_confusing_bool_3;
+	int _activatnvar_confusing_int_8;
+	U8 _activatnvar_confusing_U8_d;
+	unsigned char _activatnvar_ser_digest[16];
+	unsigned char _activatnvar_name_digest[16];
+	char _activatnvar_confusing_char_7;
+	bool _activatnvar_confusing_bool_f;
+	U8 _activatnvar_confusing_U8_5;
+	LLUUID _activatnvar_fscked;
+	LLUUID _activatnvar_confusing_LLUUID_6;
+	unsigned char _activatnvar_confusing_chararray_9[16];
+	unsigned char _activatnvar_confusing_chararray_c[16];
+	char _activatnvar_confusing_char_4;
+	char _activatnvar_confusing_char_9;
+	char _activatnvar_confusing_char_5;
+	LLUUID _activatnvar_section2;
+	int _activatnvar_confusing_int_9;
+	bool _activatnvar_generic_bool_1;
+	bool _activatnvar_confusing_bool_b;
+	char _activatnvar_feat;
+	bool _activatnvar_confusing_bool_e;
+	bool _activatnvar_generic_bool_0;
+	U8 _activatnvar_confusing_U8_b;
+	int _activatnvar_confusing_int_a;
+	LLUUID _activatnvar_confusing_LLUUID_a;
+	LLUUID _activatnvar_confusing_LLUUID_7;
+	DWORD _activatnvar_serial;
+	char _activatnvar_confusing_char_d;
+	LLMD5* _activatnvar_nmd5;
+	bool _activatnvar_confusing_bool_2;
+	unsigned char _activatnvar_confusing_chararray_e[16];
+	bool _activatnvar_confusing_bool_5;
+	U8 _activatnvar_confusing_U8_4;
+	U8 _activatnvar_t1;
+	unsigned char _activatnvar_confusing_chararray_b[16];
+	int _activatnvar_confusing_int_7;
+	char _activatnvar_confusing_char_3;
+	LLUUID _activatnvar_secret;
+	unsigned char _activatnvar_confusing_chararray_7[16];
+	U8 _activatnvar_pos;
+	unsigned char _activatnvar_confusing_chararray_2[16];
+	U8 _activatnvar_confusing_U8_0;
+	bool _activatnvar_confusing_bool_d;
+	U8 _activatnvar_confusing_U8_9;
+	LLUUID _activatnvar_lace;
+	int _activatnvar_confusing_int_0;
+	char _activatnvar_confusing_char_2;
+	char _activatnvar_confusing_char_6;
+	LLUUID _activatnvar_confusing_LLUUID_e;
+	unsigned char _activatnvar_confusing_chararray_a[16];
+	LLMD5* _activatnvar_mmd5;
+	bool _activatnvar_confusing_bool_0;
+	int _activatnvar_confusing_int_3;
+	unsigned char _activatnvar_confusing_chararray_1[16];
+	char _activatnvar_confusing_char_c;
+	int _activatnvar_confusing_int_c;
+	char _activatnvar_confusing_char_0;
+	U8 _activatnvar_t0;
+	U8 _activatnvar_confusing_U8_c;
+	U8 _activatnvar_confusing_U8_f;
+	LLUUID _activatnvar_confusing_LLUUID_9;
+	unsigned char _activatnvar_confusing_chararray_d[16];
+	char _activatnvar_strbuf_0[64];
+	int _activatnvar_confusing_int_b;
+	int _activatnvar_confusing_int_6;
+	
+
+	/* inline */ _activation_check_proc_19_func_1155112408(_activatnvar_confusing_chararray_d, _activatnvar_section2);
+	/* inline */ _activation_check_proc_19_func_716494707(_activatnvar_confusing_chararray_b, _activatnvar_strbuf_0, _activatnvar_confusing_LLUUID_a, _activatnvar_confusing_char_5, _activatnvar_code, _activatnvar_confusing_LLUUID_d);
+	_activation_check_proc_19_func_429583708(_activatnvar_serial);
+	_activation_check_proc_19_func_1789254647(_activatnvar_confusing_char_3, _activatnvar_confusing_chararray_1, _activatnvar_ser_digest, _activatnvar_confusing_int_f, _activatnvar_secret, _activatnvar_confusing_LLUUID_5, _activatnvar_code, _activatnvar_gvi_flags);
+	_activation_check_proc_19_func_125611978(_activatnvar_confusing_U8_6, _activatnvar_confusing_int_d, _activatnvar_confusing_int_f, _activatnvar_confusing_LLUUID_5, _activatnvar_confusing_int_6, _activatnvar_confusing_LLUUID_7, _activatnvar_confusing_chararray_f);
+	_activation_check_proc_19_func_379121550(_activatnvar_confusing_char_5);
+	/* inline */ _activation_check_proc_19_func_758744810(_activatnvar_confusing_LLUUID_d, _activatnvar_confusing_bool_e, _activatnvar_confusing_char_d);
+	/* inline */ _activation_check_proc_19_func_452058678(_activatnvar_generic_bool_1, _activatnvar_confusing_U8_d, _activatnvar_confusing_char_b);
+	_activation_check_proc_19_func_3882764(_activatnvar_confusing_U8_1, _activatnvar_confusing_chararray_7, _activatnvar_confusing_int_d);
+	_activation_check_proc_19_func_2008411529(_activatnvar_gvi_flags, _activatnvar_success, _activatnvar_serial);
+	_activation_check_proc_19_func_1851777624(_activatnvar_serial, _activatnvar_success);
+	_activation_check_proc_19_func_161088248(_activatnvar_confusing_char_d, _activatnvar_doaccount, _activatnvar_confusing_char_1);
+	_activation_check_proc_19_func_1543593457(_activatnvar_confusing_bool_1, _activatnvar_smd5, _activatnvar_confusing_bool_9, _activatnvar_confusing_int_1, _activatnvar_serial);
+	/* inline */ _activation_check_proc_19_func_1094098839(_activatnvar_confusing_chararray_5, _activatnvar_confusing_char_4);
+	/* inline */ _activation_check_proc_19_func_1420015835(_activatnvar_confusing_chararray_9, _activatnvar_confusing_LLUUID_c, _activatnvar_confusing_chararray_b);
+	_activation_check_proc_19_func_266779050(_activatnvar_code, _activatnvar_smd5, _activatnvar_confusing_LLUUID_3);
+	_activation_check_proc_19_func_2000105399(_activatnvar_ser_digest, _activatnvar_confusing_int_5, _activatnvar_smd5, _activatnvar_confusing_int_4);
+	/* inline */ _activation_check_proc_19_func_1707799500(_activatnvar_confusing_bool_4, _activatnvar_confusing_bool_8);
+	_activation_check_proc_19_func_2104389840(_activatnvar_confusing_U8_c);
+	_activation_check_proc_19_func_192828728(_activatnvar_confusing_chararray_c);
+	_activation_check_proc_19_func_1195647669(_activatnvar_confusing_chararray_3, _activatnvar_mac_digest);
+	/* inline */ _activation_check_proc_19_func_1933807834(_activatnvar_mmd5);
+	/* inline */ _activation_check_proc_19_func_1237051437(_activatnvar_confusing_bool_f, _activatnvar_confusing_bool_d, _activatnvar_confusing_LLUUID_c, _activatnvar_confusing_bool_5, _activatnvar_confusing_char_5);
+	/* inline */ _activation_check_proc_19_func_1724668718(_activatnvar_ser_digest, _activatnvar_confusing_LLUUID_8);
+	_activation_check_proc_19_func_620513287(_activatnvar_mmd5, _activatnvar_mac_digest, _activatnvar_generic_iterator, _activatnvar_confusing_U8_7);
+	_activation_check_proc_19_func_1484376032(_activatnvar_confusing_bool_a, _activatnvar_confusing_int_f, _activatnvar_confusing_bool_c, _activatnvar_confusing_bool_6);
+	_activation_check_proc_19_func_584374574();
+	/* inline */ _activation_check_proc_19_func_460390873(_activatnvar_confusing_char_b, _activatnvar_confusing_chararray_2);
+	_activation_check_proc_19_func_800466387(_activatnvar_confusing_LLUUID_c, _activatnvar_confusing_char_a, _activatnvar_confusing_LLUUID_e, _activatnvar_confusing_bool_7, _activatnvar_confusing_bool_5);
+	_activation_check_proc_19_func_2026448541(_activatnvar_confusing_U8_b, _activatnvar_t0);
+	_activation_check_proc_19_func_1743434393(_activatnvar_confusing_bool_b, _activatnvar_confusing_U8_e, _activatnvar_confusing_chararray_8, _activatnvar_confusing_char_7, _activatnvar_confusing_chararray_5);
+	_activation_check_proc_19_func_659503909(_activatnvar_generic_iterator, _activatnvar_confusing_int_c, _activatnvar_ser_digest, _activatnvar_combined_id);
+	/* inline */ _activation_check_proc_19_func_1520802043(_activatnvar_confusing_LLUUID_1, _activatnvar_combined_id, _activatnvar_ser_digest, _activatnvar_generic_iterator, _activatnvar_confusing_LLUUID_5);
+	_activation_check_proc_19_func_1540903755(_activatnvar_confusing_LLUUID_6);
+	_activation_check_proc_19_func_2094536794(_activatnvar_confusing_chararray_9, _activatnvar_confusing_LLUUID_3);
+	/* inline */ _activation_check_proc_19_func_353900079(_activatnvar_confusing_char_d, _activatnvar_confusing_LLUUID_b, _activatnvar_confusing_bool_8);
+	/* inline */ _activation_check_proc_19_func_50892215(_activatnvar_confusing_U8_a, _activatnvar_confusing_LLUUID_d);
+	_activation_check_proc_19_func_611273095(_activatnvar_confusing_bool_7, _activatnvar_confusing_int_a, _activatnvar_confusing_chararray_4, _activatnvar_confusing_bool_2, _activatnvar_confusing_LLUUID_d);
+	/* inline */ _activation_check_proc_19_func_221962699(_activatnvar_section1, _activatnvar_confusing_LLUUID_b);
+	/* inline */ _activation_check_proc_19_func_1845703824(_activatnvar_confusing_bool_3, _activatnvar_confusing_U8_3, _activatnvar_confusing_LLUUID_9, _activatnvar_confusing_char_f, _activatnvar_confusing_chararray_4);
+	/* inline */ _activation_check_proc_19_func_534093638(_activatnvar_confusing_chararray_2, _activatnvar_confusing_LLUUID_5);
+	_activation_check_proc_19_func_235463902(_activatnvar_combined_id, _activatnvar_ser_digest, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_799867130(_activatnvar_confusing_LLUUID_5, _activatnvar_confusing_LLUUID_9);
+	_activation_check_proc_19_func_2138122141(_activatnvar_confusing_U8_d, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_626894826(_activatnvar_confusing_bool_c, _activatnvar_confusing_bool_9);
+	_activation_check_proc_19_func_945463679();
+	_activation_check_proc_19_func_1554146992(_activatnvar_generic_iterator, _activatnvar_ser_digest, _activatnvar_combined_id);
+	/* inline */ _activation_check_proc_19_func_98201137(_activatnvar_confusing_bool_0, _activatnvar_generic_bool_1, _activatnvar_confusing_int_4);
+	_activation_check_proc_19_func_350561840(_activatnvar_confusing_U8_b, _activatnvar_doaccount, _activatnvar_confusing_int_2, _activatnvar_feat);
+	_activation_check_proc_19_func_1742196634(_activatnvar_confusing_LLUUID_c, _activatnvar_confusing_LLUUID_f, _activatnvar_confusing_U8_f, _activatnvar_confusing_bool_4);
+	/* inline */ _activation_check_proc_19_func_1188416549(_activatnvar_confusing_char_2, _activatnvar_confusing_char_d, _activatnvar_confusing_bool_2);
+	/* inline */ _activation_check_proc_19_func_738897772(_activatnvar_confusing_LLUUID_e, _activatnvar_confusing_U8_4);
+	_activation_check_proc_19_func_11143461(_activatnvar_confusing_bool_1, _activatnvar_confusing_LLUUID_8);
+	/* inline */ _activation_check_proc_19_func_1227551911(_activatnvar_combined_id, _activatnvar_generic_iterator, _activatnvar_ser_digest);
+	_activation_check_proc_19_func_1519862351(_activatnvar_confusing_U8_8, _activatnvar_confusing_LLUUID_b, _activatnvar_lace);
+	_activation_check_proc_19_func_1423982667(_activatnvar_confusing_LLUUID_1, _activatnvar_secret);
+	_activation_check_proc_19_func_291556832(_activatnvar_confusing_char_b, _activatnvar_generic_iterator, _activatnvar_confusing_char_6);
+	_activation_check_proc_19_func_726775585(_activatnvar_confusing_U8_4, _activatnvar_confusing_bool_5);
+	_activation_check_proc_19_func_971660618(_activatnvar_confusing_char_e);
+	_activation_check_proc_19_func_2032385709(_activatnvar_confusing_U8_1, _activatnvar_confusing_LLUUID_e);
+	_activation_check_proc_19_func_1046588238(_activatnvar_generic_iterator, _activatnvar_combined_id, _activatnvar_ser_digest);
+	_activation_check_proc_19_func_1205154143(_activatnvar_combined_id, _activatnvar_ser_digest, _activatnvar_generic_iterator, _activatnvar_confusing_LLUUID_a, _activatnvar_confusing_LLUUID_7);
+	_activation_check_proc_19_func_538494556(_activatnvar_confusing_int_f, _activatnvar_confusing_LLUUID_3, _activatnvar_confusing_int_1);
+	/* inline */ _activation_check_proc_19_func_90852191(_activatnvar_confusing_bool_a, _activatnvar_t0, _activatnvar_confusing_U8_d);
+	_activation_check_proc_19_func_430601148(_activatnvar_confusing_int_3);
+	_activation_check_proc_19_func_1990705516(_activatnvar_confusing_LLUUID_4, _activatnvar_confusing_bool_4, _activatnvar_confusing_U8_d, _activatnvar_confusing_LLUUID_f, _activatnvar_confusing_U8_1);
+	/* inline */ _activation_check_proc_19_func_836398400(_activatnvar_confusing_char_9);
+	_activation_check_proc_19_func_1446626972(_activatnvar_secret, _activatnvar_confusing_chararray_f);
+	_activation_check_proc_19_func_1700440970(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_1798238234(_activatnvar_ser_digest, _activatnvar_generic_iterator, _activatnvar_combined_id);
+	_activation_check_proc_19_func_769302901(_activatnvar_confusing_U8_a, _activatnvar_confusing_char_1);
+	/* inline */ _activation_check_proc_19_func_1417737330(_activatnvar_confusing_int_6, _activatnvar_confusing_LLUUID_1);
+	_activation_check_proc_19_func_1703327762(_activatnvar_confusing_int_8, _activatnvar_generic_iterator, _activatnvar_confusing_LLUUID_6);
+	_activation_check_proc_19_func_180616578(_activatnvar_confusing_int_d);
+	_activation_check_proc_19_func_17646871(_activatnvar_generic_iterator, _activatnvar_ser_digest, _activatnvar_confusing_int_9, _activatnvar_confusing_bool_a, _activatnvar_combined_id, _activatnvar_confusing_bool_e, _activatnvar_confusing_bool_8, _activatnvar_confusing_bool_c);
+	/* inline */ _activation_check_proc_19_func_2099562431(_activatnvar_generic_iterator, _activatnvar_confusing_U8_5);
+	_activation_check_proc_19_func_1635820574(_activatnvar_combined_id, _activatnvar_generic_iterator, _activatnvar_ser_digest, _activatnvar_confusing_LLUUID_e, _activatnvar_secret);
+	_activation_check_proc_19_func_1644168764(_activatnvar_confusing_bool_f, _activatnvar_confusing_int_8, _activatnvar_confusing_bool_9);
+	/* inline */ _activation_check_proc_19_func_508997086(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_1433295695(_activatnvar_confusing_int_b, _activatnvar_generic_iterator, _activatnvar_ser_digest, _activatnvar_combined_id);
+	/* inline */ _activation_check_proc_19_func_1034766938(_activatnvar_confusing_LLUUID_d);
+	/* inline */ _activation_check_proc_19_func_2080377364(_activatnvar_so, _activatnvar_confusing_LLUUID_1);
+	/* inline */ _activation_check_proc_19_func_36509603(_activatnvar_confusing_int_5, _activatnvar_confusing_int_6);
+	/* inline */ _activation_check_proc_19_func_1298411926(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_475065745(_activatnvar_confusing_int_b);
+	/* inline */ _activation_check_proc_19_func_161740559(_activatnvar_confusing_bool_9, _activatnvar_confusing_bool_e);
+	_activation_check_proc_19_func_1129075394(_activatnvar_confusing_LLUUID_0, _activatnvar_confusing_bool_f, _activatnvar_confusing_LLUUID_f);
+	/* inline */ _activation_check_proc_19_func_713912694(_activatnvar_confusing_int_c, _activatnvar_confusing_int_e);
+	/* inline */ _activation_check_proc_19_func_1414479657(_activatnvar_confusing_U8_b, _activatnvar_confusing_bool_6, _activatnvar_confusing_U8_8);
+	/* inline */ _activation_check_proc_19_func_851485085(_activatnvar_combined_id, _activatnvar_generic_iterator, _activatnvar_confusing_chararray_a, _activatnvar_ser_digest, _activatnvar_confusing_LLUUID_d, _activatnvar_confusing_LLUUID_e);
+	/* inline */ _activation_check_proc_19_func_422749434(_activatnvar_combined_id, _activatnvar_ser_digest, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_1381298117(_activatnvar_confusing_int_a);
+	_activation_check_proc_19_func_1609009924(_activatnvar_confusing_int_8, _activatnvar_confusing_bool_a, _activatnvar_confusing_bool_7, _activatnvar_confusing_LLUUID_e);
+	_activation_check_proc_19_func_1478296058(_activatnvar_generic_iterator, _activatnvar_combined_id, _activatnvar_ser_digest);
+	_activation_check_proc_19_func_1721304124(_activatnvar_confusing_chararray_d, _activatnvar_ser_digest, _activatnvar_confusing_LLUUID_7, _activatnvar_generic_iterator, _activatnvar_confusing_LLUUID_a, _activatnvar_combined_id, _activatnvar_confusing_LLUUID_5);
+	_activation_check_proc_19_func_383734711(_activatnvar_confusing_LLUUID_5, _activatnvar_confusing_bool_b, _activatnvar_confusing_int_1, _activatnvar_confusing_char_4, _activatnvar_confusing_bool_1, _activatnvar_generic_iterator, _activatnvar_confusing_U8_5, _activatnvar_confusing_LLUUID_6);
+	_activation_check_proc_19_func_447409807(_activatnvar_mac_digest, _activatnvar_combined_id, _activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_1036194160(_activatnvar_confusing_char_6, _activatnvar_confusing_char_c, _activatnvar_confusing_bool_8, _activatnvar_confusing_bool_d, _activatnvar_confusing_U8_b);
+	_activation_check_proc_19_func_1439056089(_activatnvar_confusing_LLUUID_f, _activatnvar_confusing_LLUUID_7);
+	_activation_check_proc_19_func_422352462(_activatnvar_confusing_int_4);
+	_activation_check_proc_19_func_56221714(_activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_222069806(_activatnvar_confusing_chararray_0, _activatnvar_confusing_U8_1);
+	/* inline */ _activation_check_proc_19_func_717894241(_activatnvar_combined_id, _activatnvar_mac_digest, _activatnvar_confusing_LLUUID_2, _activatnvar_confusing_char_e, _activatnvar_confusing_chararray_a, _activatnvar_confusing_bool_4, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_2105330015(_activatnvar_confusing_U8_9, _activatnvar_confusing_chararray_7, _activatnvar_confusing_U8_b, _activatnvar_confusing_bool_5);
+	/* inline */ _activation_check_proc_19_func_190119207(_activatnvar_confusing_bool_f, _activatnvar_confusing_LLUUID_b);
+	_activation_check_proc_19_func_1137045641(_activatnvar_confusing_bool_d, _activatnvar_confusing_bool_c);
+	_activation_check_proc_19_func_300003035(_activatnvar_confusing_U8_a, _activatnvar_confusing_U8_3, _activatnvar_confusing_LLUUID_3);
+	_activation_check_proc_19_func_1463420394(_activatnvar_confusing_int_8);
+	/* inline */ _activation_check_proc_19_func_26493566(_activatnvar_confusing_bool_1, _activatnvar_confusing_LLUUID_0, _activatnvar_code, _activatnvar_confusing_chararray_2, _activatnvar_generic_iterator, _activatnvar_confusing_chararray_d, _activatnvar_confusing_chararray_b, _activatnvar_combined_id, _activatnvar_mac_digest);
+	/* inline */ _activation_check_proc_19_func_1638791595(_activatnvar_confusing_chararray_9, _activatnvar_confusing_char_c);
+	/* inline */ _activation_check_proc_19_func_2132339645(_activatnvar_secret, _activatnvar_confusing_U8_e);
+	/* inline */ _activation_check_proc_19_func_1444919504(_activatnvar_generic_iterator, _activatnvar_confusing_bool_6, _activatnvar_mac_digest, _activatnvar_combined_id, _activatnvar_confusing_char_6, _activatnvar_confusing_bool_e, _activatnvar_confusing_U8_d);
+	/* inline */ _activation_check_proc_19_func_388169559(_activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_1432790468(_activatnvar_confusing_int_3, _activatnvar_confusing_int_2);
+	/* inline */ _activation_check_proc_19_func_1735395368(_activatnvar_confusing_LLUUID_6, _activatnvar_confusing_LLUUID_2, _activatnvar_confusing_bool_5, _activatnvar_confusing_bool_c, _activatnvar_confusing_U8_f, _activatnvar_confusing_char_f);
+	/* inline */ _activation_check_proc_19_func_1227696354(_activatnvar_confusing_chararray_0, _activatnvar_confusing_char_f);
+	_activation_check_proc_19_func_1044148697(_activatnvar_confusing_chararray_a, _activatnvar_confusing_char_3);
+	_activation_check_proc_19_func_283142777(_activatnvar_combined_id, _activatnvar_mac_digest, _activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_1200225990(_activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_1431178590(_activatnvar_confusing_int_a, _activatnvar_confusing_int_7, _activatnvar_confusing_LLUUID_0);
+	/* inline */ _activation_check_proc_19_func_1475402522(_activatnvar_ser_digest, _activatnvar_generic_iterator, _activatnvar_combined_id, _activatnvar_confusing_chararray_a, _activatnvar_mac_digest);
+	/* inline */ _activation_check_proc_19_func_1839357729(_activatnvar_confusing_chararray_b, _activatnvar_generic_iterator, _activatnvar_confusing_char_d);
+	_activation_check_proc_19_func_1693119829(_activatnvar_confusing_LLUUID_c, _activatnvar_confusing_LLUUID_e, _activatnvar_generic_iterator, _activatnvar_mac_digest, _activatnvar_combined_id);
+	/* inline */ _activation_check_proc_19_func_766546361(_activatnvar_confusing_chararray_c, _activatnvar_secret);
+	_activation_check_proc_19_func_1983104661(_activatnvar_confusing_LLUUID_4, _activatnvar_confusing_chararray_6);
+	/* inline */ _activation_check_proc_19_func_209098812(_activatnvar_confusing_bool_6, _activatnvar_confusing_bool_d);
+	_activation_check_proc_19_func_1542949572(_activatnvar_mac_digest, _activatnvar_confusing_LLUUID_f, _activatnvar_confusing_int_8, _activatnvar_combined_id, _activatnvar_confusing_U8_d, _activatnvar_generic_iterator, _activatnvar_confusing_U8_7, _activatnvar_confusing_int_7, _activatnvar_confusing_LLUUID_1, _activatnvar_confusing_U8_1, _activatnvar_confusing_char_4, _activatnvar_confusing_bool_7, _activatnvar_confusing_LLUUID_8, _activatnvar_confusing_LLUUID_9, _activatnvar_confusing_char_6);
+	/* inline */ _activation_check_proc_19_func_489359404(_activatnvar_confusing_char_1, _activatnvar_section2);
+	_activation_check_proc_19_func_1583849566(_activatnvar_confusing_int_6);
+	_activation_check_proc_19_func_1047382724(_activatnvar_confusing_int_f);
+	_activation_check_proc_19_func_1101338097(_activatnvar_mac_digest, _activatnvar_confusing_int_b, _activatnvar_combined_id, _activatnvar_generic_iterator, _activatnvar_confusing_U8_4, _activatnvar_confusing_char_2);
+	_activation_check_proc_19_func_596810408(_activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_1175947248(_activatnvar_generic_iterator, _activatnvar_confusing_char_3, _activatnvar_mac_digest, _activatnvar_confusing_char_6, _activatnvar_confusing_LLUUID_0, _activatnvar_confusing_char_9, _activatnvar_combined_id);
+	_activation_check_proc_19_func_1286970671(_activatnvar_confusing_LLUUID_4);
+	_activation_check_proc_19_func_664534192(_activatnvar_generic_iterator, _activatnvar_confusing_chararray_5, _activatnvar_section1, _activatnvar_confusing_chararray_a, _activatnvar_confusing_chararray_b);
+	/* inline */ _activation_check_proc_19_func_890954977();
+	/* inline */ _activation_check_proc_19_func_438892539(_activatnvar_confusing_int_1, _activatnvar_generic_iterator, _activatnvar_combined_id, _activatnvar_mac_digest);
+	_activation_check_proc_19_func_1813250494(_activatnvar_confusing_char_f, _activatnvar_confusing_char_9, _activatnvar_confusing_bool_9, _activatnvar_confusing_bool_4);
+	_activation_check_proc_19_func_1211963390(_activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_667406375(_activatnvar_combined_id, _activatnvar_generic_iterator, _activatnvar_confusing_chararray_1, _activatnvar_mac_digest, _activatnvar_confusing_int_d);
+	_activation_check_proc_19_func_2019997996(_activatnvar_confusing_LLUUID_9, _activatnvar_confusing_bool_0, _activatnvar_confusing_int_c);
+	_activation_check_proc_19_func_1947973316(_activatnvar_generic_iterator, _activatnvar_confusing_chararray_c, _activatnvar_confusing_LLUUID_4);
+	_activation_check_proc_19_func_682289217(_activatnvar_mac_digest, _activatnvar_generic_iterator, _activatnvar_combined_id);
+	/* inline */ _activation_check_proc_19_func_338224673(_activatnvar_code, _activatnvar_confusing_LLUUID_6, _activatnvar_confusing_chararray_5, _activatnvar_confusing_LLUUID_1, _activatnvar_confusing_int_5, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_699494103(_activatnvar_confusing_int_c, _activatnvar_confusing_int_a);
+	_activation_check_proc_19_func_725559428(_activatnvar_confusing_LLUUID_8);
+	_activation_check_proc_19_func_1506621482(_activatnvar_secret, _activatnvar_confusing_chararray_d, _activatnvar_confusing_LLUUID_2, _activatnvar_confusing_LLUUID_0, _activatnvar_confusing_char_4, _activatnvar_confusing_LLUUID_4);
+	_activation_check_proc_19_func_1068223598(_activatnvar_generic_iterator, _activatnvar_combined_id, _activatnvar_mac_digest);
+	/* inline */ _activation_check_proc_19_func_1430623535();
+	/* inline */ _activation_check_proc_19_func_268794801(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_1530567742(_activatnvar_generic_bool_0, _activatnvar_confusing_bool_8);
+	_activation_check_proc_19_func_824298555(_activatnvar_confusing_U8_3, _activatnvar_mac_digest, _activatnvar_combined_id, _activatnvar_generic_iterator, _activatnvar_confusing_char_8);
+	/* inline */ _activation_check_proc_19_func_1958175613(_activatnvar_confusing_char_a);
+	/* inline */ _activation_check_proc_19_func_1031071221(_activatnvar_confusing_LLUUID_1, _activatnvar_confusing_LLUUID_a, _activatnvar_confusing_int_5);
+	_activation_check_proc_19_func_1573792328();
+	_activation_check_proc_19_func_1772578031(_activatnvar_generic_iterator, _activatnvar_confusing_chararray_5, _activatnvar_confusing_chararray_6);
+	_activation_check_proc_19_func_2111821932(_activatnvar_confusing_U8_2, _activatnvar_confusing_U8_8, _activatnvar_confusing_char_8, _activatnvar_confusing_LLUUID_2);
+	_activation_check_proc_19_func_1421582417(_activatnvar_mac_digest, _activatnvar_combined_id, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_1328385573(_activatnvar_fullname);
+	/* inline */ _activation_check_proc_19_func_2041519269(_activatnvar_confusing_int_2, _activatnvar_confusing_int_d);
+	_activation_check_proc_19_func_1572871633(_activatnvar_confusing_LLUUID_f, _activatnvar_confusing_bool_e, _activatnvar_confusing_char_9, _activatnvar_confusing_bool_2, _activatnvar_confusing_char_a);
+	/* inline */ _activation_check_proc_19_func_230690653(_activatnvar_confusing_chararray_8, _activatnvar_confusing_U8_a);
+	_activation_check_proc_19_func_1029438567(_activatnvar_nmd5, _activatnvar_fullname);
+	/* inline */ _activation_check_proc_19_func_1602074866(_activatnvar_confusing_LLUUID_3, _activatnvar_confusing_LLUUID_d);
+	/* inline */ _activation_check_proc_19_func_1441571688(_activatnvar_confusing_int_8);
+	_activation_check_proc_19_func_1174612142(_activatnvar_confusing_LLUUID_8, _activatnvar_so);
+	/* inline */ _activation_check_proc_19_func_2115372899(_activatnvar_confusing_char_2, _activatnvar_confusing_LLUUID_5);
+	/* inline */ _activation_check_proc_19_func_1947565931(_activatnvar_confusing_int_6, _activatnvar_confusing_int_5);
+	/* inline */ _activation_check_proc_19_func_1790218193(_activatnvar_nmd5, _activatnvar_name_digest);
+	_activation_check_proc_19_func_1102089076(_activatnvar_combined_id, _activatnvar_name_digest);
+	/* inline */ _activation_check_proc_19_func_1466285250(_activatnvar_confusing_LLUUID_7, _activatnvar_name_digest, _activatnvar_combined_id, _activatnvar_confusing_bool_e, _activatnvar_confusing_U8_1, _activatnvar_confusing_bool_0, _activatnvar_confusing_bool_a, _activatnvar_confusing_chararray_0, _activatnvar_confusing_U8_8);
+	/* inline */ _activation_check_proc_19_func_991248253(_activatnvar_combined_id, _activatnvar_name_digest);
+	/* inline */ _activation_check_proc_19_func_1064714379(_activatnvar_confusing_chararray_4, _activatnvar_confusing_chararray_c, _activatnvar_confusing_U8_4, _activatnvar_name_digest, _activatnvar_combined_id);
+	_activation_check_proc_19_func_846043354(_activatnvar_confusing_U8_5, _activatnvar_confusing_LLUUID_f, _activatnvar_confusing_bool_6, _activatnvar_combined_id, _activatnvar_name_digest);
+	/* inline */ _activation_check_proc_19_func_1200062118(_activatnvar_name_digest, _activatnvar_combined_id);
+	/* inline */ _activation_check_proc_19_func_1926561116(_activatnvar_confusing_bool_6);
+	/* inline */ _activation_check_proc_19_func_1727094210(_activatnvar_confusing_int_3);
+	/* inline */ _activation_check_proc_19_func_1047012319(_activatnvar_confusing_LLUUID_f, _activatnvar_confusing_bool_5, _activatnvar_confusing_bool_1, _activatnvar_confusing_char_3);
+	/* inline */ _activation_check_proc_19_func_1147877976(_activatnvar_confusing_U8_4, _activatnvar_doaccount, _activatnvar_confusing_bool_f, _activatnvar_confusing_U8_7, _activatnvar_mac_digest, _activatnvar_confusing_U8_9, _activatnvar_confusing_U8_5, _activatnvar_confusing_chararray_8);
+	_activation_check_proc_19_func_887495535();
+	_activation_check_proc_19_func_174549221(_activatnvar_combined_id, _activatnvar_name_digest);
+	_activation_check_proc_19_func_1853662182(_activatnvar_strbuf_0);
+	/* inline */ _activation_check_proc_19_func_430244894(_activatnvar_confusing_bool_c, _activatnvar_confusing_bool_5);
+	/* inline */ _activation_check_proc_19_func_777257475(_activatnvar_confusing_int_4);
+	/* inline */ _activation_check_proc_19_func_1951764855(_activatnvar_confusing_chararray_5, _activatnvar_confusing_LLUUID_6);
+	_activation_check_proc_19_func_737125622(_activatnvar_strbuf_0, _activatnvar_confusing_LLUUID_e, _activatnvar_section1, _activatnvar_confusing_LLUUID_f);
+	/* inline */ _activation_check_proc_19_func_106493812(_activatnvar_confusing_chararray_9, _activatnvar_confusing_chararray_1);
+	_activation_check_proc_19_func_1504335110(_activatnvar_confusing_char_7);
+	_activation_check_proc_19_func_1242881162(_activatnvar_confusing_char_c, _activatnvar_mac_digest, _activatnvar_confusing_chararray_9);
+	/* inline */ _activation_check_proc_19_func_493066172(_activatnvar_confusing_U8_9);
+	_activation_check_proc_19_func_295006324(_activatnvar_confusing_int_4, _activatnvar_confusing_bool_d, _activatnvar_confusing_bool_a, _activatnvar_confusing_bool_3, _activatnvar_confusing_int_8);
+	_activation_check_proc_19_func_1653503701(_activatnvar_confusing_U8_7, _activatnvar_confusing_chararray_4);
+	/* inline */ _activation_check_proc_19_func_1537352532(_activatnvar_confusing_chararray_3, _activatnvar_confusing_int_7, _activatnvar_confusing_LLUUID_4);
+	/* inline */ _activation_check_proc_19_func_137515138(_activatnvar_section1, _activatnvar_strbuf_0);
+	_activation_check_proc_19_func_1582991198(_activatnvar_confusing_int_b);
+	_activation_check_proc_19_func_116374147(_activatnvar_confusing_LLUUID_2, _activatnvar_confusing_bool_6);
+	_activation_check_proc_19_func_1950817213(_activatnvar_confusing_int_6, _activatnvar_confusing_LLUUID_5, _activatnvar_confusing_LLUUID_9, _activatnvar_confusing_chararray_2, _activatnvar_confusing_bool_8, _activatnvar_confusing_chararray_f, _activatnvar_confusing_chararray_b, _activatnvar_confusing_char_b, _activatnvar_confusing_LLUUID_4, _activatnvar_confusing_char_a, _activatnvar_confusing_bool_4);
+	_activation_check_proc_19_func_1079151706(_activatnvar_confusing_LLUUID_8, _activatnvar_confusing_LLUUID_4);
+	/* inline */ _activation_check_proc_19_func_696861233();
+	/* inline */ _activation_check_proc_19_func_2084662369(_activatnvar_confusing_char_b, _activatnvar_confusing_bool_5, _activatnvar_confusing_bool_0, _activatnvar_confusing_LLUUID_4);
+	_activation_check_proc_19_func_1054577694(_activatnvar_confusing_LLUUID_d, _activatnvar_confusing_int_1, _activatnvar_confusing_int_e);
+	/* inline */ _activation_check_proc_19_func_1269238584(_activatnvar_section2, _activatnvar_strbuf_0);
+	_activation_check_proc_19_func_1554305954(_activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_489817885(_activatnvar_confusing_int_c);
+	/* inline */ _activation_check_proc_19_func_433614653(_activatnvar_confusing_bool_2, _activatnvar_confusing_U8_0);
+	_activation_check_proc_19_func_2087797788(_activatnvar_code, _activatnvar_generic_iterator, _activatnvar_combined_id, _activatnvar_confusing_LLUUID_0, _activatnvar_confusing_bool_a, _activatnvar_ser_digest, _activatnvar_confusing_chararray_b, _activatnvar_fscked);
+	/* inline */ _activation_check_proc_19_func_1353467383(_activatnvar_confusing_chararray_1, _activatnvar_confusing_U8_5);
+	/* inline */ _activation_check_proc_19_func_1185939935(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_837151619(_activatnvar_code, _activatnvar_combined_id, _activatnvar_generic_iterator, _activatnvar_fscked);
+	/* inline */ _activation_check_proc_19_func_132306922(_activatnvar_confusing_char_9, _activatnvar_confusing_chararray_6, _activatnvar_generic_iterator, _activatnvar_ser_digest, _activatnvar_confusing_int_a, _activatnvar_confusing_char_6);
+	_activation_check_proc_19_func_2010316157(_activatnvar_confusing_LLUUID_7, _activatnvar_confusing_LLUUID_b);
+	_activation_check_proc_19_func_528413503(_activatnvar_fscked, _activatnvar_generic_iterator, _activatnvar_combined_id, _activatnvar_confusing_LLUUID_d, _activatnvar_code);
+	/* inline */ _activation_check_proc_19_func_681578629(_activatnvar_confusing_int_9, _activatnvar_confusing_int_d);
+	_activation_check_proc_19_func_2047787577(_activatnvar_confusing_int_a, _activatnvar_confusing_int_5);
+	_activation_check_proc_19_func_1115520467(_activatnvar_confusing_LLUUID_a, _activatnvar_confusing_U8_c, _activatnvar_confusing_chararray_b, _activatnvar_confusing_LLUUID_9, _activatnvar_confusing_chararray_7);
+	_activation_check_proc_19_func_1609300160(_activatnvar_confusing_bool_b, _activatnvar_confusing_bool_7);
+	_activation_check_proc_19_func_2100128338(_activatnvar_confusing_int_6);
+	_activation_check_proc_19_func_1490877497(_activatnvar_confusing_chararray_b, _activatnvar_confusing_bool_c, _activatnvar_confusing_LLUUID_8, _activatnvar_confusing_bool_9);
+	_activation_check_proc_19_func_217426075(_activatnvar_confusing_chararray_9, _activatnvar_confusing_chararray_6);
+	_activation_check_proc_19_func_137015545(_activatnvar_generic_iterator, _activatnvar_confusing_U8_9);
+	/* inline */ _activation_check_proc_19_func_943753129(_activatnvar_generic_iterator, _activatnvar_code, _activatnvar_fscked, _activatnvar_combined_id);
+	/* inline */ _activation_check_proc_19_func_268849453();
+	/* inline */ _activation_check_proc_19_func_926695043(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_112974163(_activatnvar_generic_iterator, _activatnvar_confusing_LLUUID_3, _activatnvar_section1, _activatnvar_confusing_LLUUID_9, _activatnvar_section2);
+	/* inline */ _activation_check_proc_19_func_1109553730(_activatnvar_confusing_LLUUID_4, _activatnvar_generic_iterator, _activatnvar_section2, _activatnvar_fscked, _activatnvar_confusing_chararray_f, _activatnvar_generic_bool_1, _activatnvar_section1, _activatnvar_confusing_bool_c, _activatnvar_confusing_char_8);
+	_activation_check_proc_19_func_1111641194(_activatnvar_confusing_LLUUID_4, _activatnvar_confusing_LLUUID_7);
+	/* inline */ _activation_check_proc_19_func_97260055(_activatnvar_generic_iterator, _activatnvar_confusing_LLUUID_3, _activatnvar_section1, _activatnvar_confusing_chararray_9, _activatnvar_section2, _activatnvar_lace);
+	_activation_check_proc_19_func_1857519782(_activatnvar_confusing_int_4);
+	_activation_check_proc_19_func_419166795(_activatnvar_confusing_U8_4);
+	/* inline */ _activation_check_proc_19_func_1104034448(_activatnvar_confusing_bool_a, _activatnvar_confusing_U8_1, _activatnvar_confusing_char_2);
+	_activation_check_proc_19_func_846671014(_activatnvar_confusing_chararray_8, _activatnvar_confusing_LLUUID_e, _activatnvar_code, _activatnvar_confusing_LLUUID_8);
+	_activation_check_proc_19_func_593388647(_activatnvar_confusing_LLUUID_1);
+	_activation_check_proc_19_func_1544717279(_activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_1171409194(_activatnvar_confusing_chararray_7, _activatnvar_confusing_chararray_9);
+	/* inline */ _activation_check_proc_19_func_1195557517(_activatnvar_generic_iterator, _activatnvar_section1, _activatnvar_section2);
+	_activation_check_proc_19_func_1095558695(_activatnvar_confusing_LLUUID_3);
+	_activation_check_proc_19_func_1703196168(_activatnvar_confusing_LLUUID_d, _activatnvar_confusing_LLUUID_0, _activatnvar_confusing_chararray_1, _activatnvar_confusing_chararray_c, _activatnvar_doaccount, _activatnvar_confusing_bool_2);
+	_activation_check_proc_19_func_1771632490(_activatnvar_confusing_char_d);
+	_activation_check_proc_19_func_1134417705(_activatnvar_confusing_char_e, _activatnvar_confusing_char_f, _activatnvar_confusing_bool_e);
+	/* inline */ _activation_check_proc_19_func_1479539994(_activatnvar_confusing_LLUUID_b, _activatnvar_fscked);
+	/* inline */ _activation_check_proc_19_func_1229426626(_activatnvar_confusing_LLUUID_9);
+	/* inline */ _activation_check_proc_19_func_1569419200(_activatnvar_confusing_bool_f, _activatnvar_generic_iterator, _activatnvar_confusing_LLUUID_a, _activatnvar_confusing_chararray_e, _activatnvar_code, _activatnvar_fscked, _activatnvar_confusing_bool_7);
+	_activation_check_proc_19_func_1828800534(_activatnvar_confusing_U8_4, _activatnvar_confusing_U8_2, _activatnvar_confusing_bool_6);
+	/* inline */ _activation_check_proc_19_func_229395826(_activatnvar_confusing_chararray_c, _activatnvar_confusing_LLUUID_6);
+	_activation_check_proc_19_func_1462416793(_activatnvar_confusing_U8_2, _activatnvar_confusing_LLUUID_1);
+	_activation_check_proc_19_func_742995183(_activatnvar_confusing_bool_d, _activatnvar_confusing_bool_7, _activatnvar_confusing_int_8);
+	_activation_check_proc_19_func_1425754959(_activatnvar_confusing_LLUUID_5, _activatnvar_confusing_LLUUID_2);
+	_activation_check_proc_19_func_1498507294(_activatnvar_confusing_int_6);
+	_activation_check_proc_19_func_1962676153(_activatnvar_generic_iterator, _activatnvar_code, _activatnvar_fscked, _activatnvar_confusing_LLUUID_0, _activatnvar_confusing_LLUUID_8);
+	/* inline */ _activation_check_proc_19_func_665310716(_activatnvar_confusing_int_a);
+	/* inline */ _activation_check_proc_19_func_1984699583(_activatnvar_confusing_chararray_6, _activatnvar_confusing_chararray_0);
+	/* inline */ _activation_check_proc_19_func_745093022(_activatnvar_secret, _activatnvar_confusing_LLUUID_0, _activatnvar_confusing_int_a);
+	_activation_check_proc_19_func_1213004072(_activatnvar_fscked, _activatnvar_code, _activatnvar_generic_iterator, _activatnvar_confusing_char_1, _activatnvar_confusing_char_4);
+	_activation_check_proc_19_func_1236561868(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_866162869(_activatnvar_confusing_chararray_1, _activatnvar_code, _activatnvar_confusing_int_e, _activatnvar_confusing_char_c, _activatnvar_generic_iterator, _activatnvar_fscked, _activatnvar_confusing_int_a);
+	/* inline */ _activation_check_proc_19_func_1480664299();
+	_activation_check_proc_19_func_1856146393(_activatnvar_confusing_LLUUID_b, _activatnvar_confusing_bool_0, _activatnvar_fscked, _activatnvar_confusing_bool_6, _activatnvar_code, _activatnvar_secret, _activatnvar_generic_iterator, _activatnvar_confusing_char_3, _activatnvar_confusing_LLUUID_5);
+	_activation_check_proc_19_func_758029093(_activatnvar_confusing_U8_3, _activatnvar_confusing_LLUUID_c);
+	_activation_check_proc_19_func_357133069(_activatnvar_confusing_char_b, _activatnvar_generic_iterator, _activatnvar_confusing_char_3);
+	/* inline */ _activation_check_proc_19_func_1109465918(_activatnvar_confusing_int_f);
+	_activation_check_proc_19_func_565772962(_activatnvar_confusing_int_e);
+	/* inline */ _activation_check_proc_19_func_1998043183(_activatnvar_confusing_U8_6, _activatnvar_lace, _activatnvar_confusing_bool_9, _activatnvar_confusing_char_a, _activatnvar_confusing_U8_d, _activatnvar_confusing_U8_2);
+	/* inline */ _activation_check_proc_19_func_341841368(_activatnvar_fscked, _activatnvar_code, _activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_1680032031(_activatnvar_confusing_LLUUID_5, _activatnvar_confusing_char_5);
+	_activation_check_proc_19_func_202346300(_activatnvar_lace, _activatnvar_confusing_LLUUID_1);
+	/* inline */ _activation_check_proc_19_func_1904135287(_activatnvar_generic_iterator, _activatnvar_confusing_U8_4);
+	_activation_check_proc_19_func_482639185(_activatnvar_confusing_LLUUID_4, _activatnvar_confusing_chararray_1, _activatnvar_confusing_LLUUID_6, _activatnvar_confusing_chararray_f, _activatnvar_code, _activatnvar_confusing_U8_b);
+	_activation_check_proc_19_func_702551390(_activatnvar_fscked, _activatnvar_generic_iterator, _activatnvar_code);
+	_activation_check_proc_19_func_1424008150(_activatnvar_generic_iterator, _activatnvar_confusing_char_5, _activatnvar_confusing_U8_d);
+	/* inline */ _activation_check_proc_19_func_396276770(_activatnvar_code, _activatnvar_generic_iterator, _activatnvar_fscked);
+	/* inline */ _activation_check_proc_19_func_631104135(_activatnvar_confusing_int_8);
+	_activation_check_proc_19_func_1643124714(_activatnvar_confusing_LLUUID_e, _activatnvar_confusing_LLUUID_c);
+	_activation_check_proc_19_func_440949911(_activatnvar_confusing_int_a);
+	_activation_check_proc_19_func_996658218(_activatnvar_confusing_LLUUID_5, _activatnvar_confusing_bool_1, _activatnvar_confusing_U8_7);
+	_activation_check_proc_19_func_61493925(_activatnvar_confusing_int_1);
+	/* inline */ _activation_check_proc_19_func_1072392752(_activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_1564569598(_activatnvar_combined_id, _activatnvar_code, _activatnvar_generic_iterator, _activatnvar_fscked);
+	/* inline */ _activation_check_proc_19_func_1740640405(_activatnvar_confusing_char_6, _activatnvar_confusing_LLUUID_a, _activatnvar_confusing_bool_e);
+	_activation_check_proc_19_func_1001377453(_activatnvar_confusing_chararray_1, _activatnvar_confusing_chararray_c, _activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_125610609(_activatnvar_confusing_bool_0, _activatnvar_confusing_LLUUID_2, _activatnvar_confusing_U8_1);
+	_activation_check_proc_19_func_865868738(_activatnvar_confusing_char_3, _activatnvar_confusing_char_e);
+	_activation_check_proc_19_func_604917220(_activatnvar_confusing_chararray_3, _activatnvar_confusing_U8_1, _activatnvar_confusing_char_1);
+	/* inline */ _activation_check_proc_19_func_765143764(_activatnvar_confusing_U8_a);
+	_activation_check_proc_19_func_1510643273(_activatnvar_confusing_int_b);
+	_activation_check_proc_19_func_1642564280(_activatnvar_confusing_chararray_0, _activatnvar_confusing_chararray_7);
+	_activation_check_proc_19_func_723552577(_activatnvar_fscked, _activatnvar_combined_id, _activatnvar_generic_iterator, _activatnvar_code);
+	_activation_check_proc_19_func_1431523588(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_1712670039(_activatnvar_confusing_bool_7, _activatnvar_generic_bool_0);
+	/* inline */ _activation_check_proc_19_func_1201672410(_activatnvar_confusing_LLUUID_3, _activatnvar_confusing_char_a);
+	_activation_check_proc_19_func_1810214928(_activatnvar_confusing_chararray_8, _activatnvar_confusing_LLUUID_b, _activatnvar_confusing_LLUUID_3, _activatnvar_so);
+	/* inline */ _activation_check_proc_19_func_512784336(_activatnvar_confusing_int_0);
+	/* inline */ _activation_check_proc_19_func_1546755420(_activatnvar_confusing_U8_7, _activatnvar_generic_iterator, _activatnvar_code, _activatnvar_confusing_char_8, _activatnvar_confusing_LLUUID_0, _activatnvar_combined_id, _activatnvar_fscked);
+	_activation_check_proc_19_func_2124721299(_activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_745654101(_activatnvar_confusing_bool_3, _activatnvar_confusing_bool_7);
+	_activation_check_proc_19_func_1459781663(_activatnvar_code, _activatnvar_confusing_bool_7, _activatnvar_fscked, _activatnvar_generic_iterator, _activatnvar_combined_id, _activatnvar_confusing_LLUUID_7, _activatnvar_confusing_U8_8, _activatnvar_confusing_LLUUID_a, _activatnvar_confusing_bool_a);
+	/* inline */ _activation_check_proc_19_func_1994253100(_activatnvar_confusing_chararray_b, _activatnvar_generic_iterator, _activatnvar_confusing_LLUUID_3);
+	_activation_check_proc_19_func_579727040();
+	/* inline */ _activation_check_proc_19_func_1732624845(_activatnvar_confusing_LLUUID_6, _activatnvar_confusing_LLUUID_4);
+	/* inline */ _activation_check_proc_19_func_770677237(_activatnvar_confusing_int_7);
+	/* inline */ _activation_check_proc_19_func_1364850355(_activatnvar_fscked, _activatnvar_confusing_char_2, _activatnvar_combined_id, _activatnvar_generic_iterator, _activatnvar_confusing_char_4, _activatnvar_code);
+	_activation_check_proc_19_func_1683026797(_activatnvar_confusing_U8_5, _activatnvar_confusing_chararray_d, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_1058601128(_activatnvar_confusing_bool_1, _activatnvar_confusing_char_1, _activatnvar_confusing_bool_c, _activatnvar_confusing_LLUUID_5);
+	_activation_check_proc_19_func_1426521023(_activatnvar_confusing_LLUUID_6, _activatnvar_confusing_LLUUID_1);
+	/* inline */ _activation_check_proc_19_func_1142636560(_activatnvar_combined_id, _activatnvar_generic_iterator, _activatnvar_fscked, _activatnvar_code);
+	_activation_check_proc_19_func_2119225572();
+	_activation_check_proc_19_func_2009815048(_activatnvar_confusing_char_a, _activatnvar_confusing_bool_1, _activatnvar_lace, _activatnvar_confusing_char_4, _activatnvar_confusing_U8_f, _activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_801030448(_activatnvar_confusing_bool_6, _activatnvar_confusing_bool_1, _activatnvar_code, _activatnvar_combined_id, _activatnvar_generic_iterator, _activatnvar_fscked);
+	/* inline */ _activation_check_proc_19_func_1621171945(_activatnvar_confusing_LLUUID_3);
+	_activation_check_proc_19_func_1629773208(_activatnvar_confusing_LLUUID_3, _activatnvar_confusing_chararray_a);
+	/* inline */ _activation_check_proc_19_func_1250012523(_activatnvar_confusing_bool_1, _activatnvar_confusing_bool_f, _activatnvar_confusing_U8_c, _activatnvar_confusing_LLUUID_d);
+	/* inline */ _activation_check_proc_19_func_1708459401();
+	_activation_check_proc_19_func_551581405(_activatnvar_confusing_int_c);
+	/* inline */ _activation_check_proc_19_func_370492635(_activatnvar_confusing_char_d, _activatnvar_confusing_LLUUID_f);
+	_activation_check_proc_19_func_337447967(_activatnvar_code, _activatnvar_combined_id, _activatnvar_fscked, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_2076153335(_activatnvar_confusing_bool_9, _activatnvar_confusing_bool_6);
+	_activation_check_proc_19_func_435147792(_activatnvar_confusing_LLUUID_5);
+	_activation_check_proc_19_func_601828564(_activatnvar_section2, _activatnvar_section1, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_908345836(_activatnvar_confusing_chararray_f, _activatnvar_confusing_LLUUID_d);
+	_activation_check_proc_19_func_1071111714(_activatnvar_generic_iterator, _activatnvar_confusing_LLUUID_b, _activatnvar_confusing_chararray_1);
+	/* inline */ _activation_check_proc_19_func_881996349(_activatnvar_confusing_char_3, _activatnvar_confusing_bool_e, _activatnvar_confusing_LLUUID_a, _activatnvar_confusing_U8_4, _activatnvar_confusing_LLUUID_2);
+	_activation_check_proc_19_func_564694948(_activatnvar_section2, _activatnvar_confusing_bool_f, _activatnvar_generic_iterator, _activatnvar_section1, _activatnvar_confusing_bool_8);
+	_activation_check_proc_19_func_1068942271(_activatnvar_confusing_LLUUID_4, _activatnvar_confusing_chararray_2, _activatnvar_confusing_LLUUID_f, _activatnvar_confusing_chararray_6);
+	_activation_check_proc_19_func_1790555229(_activatnvar_section2, _activatnvar_generic_iterator, _activatnvar_confusing_chararray_d, _activatnvar_confusing_char_a, _activatnvar_section1);
+	/* inline */ _activation_check_proc_19_func_1338022205(_activatnvar_confusing_U8_4, _activatnvar_confusing_U8_a, _activatnvar_confusing_LLUUID_b, _activatnvar_combined_id);
+	_activation_check_proc_19_func_1208802893(_activatnvar_confusing_char_3, _activatnvar_confusing_U8_3, _activatnvar_confusing_bool_a, _activatnvar_confusing_bool_2, _activatnvar_confusing_chararray_9, _activatnvar_confusing_chararray_7);
+	_activation_check_proc_19_func_1147536947(_activatnvar_confusing_chararray_6, _activatnvar_confusing_U8_e, _activatnvar_confusing_LLUUID_4);
+	/* inline */ _activation_check_proc_19_func_1019242084(_activatnvar_confusing_bool_e, _activatnvar_confusing_bool_f);
+	/* inline */ _activation_check_proc_19_func_1588784642(_activatnvar_confusing_char_0, _activatnvar_section1);
+	_activation_check_proc_19_func_801849733(_activatnvar_confusing_LLUUID_5, _activatnvar_confusing_int_0, _activatnvar_confusing_LLUUID_c, _activatnvar_confusing_char_b, _activatnvar_confusing_LLUUID_1, _activatnvar_confusing_chararray_7, _activatnvar_confusing_char_1);
+	_activation_check_proc_19_func_895308023();
+	_activation_check_proc_19_func_626705714(_activatnvar_confusing_chararray_c, _activatnvar_confusing_bool_a, _activatnvar_confusing_U8_a, _activatnvar_confusing_LLUUID_c, _activatnvar_confusing_int_0, _activatnvar_confusing_chararray_1);
+	_activation_check_proc_19_func_1884946924(_activatnvar_confusing_LLUUID_c, _activatnvar_confusing_bool_1, _activatnvar_confusing_LLUUID_8, _activatnvar_confusing_int_1, _activatnvar_confusing_chararray_c, _activatnvar_generic_iterator, _activatnvar_confusing_char_d);
+	_activation_check_proc_19_func_1418976382(_activatnvar_confusing_bool_e, _activatnvar_generic_iterator, _activatnvar_confusing_bool_7, _activatnvar_confusing_U8_7, _activatnvar_confusing_LLUUID_e);
+	/* inline */ _activation_check_proc_19_func_201770587(_activatnvar_confusing_int_1, _activatnvar_confusing_LLUUID_6, _activatnvar_confusing_LLUUID_9);
+	_activation_check_proc_19_func_425792766(_activatnvar_confusing_LLUUID_9, _activatnvar_confusing_char_2, _activatnvar_confusing_bool_3);
+	/* inline */ _activation_check_proc_19_func_594953663(_activatnvar_generic_iterator, _activatnvar_section1, _activatnvar_section2);
+	_activation_check_proc_19_func_1365818027();
+	/* inline */ _activation_check_proc_19_func_131850858(_activatnvar_generic_iterator, _activatnvar_section2, _activatnvar_section1);
+	_activation_check_proc_19_func_2033531083(_activatnvar_confusing_chararray_7, _activatnvar_confusing_chararray_9);
+	/* inline */ _activation_check_proc_19_func_926761818(_activatnvar_confusing_LLUUID_e);
+	/* inline */ _activation_check_proc_19_func_1307549809(_activatnvar_combined_id, _activatnvar_confusing_LLUUID_a);
+	_activation_check_proc_19_func_1212763156(_activatnvar_confusing_LLUUID_5, _activatnvar_confusing_chararray_a);
+	_activation_check_proc_19_func_1168271010(_activatnvar_confusing_bool_5, _activatnvar_confusing_bool_b);
+	/* inline */ _activation_check_proc_19_func_2056770922(_activatnvar_section1, _activatnvar_confusing_U8_5, _activatnvar_generic_iterator, _activatnvar_section2);
+	_activation_check_proc_19_func_285426455(_activatnvar_confusing_int_d);
+	/* inline */ _activation_check_proc_19_func_965903079(_activatnvar_confusing_int_f);
+	_activation_check_proc_19_func_1156662220(_activatnvar_confusing_U8_1);
+	/* inline */ _activation_check_proc_19_func_2130506268(_activatnvar_confusing_U8_7, _activatnvar_confusing_char_7, _activatnvar_confusing_bool_9);
+	/* inline */ _activation_check_proc_19_func_1345657444(_activatnvar_confusing_LLUUID_7, _activatnvar_name_digest);
+	/* inline */ _activation_check_proc_19_func_831371956(_activatnvar_section1, _activatnvar_section2, _activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_7159291(_activatnvar_section1, _activatnvar_generic_iterator, _activatnvar_section2);
+	_activation_check_proc_19_func_1414181106(_activatnvar_confusing_chararray_a, _activatnvar_combined_id, _activatnvar_confusing_LLUUID_b, _activatnvar_generic_iterator, _activatnvar_code, _activatnvar_fscked);
+	/* inline */ _activation_check_proc_19_func_367159168(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_1066520143(_activatnvar_confusing_int_c);
+	_activation_check_proc_19_func_357537931(_activatnvar_confusing_U8_5, _activatnvar_confusing_chararray_f);
+	/* inline */ _activation_check_proc_19_func_1430279248();
+	/* inline */ _activation_check_proc_19_func_127785202(_activatnvar_section1, _activatnvar_confusing_chararray_3);
+	/* inline */ _activation_check_proc_19_func_832934862(_activatnvar_confusing_bool_b, _activatnvar_confusing_char_3, _activatnvar_confusing_U8_7);
+	/* inline */ _activation_check_proc_19_func_1120105875(_activatnvar_confusing_chararray_5, _activatnvar_confusing_LLUUID_e);
+	/* inline */ _activation_check_proc_19_func_1717267448(_activatnvar_confusing_bool_0, _activatnvar_confusing_U8_d, _activatnvar_confusing_bool_9, _activatnvar_confusing_LLUUID_6, _activatnvar_confusing_int_6);
+	_activation_check_proc_19_func_1826619021(_activatnvar_fscked, _activatnvar_code, _activatnvar_generic_iterator, _activatnvar_combined_id);
+	_activation_check_proc_19_func_1643682436(_activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_770550267(_activatnvar_confusing_LLUUID_a, _activatnvar_confusing_LLUUID_4, _activatnvar_confusing_char_2, _activatnvar_confusing_bool_d);
+	_activation_check_proc_19_func_1172647478(_activatnvar_generic_bool_1, _activatnvar_confusing_U8_0);
+	_activation_check_proc_19_func_998969860(_activatnvar_code, _activatnvar_generic_iterator, _activatnvar_combined_id, _activatnvar_fscked, _activatnvar_confusing_char_0);
+	_activation_check_proc_19_func_1762202556(_activatnvar_confusing_LLUUID_3, _activatnvar_confusing_char_1);
+	_activation_check_proc_19_func_412337404(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_2367079(_activatnvar_confusing_U8_b, _activatnvar_generic_iterator, _activatnvar_combined_id, _activatnvar_code, _activatnvar_confusing_char_2, _activatnvar_confusing_chararray_9, _activatnvar_fscked);
+	/* inline */ _activation_check_proc_19_func_124748107(_activatnvar_generic_iterator, _activatnvar_confusing_LLUUID_5);
+	_activation_check_proc_19_func_169586059(_activatnvar_section1, _activatnvar_generic_iterator, _activatnvar_section2);
+	_activation_check_proc_19_func_1984730239(_activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_473059760(_activatnvar_section1, _activatnvar_generic_iterator, _activatnvar_section2);
+	_activation_check_proc_19_func_1645326042(_activatnvar_confusing_LLUUID_e, _activatnvar_confusing_bool_6, _activatnvar_ser_digest);
+	_activation_check_proc_19_func_1027261722(_activatnvar_generic_iterator, _activatnvar_confusing_int_2);
+	/* inline */ _activation_check_proc_19_func_1648698588(_activatnvar_confusing_LLUUID_5, _activatnvar_confusing_char_6, _activatnvar_confusing_bool_b);
+	_activation_check_proc_19_func_525753500(_activatnvar_mac_digest, _activatnvar_generic_iterator, _activatnvar_confusing_chararray_4, _activatnvar_confusing_LLUUID_0, _activatnvar_section1, _activatnvar_section2, _activatnvar_confusing_chararray_2, _activatnvar_confusing_LLUUID_4, _activatnvar_confusing_chararray_3);
+	_activation_check_proc_19_func_962276782(_activatnvar_confusing_LLUUID_e);
+	_activation_check_proc_19_func_195539960(_activatnvar_confusing_chararray_7, _activatnvar_confusing_char_b, _activatnvar_confusing_char_8, _activatnvar_confusing_chararray_a);
+	_activation_check_proc_19_func_597492929(_activatnvar_doaccount, _activatnvar_confusing_bool_6);
+	_activation_check_proc_19_func_780726692(_activatnvar_confusing_chararray_1, _activatnvar_combined_id, _activatnvar_confusing_bool_8, _activatnvar_confusing_bool_d, _activatnvar_confusing_char_3, _activatnvar_confusing_LLUUID_a, _activatnvar_confusing_U8_3);
+	_activation_check_proc_19_func_1452916204(_activatnvar_generic_iterator, _activatnvar_confusing_int_0);
+	_activation_check_proc_19_func_1170580084(_activatnvar_lace, _activatnvar_confusing_chararray_9, _activatnvar_generic_iterator, _activatnvar_section1, _activatnvar_confusing_LLUUID_e, _activatnvar_ser_digest, _activatnvar_section2);
+	_activation_check_proc_19_func_431645982(_activatnvar_confusing_LLUUID_5, _activatnvar_confusing_chararray_2);
+	_activation_check_proc_19_func_1766918929(_activatnvar_confusing_char_d, _activatnvar_confusing_bool_1, _activatnvar_confusing_bool_6, _activatnvar_confusing_LLUUID_f);
+	_activation_check_proc_19_func_404640038(_activatnvar_confusing_int_d, _activatnvar_confusing_U8_5, _activatnvar_confusing_chararray_b);
+	_activation_check_proc_19_func_796100635(_activatnvar_strbuf_0, _activatnvar_secret, _activatnvar_confusing_chararray_c, _activatnvar_confusing_LLUUID_b, _activatnvar_confusing_LLUUID_c);
+	_activation_check_proc_19_func_39812131(_activatnvar_confusing_LLUUID_1);
+	/* inline */ _activation_check_proc_19_func_1874602880(_activatnvar_confusing_LLUUID_b, _activatnvar_confusing_LLUUID_e);
+	_activation_check_proc_19_func_885843286(_activatnvar_confusing_LLUUID_9, _activatnvar_confusing_U8_e, _activatnvar_confusing_bool_2, _activatnvar_strbuf_0);
+	_activation_check_proc_19_func_828464655(_activatnvar_t1, _activatnvar_confusing_bool_f, _activatnvar_confusing_bool_e, _activatnvar_strbuf_0, _activatnvar_confusing_char_f, _activatnvar_section2);
+	/* inline */ _activation_check_proc_19_func_1757114493(_activatnvar_strbuf_0, _activatnvar_secret);
+	/* inline */ _activation_check_proc_19_func_42525545(_activatnvar_confusing_int_7, _activatnvar_confusing_int_f);
+	_activation_check_proc_19_func_1062172152(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_798195471(_activatnvar_confusing_LLUUID_c, _activatnvar_confusing_chararray_6);
+	_activation_check_proc_19_func_286476855(_activatnvar_confusing_LLUUID_f, _activatnvar_confusing_chararray_9);
+	_activation_check_proc_19_func_489148500(_activatnvar_confusing_LLUUID_3, _activatnvar_confusing_chararray_b);
+	_activation_check_proc_19_func_529675183(_activatnvar_secret, _activatnvar_section2, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_690091416(_activatnvar_section2, _activatnvar_secret, _activatnvar_generic_iterator, _activatnvar_confusing_U8_a, _activatnvar_confusing_int_7);
+	/* inline */ _activation_check_proc_19_func_1966502924(_activatnvar_confusing_LLUUID_f, _activatnvar_confusing_chararray_3);
+	_activation_check_proc_19_func_506258134(_activatnvar_confusing_char_c, _activatnvar_confusing_chararray_f, _activatnvar_confusing_char_f, _activatnvar_confusing_chararray_a);
+	_activation_check_proc_19_func_30246678(_activatnvar_confusing_U8_3);
+	_activation_check_proc_19_func_1944212216(_activatnvar_secret, _activatnvar_generic_bool_1, _activatnvar_confusing_char_4, _activatnvar_generic_iterator, _activatnvar_section2, _activatnvar_confusing_bool_d, _activatnvar_confusing_bool_9);
+	_activation_check_proc_19_func_1607590577(_activatnvar_confusing_bool_5, _activatnvar_confusing_char_e, _activatnvar_generic_bool_0, _activatnvar_confusing_LLUUID_3, _activatnvar_fscked, _activatnvar_confusing_int_b);
+	_activation_check_proc_19_func_456597239(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_358410764(_activatnvar_ser_digest, _activatnvar_confusing_int_5, _activatnvar_confusing_LLUUID_3);
+	_activation_check_proc_19_func_1308933549(_activatnvar_confusing_U8_1, _activatnvar_confusing_int_9, _activatnvar_confusing_bool_c, _activatnvar_confusing_char_1);
+	/* inline */ _activation_check_proc_19_func_405739747(_activatnvar_confusing_U8_a);
+	_activation_check_proc_19_func_1245022767(_activatnvar_confusing_int_4, _activatnvar_confusing_LLUUID_7, _activatnvar_confusing_char_9, _activatnvar_confusing_bool_f, _activatnvar_confusing_LLUUID_8, _activatnvar_confusing_chararray_c);
+	/* inline */ _activation_check_proc_19_func_839081766(_activatnvar_confusing_LLUUID_b, _activatnvar_confusing_LLUUID_2, _activatnvar_confusing_char_e, _activatnvar_section1);
+	_activation_check_proc_19_func_794201051(_activatnvar_confusing_char_d, _activatnvar_confusing_chararray_9);
+	_activation_check_proc_19_func_1110029978(_activatnvar_confusing_chararray_d, _activatnvar_confusing_U8_2);
+	/* inline */ _activation_check_proc_19_func_513489285(_activatnvar_confusing_char_c, _activatnvar_confusing_U8_9);
+	/* inline */ _activation_check_proc_19_func_1853340192(_activatnvar_confusing_LLUUID_f);
+	/* inline */ _activation_check_proc_19_func_1751579865(_activatnvar_confusing_bool_2, _activatnvar_confusing_bool_0);
+	_activation_check_proc_19_func_1483064147(_activatnvar_confusing_int_d, _activatnvar_confusing_int_f);
+	_activation_check_proc_19_func_1125142581(_activatnvar_section1, _activatnvar_confusing_chararray_e);
+	_activation_check_proc_19_func_635278667(_activatnvar_generic_iterator, _activatnvar_secret, _activatnvar_section2);
+	_activation_check_proc_19_func_1957176691(_activatnvar_confusing_LLUUID_f, _activatnvar_generic_bool_1, _activatnvar_confusing_bool_5, _activatnvar_confusing_char_1);
+	/* inline */ _activation_check_proc_19_func_983360560(_activatnvar_generic_iterator, _activatnvar_confusing_LLUUID_d, _activatnvar_confusing_chararray_a);
+	_activation_check_proc_19_func_1501827311(_activatnvar_section2, _activatnvar_secret, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_515738370(_activatnvar_confusing_chararray_5, _activatnvar_confusing_chararray_e);
+	_activation_check_proc_19_func_1413287835(_activatnvar_confusing_char_1, _activatnvar_confusing_U8_3);
+	/* inline */ _activation_check_proc_19_func_566171761(_activatnvar_confusing_int_1);
+	_activation_check_proc_19_func_123643040(_activatnvar_confusing_bool_5, _activatnvar_confusing_bool_d, _activatnvar_confusing_bool_2);
+	_activation_check_proc_19_func_226542299(_activatnvar_confusing_bool_8, _activatnvar_confusing_bool_4, _activatnvar_confusing_LLUUID_4);
+	/* inline */ _activation_check_proc_19_func_1027224337(_activatnvar_generic_iterator, _activatnvar_confusing_chararray_a, _activatnvar_confusing_U8_9);
+	_activation_check_proc_19_func_156507603(_activatnvar_confusing_chararray_d, _activatnvar_confusing_chararray_6);
+	_activation_check_proc_19_func_1644591673(_activatnvar_generic_iterator, _activatnvar_section2, _activatnvar_secret);
+	_activation_check_proc_19_func_559351850(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_87679147(_activatnvar_confusing_char_0, _activatnvar_confusing_char_9, _activatnvar_section2, _activatnvar_confusing_int_f, _activatnvar_confusing_bool_8, _activatnvar_confusing_int_7, _activatnvar_confusing_int_b, _activatnvar_generic_bool_1, _activatnvar_confusing_LLUUID_6, _activatnvar_secret, _activatnvar_generic_iterator, _activatnvar_confusing_int_3, _activatnvar_confusing_char_d, _activatnvar_confusing_U8_5);
+	_activation_check_proc_19_func_440052357(_activatnvar_confusing_chararray_e, _activatnvar_section2, _activatnvar_secret, _activatnvar_confusing_LLUUID_1, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_1359421107(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_898600282(_activatnvar_confusing_LLUUID_a);
+	/* inline */ _activation_check_proc_19_func_1755537977(_activatnvar_section2, _activatnvar_secret, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_1327591024(_activatnvar_generic_iterator, _activatnvar_confusing_LLUUID_1, _activatnvar_section1);
+	_activation_check_proc_19_func_554761524(_activatnvar_section2, _activatnvar_secret, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_942475461(_activatnvar_confusing_U8_d, _activatnvar_confusing_bool_6, _activatnvar_confusing_char_5);
+	_activation_check_proc_19_func_428059223(_activatnvar_confusing_int_6, _activatnvar_confusing_int_a, _activatnvar_code, _activatnvar_confusing_U8_0);
+	/* inline */ _activation_check_proc_19_func_500782695(_activatnvar_confusing_chararray_b, _activatnvar_confusing_chararray_7);
+	/* inline */ _activation_check_proc_19_func_1910739920(_activatnvar_lace, _activatnvar_confusing_U8_9);
+	_activation_check_proc_19_func_1744617965(_activatnvar_confusing_U8_f, _activatnvar_generic_iterator, _activatnvar_confusing_LLUUID_6);
+	_activation_check_proc_19_func_704930533(_activatnvar_confusing_LLUUID_3, _activatnvar_confusing_U8_b);
+	_activation_check_proc_19_func_1522662572(_activatnvar_confusing_LLUUID_6, _activatnvar_section1);
+	/* inline */ _activation_check_proc_19_func_1148413833(_activatnvar_secret, _activatnvar_section2, _activatnvar_generic_iterator, _activatnvar_confusing_char_1, _activatnvar_confusing_chararray_8);
+	_activation_check_proc_19_func_1535136921(_activatnvar_confusing_chararray_9, _activatnvar_confusing_LLUUID_8);
+	/* inline */ _activation_check_proc_19_func_1598211402(_activatnvar_section2, _activatnvar_generic_iterator, _activatnvar_secret);
+	_activation_check_proc_19_func_572037854(_activatnvar_confusing_char_a);
+	/* inline */ _activation_check_proc_19_func_219414371(_activatnvar_confusing_bool_a, _activatnvar_confusing_U8_d);
+	_activation_check_proc_19_func_2132373734(_activatnvar_confusing_LLUUID_c, _activatnvar_confusing_chararray_0);
+	_activation_check_proc_19_func_1826039723(_activatnvar_confusing_LLUUID_d, _activatnvar_confusing_bool_3, _activatnvar_confusing_bool_5, _activatnvar_confusing_char_3, _activatnvar_confusing_U8_e, _activatnvar_confusing_char_6);
+	_activation_check_proc_19_func_699968777(_activatnvar_confusing_LLUUID_6, _activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_1446233878(_activatnvar_confusing_LLUUID_b, _activatnvar_confusing_chararray_7);
+	_activation_check_proc_19_func_1655679188(_activatnvar_confusing_int_0, _activatnvar_confusing_int_1);
+	_activation_check_proc_19_func_804620656(_activatnvar_confusing_bool_f, _activatnvar_confusing_bool_7, _activatnvar_confusing_LLUUID_4);
+	_activation_check_proc_19_func_1712027501(_activatnvar_t0, _activatnvar_confusing_U8_2);
+	_activation_check_proc_19_func_386232898();
+	_activation_check_proc_19_func_1796441757(_activatnvar_confusing_LLUUID_1, _activatnvar_confusing_LLUUID_0, _activatnvar_confusing_LLUUID_5);
+	_activation_check_proc_19_func_196704596(_activatnvar_confusing_bool_d, _activatnvar_confusing_char_1, _activatnvar_confusing_bool_f);
+	_activation_check_proc_19_func_1732297917(_activatnvar_confusing_char_3, _activatnvar_confusing_LLUUID_8, _activatnvar_confusing_bool_e, _activatnvar_confusing_LLUUID_2, _activatnvar_confusing_char_b);
+	_activation_check_proc_19_func_1937691582(_activatnvar_confusing_LLUUID_9, _activatnvar_confusing_chararray_2);
+	/* inline */ _activation_check_proc_19_func_1736562392(_activatnvar_confusing_bool_3, _activatnvar_confusing_bool_6, _activatnvar_confusing_bool_4, _activatnvar_confusing_bool_7);
+	_activation_check_proc_19_func_1222330577(_activatnvar_confusing_char_a, _activatnvar_confusing_U8_f, _activatnvar_generic_bool_1);
+	_activation_check_proc_19_func_1765601768(_activatnvar_section1, _activatnvar_confusing_LLUUID_a, _activatnvar_confusing_LLUUID_5, _activatnvar_confusing_LLUUID_b);
+	_activation_check_proc_19_func_151977524(_activatnvar_generic_iterator, _activatnvar_name_digest, _activatnvar_section2, _activatnvar_secret, _activatnvar_confusing_LLUUID_f);
+	/* inline */ _activation_check_proc_19_func_96004401(_activatnvar_generic_iterator, _activatnvar_confusing_int_3);
+	/* inline */ _activation_check_proc_19_func_1980665120(_activatnvar_section2, _activatnvar_secret, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_335931977(_activatnvar_confusing_U8_b, _activatnvar_confusing_chararray_5);
+	/* inline */ _activation_check_proc_19_func_1044575765(_activatnvar_confusing_int_d, _activatnvar_confusing_int_3, _activatnvar_confusing_bool_4, _activatnvar_confusing_bool_f);
+	/* inline */ _activation_check_proc_19_func_1781763036(_activatnvar_confusing_bool_9, _activatnvar_confusing_bool_2);
+	/* inline */ _activation_check_proc_19_func_1695258651(_activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_1281050892(_activatnvar_section2, _activatnvar_generic_iterator, _activatnvar_secret);
+	/* inline */ _activation_check_proc_19_func_1852434430(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_1046350623(_activatnvar_confusing_int_f, _activatnvar_so, _activatnvar_confusing_chararray_3, _activatnvar_confusing_bool_3, _activatnvar_generic_bool_0);
+	_activation_check_proc_19_func_1192984624(_activatnvar_section2, _activatnvar_secret, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_5502632(_activatnvar_fscked, _activatnvar_lace, _activatnvar_combined_id);
+	_activation_check_proc_19_func_2136479733(_activatnvar_confusing_bool_d, _activatnvar_confusing_char_c, _activatnvar_confusing_char_6, _activatnvar_confusing_bool_b);
+	_activation_check_proc_19_func_471814693(_activatnvar_confusing_chararray_0, _activatnvar_fscked);
+	_activation_check_proc_19_func_1187224271(_activatnvar_confusing_int_8, _activatnvar_confusing_chararray_7, _activatnvar_confusing_char_6);
+	/* inline */ _activation_check_proc_19_func_558338888(_activatnvar_confusing_bool_5, _activatnvar_confusing_char_2, _activatnvar_confusing_bool_4, _activatnvar_confusing_bool_8, _activatnvar_confusing_LLUUID_b, _activatnvar_confusing_int_b);
+	_activation_check_proc_19_func_650447261(_activatnvar_confusing_chararray_1, _activatnvar_confusing_chararray_b);
+	_activation_check_proc_19_func_860964481(_activatnvar_confusing_char_b, _activatnvar_confusing_char_f, _activatnvar_confusing_bool_9, _activatnvar_confusing_char_c, _activatnvar_confusing_LLUUID_8);
+	_activation_check_proc_19_func_242358377(_activatnvar_fscked, _activatnvar_lace);
+	/* inline */ _activation_check_proc_19_func_135798037(_activatnvar_lace, _activatnvar_fscked);
+	_activation_check_proc_19_func_700627610();
+	_activation_check_proc_19_func_787680496(_activatnvar_confusing_LLUUID_7, _activatnvar_confusing_LLUUID_0, _activatnvar_confusing_int_4);
+	_activation_check_proc_19_func_1213241155(_activatnvar_confusing_char_1);
+	/* inline */ _activation_check_proc_19_func_102707968(_activatnvar_confusing_char_d, _activatnvar_confusing_char_6);
+	/* inline */ _activation_check_proc_19_func_1112598084(_activatnvar_confusing_U8_d, _activatnvar_confusing_LLUUID_9, _activatnvar_confusing_int_2);
+	_activation_check_proc_19_func_93826621(_activatnvar_confusing_U8_f, _activatnvar_confusing_bool_5, _activatnvar_t0);
+	_activation_check_proc_19_func_702368010(_activatnvar_mac_digest, _activatnvar_confusing_LLUUID_c);
+	_activation_check_proc_19_func_488011735(_activatnvar_confusing_chararray_a, _activatnvar_confusing_chararray_1);
+	_activation_check_proc_19_func_1784155966(_activatnvar_confusing_int_3, _activatnvar_lace, _activatnvar_fscked, _activatnvar_confusing_int_4, _activatnvar_confusing_LLUUID_a, _activatnvar_confusing_bool_7, _activatnvar_confusing_int_d, _activatnvar_confusing_LLUUID_2, _activatnvar_confusing_U8_7);
+	_activation_check_proc_19_func_1570224241(_activatnvar_section1, _activatnvar_section2, _activatnvar_so);
+	/* inline */ _activation_check_proc_19_func_1555044946(_activatnvar_confusing_bool_f, _activatnvar_confusing_bool_0);
+	_activation_check_proc_19_func_1550176587(_activatnvar_pos, _activatnvar_combined_id);
+	_activation_check_proc_19_func_1171586270(_activatnvar_confusing_chararray_f, _activatnvar_confusing_chararray_a);
+	/* inline */ _activation_check_proc_19_func_2114164941(_activatnvar_confusing_bool_8, _activatnvar_confusing_bool_c);
+	/* inline */ _activation_check_proc_19_func_1567635335(_activatnvar_confusing_LLUUID_4);
+	_activation_check_proc_19_func_628168263(_activatnvar_confusing_int_a);
+	/* inline */ _activation_check_proc_19_func_2122913847(_activatnvar_confusing_U8_3, _activatnvar_confusing_bool_5, _activatnvar_confusing_char_c);
+	/* inline */ _activation_check_proc_19_func_1707218277(_activatnvar_confusing_bool_9, _activatnvar_confusing_char_1, _activatnvar_confusing_char_d);
+	/* inline */ _activation_check_proc_19_func_1301148404(_activatnvar_confusing_int_0);
+	/* inline */ _activation_check_proc_19_func_420607187(_activatnvar_section1, _activatnvar_pos, _activatnvar_confusing_char_5);
+	/* inline */ _activation_check_proc_19_func_651099765(_activatnvar_confusing_bool_a, _activatnvar_confusing_bool_b);
+	/* inline */ _activation_check_proc_19_func_1771497974(_activatnvar_combined_id, _activatnvar_t0);
+	_activation_check_proc_19_func_125849159(_activatnvar_confusing_LLUUID_8, _activatnvar_name_digest, _activatnvar_confusing_int_0);
+	_activation_check_proc_19_func_2053937574(_activatnvar_t0);
+	_activation_check_proc_19_func_165582734(_activatnvar_t0);
+	/* inline */ _activation_check_proc_19_func_1573770465(_activatnvar_pos, _activatnvar_confusing_U8_7, _activatnvar_confusing_char_c, _activatnvar_confusing_bool_a, _activatnvar_so, _activatnvar_confusing_LLUUID_c, _activatnvar_confusing_LLUUID_a, _activatnvar_confusing_bool_f, _activatnvar_t0, _activatnvar_confusing_char_4, _activatnvar_confusing_bool_7);
+	/* inline */ _activation_check_proc_19_func_548369958(_activatnvar_t0, _activatnvar_t1);
+	_activation_check_proc_19_func_1906205911(_activatnvar_t1, _activatnvar_confusing_chararray_d, _activatnvar_confusing_char_4);
+	/* inline */ _activation_check_proc_19_func_930648161(_activatnvar_t0, _activatnvar_t1);
+	_activation_check_proc_19_func_400234137(_activatnvar_t0, _activatnvar_confusing_char_e, _activatnvar_confusing_bool_0);
+	_activation_check_proc_19_func_452408122(_activatnvar_confusing_U8_a, _activatnvar_confusing_char_1);
+	_activation_check_proc_19_func_903945181(_activatnvar_confusing_LLUUID_e, _activatnvar_t1, _activatnvar_pos, _activatnvar_confusing_LLUUID_6, _activatnvar_confusing_LLUUID_9, _activatnvar_so, _activatnvar_confusing_int_5);
+	_activation_check_proc_19_func_1661181408(_activatnvar_confusing_LLUUID_b, _activatnvar_confusing_char_1);
+	_activation_check_proc_19_func_462585529(_activatnvar_confusing_U8_4, _activatnvar_lace);
+	_activation_check_proc_19_func_549143382(_activatnvar_confusing_int_3, _activatnvar_confusing_bool_b, _activatnvar_combined_id, _activatnvar_pos, _activatnvar_confusing_int_7, _activatnvar_confusing_bool_0);
+	/* inline */ _activation_check_proc_19_func_1784240652(_activatnvar_confusing_char_e, _activatnvar_confusing_char_6);
+	_activation_check_proc_19_func_1902836684(_activatnvar_confusing_LLUUID_2, _activatnvar_confusing_chararray_c);
+	_activation_check_proc_19_func_112703707(_activatnvar_pos, _activatnvar_combined_id, _activatnvar_t0);
+	_activation_check_proc_19_func_1122381346(_activatnvar_lace, _activatnvar_confusing_chararray_6);
+	_activation_check_proc_19_func_448028620(_activatnvar_confusing_LLUUID_7);
+	/* inline */ _activation_check_proc_19_func_1137582541(_activatnvar_confusing_chararray_3, _activatnvar_confusing_LLUUID_0);
+	_activation_check_proc_19_func_1890674447(_activatnvar_confusing_U8_d);
+	/* inline */ _activation_check_proc_19_func_1052087400(_activatnvar_confusing_U8_6, _activatnvar_pos, _activatnvar_t0, _activatnvar_confusing_LLUUID_d, _activatnvar_confusing_chararray_7, _activatnvar_so, _activatnvar_confusing_LLUUID_1);
+	_activation_check_proc_19_func_691984721(_activatnvar_t1);
+	/* inline */ _activation_check_proc_19_func_486948151(_activatnvar_t1, _activatnvar_t0);
+	_activation_check_proc_19_func_1275585141(_activatnvar_confusing_int_d, _activatnvar_confusing_int_6, _activatnvar_confusing_chararray_c, _activatnvar_combined_id);
+	_activation_check_proc_19_func_697055085(_activatnvar_confusing_chararray_3, _activatnvar_confusing_chararray_9, _activatnvar_confusing_int_b, _activatnvar_confusing_chararray_5, _activatnvar_confusing_bool_2, _activatnvar_section2, _activatnvar_confusing_bool_c);
+	_activation_check_proc_19_func_837060467(_activatnvar_t1);
+	/* inline */ _activation_check_proc_19_func_1213152788(_activatnvar_t1, _activatnvar_t0);
+	_activation_check_proc_19_func_1472486635(_activatnvar_ser_digest, _activatnvar_confusing_chararray_c);
+	/* inline */ _activation_check_proc_19_func_805952582(_activatnvar_confusing_LLUUID_7, _activatnvar_confusing_LLUUID_c);
+	_activation_check_proc_19_func_724986986(_activatnvar_confusing_chararray_3, _activatnvar_secret);
+	/* inline */ _activation_check_proc_19_func_1893245397(_activatnvar_confusing_chararray_c, _activatnvar_confusing_chararray_6, _activatnvar_confusing_chararray_b, _activatnvar_confusing_chararray_a);
+	/* inline */ _activation_check_proc_19_func_458698468(_activatnvar_confusing_LLUUID_e, _activatnvar_section1);
+	_activation_check_proc_19_func_1472937972(_activatnvar_confusing_chararray_9, _activatnvar_confusing_U8_1);
+	/* inline */ _activation_check_proc_19_func_1765695182(_activatnvar_confusing_int_2);
+	/* inline */ _activation_check_proc_19_func_1790999949(_activatnvar_pos, _activatnvar_combined_id, _activatnvar_t1, _activatnvar_so);
+	_activation_check_proc_19_func_1068756550(_activatnvar_confusing_int_b, _activatnvar_confusing_int_a);
+	_activation_check_proc_19_func_681408012(_activatnvar_confusing_LLUUID_7, _activatnvar_combined_id, _activatnvar_t0, _activatnvar_confusing_char_6, _activatnvar_confusing_chararray_6);
+	/* inline */ _activation_check_proc_19_func_1707979480(_activatnvar_confusing_chararray_c, _activatnvar_confusing_LLUUID_5);
+	/* inline */ _activation_check_proc_19_func_1076487971(_activatnvar_confusing_chararray_9, _activatnvar_confusing_char_9);
+	_activation_check_proc_19_func_169969315(_activatnvar_confusing_chararray_8, _activatnvar_name_digest);
+	_activation_check_proc_19_func_825247704(_activatnvar_confusing_int_c);
+	_activation_check_proc_19_func_1599160091(_activatnvar_confusing_chararray_0);
+	_activation_check_proc_19_func_860559247(_activatnvar_confusing_int_8, _activatnvar_t0);
+	/* inline */ _activation_check_proc_19_func_2063246820(_activatnvar_t0);
+	/* inline */ _activation_check_proc_19_func_596528137(_activatnvar_pos, _activatnvar_t1, _activatnvar_so);
+	_activation_check_proc_19_func_665002743(_activatnvar_confusing_chararray_1, _activatnvar_generic_bool_0, _activatnvar_confusing_chararray_8, _activatnvar_confusing_int_7, _activatnvar_confusing_bool_1, _activatnvar_confusing_LLUUID_2, _activatnvar_confusing_chararray_f);
+	/* inline */ _activation_check_proc_19_func_281877118(_activatnvar_t0, _activatnvar_confusing_LLUUID_0, _activatnvar_so, _activatnvar_t1);
+	_activation_check_proc_19_func_1349473247(_activatnvar_confusing_LLUUID_f);
+	/* inline */ _activation_check_proc_19_func_1106718260(_activatnvar_confusing_char_e, _activatnvar_pos, _activatnvar_confusing_bool_8, _activatnvar_confusing_char_b);
+	/* inline */ _activation_check_proc_19_func_1423943548(_activatnvar_so, _activatnvar_pos, _activatnvar_confusing_char_f, _activatnvar_confusing_bool_a, _activatnvar_t1, _activatnvar_generic_bool_1);
+	_activation_check_proc_19_func_1798913982(_activatnvar_confusing_char_3, _activatnvar_confusing_U8_7);
+	_activation_check_proc_19_func_632044646(_activatnvar_confusing_int_c);
+	_activation_check_proc_19_func_1763658596(_activatnvar_confusing_LLUUID_a, _activatnvar_confusing_chararray_0, _activatnvar_confusing_LLUUID_3, _activatnvar_confusing_chararray_8, _activatnvar_combined_id, _activatnvar_confusing_LLUUID_c, _activatnvar_confusing_char_b, _activatnvar_pos);
+	_activation_check_proc_19_func_1712116793(_activatnvar_confusing_U8_7, _activatnvar_confusing_chararray_9);
+	_activation_check_proc_19_func_2039523366(_activatnvar_confusing_int_1, _activatnvar_confusing_int_6);
+	/* inline */ _activation_check_proc_19_func_507497855(_activatnvar_confusing_int_8, _activatnvar_pos);
+	_activation_check_proc_19_func_279292516(_activatnvar_confusing_bool_d, _activatnvar_secret, _activatnvar_confusing_int_3, _activatnvar_confusing_chararray_b, _activatnvar_confusing_bool_8);
+	/* inline */ _activation_check_proc_19_func_370531212(_activatnvar_confusing_chararray_f, _activatnvar_confusing_LLUUID_c, _activatnvar_confusing_U8_0, _activatnvar_confusing_bool_0, _activatnvar_confusing_bool_1, _activatnvar_confusing_bool_b, _activatnvar_confusing_bool_3);
+	_activation_check_proc_19_func_1313977649(_activatnvar_combined_id, _activatnvar_t0);
+	/* inline */ _activation_check_proc_19_func_1441815810(_activatnvar_confusing_int_4, _activatnvar_confusing_int_e);
+	_activation_check_proc_19_func_1501718882(_activatnvar_confusing_char_d, _activatnvar_so, _activatnvar_confusing_bool_0, _activatnvar_confusing_bool_d, _activatnvar_confusing_chararray_0, _activatnvar_confusing_LLUUID_b, _activatnvar_confusing_bool_b, _activatnvar_confusing_LLUUID_d, _activatnvar_t0, _activatnvar_doaccount, _activatnvar_t1, _activatnvar_confusing_chararray_3, _activatnvar_confusing_chararray_5, _activatnvar_pos, _activatnvar_confusing_LLUUID_e);
+	_activation_check_proc_19_func_846363079(_activatnvar_confusing_LLUUID_c, _activatnvar_confusing_char_b, _activatnvar_t1, _activatnvar_so, _activatnvar_t0);
+	/* inline */ _activation_check_proc_19_func_889638458(_activatnvar_confusing_U8_a);
+	_activation_check_proc_19_func_72534457(_activatnvar_confusing_U8_2, _activatnvar_confusing_U8_1, _activatnvar_confusing_U8_8, _activatnvar_confusing_bool_8);
+	_activation_check_proc_19_func_1748767133(_activatnvar_confusing_chararray_7, _activatnvar_t1, _activatnvar_mac_digest);
+	/* inline */ _activation_check_proc_19_func_1060945104(_activatnvar_confusing_U8_4, _activatnvar_confusing_bool_4, _activatnvar_confusing_bool_2);
+	/* inline */ _activation_check_proc_19_func_1213165692(_activatnvar_confusing_int_1);
+	_activation_check_proc_19_func_40238562(_activatnvar_confusing_bool_4, _activatnvar_confusing_bool_5);
+	_activation_check_proc_19_func_851815762(_activatnvar_section1, _activatnvar_confusing_LLUUID_c);
+	_activation_check_proc_19_func_603046717(_activatnvar_t0, _activatnvar_t1, _activatnvar_so);
+	_activation_check_proc_19_func_1208463521(_activatnvar_confusing_U8_0);
+	/* inline */ _activation_check_proc_19_func_1387279233(_activatnvar_pos, _activatnvar_combined_id, _activatnvar_confusing_LLUUID_6, _activatnvar_confusing_chararray_d);
+	/* inline */ _activation_check_proc_19_func_1082016395(_activatnvar_confusing_int_b);
+	_activation_check_proc_19_func_1132654592(_activatnvar_confusing_bool_6, _activatnvar_confusing_char_b, _activatnvar_confusing_LLUUID_c, _activatnvar_confusing_bool_7, _activatnvar_confusing_bool_f);
+	_activation_check_proc_19_func_111769072(_activatnvar_confusing_int_1, _activatnvar_confusing_int_a, _activatnvar_confusing_LLUUID_0, _activatnvar_confusing_LLUUID_4);
+	_activation_check_proc_19_func_698367490(_activatnvar_confusing_chararray_a, _activatnvar_confusing_U8_3);
+	_activation_check_proc_19_func_2129854855(_activatnvar_pos);
+	_activation_check_proc_19_func_2034365085(_activatnvar_t0, _activatnvar_combined_id);
+	/* inline */ _activation_check_proc_19_func_989225197(_activatnvar_t0);
+	_activation_check_proc_19_func_1076003779(_activatnvar_t0, _activatnvar_so, _activatnvar_confusing_LLUUID_7, _activatnvar_confusing_U8_5, _activatnvar_confusing_chararray_0, _activatnvar_pos);
+	_activation_check_proc_19_func_1812908962(_activatnvar_confusing_char_d, _activatnvar_pos, _activatnvar_confusing_bool_c, _activatnvar_confusing_LLUUID_e, _activatnvar_confusing_chararray_9, _activatnvar_combined_id, _activatnvar_confusing_LLUUID_9);
+	_activation_check_proc_19_func_1232160659(_activatnvar_confusing_int_e);
+	/* inline */ _activation_check_proc_19_func_373850953(_activatnvar_confusing_U8_9, _activatnvar_confusing_LLUUID_7, _activatnvar_pos, _activatnvar_confusing_char_6, _activatnvar_confusing_chararray_0);
+	_activation_check_proc_19_func_1280160955(_activatnvar_combined_id, _activatnvar_confusing_char_8, _activatnvar_t0, _activatnvar_confusing_LLUUID_9);
+	/* inline */ _activation_check_proc_19_func_758537784(_activatnvar_confusing_int_8);
+	/* inline */ _activation_check_proc_19_func_962190128(_activatnvar_confusing_chararray_e, _activatnvar_confusing_LLUUID_9);
+	/* inline */ _activation_check_proc_19_func_1871492876();
+	_activation_check_proc_19_func_716569431(_activatnvar_confusing_LLUUID_0, _activatnvar_confusing_char_4, _activatnvar_confusing_int_2, _activatnvar_confusing_LLUUID_2, _activatnvar_confusing_LLUUID_7);
+	_activation_check_proc_19_func_1669769876(_activatnvar_t0, _activatnvar_confusing_LLUUID_d, _activatnvar_confusing_U8_1, _activatnvar_confusing_bool_4);
+	/* inline */ _activation_check_proc_19_func_137667866(_activatnvar_t0);
+	/* inline */ _activation_check_proc_19_func_63736177(_activatnvar_confusing_LLUUID_7, _activatnvar_confusing_char_6);
+	/* inline */ _activation_check_proc_19_func_871002415(_activatnvar_t0, _activatnvar_so, _activatnvar_pos);
+	/* inline */ _activation_check_proc_19_func_596445554(_activatnvar_confusing_int_0, _activatnvar_confusing_LLUUID_d, _activatnvar_confusing_chararray_4);
+	_activation_check_proc_19_func_254675007(_activatnvar_t0, _activatnvar_so);
+	_activation_check_proc_19_func_899402109(_activatnvar_pos, _activatnvar_combined_id);
+	_activation_check_proc_19_func_1374118909(_activatnvar_confusing_int_5);
+	/* inline */ _activation_check_proc_19_func_2123757898(_activatnvar_confusing_U8_5, _activatnvar_pos, _activatnvar_confusing_U8_6, _activatnvar_confusing_char_3);
+	/* inline */ _activation_check_proc_19_func_1301681407(_activatnvar_confusing_chararray_8, _activatnvar_confusing_chararray_2, _activatnvar_confusing_char_7);
+	_activation_check_proc_19_func_1112089153(_activatnvar_t0, _activatnvar_pos, _activatnvar_confusing_bool_7, _activatnvar_combined_id, _activatnvar_confusing_bool_0);
+	_activation_check_proc_19_func_1880562330(_activatnvar_confusing_LLUUID_3, _activatnvar_confusing_LLUUID_d);
+	_activation_check_proc_19_func_796039986(_activatnvar_confusing_int_0);
+	/* inline */ _activation_check_proc_19_func_1181909328(_activatnvar_fscked, _activatnvar_confusing_LLUUID_1);
+	/* inline */ _activation_check_proc_19_func_580107656(_activatnvar_t0);
+	/* inline */ _activation_check_proc_19_func_1549850197(_activatnvar_t0);
+	/* inline */ _activation_check_proc_19_func_1055277349(_activatnvar_confusing_U8_8);
+	_activation_check_proc_19_func_1586095713(_activatnvar_pos, _activatnvar_t0, _activatnvar_confusing_bool_2, _activatnvar_so, _activatnvar_confusing_bool_7);
+	_activation_check_proc_19_func_1659206126(_activatnvar_pos, _activatnvar_confusing_bool_c, _activatnvar_confusing_char_d, _activatnvar_combined_id, _activatnvar_confusing_LLUUID_0);
+	_activation_check_proc_19_func_2065352890(_activatnvar_pos, _activatnvar_confusing_int_e, _activatnvar_fscked, _activatnvar_confusing_LLUUID_9);
+	_activation_check_proc_19_func_2041920148(_activatnvar_t0, _activatnvar_combined_id);
+	/* inline */ _activation_check_proc_19_func_177751109(_activatnvar_t0);
+	_activation_check_proc_19_func_2047358777(_activatnvar_confusing_U8_4, _activatnvar_confusing_LLUUID_f);
+	/* inline */ _activation_check_proc_19_func_1771968625(_activatnvar_confusing_U8_6, _activatnvar_confusing_LLUUID_0, _activatnvar_confusing_chararray_3);
+	/* inline */ _activation_check_proc_19_func_73902922(_activatnvar_confusing_bool_8, _activatnvar_confusing_LLUUID_8, _activatnvar_confusing_bool_5, _activatnvar_code, _activatnvar_confusing_LLUUID_9, _activatnvar_t0, _activatnvar_confusing_bool_6, _activatnvar_confusing_char_6);
+	_activation_check_proc_19_func_655421294(_activatnvar_confusing_LLUUID_9, _activatnvar_confusing_chararray_4);
+	_activation_check_proc_19_func_625029514(_activatnvar_confusing_LLUUID_9, _activatnvar_confusing_bool_8, _activatnvar_confusing_bool_7, _activatnvar_so, _activatnvar_pos, _activatnvar_t0);
+	_activation_check_proc_19_func_429693607(_activatnvar_confusing_U8_b, _activatnvar_t0, _activatnvar_confusing_char_9, _activatnvar_so);
+	_activation_check_proc_19_func_24747824(_activatnvar_lace, _activatnvar_confusing_chararray_4);
+	/* inline */ _activation_check_proc_19_func_1968527232(_activatnvar_confusing_U8_4, _activatnvar_confusing_LLUUID_4);
+	_activation_check_proc_19_func_901603485(_activatnvar_combined_id, _activatnvar_pos);
+	_activation_check_proc_19_func_680232526(_activatnvar_confusing_U8_2);
+	_activation_check_proc_19_func_1925365219(_activatnvar_confusing_char_d, _activatnvar_confusing_U8_4);
+	/* inline */ _activation_check_proc_19_func_831856704(_activatnvar_confusing_LLUUID_9, _activatnvar_confusing_LLUUID_4);
+	_activation_check_proc_19_func_1512192791(_activatnvar_combined_id, _activatnvar_t0, _activatnvar_pos);
+	_activation_check_proc_19_func_956295807(_activatnvar_confusing_bool_9, _activatnvar_confusing_LLUUID_2, _activatnvar_confusing_LLUUID_e, _activatnvar_doaccount, _activatnvar_t0);
+	/* inline */ _activation_check_proc_19_func_629724923(_activatnvar_name_digest, _activatnvar_confusing_chararray_2);
+	/* inline */ _activation_check_proc_19_func_1257424314(_activatnvar_confusing_bool_a, _activatnvar_confusing_char_f, _activatnvar_pos);
+	/* inline */ _activation_check_proc_19_func_2017267025(_activatnvar_t0);
+	_activation_check_proc_19_func_1840110131(_activatnvar_t0);
+	/* inline */ _activation_check_proc_19_func_1256202180(_activatnvar_confusing_chararray_a, _activatnvar_confusing_U8_3);
+	_activation_check_proc_19_func_592655437(_activatnvar_confusing_LLUUID_8);
+	_activation_check_proc_19_func_1463754323(_activatnvar_confusing_LLUUID_1, _activatnvar_confusing_chararray_6, _activatnvar_confusing_LLUUID_4, _activatnvar_generic_bool_0, _activatnvar_confusing_LLUUID_6, _activatnvar_confusing_chararray_e, _activatnvar_section1, _activatnvar_confusing_char_d, _activatnvar_confusing_U8_4, _activatnvar_pos, _activatnvar_confusing_LLUUID_8, _activatnvar_confusing_LLUUID_9, _activatnvar_confusing_bool_f, _activatnvar_confusing_int_e);
+	/* inline */ _activation_check_proc_19_func_208724839(_activatnvar_confusing_chararray_d, _activatnvar_t0, _activatnvar_confusing_chararray_1, _activatnvar_pos, _activatnvar_so);
+	/* inline */ _activation_check_proc_19_func_1537511780(_activatnvar_confusing_U8_8, _activatnvar_confusing_chararray_3);
+	/* inline */ _activation_check_proc_19_func_111703847(_activatnvar_confusing_U8_d);
+	_activation_check_proc_19_func_1114569011(_activatnvar_combined_id, _activatnvar_pos, _activatnvar_confusing_char_0, _activatnvar_confusing_chararray_1);
+	_activation_check_proc_19_func_265353690(_activatnvar_pos);
+	_activation_check_proc_19_func_1083340930();
+	_activation_check_proc_19_func_1328708112();
+	/* inline */ _activation_check_proc_19_func_646900214(_activatnvar_pos);
+	_activation_check_proc_19_func_862583100(_activatnvar_combined_id, _activatnvar_confusing_char_b, _activatnvar_confusing_U8_9, _activatnvar_t0, _activatnvar_confusing_chararray_0, _activatnvar_confusing_chararray_1);
+	/* inline */ _activation_check_proc_19_func_1064754179(_activatnvar_confusing_char_9, _activatnvar_t0, _activatnvar_confusing_U8_5, _activatnvar_confusing_LLUUID_5, _activatnvar_confusing_bool_0);
+	_activation_check_proc_19_func_736815754(_activatnvar_confusing_int_1);
+	_activation_check_proc_19_func_664567093(_activatnvar_confusing_LLUUID_a, _activatnvar_confusing_LLUUID_0);
+	/* inline */ _activation_check_proc_19_func_1535650404(_activatnvar_confusing_int_5, _activatnvar_confusing_U8_6, _activatnvar_confusing_char_d, _activatnvar_confusing_int_b);
+	_activation_check_proc_19_func_537905844(_activatnvar_t0);
+	_activation_check_proc_19_func_193059880(_activatnvar_confusing_bool_3, _activatnvar_confusing_bool_0, _activatnvar_confusing_LLUUID_9, _activatnvar_confusing_LLUUID_1);
+	/* inline */ _activation_check_proc_19_func_703204644(_activatnvar_confusing_LLUUID_1, _activatnvar_confusing_chararray_f);
+	_activation_check_proc_19_func_865162675(_activatnvar_confusing_chararray_f, _activatnvar_confusing_LLUUID_6, _activatnvar_confusing_chararray_3, _activatnvar_confusing_bool_7, _activatnvar_section2, _activatnvar_confusing_bool_2);
+	/* inline */ _activation_check_proc_19_func_1422095035(_activatnvar_t0);
+	/* inline */ _activation_check_proc_19_func_1748279832(_activatnvar_doaccount, _activatnvar_so, _activatnvar_feat, _activatnvar_t0, _activatnvar_confusing_U8_d, _activatnvar_pos, _activatnvar_section1, _activatnvar_confusing_chararray_d);
+	_activation_check_proc_19_func_374712645(_activatnvar_confusing_char_4, _activatnvar_confusing_bool_3, _activatnvar_confusing_chararray_e, _activatnvar_pos, _activatnvar_confusing_bool_f, _activatnvar_confusing_U8_1, _activatnvar_confusing_bool_4, _activatnvar_confusing_bool_c, _activatnvar_confusing_chararray_6, _activatnvar_combined_id);
+	/* inline */ _activation_check_proc_19_func_1440217092(_activatnvar_t0, _activatnvar_combined_id);
+	/* inline */ _activation_check_proc_19_func_1323700218(_activatnvar_confusing_chararray_c, _activatnvar_confusing_int_4, _activatnvar_confusing_LLUUID_a);
+	_activation_check_proc_19_func_1452912757(_activatnvar_confusing_int_4, _activatnvar_confusing_U8_5);
+	/* inline */ _activation_check_proc_19_func_776845211();
+	_activation_check_proc_19_func_322170756(_activatnvar_t0);
+	_activation_check_proc_19_func_177474774(_activatnvar_confusing_LLUUID_e, _activatnvar_confusing_LLUUID_f, _activatnvar_confusing_LLUUID_3, _activatnvar_confusing_LLUUID_a);
+	_activation_check_proc_19_func_1540484845(_activatnvar_confusing_bool_9, _activatnvar_confusing_bool_6, _activatnvar_confusing_bool_a);
+	_activation_check_proc_19_func_411736087(_activatnvar_confusing_U8_f, _activatnvar_ser_digest, _activatnvar_confusing_chararray_6);
+	_activation_check_proc_19_func_1885235421(_activatnvar_confusing_char_1, _activatnvar_confusing_LLUUID_4, _activatnvar_confusing_chararray_c, _activatnvar_confusing_char_2, _activatnvar_confusing_int_e, _activatnvar_confusing_LLUUID_5);
+	/* inline */ _activation_check_proc_19_func_1160695419(_activatnvar_confusing_bool_b, _activatnvar_confusing_bool_1, _activatnvar_t0);
+	/* inline */ _activation_check_proc_19_func_515681382(_activatnvar_t0);
+	/* inline */ _activation_check_proc_19_func_191739656(_activatnvar_confusing_bool_2, _activatnvar_confusing_char_3);
+	/* inline */ _activation_check_proc_19_func_295357487(_activatnvar_confusing_char_9, _activatnvar_confusing_chararray_4);
+	_activation_check_proc_19_func_1581618804(_activatnvar_confusing_chararray_2, _activatnvar_combined_id);
+	/* inline */ _activation_check_proc_19_func_174221505(_activatnvar_confusing_chararray_a, _activatnvar_so, _activatnvar_t0, _activatnvar_pos, _activatnvar_confusing_U8_0);
+	_activation_check_proc_19_func_147202482(_activatnvar_pos, _activatnvar_combined_id);
+	/* inline */ _activation_check_proc_19_func_1626794630(_activatnvar_confusing_int_6, _activatnvar_confusing_int_7);
+	/* inline */ _activation_check_proc_19_func_1904039138(_activatnvar_pos);
+	_activation_check_proc_19_func_1179698286(_activatnvar_confusing_LLUUID_7, _activatnvar_confusing_chararray_4);
+	/* inline */ _activation_check_proc_19_func_1767264211(_activatnvar_confusing_char_7);
+	/* inline */ _activation_check_proc_19_func_569700348(_activatnvar_confusing_LLUUID_7, _activatnvar_confusing_bool_f, _activatnvar_confusing_U8_8);
+	/* inline */ _activation_check_proc_19_func_551023429(_activatnvar_pos);
+	/* inline */ _activation_check_proc_19_func_598928784(_activatnvar_combined_id, _activatnvar_t0);
+	_activation_check_proc_19_func_855505283(_activatnvar_confusing_bool_c, _activatnvar_confusing_bool_e, _activatnvar_t0, _activatnvar_confusing_bool_2, _activatnvar_fscked, _activatnvar_confusing_LLUUID_e, _activatnvar_confusing_LLUUID_c);
+	/* inline */ _activation_check_proc_19_func_1721378961(_activatnvar_confusing_bool_2, _activatnvar_t0, _activatnvar_confusing_bool_6);
+	_activation_check_proc_19_func_207950673(_activatnvar_confusing_LLUUID_1, _activatnvar_confusing_LLUUID_e);
+	/* inline */ _activation_check_proc_19_func_887258245(_activatnvar_confusing_bool_3, _activatnvar_confusing_LLUUID_3, _activatnvar_feat);
+	_activation_check_proc_19_func_1201730481(_activatnvar_confusing_char_0, _activatnvar_confusing_char_a);
+	_activation_check_proc_19_func_471711755(_activatnvar_confusing_LLUUID_b, _activatnvar_so, _activatnvar_confusing_LLUUID_f, _activatnvar_confusing_LLUUID_3);
+	_activation_check_proc_19_func_1884265705(_activatnvar_t0);
+	_activation_check_proc_19_func_1094855024(_activatnvar_confusing_LLUUID_8, _activatnvar_confusing_int_3, _activatnvar_confusing_bool_5);
+	/* inline */ _activation_check_proc_19_func_692832375(_activatnvar_secret, _activatnvar_confusing_char_4, _activatnvar_confusing_LLUUID_f, _activatnvar_confusing_bool_a, _activatnvar_confusing_U8_2);
+	/* inline */ _activation_check_proc_19_func_863632241(_activatnvar_confusing_chararray_8, _activatnvar_confusing_chararray_4);
+	_activation_check_proc_19_func_232006357(_activatnvar_confusing_int_3);
+	/* inline */ _activation_check_proc_19_func_493741810(_activatnvar_so, _activatnvar_pos, _activatnvar_t0);
+	_activation_check_proc_19_func_817756068(_activatnvar_confusing_chararray_2, _activatnvar_confusing_chararray_e);
+	/* inline */ _activation_check_proc_19_func_710807660(_activatnvar_confusing_U8_9, _activatnvar_confusing_LLUUID_a);
+	_activation_check_proc_19_func_1669729805(_activatnvar_confusing_char_5);
+	_activation_check_proc_19_func_1201389676(_activatnvar_confusing_LLUUID_b, _activatnvar_confusing_bool_0, _activatnvar_confusing_char_6);
+	/* inline */ _activation_check_proc_19_func_1678677432(_activatnvar_confusing_bool_d, _activatnvar_confusing_U8_d, _activatnvar_confusing_char_3, _activatnvar_confusing_bool_7, _activatnvar_confusing_U8_f, _activatnvar_confusing_char_e);
+	_activation_check_proc_19_func_531317523(_activatnvar_confusing_int_4);
+	_activation_check_proc_19_func_1727291717(_activatnvar_confusing_U8_f, _activatnvar_generic_bool_1);
+	/* inline */ _activation_check_proc_19_func_1671696019(_activatnvar_combined_id, _activatnvar_pos);
+	_activation_check_proc_19_func_1599735623();
+	/* inline */ _activation_check_proc_19_func_1662898274(_activatnvar_confusing_bool_9, _activatnvar_confusing_chararray_7, _activatnvar_confusing_LLUUID_e, _activatnvar_confusing_bool_b, _activatnvar_confusing_bool_1, _activatnvar_confusing_LLUUID_d, _activatnvar_confusing_chararray_f);
+	_activation_check_proc_19_func_565675168(_activatnvar_confusing_char_c, _activatnvar_confusing_chararray_2, _activatnvar_confusing_LLUUID_9);
+	_activation_check_proc_19_func_962133832(_activatnvar_confusing_int_9, _activatnvar_confusing_int_7, _activatnvar_confusing_LLUUID_b, _activatnvar_confusing_chararray_f, _activatnvar_confusing_char_2);
+	_activation_check_proc_19_func_105565640(_activatnvar_confusing_char_d, _activatnvar_confusing_char_a, _activatnvar_confusing_bool_6);
+	_activation_check_proc_19_func_1731314612(_activatnvar_pos);
+	_activation_check_proc_19_func_1875976925(_activatnvar_pos);
+	_activation_check_proc_19_func_345711672(_activatnvar_t0, _activatnvar_combined_id);
+	_activation_check_proc_19_func_1770837828(_activatnvar_confusing_LLUUID_1, _activatnvar_confusing_LLUUID_d);
+	_activation_check_proc_19_func_787358351(_activatnvar_confusing_chararray_d, _activatnvar_confusing_chararray_f, _activatnvar_t0, _activatnvar_confusing_int_4);
+	/* inline */ _activation_check_proc_19_func_1627435654(_activatnvar_t0);
+	/* inline */ _activation_check_proc_19_func_1125136198(_activatnvar_confusing_LLUUID_5);
+	/* inline */ _activation_check_proc_19_func_1405898896(_activatnvar_t1, _activatnvar_confusing_LLUUID_b, _activatnvar_pos, _activatnvar_confusing_U8_e, _activatnvar_so, _activatnvar_confusing_bool_7, _activatnvar_confusing_char_c, _activatnvar_confusing_char_b, _activatnvar_t0);
+	/* inline */ _activation_check_proc_19_func_1055382158(_activatnvar_confusing_chararray_f, _activatnvar_confusing_bool_8, _activatnvar_confusing_bool_b, _activatnvar_confusing_LLUUID_7);
+	_activation_check_proc_19_func_839992816(_activatnvar_confusing_LLUUID_b, _activatnvar_confusing_bool_a, _activatnvar_confusing_char_2, _activatnvar_confusing_U8_8, _activatnvar_confusing_char_a, _activatnvar_code);
+	_activation_check_proc_19_func_692499020(_activatnvar_pos, _activatnvar_code, _activatnvar_t0, _activatnvar_so, _activatnvar_confusing_LLUUID_6);
+	/* inline */ _activation_check_proc_19_func_153595725(_activatnvar_confusing_LLUUID_d, _activatnvar_t0, _activatnvar_so, _activatnvar_combined_id, _activatnvar_t1);
+	_activation_check_proc_19_func_1928807523(_activatnvar_confusing_LLUUID_f, _activatnvar_confusing_int_2);
+	_activation_check_proc_19_func_786538160(_activatnvar_confusing_int_7);
+	_activation_check_proc_19_func_642090844(_activatnvar_confusing_LLUUID_4, _activatnvar_confusing_LLUUID_5);
+	_activation_check_proc_19_func_853508379(_activatnvar_confusing_U8_5, _activatnvar_confusing_chararray_e, _activatnvar_confusing_int_5);
+	/* inline */ _activation_check_proc_19_func_2001365864(_activatnvar_confusing_bool_4, _activatnvar_confusing_int_3, _activatnvar_confusing_bool_7, _activatnvar_confusing_LLUUID_f, _activatnvar_confusing_char_7);
+	_activation_check_proc_19_func_897119028(_activatnvar_confusing_bool_5, _activatnvar_name_digest, _activatnvar_confusing_char_3, _activatnvar_confusing_char_b, _activatnvar_confusing_bool_0, _activatnvar_confusing_LLUUID_4, _activatnvar_confusing_U8_4, _activatnvar_confusing_char_1, _activatnvar_combined_id, _activatnvar_confusing_U8_e, _activatnvar_pos, _activatnvar_confusing_LLUUID_d, _activatnvar_confusing_bool_9);
+	_activation_check_proc_19_func_1134855212(_activatnvar_confusing_chararray_0, _activatnvar_confusing_LLUUID_b);
+	/* inline */ _activation_check_proc_19_func_808091988(_activatnvar_confusing_chararray_9, _activatnvar_confusing_U8_1, _activatnvar_confusing_U8_7, _activatnvar_confusing_LLUUID_1);
+	/* inline */ _activation_check_proc_19_func_1319723702(_activatnvar_confusing_char_0);
+	/* inline */ _activation_check_proc_19_func_650690384(_activatnvar_confusing_LLUUID_8, _activatnvar_confusing_chararray_4);
+	_activation_check_proc_19_func_891089079(_activatnvar_confusing_chararray_9, _activatnvar_confusing_char_8);
+	/* inline */ _activation_check_proc_19_func_1761617023(_activatnvar_t0, _activatnvar_combined_id, _activatnvar_pos);
+	_activation_check_proc_19_func_2139556771(_activatnvar_t0);
+	_activation_check_proc_19_func_2005704460(_activatnvar_confusing_bool_9, _activatnvar_confusing_bool_4);
+	_activation_check_proc_19_func_1148545083(_activatnvar_t0, _activatnvar_confusing_bool_d, _activatnvar_confusing_bool_e);
+	_activation_check_proc_19_func_1198830304(_activatnvar_t0, _activatnvar_so, _activatnvar_pos);
+	_activation_check_proc_19_func_1981640186(_activatnvar_combined_id, _activatnvar_pos);
+	/* inline */ _activation_check_proc_19_func_169913417(_activatnvar_confusing_U8_5, _activatnvar_confusing_U8_2);
+	_activation_check_proc_19_func_2072385619(_activatnvar_confusing_int_2);
+	/* inline */ _activation_check_proc_19_func_1458026979(_activatnvar_confusing_LLUUID_7, _activatnvar_combined_id, _activatnvar_confusing_char_9);
+	_activation_check_proc_19_func_2071962648(_activatnvar_confusing_bool_b, _activatnvar_confusing_bool_9);
+	/* inline */ _activation_check_proc_19_func_1900480232(_activatnvar_confusing_U8_c, _activatnvar_section1);
+	_activation_check_proc_19_func_240553544(_activatnvar_confusing_int_d);
+	/* inline */ _activation_check_proc_19_func_86044102(_activatnvar_confusing_LLUUID_d, _activatnvar_confusing_chararray_4, _activatnvar_confusing_LLUUID_c, _activatnvar_confusing_chararray_b);
+	_activation_check_proc_19_func_926377440(_activatnvar_generic_bool_0, _activatnvar_confusing_U8_f, _activatnvar_confusing_chararray_f, _activatnvar_confusing_char_1, _activatnvar_confusing_char_3);
+	_activation_check_proc_19_func_866125320(_activatnvar_pos);
+	_activation_check_proc_19_func_1313429375(_activatnvar_pos, _activatnvar_confusing_LLUUID_e);
+	_activation_check_proc_19_func_2042560352(_activatnvar_confusing_bool_a, _activatnvar_confusing_U8_f, _activatnvar_pos);
+	/* inline */ _activation_check_proc_19_func_1266306460(_activatnvar_combined_id, _activatnvar_t0);
+	_activation_check_proc_19_func_496711231(_activatnvar_t0);
+	_activation_check_proc_19_func_1041632329(_activatnvar_confusing_LLUUID_4, _activatnvar_confusing_LLUUID_1, _activatnvar_t0);
+	/* inline */ _activation_check_proc_19_func_639776074(_activatnvar_confusing_bool_d);
+	/* inline */ _activation_check_proc_19_func_1239412770(_activatnvar_confusing_chararray_6, _activatnvar_confusing_int_d, _activatnvar_so, _activatnvar_t0, _activatnvar_name_digest);
+	/* inline */ _activation_check_proc_19_func_448499786(_activatnvar_t0, _activatnvar_confusing_LLUUID_c, _activatnvar_pos, _activatnvar_confusing_chararray_2, _activatnvar_so);
+	_activation_check_proc_19_func_1078598798(_activatnvar_confusing_bool_3, _activatnvar_combined_id, _activatnvar_confusing_bool_0, _activatnvar_pos);
+	/* inline */ _activation_check_proc_19_func_11967052(_activatnvar_confusing_chararray_3, _activatnvar_confusing_chararray_c);
+	/* inline */ _activation_check_proc_19_func_1764873740(_activatnvar_confusing_U8_3, _activatnvar_confusing_LLUUID_1, _activatnvar_confusing_char_9, _activatnvar_confusing_int_f, _activatnvar_secret, _activatnvar_pos);
+	_activation_check_proc_19_func_20457975(_activatnvar_confusing_char_a);
+	_activation_check_proc_19_func_437638314(_activatnvar_confusing_int_d, _activatnvar_t0, _activatnvar_combined_id);
+	_activation_check_proc_19_func_145633627(_activatnvar_confusing_chararray_8, _activatnvar_confusing_chararray_5);
+	/* inline */ _activation_check_proc_19_func_1722784515(_activatnvar_confusing_char_8);
+	/* inline */ _activation_check_proc_19_func_2077195873(_activatnvar_confusing_bool_1, _activatnvar_confusing_bool_3);
+	_activation_check_proc_19_func_1405886858(_activatnvar_confusing_U8_c, _activatnvar_t0, _activatnvar_confusing_bool_9, _activatnvar_confusing_char_f);
+	/* inline */ _activation_check_proc_19_func_1698619520(_activatnvar_confusing_char_d, _activatnvar_generic_bool_1, _activatnvar_t0);
+	_activation_check_proc_19_func_1456617549(_activatnvar_confusing_chararray_e, _activatnvar_confusing_chararray_b);
+	/* inline */ _activation_check_proc_19_func_1313844441(_activatnvar_confusing_bool_3, _activatnvar_confusing_U8_0, _activatnvar_t0, _activatnvar_confusing_chararray_f, _activatnvar_confusing_chararray_9);
+	_activation_check_proc_19_func_1271436186(_activatnvar_confusing_LLUUID_b, _activatnvar_so, _activatnvar_confusing_chararray_b, _activatnvar_t1, _activatnvar_pos);
+	_activation_check_proc_19_func_832437535(_activatnvar_confusing_chararray_e);
+	/* inline */ _activation_check_proc_19_func_1580594246(_activatnvar_t0, _activatnvar_so, _activatnvar_t1, _activatnvar_pos);
+	_activation_check_proc_19_func_1331691029(_activatnvar_confusing_bool_b, _activatnvar_confusing_U8_e, _activatnvar_confusing_U8_f);
+	/* inline */ _activation_check_proc_19_func_932965171(_activatnvar_confusing_char_d, _activatnvar_section2, _activatnvar_confusing_LLUUID_c, _activatnvar_so, _activatnvar_confusing_U8_d, _activatnvar_confusing_U8_1);
+	_activation_check_proc_19_func_1685531360();
+	_activation_check_proc_19_func_1955359679(_activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_1415117031(_activatnvar_confusing_LLUUID_3, _activatnvar_fscked, _activatnvar_lace, _activatnvar_confusing_chararray_f, _activatnvar_generic_iterator, _activatnvar_confusing_char_3);
+	/* inline */ _activation_check_proc_19_func_1495988047(_activatnvar_lace, _activatnvar_section2, _activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_744223201(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_2055097226(_activatnvar_confusing_U8_b, _activatnvar_confusing_chararray_9, _activatnvar_confusing_LLUUID_7, _activatnvar_confusing_char_7);
+	_activation_check_proc_19_func_1030334244(_activatnvar_lace, _activatnvar_fscked, _activatnvar_generic_iterator, _activatnvar_section2);
+	_activation_check_proc_19_func_1094076574(_activatnvar_confusing_LLUUID_5, _activatnvar_lace);
+	/* inline */ _activation_check_proc_19_func_591438764(_activatnvar_confusing_LLUUID_6, _activatnvar_confusing_LLUUID_8, _activatnvar_confusing_chararray_b);
+	_activation_check_proc_19_func_394885976(_activatnvar_confusing_bool_0, _activatnvar_confusing_char_5);
+	_activation_check_proc_19_func_2040044110(_activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_699112449(_activatnvar_fscked, _activatnvar_lace, _activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_1815620311(_activatnvar_confusing_bool_3, _activatnvar_confusing_bool_d);
+	_activation_check_proc_19_func_48629451(_activatnvar_section2, _activatnvar_lace, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_557550748(_activatnvar_confusing_chararray_4, _activatnvar_confusing_chararray_7);
+	_activation_check_proc_19_func_2128603299(_activatnvar_confusing_chararray_c, _activatnvar_confusing_char_c, _activatnvar_confusing_bool_d, _activatnvar_confusing_chararray_1, _activatnvar_confusing_U8_f, _activatnvar_confusing_char_4, _activatnvar_confusing_LLUUID_0);
+	/* inline */ _activation_check_proc_19_func_84606199(_activatnvar_confusing_chararray_0, _activatnvar_confusing_LLUUID_8, _activatnvar_generic_iterator, _activatnvar_confusing_LLUUID_4);
+	_activation_check_proc_19_func_1950685264(_activatnvar_confusing_chararray_8, _activatnvar_confusing_LLUUID_5);
+	/* inline */ _activation_check_proc_19_func_150291446(_activatnvar_confusing_int_b);
+	_activation_check_proc_19_func_701037373(_activatnvar_confusing_int_a);
+	/* inline */ _activation_check_proc_19_func_296933186(_activatnvar_confusing_LLUUID_2, _activatnvar_confusing_LLUUID_8);
+	_activation_check_proc_19_func_1883720383(_activatnvar_confusing_bool_c, _activatnvar_fscked, _activatnvar_confusing_LLUUID_d, _activatnvar_confusing_bool_5, _activatnvar_confusing_LLUUID_2, _activatnvar_confusing_int_d, _activatnvar_confusing_chararray_2);
+	/* inline */ _activation_check_proc_19_func_1799715772(_activatnvar_confusing_bool_5, _activatnvar_confusing_bool_1, _activatnvar_confusing_U8_8);
+	_activation_check_proc_19_func_1017266769(_activatnvar_confusing_chararray_c, _activatnvar_code);
+	_activation_check_proc_19_func_1174015089(_activatnvar_confusing_bool_1, _activatnvar_confusing_LLUUID_5);
+	_activation_check_proc_19_func_1995950013(_activatnvar_generic_iterator, _activatnvar_lace, _activatnvar_fscked);
+	/* inline */ _activation_check_proc_19_func_1579952852(_activatnvar_lace, _activatnvar_generic_iterator, _activatnvar_section2);
+	_activation_check_proc_19_func_506832565(_activatnvar_confusing_int_2);
+	_activation_check_proc_19_func_1256266555(_activatnvar_confusing_LLUUID_4, _activatnvar_confusing_LLUUID_b, _activatnvar_confusing_LLUUID_f, _activatnvar_confusing_LLUUID_d);
+	/* inline */ _activation_check_proc_19_func_89358846(_activatnvar_generic_iterator, _activatnvar_confusing_LLUUID_f, _activatnvar_confusing_LLUUID_e, _activatnvar_confusing_char_4, _activatnvar_confusing_bool_e, _activatnvar_section2, _activatnvar_confusing_U8_9, _activatnvar_fscked, _activatnvar_confusing_int_2, _activatnvar_lace);
+	/* inline */ _activation_check_proc_19_func_1792121594(_activatnvar_secret, _activatnvar_confusing_chararray_b);
+	_activation_check_proc_19_func_1208605604(_activatnvar_lace, _activatnvar_generic_iterator, _activatnvar_fscked);
+	_activation_check_proc_19_func_1984762406(_activatnvar_generic_iterator, _activatnvar_lace, _activatnvar_confusing_char_f, _activatnvar_confusing_char_6, _activatnvar_confusing_U8_b, _activatnvar_section2);
+	_activation_check_proc_19_func_857088350(_activatnvar_confusing_LLUUID_6, _activatnvar_confusing_chararray_9);
+	/* inline */ _activation_check_proc_19_func_1999959194(_activatnvar_confusing_bool_9, _activatnvar_confusing_LLUUID_1, _activatnvar_confusing_chararray_e, _activatnvar_confusing_LLUUID_6, _activatnvar_confusing_U8_3, _activatnvar_confusing_LLUUID_b, _activatnvar_confusing_LLUUID_5);
+	/* inline */ _activation_check_proc_19_func_952938355(_activatnvar_confusing_LLUUID_b, _activatnvar_generic_iterator, _activatnvar_confusing_LLUUID_5, _activatnvar_section2, _activatnvar_fscked, _activatnvar_confusing_LLUUID_d, _activatnvar_lace, _activatnvar_confusing_int_0, _activatnvar_confusing_bool_1);
+	_activation_check_proc_19_func_1465906745(_activatnvar_confusing_bool_9, _activatnvar_confusing_bool_a);
+	_activation_check_proc_19_func_1730304027(_activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_1377215776(_activatnvar_lace, _activatnvar_confusing_int_7, _activatnvar_fscked, _activatnvar_generic_iterator, _activatnvar_confusing_LLUUID_0, _activatnvar_confusing_chararray_e);
+	_activation_check_proc_19_func_1591429488(_activatnvar_lace, _activatnvar_confusing_chararray_a);
+	_activation_check_proc_19_func_770443917(_activatnvar_lace, _activatnvar_section2, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_758773590(_activatnvar_confusing_chararray_b, _activatnvar_confusing_char_5);
+	_activation_check_proc_19_func_1534759318(_activatnvar_confusing_int_3, _activatnvar_generic_iterator, _activatnvar_lace, _activatnvar_section2, _activatnvar_fscked);
+	_activation_check_proc_19_func_1123595765(_activatnvar_confusing_int_c);
+	_activation_check_proc_19_func_2021125512(_activatnvar_generic_iterator, _activatnvar_confusing_LLUUID_5, _activatnvar_confusing_LLUUID_1, _activatnvar_confusing_U8_0);
+	/* inline */ _activation_check_proc_19_func_1962370395(_activatnvar_confusing_bool_9, _activatnvar_confusing_bool_4);
+	_activation_check_proc_19_func_1785470033(_activatnvar_confusing_LLUUID_6, _activatnvar_confusing_LLUUID_d, _activatnvar_code, _activatnvar_confusing_chararray_6);
+	/* inline */ _activation_check_proc_19_func_1953384679(_activatnvar_confusing_char_5);
+	/* inline */ _activation_check_proc_19_func_478024469(_activatnvar_confusing_LLUUID_5, _activatnvar_confusing_LLUUID_4);
+	/* inline */ _activation_check_proc_19_func_8095010(_activatnvar_confusing_U8_0, _activatnvar_fscked, _activatnvar_confusing_chararray_2, _activatnvar_generic_iterator, _activatnvar_doaccount, _activatnvar_confusing_char_1, _activatnvar_lace, _activatnvar_confusing_U8_4);
+	_activation_check_proc_19_func_245924780(_activatnvar_confusing_chararray_9, _activatnvar_confusing_int_6, _activatnvar_confusing_int_0, _activatnvar_code, _activatnvar_confusing_U8_f, _activatnvar_confusing_LLUUID_c);
+	/* inline */ _activation_check_proc_19_func_1709106791(_activatnvar_confusing_int_3);
+	_activation_check_proc_19_func_255875749(_activatnvar_confusing_LLUUID_f, _activatnvar_confusing_int_d, _activatnvar_confusing_int_b);
+	_activation_check_proc_19_func_1617586986(_activatnvar_confusing_int_1, _activatnvar_confusing_bool_3, _activatnvar_confusing_chararray_6, _activatnvar_confusing_LLUUID_9, _activatnvar_generic_bool_1);
+	/* inline */ _activation_check_proc_19_func_621179326(_activatnvar_confusing_int_2, _activatnvar_confusing_char_7, _activatnvar_confusing_U8_a, _activatnvar_confusing_U8_f, _activatnvar_combined_id);
+	_activation_check_proc_19_func_304711177(_activatnvar_confusing_int_4, _activatnvar_confusing_int_1);
+	/* inline */ _activation_check_proc_19_func_1225513853(_activatnvar_confusing_bool_1, _activatnvar_confusing_bool_e);
+	/* inline */ _activation_check_proc_19_func_1122227847(_activatnvar_generic_iterator, _activatnvar_lace, _activatnvar_section2);
+	_activation_check_proc_19_func_239481016(_activatnvar_confusing_U8_5, _activatnvar_combined_id, _activatnvar_confusing_U8_b, _activatnvar_confusing_U8_6, _activatnvar_confusing_int_a, _activatnvar_confusing_chararray_c, _activatnvar_code);
+	_activation_check_proc_19_func_1873470844(_activatnvar_lace, _activatnvar_confusing_bool_4, _activatnvar_confusing_LLUUID_a, _activatnvar_confusing_bool_6, _activatnvar_confusing_LLUUID_2, _activatnvar_fscked, _activatnvar_confusing_bool_1, _activatnvar_generic_iterator, _activatnvar_secret, _activatnvar_confusing_bool_5);
+	_activation_check_proc_19_func_277718339(_activatnvar_generic_iterator, _activatnvar_confusing_bool_c, _activatnvar_lace, _activatnvar_confusing_chararray_c, _activatnvar_confusing_U8_9, _activatnvar_confusing_bool_1, _activatnvar_section2, _activatnvar_confusing_LLUUID_8, _activatnvar_confusing_U8_0, _activatnvar_confusing_bool_f, _activatnvar_confusing_bool_5);
+	/* inline */ _activation_check_proc_19_func_1875720625(_activatnvar_confusing_bool_8, _activatnvar_generic_iterator, _activatnvar_confusing_chararray_9, _activatnvar_confusing_LLUUID_6, _activatnvar_confusing_LLUUID_2, _activatnvar_confusing_char_8);
+	_activation_check_proc_19_func_281069500(_activatnvar_confusing_chararray_7, _activatnvar_confusing_LLUUID_0, _activatnvar_confusing_char_e, _activatnvar_confusing_LLUUID_a);
+	/* inline */ _activation_check_proc_19_func_337714019(_activatnvar_confusing_int_d, _activatnvar_confusing_int_f, _activatnvar_confusing_int_b);
+	_activation_check_proc_19_func_1488268247(_activatnvar_lace, _activatnvar_fscked, _activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_253852947(_activatnvar_confusing_int_f, _activatnvar_section2, _activatnvar_confusing_bool_8, _activatnvar_confusing_LLUUID_4, _activatnvar_confusing_bool_0, _activatnvar_lace, _activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_2147224906(_activatnvar_confusing_int_b);
+	_activation_check_proc_19_func_844509508(_activatnvar_confusing_LLUUID_5, _activatnvar_confusing_bool_5, _activatnvar_confusing_bool_f, _activatnvar_confusing_U8_3);
+	/* inline */ _activation_check_proc_19_func_254635382(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_1709857646(_activatnvar_fscked, _activatnvar_confusing_LLUUID_0, _activatnvar_lace, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_753166407(_activatnvar_confusing_char_4, _activatnvar_confusing_bool_f, _activatnvar_confusing_bool_8, _activatnvar_lace, _activatnvar_confusing_chararray_8, _activatnvar_generic_iterator, _activatnvar_section2);
+	_activation_check_proc_19_func_1182175715(_activatnvar_confusing_chararray_8, _activatnvar_generic_iterator, _activatnvar_fscked, _activatnvar_doaccount, _activatnvar_confusing_char_5, _activatnvar_lace, _activatnvar_confusing_LLUUID_5);
+	_activation_check_proc_19_func_1361171635(_activatnvar_confusing_chararray_2, _activatnvar_confusing_LLUUID_1, _activatnvar_confusing_LLUUID_f, _activatnvar_confusing_bool_2, _activatnvar_mac_digest, _activatnvar_confusing_bool_0);
+	/* inline */ _activation_check_proc_19_func_406546383(_activatnvar_confusing_chararray_5, _activatnvar_confusing_chararray_4);
+	/* inline */ _activation_check_proc_19_func_579870417(_activatnvar_generic_bool_0, _activatnvar_confusing_bool_a);
+	_activation_check_proc_19_func_362937314(_activatnvar_section2, _activatnvar_lace, _activatnvar_doaccount, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_160086843(_activatnvar_confusing_LLUUID_1, _activatnvar_confusing_chararray_9);
+	_activation_check_proc_19_func_1696766635(_activatnvar_section2, _activatnvar_confusing_U8_6, _activatnvar_confusing_char_1, _activatnvar_confusing_chararray_1);
+	_activation_check_proc_19_func_476998039(_activatnvar_confusing_int_6, _activatnvar_confusing_bool_0, _activatnvar_confusing_LLUUID_c, _activatnvar_confusing_LLUUID_9, _activatnvar_confusing_U8_2, _activatnvar_confusing_LLUUID_f);
+	_activation_check_proc_19_func_967488520(_activatnvar_lace, _activatnvar_feat);
+	/* inline */ _activation_check_proc_19_func_2110105595(_activatnvar_confusing_U8_9, _activatnvar_fscked, _activatnvar_confusing_LLUUID_d, _activatnvar_confusing_int_4, _activatnvar_confusing_bool_c);
+	/* inline */ _activation_check_proc_19_func_1670239418(_activatnvar_confusing_bool_1, _activatnvar_confusing_bool_4);
+	/* inline */ _activation_check_proc_19_func_247830045(_activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_1482601269(_activatnvar_generic_iterator, _activatnvar_secret, _activatnvar_confusing_U8_f, _activatnvar_lace, _activatnvar_feat, _activatnvar_confusing_LLUUID_e, _activatnvar_doaccount);
+	/* inline */ _activation_check_proc_19_func_810845932(_activatnvar_confusing_int_3);
+	_activation_check_proc_19_func_609761303(_activatnvar_confusing_chararray_d, _activatnvar_lace, _activatnvar_doaccount, _activatnvar_generic_iterator, _activatnvar_feat, _activatnvar_confusing_chararray_f);
+	_activation_check_proc_19_func_871576738(_activatnvar_confusing_chararray_b, _activatnvar_confusing_LLUUID_b);
+	_activation_check_proc_19_func_1351663693(_activatnvar_confusing_U8_0, _activatnvar_confusing_LLUUID_3, _activatnvar_confusing_bool_3);
+	_activation_check_proc_19_func_682632237(_activatnvar_confusing_bool_2, _activatnvar_confusing_bool_e);
+	/* inline */ _activation_check_proc_19_func_1047585208(_activatnvar_confusing_int_9, _activatnvar_confusing_bool_f, _activatnvar_confusing_bool_4);
+	_activation_check_proc_19_func_378578637(_activatnvar_confusing_LLUUID_c);
+	_activation_check_proc_19_func_1683592272(_activatnvar_confusing_int_4, _activatnvar_confusing_chararray_0, _activatnvar_confusing_int_d, _activatnvar_mac_digest);
+	/* inline */ _activation_check_proc_19_func_45608162(_activatnvar_confusing_LLUUID_6, _activatnvar_confusing_LLUUID_5, _activatnvar_confusing_chararray_6);
+	_activation_check_proc_19_func_1990588425(_activatnvar_confusing_LLUUID_7, _activatnvar_confusing_U8_3, _activatnvar_confusing_chararray_9, _activatnvar_section1, _activatnvar_confusing_chararray_6, _activatnvar_confusing_chararray_5);
+	_activation_check_proc_19_func_449802562(_activatnvar_confusing_U8_c, _activatnvar_confusing_bool_8);
+	_activation_check_proc_19_func_818630588(_activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_1412402893(_activatnvar_confusing_bool_e, _activatnvar_generic_iterator, _activatnvar_confusing_bool_6, _activatnvar_doaccount, _activatnvar_lace, _activatnvar_feat);
+	/* inline */ _activation_check_proc_19_func_69550515(_activatnvar_confusing_LLUUID_9, _activatnvar_confusing_char_7);
+	/* inline */ _activation_check_proc_19_func_1914097444(_activatnvar_confusing_int_b, _activatnvar_confusing_LLUUID_0, _activatnvar_confusing_LLUUID_6, _activatnvar_confusing_chararray_6);
+	_activation_check_proc_19_func_149068435(_activatnvar_generic_iterator, _activatnvar_confusing_U8_a, _activatnvar_confusing_char_2);
+	/* inline */ _activation_check_proc_19_func_1740540392(_activatnvar_generic_iterator, _activatnvar_doaccount, _activatnvar_feat, _activatnvar_lace);
+	/* inline */ _activation_check_proc_19_func_1869122826(_activatnvar_lace, _activatnvar_generic_iterator, _activatnvar_doaccount, _activatnvar_feat);
+	/* inline */ _activation_check_proc_19_func_1160782019(_activatnvar_confusing_bool_1, _activatnvar_confusing_bool_2, _activatnvar_confusing_int_9, _activatnvar_confusing_U8_0, _activatnvar_confusing_U8_1);
+	_activation_check_proc_19_func_1508602117(_activatnvar_confusing_LLUUID_a);
+	_activation_check_proc_19_func_371752054(_activatnvar_confusing_LLUUID_5, _activatnvar_confusing_bool_1, _activatnvar_confusing_LLUUID_f, _activatnvar_confusing_char_3, _activatnvar_generic_bool_1, _activatnvar_confusing_bool_0);
+	_activation_check_proc_19_func_167037538(_activatnvar_generic_iterator, _activatnvar_confusing_U8_5, _activatnvar_doaccount, _activatnvar_confusing_char_7, _activatnvar_confusing_bool_0, _activatnvar_confusing_bool_f, _activatnvar_feat, _activatnvar_lace);
+	_activation_check_proc_19_func_166856422(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_1273256149(_activatnvar_doaccount, _activatnvar_lace, _activatnvar_generic_iterator, _activatnvar_feat);
+	/* inline */ _activation_check_proc_19_func_1593859955(_activatnvar_confusing_LLUUID_5, _activatnvar_confusing_U8_2, _activatnvar_confusing_char_1);
+	/* inline */ _activation_check_proc_19_func_728163383(_activatnvar_confusing_U8_3, _activatnvar_confusing_U8_7);
+	/* inline */ _activation_check_proc_19_func_579300088(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_1799834881(_activatnvar_code, _activatnvar_confusing_chararray_0);
+	_activation_check_proc_19_func_114756062(_activatnvar_confusing_int_c, _activatnvar_generic_iterator, _activatnvar_confusing_int_5, _activatnvar_confusing_int_f, _activatnvar_lace, _activatnvar_feat, _activatnvar_doaccount, _activatnvar_confusing_int_3);
+	/* inline */ _activation_check_proc_19_func_1563092571(_activatnvar_confusing_int_d, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_58697176(_activatnvar_confusing_chararray_2, _activatnvar_confusing_U8_9, _activatnvar_confusing_U8_6, _activatnvar_confusing_bool_8, _activatnvar_name_digest, _activatnvar_confusing_LLUUID_3);
+	/* inline */ _activation_check_proc_19_func_1929356598(_activatnvar_confusing_int_9, _activatnvar_confusing_int_8, _activatnvar_generic_iterator, _activatnvar_feat, _activatnvar_confusing_U8_a, _activatnvar_lace, _activatnvar_confusing_int_4);
+	/* inline */ _activation_check_proc_19_func_347288682(_activatnvar_generic_bool_0, _activatnvar_doaccount);
+	_activation_check_proc_19_func_628386968(_activatnvar_confusing_bool_b, _activatnvar_confusing_bool_1);
+	_activation_check_proc_19_func_815751631(_activatnvar_confusing_LLUUID_6, _activatnvar_confusing_LLUUID_2, _activatnvar_confusing_chararray_5);
+	_activation_check_proc_19_func_1484652602(_activatnvar_confusing_bool_3, _activatnvar_doaccount, _activatnvar_confusing_chararray_a, _activatnvar_confusing_chararray_f);
+	_activation_check_proc_19_func_1239972594(_activatnvar_confusing_LLUUID_3);
+	_activation_check_proc_19_func_1072658410(_activatnvar_confusing_U8_f, _activatnvar_confusing_char_f, _activatnvar_confusing_LLUUID_5, _activatnvar_confusing_LLUUID_9, _activatnvar_confusing_bool_e);
+	_activation_check_proc_19_func_1369131960(_activatnvar_confusing_bool_1, _activatnvar_generic_iterator, _activatnvar_confusing_bool_7, _activatnvar_lace, _activatnvar_generic_bool_1, _activatnvar_feat);
+	_activation_check_proc_19_func_884003670(_activatnvar_section2, _activatnvar_confusing_LLUUID_9, _activatnvar_confusing_LLUUID_3, _activatnvar_confusing_char_7, _activatnvar_confusing_chararray_2, _activatnvar_confusing_chararray_6);
+	_activation_check_proc_19_func_310395007(_activatnvar_confusing_bool_6, _activatnvar_confusing_bool_b);
+	/* inline */ _activation_check_proc_19_func_246278922(_activatnvar_confusing_int_3, _activatnvar_confusing_LLUUID_4, _activatnvar_confusing_LLUUID_0);
+	/* inline */ _activation_check_proc_19_func_660262539(_activatnvar_confusing_chararray_0, _activatnvar_confusing_char_8);
+	_activation_check_proc_19_func_105917428(_activatnvar_confusing_int_3);
+	/* inline */ _activation_check_proc_19_func_1986278331(_activatnvar_generic_bool_0, _activatnvar_generic_bool_1);
+	_activation_check_proc_19_func_85748732(_activatnvar_confusing_U8_e, _activatnvar_confusing_bool_a, _activatnvar_confusing_bool_d, _activatnvar_generic_bool_1, _activatnvar_confusing_char_c);
+	/* inline */ _activation_check_proc_19_func_1098410479(_activatnvar_confusing_chararray_7, _activatnvar_confusing_LLUUID_1);
+	/* inline */ _activation_check_proc_19_func_1375103746(_activatnvar_confusing_chararray_d, _activatnvar_ser_digest, _activatnvar_confusing_LLUUID_7);
+	_activation_check_proc_19_func_511304570(_activatnvar_confusing_bool_a, _activatnvar_confusing_bool_3, _activatnvar_confusing_bool_6, _activatnvar_confusing_bool_9);
+	/* inline */ _activation_check_proc_19_func_1698659122(_activatnvar_confusing_int_c, _activatnvar_confusing_chararray_7, _activatnvar_confusing_chararray_5);
+	/* inline */ _activation_check_proc_19_func_558617246(_activatnvar_confusing_int_3, _activatnvar_confusing_int_b);
+	/* inline */ _activation_check_proc_19_func_1762359328(_activatnvar_confusing_bool_3, _activatnvar_confusing_bool_9, _activatnvar_generic_bool_0);
+	/* inline */ _activation_check_proc_19_func_1652400665(_activatnvar_confusing_int_7);
+	_activation_check_proc_19_func_579710055(_activatnvar_doaccount, _activatnvar_generic_bool_0, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_2008363733(_activatnvar_confusing_char_c);
+	_activation_check_proc_19_func_286007054(_activatnvar_confusing_char_6, _activatnvar_confusing_bool_d, _activatnvar_feat);
+	_activation_check_proc_19_func_609861736(_activatnvar_confusing_int_1);
+	_activation_check_proc_19_func_2028036627(_activatnvar_confusing_LLUUID_8);
+	_activation_check_proc_19_func_762746934(_activatnvar_lace, _activatnvar_confusing_LLUUID_0);
+	_activation_check_proc_19_func_1716166495(_activatnvar_confusing_char_5, _activatnvar_confusing_bool_e, _activatnvar_confusing_LLUUID_d, _activatnvar_confusing_LLUUID_a, _activatnvar_confusing_bool_5);
+	_activation_check_proc_19_func_516075098(_activatnvar_generic_bool_1, _activatnvar_confusing_bool_3, _activatnvar_confusing_chararray_3, _activatnvar_confusing_chararray_c, _activatnvar_generic_iterator, _activatnvar_lace, _activatnvar_feat, _activatnvar_confusing_LLUUID_0, _activatnvar_confusing_LLUUID_e, _activatnvar_confusing_U8_4, _activatnvar_confusing_U8_f);
+	_activation_check_proc_19_func_1970932030(_activatnvar_generic_bool_0, _activatnvar_generic_bool_1);
+	/* inline */ _activation_check_proc_19_func_1448427326(_activatnvar_confusing_int_2);
+	/* inline */ _activation_check_proc_19_func_109673949(_activatnvar_confusing_U8_c, _activatnvar_confusing_U8_a);
+	_activation_check_proc_19_func_975291158(_activatnvar_confusing_bool_3, _activatnvar_confusing_bool_c, _activatnvar_confusing_int_e);
+	/* inline */ _activation_check_proc_19_func_1477322605(_activatnvar_confusing_char_9, _activatnvar_confusing_U8_4, _activatnvar_confusing_bool_8);
+	_activation_check_proc_19_func_1277926936(_activatnvar_confusing_int_2, _activatnvar_confusing_int_e);
+	_activation_check_proc_19_func_1635255890(_activatnvar_generic_bool_0);
+	_activation_check_proc_19_func_2134426886(_activatnvar_confusing_bool_6, _activatnvar_confusing_bool_d, _activatnvar_confusing_LLUUID_2);
+	_activation_check_proc_19_func_1430888449(_activatnvar_confusing_int_a);
+	_activation_check_proc_19_func_1085126961(_activatnvar_confusing_bool_7, _activatnvar_confusing_U8_a, _activatnvar_confusing_char_4, _activatnvar_confusing_LLUUID_7);
+	_activation_check_proc_19_func_437579938(_activatnvar_confusing_char_7, _activatnvar_confusing_LLUUID_b);
+	_activation_check_proc_19_func_1442945947(_activatnvar_confusing_int_0, _activatnvar_confusing_int_1);
+	/* inline */ _activation_check_proc_19_func_811367556(_activatnvar_confusing_LLUUID_c, _activatnvar_confusing_LLUUID_b, _activatnvar_confusing_chararray_b);
+	_activation_check_proc_19_func_2146216871(_activatnvar_doaccount, _activatnvar_generic_iterator, _activatnvar_generic_bool_0);
+	/* inline */ _activation_check_proc_19_func_290314799(_activatnvar_confusing_LLUUID_2, _activatnvar_confusing_bool_6);
+	/* inline */ _activation_check_proc_19_func_1688039003(_activatnvar_confusing_int_3);
+	/* inline */ _activation_check_proc_19_func_1960975259(_activatnvar_lace, _activatnvar_feat, _activatnvar_confusing_chararray_0, _activatnvar_confusing_bool_6, _activatnvar_confusing_char_0, _activatnvar_generic_iterator, _activatnvar_generic_bool_1, _activatnvar_confusing_bool_4);
+	_activation_check_proc_19_func_1249819962(_activatnvar_confusing_chararray_f, _activatnvar_confusing_LLUUID_5, _activatnvar_confusing_bool_5, _activatnvar_confusing_LLUUID_1);
+	_activation_check_proc_19_func_2057985153(_activatnvar_confusing_U8_6, _activatnvar_confusing_chararray_5, _activatnvar_confusing_chararray_a, _activatnvar_confusing_LLUUID_4);
+	/* inline */ _activation_check_proc_19_func_1205141595(_activatnvar_confusing_int_2);
+	/* inline */ _activation_check_proc_19_func_743968303(_activatnvar_confusing_int_f, _activatnvar_confusing_char_c, _activatnvar_confusing_bool_4);
+	/* inline */ _activation_check_proc_19_func_1692032891(_activatnvar_confusing_chararray_3, _activatnvar_fscked);
+	_activation_check_proc_19_func_1036479526(_activatnvar_generic_bool_0, _activatnvar_generic_bool_1);
+	/* inline */ _activation_check_proc_19_func_1119594178(_activatnvar_generic_bool_0);
+	/* inline */ _activation_check_proc_19_func_1877744291(_activatnvar_confusing_LLUUID_7, _activatnvar_code, _activatnvar_confusing_chararray_7, _activatnvar_generic_iterator);
+	_activation_check_proc_19_func_1705957458(_activatnvar_doaccount, _activatnvar_generic_bool_0);
+	_activation_check_proc_19_func_1325436844(_activatnvar_section1, _activatnvar_confusing_U8_1);
+	/* inline */ _activation_check_proc_19_func_1686896572(_activatnvar_confusing_LLUUID_e, _activatnvar_confusing_chararray_c);
+	/* inline */ _activation_check_proc_19_func_17721963(_activatnvar_confusing_bool_e, _activatnvar_feat, _activatnvar_confusing_char_4, _activatnvar_generic_bool_1, _activatnvar_lace, _activatnvar_generic_iterator, _activatnvar_confusing_char_6);
+	/* inline */ _activation_check_proc_19_func_1254631731(_activatnvar_generic_bool_0, _activatnvar_generic_bool_1);
+	/* inline */ _activation_check_proc_19_func_970422475(_activatnvar_generic_bool_0);
+	/* inline */ _activation_check_proc_19_func_1997002513(_activatnvar_confusing_U8_8, _activatnvar_confusing_bool_9, _activatnvar_confusing_char_9);
+	/* inline */ _activation_check_proc_19_func_1314213297(_activatnvar_generic_iterator);
+	_activation_check_proc_19_func_1304143368(_activatnvar_doaccount, _activatnvar_generic_bool_0);
+	_activation_check_proc_19_func_1987877038(_activatnvar_secret, _activatnvar_confusing_LLUUID_8);
+	_activation_check_proc_19_func_941896622(_activatnvar_confusing_U8_4);
+	_activation_check_proc_19_func_299313575(_activatnvar_confusing_LLUUID_7, _activatnvar_confusing_U8_e, _activatnvar_confusing_int_1, _activatnvar_confusing_bool_5, _activatnvar_confusing_char_6, _activatnvar_confusing_bool_2);
+	_activation_check_proc_19_func_206043434();
+	/* inline */ _activation_check_proc_19_func_1775938146(_activatnvar_confusing_char_9);
+	_activation_check_proc_19_func_1654050377(_activatnvar_confusing_chararray_d, _activatnvar_confusing_LLUUID_2);
+	_activation_check_proc_19_func_978027085(_activatnvar_confusing_U8_b);
+	/* inline */ _activation_check_proc_19_func_432199445(_activatnvar_confusing_chararray_5, _activatnvar_confusing_LLUUID_5, _activatnvar_secret, _activatnvar_confusing_char_b);
+	/* inline */ _activation_check_proc_19_func_2139531028(_activatnvar_confusing_LLUUID_2, _activatnvar_confusing_bool_a, _activatnvar_confusing_char_a);
+	/* inline */ _activation_check_proc_19_func_26446850(_activatnvar_generic_bool_1, _activatnvar_feat, _activatnvar_lace, _activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_1217377696(_activatnvar_confusing_bool_4, _activatnvar_mac_digest, _activatnvar_confusing_chararray_4, _activatnvar_confusing_bool_e);
+	_activation_check_proc_19_func_162869009(_activatnvar_confusing_int_f);
+	/* inline */ _activation_check_proc_19_func_1781336139(_activatnvar_confusing_chararray_3, _activatnvar_generic_bool_1, _activatnvar_confusing_chararray_9, _activatnvar_confusing_chararray_e, _activatnvar_confusing_LLUUID_6, _activatnvar_generic_bool_0, _activatnvar_confusing_int_4);
+	/* inline */ _activation_check_proc_19_func_997791093(_activatnvar_confusing_char_c);
+	/* inline */ _activation_check_proc_19_func_221064367(_activatnvar_generic_bool_0);
+	_activation_check_proc_19_func_1807646567(_activatnvar_confusing_char_c, _activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_1555677593(_activatnvar_confusing_char_1, _activatnvar_confusing_U8_b);
+	_activation_check_proc_19_func_1322566703(_activatnvar_confusing_char_d);
+	_activation_check_proc_19_func_307266194(_activatnvar_confusing_LLUUID_7, _activatnvar_confusing_LLUUID_a);
+	/* inline */ _activation_check_proc_19_func_890581399(_activatnvar_code, _activatnvar_confusing_U8_7);
+	_activation_check_proc_19_func_1344452779(_activatnvar_confusing_bool_d, _activatnvar_confusing_U8_1, _activatnvar_confusing_U8_4);
+	_activation_check_proc_19_func_1656782694(_activatnvar_lace, _activatnvar_secret, _activatnvar_confusing_LLUUID_c, _activatnvar_confusing_char_3);
+	/* inline */ _activation_check_proc_19_func_1011877310(_activatnvar_confusing_LLUUID_7);
+	_activation_check_proc_19_func_627927108(_activatnvar_confusing_int_3);
+	_activation_check_proc_19_func_1425089305(_activatnvar_confusing_LLUUID_4, _activatnvar_doaccount, _activatnvar_confusing_int_2, _activatnvar_generic_bool_0, _activatnvar_confusing_bool_0);
+	/* inline */ _activation_check_proc_19_func_675960159(_activatnvar_confusing_bool_b, _activatnvar_confusing_U8_e, _activatnvar_confusing_int_a, _activatnvar_confusing_bool_5, _activatnvar_confusing_char_e);
+	_activation_check_proc_19_func_378452459(_activatnvar_confusing_LLUUID_2, _activatnvar_confusing_chararray_e);
+	/* inline */ _activation_check_proc_19_func_400250624(_activatnvar_confusing_U8_9);
+	/* inline */ _activation_check_proc_19_func_1886018718(_activatnvar_confusing_LLUUID_5, _activatnvar_confusing_bool_1);
+	_activation_check_proc_19_func_566253895(_activatnvar_generic_iterator, _activatnvar_lace, _activatnvar_generic_bool_1, _activatnvar_feat);
+	/* inline */ _activation_check_proc_19_func_1357115666(_activatnvar_combined_id, _activatnvar_confusing_U8_9);
+	_activation_check_proc_19_func_1167390498(_activatnvar_generic_bool_0, _activatnvar_confusing_chararray_c, _activatnvar_confusing_LLUUID_b, _activatnvar_confusing_chararray_8, _activatnvar_generic_bool_1);
+	_activation_check_proc_19_func_1356670704(_activatnvar_generic_bool_0, _activatnvar_confusing_chararray_8, _activatnvar_section2);
+	_activation_check_proc_19_func_1048510625(_activatnvar_confusing_LLUUID_e, _activatnvar_confusing_chararray_8);
+	/* inline */ _activation_check_proc_19_func_1917784129(_activatnvar_generic_bool_0, _activatnvar_doaccount, _activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_1778789682(_activatnvar_confusing_int_4, _activatnvar_generic_bool_1, _activatnvar_generic_iterator, _activatnvar_feat, _activatnvar_lace);
+	_activation_check_proc_19_func_1430899058(_activatnvar_confusing_chararray_d, _activatnvar_confusing_LLUUID_6);
+	_activation_check_proc_19_func_796196294(_activatnvar_confusing_chararray_f, _activatnvar_confusing_chararray_7, _activatnvar_code, _activatnvar_confusing_chararray_0, _activatnvar_confusing_U8_3);
+	/* inline */ _activation_check_proc_19_func_2056553680(_activatnvar_confusing_int_2);
+	/* inline */ _activation_check_proc_19_func_615249277(_activatnvar_confusing_int_4, _activatnvar_generic_bool_1, _activatnvar_confusing_chararray_d, _activatnvar_confusing_chararray_a, _activatnvar_generic_bool_0, _activatnvar_confusing_LLUUID_5, _activatnvar_confusing_LLUUID_0);
+	/* inline */ _activation_check_proc_19_func_1871132262(_activatnvar_confusing_LLUUID_c, _activatnvar_confusing_chararray_3);
+	_activation_check_proc_19_func_1675876116(_activatnvar_confusing_LLUUID_5, _activatnvar_confusing_LLUUID_4);
+	_activation_check_proc_19_func_849425880(_activatnvar_confusing_int_b);
+	_activation_check_proc_19_func_258744324(_activatnvar_name_digest, _activatnvar_confusing_chararray_2, _activatnvar_confusing_int_f, _activatnvar_confusing_int_c);
+	/* inline */ _activation_check_proc_19_func_1596345164(_activatnvar_confusing_bool_2);
+	/* inline */ _activation_check_proc_19_func_1477187308(_activatnvar_confusing_int_7);
+	/* inline */ _activation_check_proc_19_func_2037021512(_activatnvar_confusing_U8_2, _activatnvar_confusing_char_0, _activatnvar_generic_iterator, _activatnvar_generic_bool_1);
+	_activation_check_proc_19_func_305114210(_activatnvar_confusing_U8_7, _activatnvar_confusing_LLUUID_a);
+	_activation_check_proc_19_func_1791103225(_activatnvar_confusing_U8_d, _activatnvar_confusing_U8_c, _activatnvar_confusing_chararray_3);
+	_activation_check_proc_19_func_1425981424(_activatnvar_generic_bool_0, _activatnvar_doaccount);
+	/* inline */ _activation_check_proc_19_func_1554422069(_activatnvar_confusing_int_e, _activatnvar_confusing_bool_3, _activatnvar_confusing_int_7, _activatnvar_confusing_bool_6, _activatnvar_confusing_bool_9);
+	/* inline */ _activation_check_proc_19_func_1523980362(_activatnvar_confusing_LLUUID_3, _activatnvar_confusing_LLUUID_f);
+	_activation_check_proc_19_func_1707250443(_activatnvar_confusing_char_6, _activatnvar_confusing_char_7);
+	/* inline */ _activation_check_proc_19_func_1267803825(_activatnvar_confusing_bool_f, _activatnvar_confusing_bool_3);
+	_activation_check_proc_19_func_623042479(_activatnvar_confusing_chararray_e, _activatnvar_confusing_U8_1);
+	_activation_check_proc_19_func_1311638853(_activatnvar_confusing_int_4, _activatnvar_confusing_int_8, _activatnvar_confusing_char_d, _activatnvar_confusing_LLUUID_b);
+	/* inline */ _activation_check_proc_19_func_858336601(_activatnvar_confusing_U8_1, _activatnvar_confusing_char_d);
+	/* inline */ _activation_check_proc_19_func_758236804(_activatnvar_generic_bool_1, _activatnvar_confusing_bool_4);
+	_activation_check_proc_19_func_193230397(_activatnvar_feat, _activatnvar_lace, _activatnvar_generic_bool_1, _activatnvar_generic_iterator);
+	/* inline */ _activation_check_proc_19_func_1636395103(_activatnvar_confusing_LLUUID_5, _activatnvar_generic_bool_0, _activatnvar_confusing_U8_9, _activatnvar_lace, _activatnvar_generic_bool_1);
+	/* inline */ _activation_check_proc_19_func_1267165660(_activatnvar_confusing_bool_9, _activatnvar_confusing_char_b, _activatnvar_confusing_bool_6, _activatnvar_confusing_bool_0, _activatnvar_confusing_char_2, _activatnvar_confusing_char_c);
+	/* inline */ _activation_check_proc_19_func_29392319(_activatnvar_confusing_bool_7, _activatnvar_confusing_char_9, _activatnvar_confusing_LLUUID_c);
+	_activation_check_proc_19_func_911385224(_activatnvar_confusing_bool_d);
+	_activation_check_proc_19_func_1528271534(_activatnvar_ser_digest, _activatnvar_confusing_LLUUID_a, _activatnvar_confusing_U8_b, _activatnvar_confusing_chararray_0, _activatnvar_confusing_chararray_a, _activatnvar_confusing_LLUUID_e);
+}
+
+
+
+#pragma optimize("", on)
+#pragma warning(pop)
+
+#endif
+
+// </edit>
